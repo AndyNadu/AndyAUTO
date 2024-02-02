@@ -1,0 +1,20 @@
+.contact-toolbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.information {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  color: darkblue;
+}
+
+.navigation-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
