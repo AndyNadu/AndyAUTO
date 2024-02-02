@@ -1,7 +1,96 @@
-.navbar {
-    justify-content: space-between;
+.buy-a-car {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
-span {
-    padding-right: 1rem;
+.left-section {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-car-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-text-list {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-select-list {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-text {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.filter-select {
+  height: 40px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.checked {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.check-box {
+  display: flex;
+  align-items: center;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.number-sort {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cars-number {
+  padding-left: 5vw;
+}
+
+.cars-sort {
+  justify-content: end;
+}
+
+.car {
+  width: 100%;
+  height: 150px;
+  border: solid;
 }

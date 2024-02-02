@@ -3,8 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\material"
+    "\\src\\app\\Custom Components",
+    "\\src\\app\\Custom Components\\navigation-bar",
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\app.component.css",
+  "SelectedNode": "\\src\\app\\Custom Components",
   "PreviewInSolutionExplorer": false
 }
