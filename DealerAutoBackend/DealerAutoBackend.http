@@ -1,0 +1,6 @@
+@DealerAutoBackend_HostAddress = http://localhost:5100
+
+GET {{DealerAutoBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
