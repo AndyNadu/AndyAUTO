@@ -5,8 +5,9 @@
     "\\src\\app",
     "\\src\\app\\Custom Components",
     "\\src\\app\\Custom Components\\navigation-bar",
-    "\\src\\assets"
+    "\\src\\assets",
+    "\\src\\assets\\Images"
   ],
-  "SelectedNode": "\\src\\app\\Custom Components",
+  "SelectedNode": "\\src\\assets\\Images\\BMW.png",
   "PreviewInSolutionExplorer": false
 }

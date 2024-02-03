@@ -1,103 +1,184 @@
-<app-navigation-bar></app-navigation-bar>
+  <app-navigation-bar></app-navigation-bar>
 
-<div id="buy-a-car" class="buy-a-car">
-  <div class="left-section">
-    <div class="search-car-text">
-      Search for a car
+  <div id="buy-a-car" class="buy-a-car">
+    <div class="left-section">
+      <div class="search-car-text">
+        Search for a car
+      </div>
+
+      <div class="filters">
+        <div class="filter-text-list">
+          <div class="filter-text">
+            Make
+          </div>
+          <div class="filter-text">
+            Model
+          </div>
+          <div class="filter-text">
+            Body type
+          </div>
+          <div class="filter-text">
+            Price
+          </div>
+          <div class="filter-text">
+            First registration
+          </div>
+          <div class="filter-text">
+            Mileage
+          </div>
+          <div class="filter-text">
+            Fuel
+          </div>
+          <div class="filter-text">
+            Cubic capacity
+          </div>
+          <div class="filter-text">
+            Transmission
+          </div>
+          <div class="filter-text">
+            Traction
+          </div>
+        </div>
+
+        <div class="filter-select-list">
+
+          <mat-form-field class="filter-select">
+            <mat-label>Toppings</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              @for (topping of toppingList; track topping) {
+              <mat-option [value]="topping">{{topping}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="filter-select">
+            <mat-label>Toppings</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              @for (topping of toppingList; track topping) {
+              <mat-option [value]="topping">{{topping}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="filter-select">
+            <mat-label>Toppings</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              @for (topping of toppingList; track topping) {
+              <mat-option [value]="topping">{{topping}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="filter-select">
+            <mat-label>Toppings</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              @for (topping of toppingList; track topping) {
+              <mat-option [value]="topping">{{topping}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="filter-select">
+            <mat-label>Toppings</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              @for (topping of toppingList; track topping) {
+              <mat-option [value]="topping">{{topping}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="filter-select">
+            <mat-label>Toppings</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              @for (topping of toppingList; track topping) {
+              <mat-option [value]="topping">{{topping}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="filter-select">
+            <mat-label>Toppings</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              @for (topping of toppingList; track topping) {
+              <mat-option [value]="topping">{{topping}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="filter-select">
+            <mat-label>Toppings</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              @for (topping of toppingList; track topping) {
+              <mat-option [value]="topping">{{topping}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="filter-select">
+            <mat-label>Toppings</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              @for (topping of toppingList; track topping) {
+              <mat-option [value]="topping">{{topping}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="filter-select">
+            <mat-label>Toppings</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              @for (topping of toppingList; track topping) {
+              <mat-option [value]="topping">{{topping}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+      </div>
+
+      <button mat-raised-button color="success">Success</button>
+
     </div>
 
-    <div class="filters">
-      <div class="filter-text-list">
-        <div class="filter-text">
-          Make
+    <div class="right-section">
+      <div class="checked">
+        <div class="check-box">
+          <mat-icon> check circle icon </mat-icon>
+          Test drive
         </div>
-        <div class="filter-text">
-          Model
+
+        <div class="check-box">
+          <mat-icon> check circle icon </mat-icon>
+          Free return within 7 days
         </div>
-        <div class="filter-text">
-          Body type
+
+        <div class="check-box">
+          <mat-icon> check circle icon </mat-icon>
+          24 months guarantee
         </div>
-        <div class="filter-text">
-          Price
+
+
+      </div>
+
+      <div class="number-sort">
+        <div class="cars-number">
+          Cars - 0
         </div>
-        <div class="filter-text">
-          First registration
-        </div>
-        <div class="filter-text">
-          Mileage
-        </div>
-        <div class="filter-text">
-          Fuel
-        </div>
-        <div class="filter-text">
-          Cubic capacity
-        </div>
-        <div class="filter-text">
-          Transmission
-        </div>
-        <div class="filter-text">
-          Traction
+
+        <div class="cars-sort">
+          Sort by:
         </div>
       </div>
 
-      <div class="filter-select-list">
-        <select class="filter-select"></select>
-        <select class="filter-select"></select>
-        <select class="filter-select"></select>
-        <select class="filter-select"></select>
-        <select class="filter-select"></select>
-        <select class="filter-select"></select>
-        <select class="filter-select"></select>
-        <select class="filter-select"></select>
-        <select class="filter-select"></select>
-        <select class="filter-select"></select>
-      </div>
+      <div class="car"></div>
+      <div class="car"></div>
+      <div class="car"></div>
+      <div class="car"></div>
+      <div class="car"></div>
+      <div class="car"></div>
+      <div class="car"></div>
+      <div class="car"></div>
+      <div class="car"></div>
+      <div class="car"></div>
     </div>
   </div>
-
-  <div class="right-section">
-    <div class="checked">
-      <div class="check-box">
-        <mat-icon> check circle icon </mat-icon>
-        Test drive
-      </div>
-
-      <div class="check-box">
-        <mat-icon> check circle icon </mat-icon>
-        Free return within 7 days
-      </div>
-
-      <div class="check-box">
-        <mat-icon> check circle icon </mat-icon>
-        24 months guarantee
-      </div>
-
-      <div class="check-box">
-        <mat-icon> check circle icon </mat-icon>
-        Buy back
-      </div>
-    </div>
-
-    <div class="number-sort">
-      <div class="cars-number">
-        Cars - 0
-      </div>
-
-      <div class="cars-sort">
-        Sort by:
-      </div>
-    </div>
-
-    <div class="car"></div>
-    <div class="car"></div>
-    <div class="car"></div>
-    <div class="car"></div>
-    <div class="car"></div>
-    <div class="car"></div>
-    <div class="car"></div>
-    <div class="car"></div>
-    <div class="car"></div>
-    <div class="car"></div>
-  </div>
-</div>
 
