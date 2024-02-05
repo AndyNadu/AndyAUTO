@@ -42,7 +42,20 @@
 
         <div class="filter-select-list">
 
-          <mat-form-field class="filter-select">
+          <div style="display: flex;">
+
+            <mat-form-field style="width: 150px; height: 50px;">
+              <mat-label>Toppings</mat-label>
+              <mat-select [formControl]="toppings" multiple style="height: 20px;">
+                @for (topping of toppingList; track topping) {
+                <mat-option [value]="topping">{{topping}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+
+          <mat-form-field>
             <mat-label>Toppings</mat-label>
             <mat-select [formControl]="toppings" multiple>
               @for (topping of toppingList; track topping) {
@@ -51,79 +64,7 @@
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field class="filter-select">
-            <mat-label>Toppings</mat-label>
-            <mat-select [formControl]="toppings" multiple>
-              @for (topping of toppingList; track topping) {
-              <mat-option [value]="topping">{{topping}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="filter-select">
-            <mat-label>Toppings</mat-label>
-            <mat-select [formControl]="toppings" multiple>
-              @for (topping of toppingList; track topping) {
-              <mat-option [value]="topping">{{topping}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="filter-select">
-            <mat-label>Toppings</mat-label>
-            <mat-select [formControl]="toppings" multiple>
-              @for (topping of toppingList; track topping) {
-              <mat-option [value]="topping">{{topping}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="filter-select">
-            <mat-label>Toppings</mat-label>
-            <mat-select [formControl]="toppings" multiple>
-              @for (topping of toppingList; track topping) {
-              <mat-option [value]="topping">{{topping}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="filter-select">
-            <mat-label>Toppings</mat-label>
-            <mat-select [formControl]="toppings" multiple>
-              @for (topping of toppingList; track topping) {
-              <mat-option [value]="topping">{{topping}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="filter-select">
-            <mat-label>Toppings</mat-label>
-            <mat-select [formControl]="toppings" multiple>
-              @for (topping of toppingList; track topping) {
-              <mat-option [value]="topping">{{topping}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="filter-select">
-            <mat-label>Toppings</mat-label>
-            <mat-select [formControl]="toppings" multiple>
-              @for (topping of toppingList; track topping) {
-              <mat-option [value]="topping">{{topping}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="filter-select">
-            <mat-label>Toppings</mat-label>
-            <mat-select [formControl]="toppings" multiple>
-              @for (topping of toppingList; track topping) {
-              <mat-option [value]="topping">{{topping}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="filter-select">
+          <mat-form-field>
             <mat-label>Toppings</mat-label>
             <mat-select [formControl]="toppings" multiple>
               @for (topping of toppingList; track topping) {
@@ -169,16 +110,12 @@
         </div>
       </div>
 
-      <div class="car"></div>
-      <div class="car"></div>
-      <div class="car"></div>
-      <div class="car"></div>
-      <div class="car"></div>
-      <div class="car"></div>
-      <div class="car"></div>
-      <div class="car"></div>
-      <div class="car"></div>
-      <div class="car"></div>
+      <app-car-box></app-car-box>
+      <app-car-box></app-car-box>
+      <app-car-box></app-car-box>
+      <app-car-box></app-car-box>
+      <app-car-box></app-car-box>
+      <app-car-box></app-car-box>
     </div>
   </div>
 

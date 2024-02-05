@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { CarBoxComponent } from './Custom Components/car-box/car-box.component';
 import { NavigationBarComponent } from './Custom Components/navigation-bar/navigation-bar.component';
 
 @Component({
@@ -22,7 +23,8 @@ import { NavigationBarComponent } from './Custom Components/navigation-bar/navig
     MatSelectModule,
     MatToolbarModule,
     MatFormFieldModule,
-    NavigationBarComponent],
+    NavigationBarComponent,
+    CarBoxComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

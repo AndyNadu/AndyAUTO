@@ -1,24 +1,25 @@
 .buy-a-car {
   display: flex;
   flex-direction: row;
-  margin-left: 10vw;
-  margin-right: 10vw;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .left-section {
-  width: 40%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   text-align: center;
   position: sticky;
   top: 0;
   height: calc(100vh - 40px);
-  margin-right: 20px;
 }
 
 .right-section {
   display: flex;
+  width: 60%;
   flex-direction: column;
+  margin-left: auto;
 }
 
 .search-car-text {
@@ -49,8 +50,9 @@
   height: 53px;
   display: flex;
   align-items: center;
+  text-align: left;
   margin-bottom: 22px;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .filter-select {
@@ -94,30 +96,6 @@
   justify-content: end;
 }
 
-.car {
-  width: 100%;
-  height: 150px;
-  border: solid;
-}
-
-.mat-button.mat-success,
-.mat-stroked-button.mat-success {
-  color: green;
-}
-
-  .mat-button.mat-success:hover,
-  .mat-stroked-button.mat-success:hover {
-    background-color: green;
-  }
-
-.mat-raised-button.mat-success,
-.mat-flat-button.mat-success,
-.mat-fab.mat-success,
-.mat-mini-fab.mat-success {
-  color: #f0fff3;
-  background-color: green;
-}
-
-.mat-icon-button.mat-success {
-  color: green;
+.mat-mdc-text-field-wrapper {
+  height: 100px !important;
 }

@@ -2,11 +2,13 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 40px;
+  height: 30px;
+  background-color: white;
 }
 
 .navigation-bar {
     background-color: greenyellow;
+    height: 50px;
 }
 
 .information {
@@ -15,6 +17,7 @@
   align-items: center;
   padding-left: 2vw;
   padding-right: 2vw;
+  font-size: 18px;
 }
 
 .mat-icon {
@@ -31,15 +34,15 @@
 }
 
 .title-photo {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin-right: .5vw;
 }
 
 .title-text {
     display: flex;
     flex-direction: column;
-    font-size: 23px;
+    font-size: 18px;
 }
 
 .title-text div:first-child {
@@ -60,10 +63,11 @@
 .page {
     margin-left: 5.7vw;
     font-weight: bold;
+    font-size: 19px;
     cursor: pointer;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .contact-toolbar {
         display: none;
     }
