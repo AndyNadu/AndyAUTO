@@ -75,23 +75,92 @@
                        placeholder="Select body type">
         </p-multiSelect>
 
-        <div class="select-in-row">
 
-          <p-inputNumber inputId="integeronly"
-                         [min]="0"
-                         placeholder="From">
-          </p-inputNumber>
+        <div class="container">
+          <div class="row">
+            <p-inputNumber class="col-md-5 " inputId="integeronly"
+                           [min]="1"
+                           [max]="10000000"
+                           placeholder="From">
+            </p-inputNumber>
 
-          <p-inputNumber inputId="integeronly"
-                         [min]="0"
-                         placeholder="To">
-          </p-inputNumber>
-
+            <p-inputNumber class="col-md-5 offset-md-2"
+                           inputId="integeronly"
+                           [min]="1"
+                           [max]="10000000"
+                           placeholder="To">
+            </p-inputNumber>
+          </div>
         </div>
 
+        <div class="container">
+          <div class="row">
+            <p-inputNumber class="col-md-5 " inputId="integeronly"
+                           [min]="1900"
+                           [max]="2024"
+                           placeholder="From">
+            </p-inputNumber>
 
+            <p-inputNumber class="col-md-5 offset-md-2"
+                           inputId="integeronly"
+                           [min]="1900"
+                           [max]="2024"
+                           placeholder="To">
+            </p-inputNumber>
+          </div>
+        </div>
 
+        <div class="container">
+          <div class="row">
+            <p-inputNumber class="col-md-5 " inputId="integeronly"
+                           [min]="0"
+                           [max]="1000000"
+                           placeholder="From">
+            </p-inputNumber>
 
+            <p-inputNumber class="col-md-5 offset-md-2"
+                           inputId="integeronly"
+                           [min]="0"
+                           [max]="1000000"
+                           placeholder="To">
+            </p-inputNumber>
+          </div>
+        </div>
+
+        <p-multiSelect [options]="fuel_types"
+                       [(ngModel)]="selectedFuelTypes"
+                       optionLabel="label"
+                       placeholder="Select fuel type">
+        </p-multiSelect>
+
+        <div class="container">
+          <div class="row">
+            <p-inputNumber class="col-md-5 " inputId="integeronly"
+                           [min]="1"
+                           [max]="20000"
+                           placeholder="From">
+            </p-inputNumber>
+
+            <p-inputNumber class="col-md-5 offset-md-2"
+                           inputId="integeronly"
+                           [min]="1"
+                           [max]="20000"
+                           placeholder="To">
+            </p-inputNumber>
+          </div>
+        </div>
+
+        <p-multiSelect [options]="transmission_types"
+                       [(ngModel)]="selectedTransmissionTypes"
+                       optionLabel="label"
+                       placeholder="Select transmission type">
+        </p-multiSelect>
+
+        <p-multiSelect [options]="traction_types"
+                       [(ngModel)]="selectedTractionTypes"
+                       optionLabel="label"
+                       placeholder="Select traction type">
+        </p-multiSelect>
 
       </div>
 

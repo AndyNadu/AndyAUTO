@@ -1,24 +1,24 @@
 <mat-toolbar>
 
-  <mat-toolbar-row class="contact-toolbar">
+  <mat-toolbar-row class="container justify-content-center contact-toolbar">
 
     <div class="information">
 
-      <mat-icon> phone </mat-icon>
+      <mat-icon class="mx-2"> phone </mat-icon>
       0771.398.255
 
     </div>
 
     <div class="information">
 
-      <mat-icon> email </mat-icon>
+      <mat-icon class="mx-2"> email </mat-icon>
       AndyAUTO&#64;x-land.ro
 
     </div>
 
     <div class="information">
 
-      <mat-icon> watch_later </mat-icon>
+      <mat-icon class="mx-2"> watch_later </mat-icon>
       M-F: 08:00 - 20:00
 
     </div>
@@ -29,18 +29,18 @@
 
     <a class="title" href="/">
 
-      <img mat-card-sm-image src="./assets/Images/BMW.png" class="title-photo">
+      <img mat-card-sm-image src="./assets/Images/BMW.png" class="title-photo mr-4">
 
-      <div class="title-text">
+      <div class="d-flex flex-column title-text">
 
-        <div> ANDY </div>
-        <div> AUTO </div>
+        <div class="row"> ANDY </div>
+        <div class="row"> AUTO </div>
 
       </div>
 
     </a>
 
-    <div class="menu">
+    <div class="container flex-column menu">
 
       <div class="page">
         <div (click)="scrollDown()"> Buy a car </div>

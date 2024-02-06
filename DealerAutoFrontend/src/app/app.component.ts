@@ -76,4 +76,26 @@ export class AppComponent {
     { label: 'Van / Minibus' }
   ];
   selectedBodyTypes!: object[];
+
+  fuel_types: object[] = [
+    { label: 'Diesel' },
+    { label: 'Gasoline' },
+    { label: 'Electric' },
+    { label: 'Hybrid' }
+  ];
+  selectedFuelTypes!: object[];
+
+  transmission_types: object[] = [
+    { label: 'Automatic' },
+    { label: 'Manual' },
+    { label: 'CVT' }
+  ];
+  selectedTransmissionTypes!: object[];
+
+  traction_types: object[] = [
+    { label: 'Rear wheel drive' },
+    { label: 'Front wheel drive' },
+    { label: 'All wheel drive' }
+  ];
+  selectedTractionTypes!: object[];
 }
