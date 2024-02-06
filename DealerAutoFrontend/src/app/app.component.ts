@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+//angular material
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+//primeng components
+import { InputNumberModule } from 'primeng/inputnumber';
+import { MultiSelectModule } from 'primeng/multiselect';
+
+
+//custom components
 import { CarBoxComponent } from './Custom Components/car-box/car-box.component';
 import { NavigationBarComponent } from './Custom Components/navigation-bar/navigation-bar.component';
 
@@ -16,21 +22,58 @@ import { NavigationBarComponent } from './Custom Components/navigation-bar/navig
   standalone: true,
   imports: [
     RouterOutlet,
-    MatIconModule,
+
     FormsModule,  
-    ReactiveFormsModule,
+    MatIconModule,
     MatButtonModule,
-    MatSelectModule,
     MatToolbarModule,
-    MatFormFieldModule,
+    MatPaginatorModule,
+    ReactiveFormsModule,
+
+    InputNumberModule,
+    MultiSelectModule,
+
     NavigationBarComponent,
     CarBoxComponent],
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'DealerAutoFrontend';
-  toppings = new FormControl('');
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
+export class AppComponent {
+
+  //some hardcoded info
+  cities: object[] = [
+    { label: 'BMW'},
+    { label: 'Audi'},
+    { label: 'Mercedes-Benz'},
+    { label: 'Volkswagen' },
+    { label: 'Seat' },
+    { label: 'Skoda' },
+    { label: 'Nissan' },
+    { label: 'Hyundai' },
+    { label: 'Toyota' },
+    { label: 'Honda' },
+    { label: 'Renault' },
+    { label: 'Dacia' },
+    { label: 'Lamborghini' },
+    { label: 'Ford' },
+    { label: 'Citroen' },
+    { label: 'Alfa Romeo' }
+  ];
+  selectedCarMakes!: object[];
+
+  models: object[] = [];
+  selectedModels!: object[];
+
+  body_types: object[] = [
+    { label: 'Cabriolet / Roadster' },
+    { label: 'Estate Car' },
+    { label: 'Saloon' },
+    { label: 'SUV / Off-road Vehicle / Pickup Truck' },
+    { label: 'Small Car' },
+    { label: 'Sports Car / Coupe' },
+    { label: 'Van / Minibus' }
+  ];
+  selectedBodyTypes!: object[];
 }

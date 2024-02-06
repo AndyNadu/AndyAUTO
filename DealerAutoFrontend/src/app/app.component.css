@@ -1,12 +1,12 @@
 .buy-a-car {
   display: flex;
   flex-direction: row;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .left-section {
-  width: 25%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -27,6 +27,7 @@
   font-weight: bold;
   margin-top: 20px;
   margin-bottom: 20px;
+  color: darkblue;
 }
 
 .filters {
@@ -35,23 +36,24 @@
 }
 
 .filter-text-list {
-  flex: 2;
+  width: 35%;
   display: flex;
   flex-direction: column;
+  color: darkblue;
 }
 
 .filter-select-list {
-  flex: 5;
+  width: 65%;
   display: flex;
   flex-direction: column;
 }
 
 .filter-text {
-  height: 53px;
+  height: 40px;
   display: flex;
   align-items: center;
   text-align: left;
-  margin-bottom: 22px;
+  margin-bottom: 10px;
   font-size: 18px;
 }
 
@@ -66,7 +68,7 @@
 .checked {
   display: flex;
   flex-direction: row;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   padding-left: 5vw;
   padding-right: 5vw;
@@ -79,23 +81,25 @@
   align-items: center;
   margin-left: 1vw;
   margin-right: 1vw;
+  color: darkblue;
 }
 
 .number-sort {
+  margin-top: 50px;
+  height: 40px;
   display: flex;
   flex-direction: row;
   font-size: 20px;
-  font-weight: bold;
+  text-align: center;
+  color: darkblue;
 }
 
 .cars-number {
-  padding-left: 5vw;
+  width: 50%;
 }
 
 .cars-sort {
-  justify-content: end;
+  width: 50%;
 }
 
-.mat-mdc-text-field-wrapper {
-  height: 100px !important;
-}
+

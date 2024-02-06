@@ -1,5 +1,74 @@
-.car {
+.full-box {
   width: 100%;
-  height: 150px;
+  height: 160px;
+  display: flex;
+  flex-direction: row;
   border: solid;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  border-width: 1px;
+  border-color: lightgrey;
+  padding: 10px;
+}
+
+.image {
+  width: 25%;
+  border-radius: 10px;
+}
+
+.car-information {
+  display: flex;
+  flex-direction: column;
+  width: 73%;
+  margin-left: auto;
+}
+
+.car-name-and-price {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  color: darkblue;
+}
+
+.make-and-model {
+  font-size: 20px;
+}
+
+.price {
+  margin-left: auto;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.more-car-info {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  font-size: 20px;
+}
+
+.used-car-text {
+  flex: 1;
+  color: dimgray;
+}
+
+.post-time {
+  flex: 1;
+  color: dimgray;
+}
+
+.year-and-mileage {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  color: dimgray;
+}
+
+.calendar-icon {
+  font-size: 17px;
+}
+
+.mileage-icon {
+  font-size: 19px;
+  margin-left: 10px;
 }

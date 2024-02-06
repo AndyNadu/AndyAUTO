@@ -1,121 +1,164 @@
-  <app-navigation-bar></app-navigation-bar>
+<app-navigation-bar></app-navigation-bar>
 
-  <div id="buy-a-car" class="buy-a-car">
-    <div class="left-section">
-      <div class="search-car-text">
-        Search for a car
-      </div>
+<div id="buy-a-car" class="buy-a-car">
 
-      <div class="filters">
-        <div class="filter-text-list">
-          <div class="filter-text">
-            Make
-          </div>
-          <div class="filter-text">
-            Model
-          </div>
-          <div class="filter-text">
-            Body type
-          </div>
-          <div class="filter-text">
-            Price
-          </div>
-          <div class="filter-text">
-            First registration
-          </div>
-          <div class="filter-text">
-            Mileage
-          </div>
-          <div class="filter-text">
-            Fuel
-          </div>
-          <div class="filter-text">
-            Cubic capacity
-          </div>
-          <div class="filter-text">
-            Transmission
-          </div>
-          <div class="filter-text">
-            Traction
-          </div>
-        </div>
+  <div class="left-section">
 
-        <div class="filter-select-list">
-
-          <div style="display: flex;">
-
-            <mat-form-field style="width: 150px; height: 50px;">
-              <mat-label>Toppings</mat-label>
-              <mat-select [formControl]="toppings" multiple style="height: 20px;">
-                @for (topping of toppingList; track topping) {
-                <mat-option [value]="topping">{{topping}}</mat-option>
-                }
-              </mat-select>
-            </mat-form-field>
-          </div>
-
-
-          <mat-form-field>
-            <mat-label>Toppings</mat-label>
-            <mat-select [formControl]="toppings" multiple>
-              @for (topping of toppingList; track topping) {
-              <mat-option [value]="topping">{{topping}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-label>Toppings</mat-label>
-            <mat-select [formControl]="toppings" multiple>
-              @for (topping of toppingList; track topping) {
-              <mat-option [value]="topping">{{topping}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-
-        </div>
-      </div>
-
-      <button mat-raised-button color="success">Success</button>
-
+    <div class="search-car-text">
+      Search for a car
     </div>
 
-    <div class="right-section">
-      <div class="checked">
-        <div class="check-box">
-          <mat-icon> check circle icon </mat-icon>
-          Test drive
+    <div class="filters">
+
+      <div class="filter-text-list">
+
+        <div class="filter-text">
+          Make
         </div>
 
-        <div class="check-box">
-          <mat-icon> check circle icon </mat-icon>
-          Free return within 7 days
+        <div class="filter-text">
+          Model
         </div>
 
-        <div class="check-box">
-          <mat-icon> check circle icon </mat-icon>
-          24 months guarantee
+        <div class="filter-text">
+          Body type
         </div>
+
+        <div class="filter-text">
+          Price
+        </div>
+
+        <div class="filter-text">
+          First registration
+        </div>
+
+        <div class="filter-text">
+          Mileage
+        </div>
+
+        <div class="filter-text">
+          Fuel
+        </div>
+
+        <div class="filter-text">
+          Cubic capacity
+        </div>
+
+        <div class="filter-text">
+          Transmission
+        </div>
+
+        <div class="filter-text">
+          Traction
+        </div>
+
+      </div>
+
+      <div class="filter-select-list">
+
+        <p-multiSelect [options]="cities"
+                       [(ngModel)]="selectedCarMakes"
+                       optionLabel="label"
+                       placeholder="Select car">
+        </p-multiSelect>
+
+        <p-multiSelect [disabled]="true"
+                       [options]="models"
+                       [(ngModel)]="selectedModels"
+                       optionLabel="label"
+                       placeholder="Select model">
+        </p-multiSelect>
+
+        <p-multiSelect [options]="body_types"
+                       [(ngModel)]="selectedBodyTypes"
+                       optionLabel="label"
+                       placeholder="Select body type">
+        </p-multiSelect>
+
+        <div class="select-in-row">
+
+          <p-inputNumber inputId="integeronly"
+                         [min]="0"
+                         placeholder="From">
+          </p-inputNumber>
+
+          <p-inputNumber inputId="integeronly"
+                         [min]="0"
+                         placeholder="To">
+          </p-inputNumber>
+
+        </div>
+
+
+
 
 
       </div>
 
-      <div class="number-sort">
-        <div class="cars-number">
-          Cars - 0
-        </div>
-
-        <div class="cars-sort">
-          Sort by:
-        </div>
-      </div>
-
-      <app-car-box></app-car-box>
-      <app-car-box></app-car-box>
-      <app-car-box></app-car-box>
-      <app-car-box></app-car-box>
-      <app-car-box></app-car-box>
-      <app-car-box></app-car-box>
     </div>
   </div>
 
+  <div class="right-section">
+
+    <div class="checked">
+
+      <div class="check-box">
+
+        <mat-icon> check circle icon </mat-icon>
+        Test drive
+
+      </div>
+
+      <div class="check-box">
+
+        <mat-icon> check circle icon </mat-icon>
+        Free return within 7 days
+
+      </div>
+
+      <div class="check-box">
+
+        <mat-icon> check circle icon </mat-icon>
+        24 months guarantee
+
+      </div>
+
+    </div>
+
+    <div class="number-sort">
+
+      <div class="cars-number">
+        Cars - 0
+      </div>
+
+      <div class="cars-sort">
+        Sort by:
+      </div>
+
+    </div>
+
+    <app-car-box></app-car-box>
+    <app-car-box></app-car-box>
+    <app-car-box></app-car-box>
+    <app-car-box></app-car-box>
+    <app-car-box></app-car-box>
+    <app-car-box></app-car-box>
+    <app-car-box></app-car-box>
+    <app-car-box></app-car-box>
+    <app-car-box></app-car-box>
+
+    <mat-paginator [length]="100"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   aria-label="Select page">
+    </mat-paginator>
+
+
+
+  </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">

@@ -1,3 +1,7 @@
+* {
+  color: darkblue;
+}
+
 .contact-toolbar{
   display: flex;
   flex-direction: row;
@@ -7,8 +11,8 @@
 }
 
 .navigation-bar {
-    background-color: greenyellow;
-    height: 50px;
+  background-color: greenyellow;
+  height: 50px;
 }
 
 .information {
@@ -21,32 +25,32 @@
 }
 
 .mat-icon {
-    margin-left: 0.35vw;
-    margin-right: 0.35vw;
+  margin-left: 0.35vw;
+  margin-right: 0.35vw;
 }
 
 .title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 10vw;
-    font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10vw;
+  font-weight: bold;
 }
 
 .title-photo {
-    width: 30px;
-    height: 30px;
-    margin-right: .5vw;
+  width: 30px;
+  height: 30px;
+  margin-right: .5vw;
 }
 
 .title-text {
-    display: flex;
-    flex-direction: column;
-    font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
 }
 
 .title-text div:first-child {
-    margin-bottom: -5px;
+  margin-bottom: -5px;
 }
 
 .title-text div:last-child {
@@ -61,14 +65,14 @@
 }
 
 .page {
-    margin-left: 5.7vw;
-    font-weight: bold;
-    font-size: 19px;
-    cursor: pointer;
+  margin-left: 5.7vw;
+  font-weight: bold;
+  font-size: 19px;
+  cursor: pointer;
 }
 
 @media (max-width: 700px) {
   .contact-toolbar {
-        display: none;
+      display: none;
     }
 }
