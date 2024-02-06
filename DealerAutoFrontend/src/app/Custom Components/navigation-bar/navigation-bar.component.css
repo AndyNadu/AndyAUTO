@@ -2,6 +2,10 @@
   color: darkblue;
 }
 
+a:hover {
+  color: darkblue;
+}
+
 .contact-toolbar{
   height: 30px;
 }
@@ -21,11 +25,12 @@
 }
 
 .title {
+  width: 120px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 10vw;
   font-weight: bold;
+  margin-left: 10vw;
 }
 
 .title-photo {
@@ -35,14 +40,7 @@
 
 .title-text {
   font-size: 18px;
-}
-
-.title-text div:first-child {
-  margin-bottom: -5px;
-}
-
-.title-text div:last-child {
-  margin-top: -5px;
+  text-decoration: none;
 }
 
 .menu {
@@ -61,4 +59,24 @@
   .contact-toolbar {
       display: none;
     }
+}
+
+.navbar {
+  background-color: greenyellow;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  margin-right: 10vw;
+}
+
+.nav-item {
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 2.5vw;
+}
+
+.navbar-toggler-icon {
+  color: red;
 }

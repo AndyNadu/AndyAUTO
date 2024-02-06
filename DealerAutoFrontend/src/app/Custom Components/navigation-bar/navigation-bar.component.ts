@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 
+import { RouterLink } from '@angular/router';
+
 //angular material
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-
-
 @Component({
   selector: 'app-navigation-bar',
   standalone: true,
   imports: [
+    RouterLink,
+
     MatCardModule,
     MatIconModule,
     MatButtonModule,
@@ -22,7 +24,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 })
 export class NavigationBarComponent {
   scrollDown() {
-    const element = document.getElementById('buy-a-car');
+    const element = document.getElementById('buy-a-car-element');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }

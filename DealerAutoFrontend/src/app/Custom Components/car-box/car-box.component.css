@@ -1,33 +1,25 @@
 .full-box {
   width: 100%;
-  height: 160px;
-  display: flex;
-  flex-direction: row;
-  border: solid;
-  margin-bottom: 15px;
+  height: 180px;
+  border: 1px solid lightgrey;
   border-radius: 15px;
-  border-width: 1px;
-  border-color: lightgrey;
-  padding: 10px;
+  cursor: pointer;
+  background-color: white;
 }
 
-.image {
-  width: 25%;
-  border-radius: 10px;
+.card {
+  border-width: 0;
+  padding: 0 30px 0 0;
 }
 
-.car-information {
-  display: flex;
-  flex-direction: column;
-  width: 73%;
-  margin-left: auto;
+.card-img-top {
+  border-radius: 10%;
+  height: 100%;
 }
 
 .car-name-and-price {
-  display: flex;
-  flex-direction: row;
-  height: 50%;
   color: darkblue;
+  height: 60%;
 }
 
 .make-and-model {
@@ -35,32 +27,24 @@
 }
 
 .price {
-  margin-left: auto;
   font-weight: bold;
   font-size: 17px;
 }
 
 .more-car-info {
-  display: flex;
-  flex-direction: column;
-  height: 50%;
+  height: 40%;
   font-size: 20px;
 }
 
 .used-car-text {
-  flex: 1;
   color: dimgray;
 }
 
 .post-time {
-  flex: 1;
   color: dimgray;
 }
 
 .year-and-mileage {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
   color: dimgray;
 }
 
@@ -70,5 +54,4 @@
 
 .mileage-icon {
   font-size: 19px;
-  margin-left: 10px;
 }

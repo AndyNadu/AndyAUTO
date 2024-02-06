@@ -1,73 +1,76 @@
-<mat-toolbar>
+<mat-toolbar class="container justify-content-center contact-toolbar">
 
-  <mat-toolbar-row class="container justify-content-center contact-toolbar">
+  <div class="information">
 
-    <div class="information">
+    <mat-icon class="mx-2"> phone </mat-icon>
+    0771.398.255
 
-      <mat-icon class="mx-2"> phone </mat-icon>
-      0771.398.255
+  </div>
 
-    </div>
+  <div class="information">
 
-    <div class="information">
+    <mat-icon class="mx-2"> email </mat-icon>
+    AndyAUTO&#64;x-land.ro
 
-      <mat-icon class="mx-2"> email </mat-icon>
-      AndyAUTO&#64;x-land.ro
+  </div>
 
-    </div>
+  <div class="information">
 
-    <div class="information">
+    <mat-icon class="mx-2"> watch_later </mat-icon>
+    M-F: 08:00 - 20:00
 
-      <mat-icon class="mx-2"> watch_later </mat-icon>
-      M-F: 08:00 - 20:00
-
-    </div>
-
-  </mat-toolbar-row>
-
-  <mat-toolbar-row class="navigation-bar">
-
-    <a class="title" href="/">
-
-      <img mat-card-sm-image src="./assets/Images/BMW.png" class="title-photo mr-4">
-
-      <div class="d-flex flex-column title-text">
-
-        <div class="row"> ANDY </div>
-        <div class="row"> AUTO </div>
-
-      </div>
-
-    </a>
-
-    <div class="container flex-column menu">
-
-      <div class="page">
-        <div (click)="scrollDown()"> Buy a car </div>
-      </div>
-
-      <div class="page">
-        <a> Sell a car </a>
-      </div>
-
-      <div class="page">
-        <a> Rent a car </a>
-      </div>
-
-      <div class="page">
-        <a> Service </a>
-      </div>
-
-      <div class="page">
-        <a> Locations </a>
-      </div>
-
-      <div class="page">
-        <a routerLink="/account"> Account </a>
-      </div>
-
-    </div>
-
-  </mat-toolbar-row>
+  </div>
 
 </mat-toolbar>
+
+<nav class="navbar navbar-expand-xl">
+
+  <a class="title" href="/">
+
+    <img mat-card-sm-image src="./assets/Images/BMW.png" class="title-photo mr-4">
+
+    <div class="d-flex flex-column title-text">
+
+      <div class="row"> ANDY </div>
+      <div class="row"> AUTO </div>
+
+    </div>
+
+  </a>
+
+  <button class="navbar-toggler  navbar-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+    <ul class="navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link">Buy a car</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link">Sell a car</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link">Rent a car</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link">Service</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link">Locations</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link">Account</a>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>

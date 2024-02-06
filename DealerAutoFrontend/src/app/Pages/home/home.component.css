@@ -1,0 +1,75 @@
+.buy-a-car {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.left-section {
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 40px);
+  color: darkblue;
+}
+
+.search-car-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.filter-text {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.filter-select {
+  padding-left: 0px;
+  padding-bottom: 0px;
+  height: 75px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.checked {
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+
+.check-box {
+  display: flex;
+  align-items: center;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  color: darkblue;
+}
+
+.number-sort {
+  height: 40px;
+  font-size: 20px;
+  color: darkblue;
+}
+
+@media (max-width: 1200px) {
+  .checked {
+    display: none!important;
+  }
+
+  .buy-a-car {
+    flex-direction: column;
+  }
+
+  .left-section, .right-section {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .left-section {
+    position:initial;
+  }
+}
