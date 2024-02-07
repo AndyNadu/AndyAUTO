@@ -50,14 +50,14 @@
 }
 
 .number-sort {
-  height: 40px;
   font-size: 20px;
   color: darkblue;
+  margin-bottom: 10px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1450px) {
   .checked {
-    display: none!important;
+    display: none !important;
   }
 
   .buy-a-car {
@@ -67,9 +67,19 @@
   .left-section, .right-section {
     flex-basis: 100%;
     max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .left-section {
-    position:initial;
+    position: initial;
   }
 }
+
+@media (max-width: 800px) {
+    .buy-a-car, .left-section, .right-section {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+

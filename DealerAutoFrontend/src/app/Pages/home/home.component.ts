@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 
 //angular material
+import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //primeng components
+import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { MultiSelectModule } from 'primeng/multiselect';
+
 
 //custom components
 import { CarBoxComponent } from '../../Custom Components/car-box/car-box.component';
@@ -21,11 +22,10 @@ import { NavigationBarComponent } from '../../Custom Components/navigation-bar/n
   imports: [
     FormsModule,
     MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
     MatPaginatorModule,
-    ReactiveFormsModule,
 
+    ButtonModule,
+    DropdownModule,
     InputNumberModule,
     MultiSelectModule,
 
@@ -37,7 +37,7 @@ import { NavigationBarComponent } from '../../Custom Components/navigation-bar/n
 })
 export class HomeComponent {
   //some hardcoded info
-  cities: object[] = [
+  cars: object[] = [
     { label: 'BMW' },
     { label: 'Audi' },
     { label: 'Mercedes-Benz' },
@@ -64,7 +64,7 @@ export class HomeComponent {
     { label: 'Cabriolet / Roadster' },
     { label: 'Estate Car' },
     { label: 'Saloon' },
-    { label: 'SUV / Off-road Vehicle / Pickup Truck' },
+    { label: 'SUV' },
     { label: 'Small Car' },
     { label: 'Sports Car / Coupe' },
     { label: 'Van / Minibus' }
@@ -92,4 +92,35 @@ export class HomeComponent {
     { label: 'All wheel drive' }
   ];
   selectedTractionTypes!: object[];
+
+  loadingCarsPageBool = false;
+  loadingResetFiltersBool = false;
+
+  loadCarsPage() {
+    this.loadingCarsPageBool = true;
+
+    setTimeout(() => {
+      this.loadingCarsPageBool = false;
+    }, 2000);
+  }
+
+  resetFilters() {
+    this.loadingResetFiltersBool = true;
+
+    setTimeout(() => {
+      this.loadingResetFiltersBool = false;
+    }, 2000);
+  }
+
+  sort_types: object[] = [
+    { name: 'Post time (newest)' },
+    { name: 'Post time (oldest)' },
+    { name: 'Price (low to high)' },
+    { name: 'Price (high to low)' },
+    { name: 'Km (low to high)' },
+    { name: 'Km (high to low)' },
+  ];
+  selectedSortType!: object[];
+
+  carsNumber = 27;
 }

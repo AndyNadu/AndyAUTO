@@ -40,7 +40,6 @@ a:hover {
 
 .title-text {
   font-size: 18px;
-  text-decoration: none;
 }
 
 .menu {
@@ -53,12 +52,6 @@ a:hover {
   font-weight: bold;
   font-size: 19px;
   cursor: pointer;
-}
-
-@media (max-width: 700px) {
-  .contact-toolbar {
-      display: none;
-    }
 }
 
 .navbar {
@@ -79,4 +72,26 @@ a:hover {
 
 .navbar-toggler-icon {
   color: red;
+}
+
+.navbar-hamburger-button {
+    margin-right: 10vw;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+@media (max-width: 1199.98px) { /* Ajustează această valoare în funcție de breakpoint-ul pentru 'navbar-expand-xl' */
+  #collapsibleNavbar {
+    text-align: right;
+  }
+
+  #collapsibleNavbar .navbar-nav {
+    justify-content: flex-end;
+  }
+
+  .contact-toolbar {
+    display: none;
+  }
 }
