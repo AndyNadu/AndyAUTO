@@ -83,7 +83,7 @@
                          placeholder="From">
           </p-inputNumber>
 
-          <p-inputNumber class="col-5 offset-2"
+          <p-inputNumber class="col-5 offset-2 temporar"
                          inputId="integeronly"
                          [min]="1"
                          [max]="10000000"
@@ -98,7 +98,7 @@
                          placeholder="From">
           </p-inputNumber>
 
-          <p-inputNumber class="col-5 offset-2"
+          <p-inputNumber class="col-5 offset-2 temporar"
                          inputId="integeronly"
                          [min]="1900"
                          [max]="2024"
@@ -113,7 +113,7 @@
                          placeholder="From">
           </p-inputNumber>
 
-          <p-inputNumber class="col-5 offset-2"
+          <p-inputNumber class="col-5 offset-2 temporar"
                          inputId="integeronly"
                          [min]="0"
                          [max]="1000000"
@@ -134,7 +134,7 @@
                          placeholder="From">
           </p-inputNumber>
 
-          <p-inputNumber class="col-5 offset-2"
+          <p-inputNumber class="col-5 offset-2 temporar"
                          inputId="integeronly"
                          [min]="1"
                          [max]="20000"
@@ -158,14 +158,14 @@
 
     </div>
 
-    <p-button class="search_car_button
-              show_results_button"
+    <p-button class="search-car-button
+              show-results-button"
               label="Show 0 results"
               [loading]="loadingCarsPageBool"
               (onClick)="loadCarsPage()"></p-button>
 
-    <p-button class="search_car_button
-              reset_filters_button"
+    <p-button class="search-car-button
+              reset-filters-button"
               label="Reset filters"
               [loading]="loadingResetFiltersBool"
               (onClick)="resetFilters()"></p-button>

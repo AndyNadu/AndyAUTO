@@ -15,6 +15,10 @@
   font-weight: bold;
 }
 
+.temporar {
+  justify-content: end;
+}
+
 .filter-text {
   height: 40px;
   display: flex;

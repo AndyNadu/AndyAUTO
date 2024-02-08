@@ -11,7 +11,6 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { MultiSelectModule } from 'primeng/multiselect';
 
-
 //custom components
 import { CarBoxComponent } from '../../Custom Components/car-box/car-box.component';
 import { NavigationBarComponent } from '../../Custom Components/navigation-bar/navigation-bar.component';
