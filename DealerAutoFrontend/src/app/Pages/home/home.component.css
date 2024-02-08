@@ -54,7 +54,7 @@ ol, ul {
 }
 
 .reset-filters-button .p-button {
-  background-color: initial;
+  background-color: white;
   border: 2px solid darkblue;
   margin-bottom: 10px;
 }
@@ -75,7 +75,7 @@ ol, ul {
 .check-box-container {
   display: flex;
   justify-content: center;
-  margin: 10px 0 10px 0;
+  margin: 10px 150px 10px 150px;
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 10px;
