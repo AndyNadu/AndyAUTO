@@ -60,12 +60,12 @@ export class HomeComponent {
   selectedModels!: object[];
 
   body_types: object[] = [
-    { label: 'Cabriolet / Roadster' },
+    { label: 'Cabriolet' },
     { label: 'Estate Car' },
     { label: 'Saloon' },
     { label: 'SUV' },
     { label: 'Small Car' },
-    { label: 'Sports Car / Coupe' },
+    { label: 'Coupe' },
     { label: 'Van / Minibus' }
   ];
   selectedBodyTypes!: object[];
@@ -121,5 +121,10 @@ export class HomeComponent {
   ];
   selectedSortType!: object[];
 
-  carsNumber = 27;
+  wheel_positions: object[] = [
+    { label: 'Left side' },
+    { label: 'Right side' }
+  ];
+  selectedWheelPosition!: object[];
+
 }

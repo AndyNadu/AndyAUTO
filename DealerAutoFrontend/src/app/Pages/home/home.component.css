@@ -1,45 +1,81 @@
-.buy-a-car {
-  margin-left: 10%;
-  margin-right: 10%;
+.content-section {
+  display: flex;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  padding: 0;
 }
 
 .left-section {
+  display: flex;
+  flex-direction: column;
   position: sticky;
-  top: 0;
   height: calc(100vh - 40px);
   color: darkblue;
+  margin-right: 50px;
 }
 
-.search-car-text {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.temporar {
-  justify-content: end;
-}
-
-.filter-text {
+.p-inputwrapper .p-multiselect {
+  width: 100%;
   height: 40px;
-  display: flex;
-  align-items: center;
-  text-align: left;
-  margin-bottom: 10px;
-  font-size: 18px;
 }
 
-.filter-select {
-  padding-left: 0px;
-  padding-bottom: 0px;
-  height: 75px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+.p-inputnumber-input {
+  width: 100%;
+  height: 40px;
 }
 
-.checked {
-  height: 50px;
+.p-multiselect-panel .p-multiselect-items {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.p-multiselect-header, .p-multiselect-item, ol, ul {
+  padding-left: 10px;
+}
+
+ol, ul {
+  padding-left: 0!important;
+}
+
+.search-car-button .p-button {
+  width: 100%;
+  height: 40px;
+  color: darkblue;
+  border: 0;
+  border-radius: 15px;
   font-size: 16px;
-  font-weight: bold;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.show-results-button .p-button {
+  background-color: greenyellow;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.reset-filters-button .p-button {
+  background-color: initial;
+  border: 2px solid darkblue;
+  margin-bottom: 10px;
+}
+
+.search-car-button .p-button:hover {
+  opacity: 0.9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  justify-content: center;
+}
+
+.check-box-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 10px 0;
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 10px;
@@ -59,31 +95,46 @@
   margin-bottom: 10px;
 }
 
-@media (max-width: 1450px) {
-  .checked {
-    display: none !important;
+.sort-by-select .p-dropdown {
+  width: 200px;
+}
+
+.text-darkblue {
+  color: darkblue !important;
+}
+
+/* media queries */
+@media (max-width: 1200px) {
+  .check-box-container {
+    display: none;
   }
 
-  .buy-a-car {
+  .content-section {
     flex-direction: column;
   }
 
-  .left-section, .right-section {
+  .left-section {
+    width: 60%;
     flex-basis: 100%;
-    max-width: 100%;
+    position: initial;
+  }
+
+  .right-section {
+    width: 80%;
+  }
+
+  .content-section, .left-section, .right-section {
     margin-left: auto;
     margin-right: auto;
   }
+}
 
+@media (max-width: 700px) {
   .left-section {
-    position: initial;
+      width: 80%;
+  }
+
+  .right-section {
+      width: 95%;
   }
 }
-
-@media (max-width: 800px) {
-    .buy-a-car, .left-section, .right-section {
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-}
-

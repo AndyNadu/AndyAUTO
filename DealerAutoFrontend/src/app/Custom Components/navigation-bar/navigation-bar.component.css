@@ -1,18 +1,7 @@
-* {
-  color: darkblue;
-}
-
-a:hover {
-  color: darkblue;
-}
-
-.contact-toolbar{
+.contact-bar {
   height: 30px;
-}
-
-.navigation-bar {
-  background-color: greenyellow;
-  height: 50px;
+  padding: 0;
+  color: darkblue;
 }
 
 .information {
@@ -24,6 +13,13 @@ a:hover {
   font-size: 18px;
 }
 
+.navigation-bar {
+  background-color: greenyellow;
+  color: darkblue;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 .title {
   width: 120px;
   display: flex;
@@ -31,67 +27,50 @@ a:hover {
   align-items: center;
   font-weight: bold;
   margin-left: 10vw;
+  text-decoration: none;
 }
 
-.title-photo {
-  width: 30px;
-  height: 30px;
-}
-
-.title-text {
-  font-size: 18px;
-}
-
-.menu {
-  margin-left: auto;
-  margin-right: 10vw;
-}
-
-.page {
-  margin-left: 5.7vw;
-  font-weight: bold;
-  font-size: 19px;
-  cursor: pointer;
-}
-
-.navbar {
+.bmw-logo {
   background-color: greenyellow;
-}
-
-.navbar-nav {
-  margin-left: auto;
-  margin-right: 10vw;
-}
-
-.nav-item {
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 20px;
-  margin-left: 2.5vw;
-}
-
-.navbar-toggler-icon {
-  color: red;
+  width: 35px;
+  margin-right: 5px;
 }
 
 .navbar-hamburger-button {
-    margin-right: 10vw;
+  margin-right: 10vw;
+  padding: 0;
+  border: 0;
 }
 
-a {
-  text-decoration: none !important;
+.nav-list {
+  margin-left: auto;
+  margin-right: 10vw;
 }
 
-@media (max-width: 1199.98px) { /* Ajustează această valoare în funcție de breakpoint-ul pentru 'navbar-expand-xl' */
-  #collapsibleNavbar {
+.nav-item-page {
+  color: darkblue;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 2.5vw;
+}
+
+/* media queries */
+@media (max-width: 1200px) { 
+  .contact-bar { /* hide contact bar when
+                    screen gets smaller */
+    display: none;
+  }
+
+  #collapsibleNavbar { /* move hamburger-button
+                          and options to the right
+                          side of the
+                          navigation-bar 
+                       */
     text-align: right;
   }
 
   #collapsibleNavbar .navbar-nav {
     justify-content: flex-end;
-  }
-
-  .contact-toolbar {
-    display: none;
   }
 }

@@ -2,12 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\app",
     "\\src\\app\\Custom Components",
     "\\src\\app\\Custom Components\\car-box",
+    "\\src\\app\\Custom Components\\navigation-bar",
     "\\src\\app\\Pages",
-    "\\src\\app\\Pages\\home",
-    "\\src\\assets\\Images"
+    "\\src\\app\\Pages\\home"
   ],
-  "SelectedNode": "\\angular.json",
+  "SelectedNode": "\\src\\app\\Custom Components\\car-box\\car-box.component.css",
   "PreviewInSolutionExplorer": false
 }
