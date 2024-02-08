@@ -33,6 +33,11 @@
   padding-left: 10px;
 }
 
+.p-multiselect-label {
+  padding-top: 11px;
+  padding-bottom: 7px;
+}
+
 ol, ul {
   padding-left: 0!important;
 }
