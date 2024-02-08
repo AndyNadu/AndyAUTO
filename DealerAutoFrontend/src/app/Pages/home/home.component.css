@@ -102,6 +102,14 @@ ol, ul {
 }
 
 /* media queries */
+
+@media (max-width: 1600px) {
+  .content-section {
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+}
+
 @media (max-width: 1200px) {
   .check-box-container {
     display: none;
