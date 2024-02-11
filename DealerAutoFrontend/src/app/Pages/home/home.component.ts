@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 //angular material
 import { FormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 //primeng components
@@ -20,7 +19,6 @@ import { NavigationBarComponent } from '../../Custom Components/navigation-bar/n
   standalone: true,
   imports: [
     FormsModule,
-    MatIconModule,
     MatPaginatorModule,
 
     ButtonModule,

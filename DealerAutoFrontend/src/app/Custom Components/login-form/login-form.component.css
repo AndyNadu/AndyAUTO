@@ -1,0 +1,63 @@
+.upper-buttons {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+}
+
+.custom-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  height: 50px;
+  min-height: 50px;
+  max-height: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  flex: 1;
+}
+
+.custom-btn:hover {
+  opacity: 0.9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.login-upper-btn {
+  margin: 50px 5px 50px 0;
+}
+
+.register-upper-btn {
+  margin: 50px 0 50px 5px;
+}
+
+.active-btn {
+  background-color: greenyellow;
+  color: darkblue;
+}
+
+.disabled-btn {
+  background-color: darkblue;
+  color: white;
+}
+
+.p-inputtext {
+  width: 100%;
+}
+
+.remember-me {
+  color: dimgray;
+}
+
+/* media queries */
+@media (max-width: 800px) {
+  .upper-buttons {
+    flex-direction: column;
+  }
+
+  .login-upper-btn, .register-upper-btn {
+    margin: 0 0 15px 0;
+  }
+}
