@@ -6,10 +6,11 @@
     "\\src\\app\\Custom Components",
     "\\src\\app\\Custom Components\\login-form",
     "\\src\\app\\Custom Components\\register-form",
-    "\\src\\app\\Frontend Services",
     "\\src\\app\\Frontend Services\\Login",
-    "\\src\\assets",
+    "\\src\\app\\Pages",
+    "\\src\\app\\Pages\\login",
     "\\src\\assets\\Images"
   ],
+  "SelectedNode": "\\src\\app\\Custom Components\\login-form\\login-form.component.html",
   "PreviewInSolutionExplorer": false
 }
