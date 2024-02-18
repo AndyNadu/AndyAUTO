@@ -1,0 +1,32 @@
+.full-car-box {
+  display: flex;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.full-car-box-wide {
+  height: 180px;
+}
+
+.full-car-box-tight {
+  width: 100%;
+  flex-direction: column;
+}
+
+/*media queries*/
+@media (max-width: 800px) { /* switch between components
+                               when screen gets too small */
+  .full-car-box-wide {
+    display: none;
+  }
+}
+
+@media (min-width: 801px) {
+  .full-car-box-tight {
+    display: none;
+  }
+}
+

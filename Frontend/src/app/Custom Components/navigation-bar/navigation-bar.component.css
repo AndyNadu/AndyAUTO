@@ -1,0 +1,76 @@
+.contact-bar {
+  height: 30px;
+  padding: 0;
+  color: darkblue;
+}
+
+.information {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  font-size: 18px;
+}
+
+.navigation-bar {
+  background-color: greenyellow;
+  color: darkblue;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.brand {
+  width: 120px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+  margin-left: 10vw;
+  text-decoration: none;
+}
+
+.bmw-logo {
+  background-color: greenyellow;
+  width: 35px;
+  margin-right: 5px;
+}
+
+.navbar-hamburger-button {
+  margin-right: 10vw;
+  padding: 0;
+  border: 0;
+}
+
+.nav-list {
+  margin-left: auto;
+  margin-right: 10vw;
+}
+
+.nav-item-page {
+  color: darkblue;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 2.5vw;
+}
+
+/* media queries */
+@media (max-width: 1200px) { 
+  .contact-bar { /* hide contact bar when
+                    screen gets smaller */
+    display: none;
+  }
+
+  #collapsibleNavbar { /* move hamburger-button
+                          and options to the right
+                          side of the
+                          navigation-bar 
+                       */
+    text-align: right;
+  }
+
+  #collapsibleNavbar .navbar-nav {
+    justify-content: flex-end;
+  }
+}

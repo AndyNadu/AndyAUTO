@@ -1,0 +1,86 @@
+<div class="upper-buttons">
+  <div class="login-upper-btn disabled-btn custom-btn"
+       (click)="showLoginForm()">
+    Login
+  </div>
+
+  <div class="register-upper-btn active-btn custom-btn">
+    Register a NEW ACCOUNT
+  </div>
+</div>
+
+<div class="d-flex flex-column">
+  <div class="input-row">
+
+    <div class="col left-input">
+      <span class="p-float-label">
+        <input pInputText [(ngModel)]="user.firstName"
+               [class.input-error]="submitAttempted && user.firstName === ''" />
+        <label for="first-name">First name</label>
+      </span>
+    </div>
+
+    <div class="col right-input">
+      <span class="p-float-label">
+        <input pInputText [(ngModel)]="user.lastName"
+               [class.input-error]="submitAttempted && user.lastName === ''" />
+        <label for="last-name">Last name</label>
+      </span>
+    </div>
+
+  </div>
+
+  <div class="input-row">
+
+    <div class="col left-input">
+      <span class="p-float-label">
+        <input pInputText [(ngModel)]="user.email"
+               [class.input-error]="submitAttempted && user.email === ''" />
+        <label for="email">Email address</label>
+      </span>
+    </div>
+
+    <div class="col right-input">
+      <span class="p-float-label">
+        <input pInputText [(ngModel)]="user.phoneNumber"
+               [class.input-error]="submitAttempted && user.phoneNumber === ''" />
+        <label for="hone-number">Phone number</label>
+      </span>
+    </div>
+
+  </div>
+
+  <div class="input-row">
+
+    <div class="col left-input">
+      <span class="p-float-label">
+        <input pInputText [(ngModel)]="user.password"
+               [class.input-error]="submitAttempted && user.password === ''" />
+        <label for="password">Password</label>
+      </span>
+    </div>
+
+    <div class="col right-input">
+      <span class="p-float-label">
+        <input pInputText [(ngModel)]="passwordConfirmation"
+               [class.input-error]="submitAttempted && passwordConfirmation === ''" />
+        <label for="password-confirmation">Confirm password</label>
+      </span>
+    </div>
+
+  </div>
+
+
+</div>
+
+@if (passwordsMatch == false)
+{
+  <div class="text-no-match">
+    Passwords don't match!
+  </div>
+}
+
+<div class="submit-button disabled-btn custom-btn"
+     (click)="registerAccount()">
+  Register
+</div>
