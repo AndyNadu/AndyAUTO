@@ -6,16 +6,31 @@
   margin-bottom: 350px;
 }
 
+.upper-checks {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 .checked-box {
   display: flex;
   align-items: center;
-  height: 80px;
-  width: 350px;
+  min-height: 80px;
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 5px 20px 0 rgba(31, 16, 74, .13);
-  margin: 0 15px 0 15px;
+  margin: 15px 15px 15px 15px;
   padding: 15px;
+}
+
+.input-row {
+  display: flex;
+  justify-content: center;
+}
+
+.two-inputs {
+  display: flex;
+  justify-content: center;
 }
 
 .p-inputwrapper {
@@ -63,4 +78,28 @@
 
 .footer {
   height: 50px;
+}
+
+/* media queries */
+@media (max-width: 1700px) {
+  .sell-a-car-section {
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  .upper-checks, .two-inputs {
+    flex-direction: column;
+  }
+
+  .two-inputs {
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .input-row {
+    flex-direction: column;
+  }
 }

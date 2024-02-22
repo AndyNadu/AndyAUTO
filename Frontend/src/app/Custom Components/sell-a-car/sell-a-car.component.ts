@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
 // angular material components
 import { MatInputModule } from '@angular/material/input';
 
@@ -9,8 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { DropdownModule } from 'primeng/dropdown';
 import { HttpClientModule } from '@angular/common/http';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { FileUpload, FileUploadModule } from 'primeng/fileupload';
-
+import { FileUploadModule } from 'primeng/fileupload';
 
 // services
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';

@@ -10,23 +10,32 @@
   flex-direction: column;
   position: sticky;
   height: calc(100vh - 40px);
-  color: darkblue;
+  color: #1f104a;
   margin-right: 50px;
 }
 
 .p-inputwrapper .p-multiselect {
   width: 100%;
   height: 40px;
+  font-style: italic;
 }
 
 .p-inputnumber-input {
   width: 100%;
   height: 40px;
+  font-style: italic;
+}
+
+.p-dropdown-label {
+  font-size: 16px!important;
+  padding-top: 14px;
+  font-style: italic;
 }
 
 .p-multiselect-panel .p-multiselect-items {
   padding-top: 0;
   padding-bottom: 0;
+  font-style: italic;
 }
 
 .p-multiselect-header, .p-multiselect-item, ol, ul {
@@ -34,7 +43,7 @@
 }
 
 .p-multiselect-label {
-  padding-top: 11px;
+  padding-top: 10px;
   padding-bottom: 7px;
 }
 
@@ -45,7 +54,7 @@ ol, ul {
 .search-car-button .p-button {
   width: 100%;
   height: 40px;
-  color: darkblue;
+  color: #1f104a;
   border: 0;
   border-radius: 15px;
   font-size: 16px;
@@ -53,14 +62,15 @@ ol, ul {
 }
 
 .show-results-button .p-button {
-  background-color: greenyellow;
+  background-color: #ff533d;
+  color: white;
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
 .reset-filters-button .p-button {
   background-color: white;
-  border: 2px solid darkblue;
+  border: 2px solid #1f104a;
   margin-bottom: 10px;
 }
 
@@ -91,7 +101,7 @@ ol, ul {
   align-items: center;
   margin-left: 1vw;
   margin-right: 1vw;
-  color: darkblue;
+  color: #1f104a;
   font-weight: bold;
 }
 
@@ -101,10 +111,6 @@ ol, ul {
 
 .sort-by-select .p-dropdown {
   width: 200px;
-}
-
-.text-darkblue {
-  color: darkblue !important;
 }
 
 /* media queries */

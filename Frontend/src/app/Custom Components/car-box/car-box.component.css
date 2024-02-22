@@ -16,6 +16,10 @@
   flex-direction: column;
 }
 
+.testare {
+  color: gray;
+}
+
 /*media queries*/
 @media (max-width: 800px) { /* switch between components
                                when screen gets too small */
