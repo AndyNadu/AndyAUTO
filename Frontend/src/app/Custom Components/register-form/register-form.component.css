@@ -34,12 +34,12 @@
 }
 
 .active-btn {
-  background-color: greenyellow;
-  color: darkblue;
+  background-color: #ff533d;
+  color: white;
 }
 
 .disabled-btn {
-  background-color: darkblue;
+  background-color: #1f104a;
   color: white;
 }
 
@@ -69,7 +69,7 @@
   border-color: red;
 }
 
-.text-no-match {
+.error-text {
   color: red;
 }
 

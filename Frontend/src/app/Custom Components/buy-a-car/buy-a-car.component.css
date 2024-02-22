@@ -1,0 +1,159 @@
+.content-section {
+  display: flex;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  padding: 0;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  height: calc(100vh - 40px);
+  color: darkblue;
+  margin-right: 50px;
+}
+
+.p-inputwrapper .p-multiselect {
+  width: 100%;
+  height: 40px;
+}
+
+.p-inputnumber-input {
+  width: 100%;
+  height: 40px;
+}
+
+.p-multiselect-panel .p-multiselect-items {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.p-multiselect-header, .p-multiselect-item, ol, ul {
+  padding-left: 10px;
+}
+
+.p-multiselect-label {
+  padding-top: 11px;
+  padding-bottom: 7px;
+}
+
+ol, ul {
+  padding-left: 0 !important;
+}
+
+.search-car-button .p-button {
+  width: 100%;
+  height: 40px;
+  color: darkblue;
+  border: 0;
+  border-radius: 15px;
+  font-size: 16px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.show-results-button .p-button {
+  background-color: greenyellow;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.reset-filters-button .p-button {
+  background-color: white;
+  border: 2px solid darkblue;
+  margin-bottom: 10px;
+}
+
+.search-car-button .p-button:hover {
+  opacity: 0.9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  justify-content: center;
+}
+
+.check-box-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px 150px 10px 150px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+
+.check-box {
+  display: flex;
+  align-items: center;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  color: darkblue;
+  font-weight: bold;
+}
+
+.number-sort {
+  margin-bottom: 10px;
+}
+
+.sort-by-select .p-dropdown {
+  width: 200px;
+}
+
+.text-darkblue {
+  color: darkblue !important;
+}
+
+/* media queries */
+@media (min-width: 2000px) {
+  .content-section {
+    margin-left: 17vw;
+    margin-right: 17vw;
+  }
+}
+
+@media (max-width: 1600px) {
+  .content-section {
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  .check-box-container {
+    display: none;
+  }
+
+  .content-section {
+    flex-direction: column;
+  }
+
+  .left-section {
+    width: 60%;
+    flex-basis: 100%;
+    position: initial;
+  }
+
+  .right-section {
+    margin-top: 40px;
+    width: 80%;
+  }
+
+  .content-section, .left-section, .right-section {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .left-section {
+    width: 80%;
+  }
+
+  .right-section {
+    width: 95%;
+  }
+}

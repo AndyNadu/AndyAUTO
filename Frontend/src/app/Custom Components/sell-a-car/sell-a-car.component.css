@@ -1,0 +1,66 @@
+.sell-a-car-section {
+  display: flex;
+  flex-direction: column;
+  margin-left: 17vw;
+  margin-right: 17vw;
+  margin-bottom: 350px;
+}
+
+.checked-box {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  width: 350px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 5px 20px 0 rgba(31, 16, 74, .13);
+  margin: 0 15px 0 15px;
+  padding: 15px;
+}
+
+.p-inputwrapper {
+  width: 100%;
+  height: 50px;
+}
+
+.p-inputtextarea {
+  width: 100%;
+  min-height: 100px;
+}
+
+.p-dropdown-label {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.submit-area {
+  width: 100%;
+  display: flex;
+}
+
+.submit-btn {
+  display: flex;
+  height: 50px;
+  width: 50%;
+  min-height: 50px;
+  max-height: 50px;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  background-color: #ff533d;
+  color: white;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.footer {
+  height: 50px;
+}

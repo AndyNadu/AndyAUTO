@@ -1,47 +1,44 @@
 import { Component } from '@angular/core';
-import { FormsModule, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 // primeNG
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 
 // services
-import { LoginService } from '../../Frontend Services/Login/login.service';
+import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
+// interfaces
+import { RegisterUser } from '../../Interfaces/RegisterUser';
 
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-register-form',
   standalone: true,
   imports: [
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
 
     CheckboxModule,
-    InputTextModule,
-
-    HttpClientModule
+    InputTextModule
   ],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.css'
 })
 export class RegisterFormComponent {
 
-  _loginService: LoginService;
+  _componentInteractionService: ComponentInteractionService;
   http: HttpClient;
 
-  constructor(_loginService: LoginService, http: HttpClient) {
-    this._loginService = _loginService;
-    this.http = http;
-  }
-
   submitAttempted: boolean = false;
-  passwordsMatch: boolean = true;
   emailAlreadyUsed: boolean = false;
+  passwordsMatch: boolean = true;
   passwordConfirmation: string = '';
-  user = {
+
+  user: RegisterUser = {
     firstName: '',
     lastName: '',
     password: '',
@@ -49,16 +46,27 @@ export class RegisterFormComponent {
     phoneNumber: '',
   }
 
+  constructor(_componentInteractionService: ComponentInteractionService,
+    http: HttpClient) {
+    this._componentInteractionService = _componentInteractionService;
+    this.http = http;
+  }
 
-  showLoginForm(): void {
-    this._loginService.setActiveComponentToLogin();
+  switchForm(activeComponent?: string): void {
+    const targetComponent = activeComponent || 'login';
+    this._componentInteractionService.setActiveComponent(targetComponent);
   }
+
+  readonly submitText: string = 'Successfully registered!';
+
   registerAccount(): void {
-    if (this.checkForEmptyInputs()) 
-      if (this.checkIfPasswordsMatch()) 
-        if (!this.checkIfEmailUsed())
-          this.postUserInDB();
+    if (this.checkForEmptyInputs()) // empty-field validator
+      if (!this.checkIfPasswordsMatch()) // passwords don't match validator
+        this.passwordsMatch = false;
+      else 
+        this.postUserInDB();
   }
+
   checkForEmptyInputs(): boolean {
     this.submitAttempted = true;
 
@@ -77,35 +85,27 @@ export class RegisterFormComponent {
 
     return true;
   }
+
   checkIfPasswordsMatch(): boolean {
     if (this.user.password == this.passwordConfirmation)
       return true;
     return false;
-    }
-  checkIfEmailUsed(): boolean {
-    this.http.get('http://localhost:5113/account/getUserByEmail?email=' + this.user.email)
-      .subscribe(
-        (res: object) => {
-          console.log(res);
-          if (res) 
-            this.emailAlreadyUsed = true;
-          else 
-            this.emailAlreadyUsed = false;
-        },
-        (err: any) => {
-          console.log(err)
-        }
-    );
-
-    console.log(this.emailAlreadyUsed);
   }
+
   postUserInDB(): void {
     this.http.post('http://localhost:5113/account/register', this.user)
       .subscribe(
         (res: any) => {
-          console.log("reusita frt");
+          this._componentInteractionService.setSubmitText('Successfully registered!');
+          this.switchForm('logged-in');
         },
-        (err: any) => console.log(err)
+        (err: any) => {
+          console.log(err);
+          if (err = 'Email already used') {
+            this.passwordsMatch = true;
+            this.emailAlreadyUsed = true;
+          }
+        }
       );
   }
 }

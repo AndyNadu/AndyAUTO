@@ -1,7 +1,7 @@
 .contact-bar {
   height: 30px;
   padding: 0;
-  color: darkblue;
+  color: #1f104a;
 }
 
 .information {
@@ -14,8 +14,8 @@
 }
 
 .navigation-bar {
-  background-color: greenyellow;
-  color: darkblue;
+  background-color: #1f104a;
+  color: white;
   padding-left: 50px;
   padding-right: 50px;
 }
@@ -31,7 +31,7 @@
 }
 
 .bmw-logo {
-  background-color: greenyellow;
+  background-color: #1f104a;
   width: 35px;
   margin-right: 5px;
 }
@@ -48,7 +48,7 @@
 }
 
 .nav-item-page {
-  color: darkblue;
+  color: white;
   font-weight: bold;
   cursor: pointer;
   font-size: 18px;

@@ -34,12 +34,12 @@
 }
 
 .active-btn {
-  background-color: greenyellow;
-  color: darkblue;
+  background-color: #ff533d;
+  color: white;
 }
 
 .disabled-btn {
-  background-color: darkblue;
+  background-color: #1f104a;
   color: white;
 }
 
@@ -49,6 +49,14 @@
 
 .remember-me {
   color: dimgray;
+}
+
+.error-text {
+  color: red;
+}
+
+.input-error {
+  border-color: red;
 }
 
 /* media queries */

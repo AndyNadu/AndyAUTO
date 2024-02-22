@@ -1,6 +1,6 @@
 <div class="upper-buttons">
   <div class="login-upper-btn disabled-btn custom-btn"
-       (click)="showLoginForm()">
+       (click)="switchForm()">
     Login
   </div>
 
@@ -14,7 +14,8 @@
 
     <div class="col left-input">
       <span class="p-float-label">
-        <input pInputText [(ngModel)]="user.firstName"
+        <input pInputText
+               [(ngModel)]="user.firstName"
                [class.input-error]="submitAttempted && user.firstName === ''" />
         <label for="first-name">First name</label>
       </span>
@@ -22,7 +23,8 @@
 
     <div class="col right-input">
       <span class="p-float-label">
-        <input pInputText [(ngModel)]="user.lastName"
+        <input pInputText
+               [(ngModel)]="user.lastName"
                [class.input-error]="submitAttempted && user.lastName === ''" />
         <label for="last-name">Last name</label>
       </span>
@@ -34,7 +36,8 @@
 
     <div class="col left-input">
       <span class="p-float-label">
-        <input pInputText [(ngModel)]="user.email"
+        <input pInputText
+               [(ngModel)]="user.email"
                [class.input-error]="submitAttempted && user.email === ''" />
         <label for="email">Email address</label>
       </span>
@@ -42,7 +45,8 @@
 
     <div class="col right-input">
       <span class="p-float-label">
-        <input pInputText [(ngModel)]="user.phoneNumber"
+        <input pInputText
+               [(ngModel)]="user.phoneNumber"
                [class.input-error]="submitAttempted && user.phoneNumber === ''" />
         <label for="hone-number">Phone number</label>
       </span>
@@ -54,7 +58,8 @@
 
     <div class="col left-input">
       <span class="p-float-label">
-        <input pInputText [(ngModel)]="user.password"
+        <input pInputText
+               [(ngModel)]="user.password"
                [class.input-error]="submitAttempted && user.password === ''" />
         <label for="password">Password</label>
       </span>
@@ -62,7 +67,8 @@
 
     <div class="col right-input">
       <span class="p-float-label">
-        <input pInputText [(ngModel)]="passwordConfirmation"
+        <input pInputText
+               [(ngModel)]="passwordConfirmation"
                [class.input-error]="submitAttempted && passwordConfirmation === ''" />
         <label for="password-confirmation">Confirm password</label>
       </span>
@@ -75,8 +81,15 @@
 
 @if (passwordsMatch == false)
 {
-  <div class="text-no-match">
+  <div class="error-text">
     Passwords don't match!
+  </div>
+}
+
+@if (emailAlreadyUsed == true)
+{
+  <div class="error-text">
+    This email has already been used!
   </div>
 }
 
@@ -84,3 +97,4 @@
      (click)="registerAccount()">
   Register
 </div>
+
