@@ -6,15 +6,22 @@ import { MatInputModule } from '@angular/material/input';
 
 // primeNG components
 import { DropdownModule } from 'primeng/dropdown';
+import { FileUploadModule } from 'primeng/fileupload';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { HttpClientModule } from '@angular/common/http';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { FileUploadModule } from 'primeng/fileupload';
 
 // services
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
 // constants
 import { CarMake } from '../../Constants/CarMake';
+import { BodyType } from '../../Constants/BodyType';
+import { FuelType } from '../../Constants/FuelType';
+import { TractionType } from '../../Constants/TractionType';
+import { SteeringWheel } from '../../Constants/SteeringWheel';
+import { ProductionYear } from '../../Constants/ProductionYear';
+import { TransmissionType } from '../../Constants/TransmissionType';
 
 interface UploadEvent {
   originalEvent: Event;
@@ -32,6 +39,7 @@ interface UploadEvent {
     DropdownModule,
     FileUploadModule,
     HttpClientModule,
+    InputNumberModule,
     InputTextareaModule
   ],
   templateUrl: './sell-a-car.component.html',
@@ -43,10 +51,33 @@ export class SellACarComponent {
 
   // constants
   readonly carMakes: string[] = Array.from(CarMake.carMakes.keys());
+  selectedCarMake!: string;
 
-  selectedCarMake: string = ' ';
+  carModels: string[] = [];
+  selectedCarModel!: string;
 
-  carModels: string[] | undefined = [];
+  readonly productionYears: number[] = ProductionYear.productionYears;
+  selectedProductionYear!: number;
+
+  readonly fuelTypes: string[] = FuelType.fuelTypes;
+  selectedFuelType!: string;
+
+  readonly transmissionTypes: string[] = TransmissionType.transmissionTypes;
+  selectedTransmissionType!: string;
+
+  readonly tractionTypes: string[] = TractionType.tractionTypes;
+  selectedTractionType!: string;
+
+  readonly bodyTypes: string[] = BodyType.bodyTypes;
+  selectedBodyType!: string;
+
+  readonly steeringWheels: string[] = SteeringWheel.steeringWheels;
+  selectedSteeringWheel!: string;
+
+  description!: string;
+  mileage!: number;
+  cubicCapacity!: number;
+  price!: number;
 
 
   constructor(_componentInteractionService: ComponentInteractionService) {
@@ -63,8 +94,9 @@ export class SellACarComponent {
     { name: 'Paris', code: 'PRS' }
   ];
 
-  onCarMakeSelected(event: any) {
-    this.carModels = CarMake.carMakes.get(this.selectedCarMake);
+  onCarMakeSelected() {
+    console.log('aici');
+    this.carModels = CarMake.carMakes.get(this.selectedCarMake) || [];
   }
 
   scrollDown(elementID: string): void {

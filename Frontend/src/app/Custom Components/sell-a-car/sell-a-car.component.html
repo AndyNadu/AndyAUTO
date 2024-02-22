@@ -58,7 +58,9 @@
 
         <p-dropdown [options]="carMakes"
                     [(ngModel)]="selectedCarMake"
-                    placeholder="Choose">
+                    placeholder="Choose"
+                    (ngModelChange)="onCarMakeSelected()">
+>
         </p-dropdown>
       </div>
 
@@ -67,10 +69,9 @@
           Model
         </div>
 
-        <p-dropdown [options]="cities"
-                    [(ngModel)]="selectedCity"
-                    placeholder="Choose"
-                    (change)="onCarMakeSelected($event)">
+        <p-dropdown [options]="carModels"
+                    [(ngModel)]="selectedCarModel"
+                    placeholder="Choose">
         </p-dropdown>
       </div>
     </div>
@@ -81,11 +82,9 @@
           First registration
         </div>
 
-        <p-dropdown [options]="cities"
-                    [(ngModel)]="selectedCity"
-                    placeholder="Choose"
-                    [editable]="true"
-                    optionLabel="name">
+        <p-dropdown [options]="productionYears"
+                    [(ngModel)]="selectedProductionYear"
+                    placeholder="Choose">
         </p-dropdown>
       </div>
 
@@ -94,12 +93,12 @@
           Mileage
         </div>
 
-        <p-dropdown [options]="cities"
-                    [(ngModel)]="selectedCity"
-                    placeholder="Choose"
-                    [editable]="true"
-                    optionLabel="name">
-        </p-dropdown>
+        <p-inputNumber inputId="integeronly"
+                       [(ngModel)]="mileage"
+                       [min]="1"
+                       [max]="10000000"
+                       placeholder="Choose">
+        </p-inputNumber>
       </div>
     </div>
   </div>
@@ -110,6 +109,7 @@
     </div>
 
     <textarea pInputTextarea
+              [(ngModel)]="description"
               [autoResize]="true">
     </textarea>
   </div>
@@ -120,11 +120,9 @@
         Fuel type
       </div>
 
-      <p-dropdown [options]="cities"
-                  [(ngModel)]="selectedCity"
-                  placeholder="Select a City"
-                  [editable]="true"
-                  optionLabel="name">
+      <p-dropdown [options]="fuelTypes"
+                  [(ngModel)]="selectedFuelType"
+                  placeholder="Choose">
       </p-dropdown>
     </div>
 
@@ -133,12 +131,12 @@
         Cubic capacity
       </div>
 
-      <p-dropdown [options]="cities"
-                  [(ngModel)]="selectedCity"
-                  placeholder="Select a City"
-                  [editable]="true"
-                  optionLabel="name">
-      </p-dropdown>
+      <p-inputNumber inputId="integeronly"
+                     [(ngModel)]="cubicCapacity"
+                     [min]="1"
+                     [max]="30000"
+                     placeholder="Choose">
+      </p-inputNumber>
     </div>
 
     <div class="col d-flex flex-column justify-content-center px-3 mb-3">
@@ -146,11 +144,9 @@
         Transmission
       </div>
 
-      <p-dropdown [options]="cities"
-                  [(ngModel)]="selectedCity"
-                  placeholder="Select a City"
-                  [editable]="true"
-                  optionLabel="name">
+      <p-dropdown [options]="transmissionTypes"
+                  [(ngModel)]="selectedTransmissionType"
+                  placeholder="Choose">
       </p-dropdown>
     </div>
   </div>
@@ -161,11 +157,9 @@
         Traction
       </div>
 
-      <p-dropdown [options]="cities"
-                  [(ngModel)]="selectedCity"
-                  placeholder="Select a City"
-                  [editable]="true"
-                  optionLabel="name">
+      <p-dropdown [options]="tractionTypes"
+                  [(ngModel)]="selectedTractionType"
+                  placeholder="Choose">
       </p-dropdown>
     </div>
 
@@ -174,11 +168,9 @@
         Body type
       </div>
 
-      <p-dropdown [options]="cities"
-                  [(ngModel)]="selectedCity"
-                  placeholder="Select a City"
-                  [editable]="true"
-                  optionLabel="name">
+      <p-dropdown [options]="bodyTypes"
+                  [(ngModel)]="selectedBodyType"
+                  placeholder="Choose">
       </p-dropdown>
     </div>
 
@@ -187,11 +179,9 @@
         Steering wheel
       </div>
 
-      <p-dropdown [options]="cities"
-                  [(ngModel)]="selectedCity"
-                  placeholder="Select a City"
-                  [editable]="true"
-                  optionLabel="name">
+      <p-dropdown [options]="steeringWheels"
+                  [(ngModel)]="selectedSteeringWheel"
+                  placeholder="Choose">
       </p-dropdown>
     </div>
   </div>
@@ -214,12 +204,12 @@
       Finally, set the desired price!
     </div>
 
-    <p-dropdown [options]="cities"
-                [(ngModel)]="selectedCity"
-                placeholder="Select a City"
-                [editable]="true"
-                optionLabel="name">
-    </p-dropdown>
+    <p-inputNumber inputId="integeronly"
+                   [(ngModel)]="price"
+                   [min]="1"
+                   [max]="10000000"
+                   placeholder="Choose">
+    </p-inputNumber>
   </div>
 
   <div class="w-100 d-flex justify-content-center mt-2 mb-5">

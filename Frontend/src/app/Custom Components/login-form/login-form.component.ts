@@ -39,7 +39,7 @@ export class LoginFormComponent {
     email: '',
     password: ''
   }
-
+  
   constructor(_componentInteractionService: ComponentInteractionService,
     http: HttpClient) {
     this._componentInteractionService = _componentInteractionService;

@@ -64,6 +64,12 @@
   font-style: italic;
 }
 
+.p-inputnumber-input {
+  min-width: 100%;
+  height: 50px;
+  font-style: italic;
+}
+
 .submit-area {
   width: 100%;
   display: flex;
