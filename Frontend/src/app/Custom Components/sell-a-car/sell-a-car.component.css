@@ -3,10 +3,9 @@
   flex-direction: column;
   margin-left: 17vw;
   margin-right: 17vw;
-  margin-bottom: 350px;
 }
 
-.upper-checks {
+.checks {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -19,13 +18,20 @@
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 5px 20px 0 rgba(31, 16, 74, .13);
-  margin: 15px 15px 15px 15px;
+  margin: 15px 0 15px 0;
   padding: 15px;
+}
+
+.checks > :first-child {
+  margin-right: 20px;
+}
+
+.checks > :last-child {
+  margin-left: 20px;
 }
 
 .input-row {
   display: flex;
-  justify-content: center;
 }
 
 .two-inputs {
@@ -41,6 +47,16 @@
 .p-inputtextarea {
   width: 100%;
   min-height: 100px;
+}
+
+.p-dropdown-item {
+  padding-left: 8px;
+}
+
+.p-dropdown-items {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .p-dropdown-label {
@@ -81,6 +97,13 @@
 }
 
 /* media queries */
+@media (min-width: 2200px) {
+  .sell-a-car-section {
+    margin-left: 25vw;
+    margin-right: 25vw;
+  }
+}
+
 @media (max-width: 1700px) {
   .sell-a-car-section {
     margin-left: 10vw;
@@ -88,9 +111,17 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .upper-checks, .two-inputs {
+@media (max-width: 1400px) {
+  .checks, .two-inputs {
     flex-direction: column;
+  }
+
+  .checks > :first-child {
+    margin-right: 0;
+  }
+
+  .checks > :last-child {
+    margin-left: 0;
   }
 
   .two-inputs {
@@ -98,8 +129,20 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .input-row {
     flex-direction: column;
+  }
+
+  .sell-a-car-section {
+    margin-left: 15vw;
+    margin-right: 15vw;
+  }
+}
+
+@media (max-width: 700px) {
+  .sell-a-car-section {
+    margin-left: 7vw;
+    margin-right: 7vw;
   }
 }

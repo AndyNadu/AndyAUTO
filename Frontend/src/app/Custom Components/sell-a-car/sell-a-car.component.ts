@@ -13,6 +13,9 @@ import { FileUploadModule } from 'primeng/fileupload';
 // services
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
+// constants
+import { CarMake } from '../../Constants/CarMake';
+
 interface UploadEvent {
   originalEvent: Event;
   files: File[];
@@ -35,20 +38,23 @@ interface UploadEvent {
   styleUrl: './sell-a-car.component.css'
 })
 export class SellACarComponent {
-
+  // services
   _componentInteractionService: ComponentInteractionService;
+
+  // constants
+  readonly carMakes: string[] = Array.from(CarMake.carMakes.keys());
+
+  selectedCarMake: string = ' ';
+
+  carModels: string[] | undefined = [];
+
 
   constructor(_componentInteractionService: ComponentInteractionService) {
     this._componentInteractionService = _componentInteractionService;
   }
 
-  scrollDown(elementID: string): void {
-    this._componentInteractionService.scrollDown(elementID);
-  }
-
 
   selectedCity: any | undefined;
-
   cities: any = [
     { name: 'New York', code: 'NY' },
     { name: 'Rome', code: 'RM' },
@@ -57,5 +63,11 @@ export class SellACarComponent {
     { name: 'Paris', code: 'PRS' }
   ];
 
+  onCarMakeSelected(event: any) {
+    this.carModels = CarMake.carMakes.get(this.selectedCarMake);
+  }
 
+  scrollDown(elementID: string): void {
+    this._componentInteractionService.scrollDown(elementID);
+  }
 }

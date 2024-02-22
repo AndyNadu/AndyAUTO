@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 // custom components
+import { FooterComponent } from '../../Custom Components/footer/footer.component';
 import { BuyACarComponent } from '../../Custom Components/buy-a-car/buy-a-car.component';
 import { SellACarComponent } from '../../Custom Components/sell-a-car/sell-a-car.component';
 import { NavigationBarComponent } from '../../Custom Components/navigation-bar/navigation-bar.component';
@@ -12,9 +13,10 @@ import { ComponentInteractionService } from '../../Frontend Services/component-i
   selector: 'app-home',
   standalone: true,
   imports: [
+    FooterComponent,
     BuyACarComponent,
     SellACarComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
