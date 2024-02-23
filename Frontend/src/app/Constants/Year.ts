@@ -1,5 +1,5 @@
-export class ProductionYear {
-  static readonly productionYears: number[] = this.generateYears();
+export class Year {
+  static readonly years: number[] = this.generateYears();
 
   static generateYears(): number[] {
     let numberlist = [];

@@ -1,3 +1,4 @@
+// angular
 import { Component } from '@angular/core';
 
 // services
@@ -11,9 +12,14 @@ import { ComponentInteractionService } from '../../Frontend Services/component-i
   styleUrl: './logged-in.component.css'
 })
 export class LoggedInComponent {
+
+  // services
   _componentInteractionService: ComponentInteractionService;
+
+  // variables
   submitText: string;
 
+  // constructor
   constructor(_componentInteractionService: ComponentInteractionService) {
     this._componentInteractionService = _componentInteractionService;
     this.submitText = this._componentInteractionService.getSubmitText();

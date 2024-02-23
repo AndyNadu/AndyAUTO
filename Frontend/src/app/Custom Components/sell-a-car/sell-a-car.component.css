@@ -44,9 +44,17 @@
   height: 50px;
 }
 
+.p-inputwrapper .error {
+  border-color: red!important;
+}
+
 .p-inputtextarea {
   width: 100%;
   min-height: 100px;
+}
+
+.p-inputnumber {
+  width: 100%;
 }
 
 .p-dropdown-item {

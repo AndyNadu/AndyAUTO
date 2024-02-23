@@ -1,3 +1,4 @@
+// angular
 import { Component } from '@angular/core';
 
 // custom components
@@ -21,12 +22,15 @@ import { ComponentInteractionService } from '../../Frontend Services/component-i
 })
 export class LoginComponent {
 
+  // services
   _componentInteractionService: ComponentInteractionService;
 
+  // constructor
   constructor(_componentInteractionService: ComponentInteractionService) {
     this._componentInteractionService = _componentInteractionService;
   }
 
+  // methods
   getActiveComponent(): string {
     return this._componentInteractionService.getActiveComponent();
   }

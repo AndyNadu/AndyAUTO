@@ -1,3 +1,4 @@
+// angular
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -30,9 +31,12 @@ import { RegisterUser } from '../../Interfaces/RegisterUser';
 })
 export class RegisterFormComponent {
 
+  // services
   _componentInteractionService: ComponentInteractionService;
   http: HttpClient;
 
+  // variables
+  readonly submitText: string = 'Successfully registered!';
   submitAttempted: boolean = false;
   emailAlreadyUsed: boolean = false;
   passwordsMatch: boolean = true;
@@ -46,18 +50,18 @@ export class RegisterFormComponent {
     phoneNumber: '',
   }
 
+  // constructor
   constructor(_componentInteractionService: ComponentInteractionService,
     http: HttpClient) {
     this._componentInteractionService = _componentInteractionService;
     this.http = http;
   }
 
+  // methods
   switchForm(activeComponent?: string): void {
     const targetComponent = activeComponent || 'login';
     this._componentInteractionService.setActiveComponent(targetComponent);
   }
-
-  readonly submitText: string = 'Successfully registered!';
 
   registerAccount(): void {
     if (this.checkForEmptyInputs()) // empty-field validator

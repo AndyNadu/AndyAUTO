@@ -1,5 +1,5 @@
-export class CarMake {
-  static readonly carMakes = new Map<string, string[]>([
+export class Make {
+  static readonly makes = new Map<string, string[]>([
     [
       'Audi',
 

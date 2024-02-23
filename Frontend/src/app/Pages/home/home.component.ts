@@ -1,3 +1,4 @@
+// angular
 import { Component } from '@angular/core';
 
 // custom components
@@ -23,12 +24,15 @@ import { ComponentInteractionService } from '../../Frontend Services/component-i
 })
 export class HomeComponent {
 
+  // services
   _componentInteractionService: ComponentInteractionService;
 
+  // constructor
   constructor(_componentInteractionService: ComponentInteractionService) {
     this._componentInteractionService = _componentInteractionService;
   }
 
+  // methods
   getPageStatus(): string {
     return this._componentInteractionService.getPageStatus();
   }

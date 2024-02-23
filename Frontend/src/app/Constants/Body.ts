@@ -1,5 +1,5 @@
-export class BodyType {
-  static readonly bodyTypes: string[] = [
+export class Body {
+  static readonly bodies: string[] = [
     'Cabriolet',
     'Estate car',
     'Saloon',

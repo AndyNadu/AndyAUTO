@@ -1,5 +1,5 @@
-export class FuelType {
-  static readonly fuelTypes: string[] = [
+export class Fuel {
+  static readonly fuels: string[] = [
     'Gasoline',
     'Diesel',
     'Hybrid',

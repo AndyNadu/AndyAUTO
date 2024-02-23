@@ -1,3 +1,4 @@
+// angular
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -32,6 +33,7 @@ import { CarBoxComponent } from '../car-box/car-box.component';
   styleUrl: './buy-a-car.component.css'
 })
 export class BuyACarComponent {
+
   //some hardcoded info
   cars: object[] = [
     { label: 'BMW' },

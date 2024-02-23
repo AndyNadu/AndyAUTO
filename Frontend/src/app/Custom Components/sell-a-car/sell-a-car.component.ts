@@ -1,5 +1,7 @@
+// angular
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FormBuilder, FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // angular material components
 import { MatInputModule } from '@angular/material/input';
@@ -8,31 +10,29 @@ import { MatInputModule } from '@angular/material/input';
 import { DropdownModule } from 'primeng/dropdown';
 import { FileUploadModule } from 'primeng/fileupload';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { HttpClientModule } from '@angular/common/http';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 
 // services
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
-// constants
-import { CarMake } from '../../Constants/CarMake';
-import { BodyType } from '../../Constants/BodyType';
-import { FuelType } from '../../Constants/FuelType';
-import { TractionType } from '../../Constants/TractionType';
-import { SteeringWheel } from '../../Constants/SteeringWheel';
-import { ProductionYear } from '../../Constants/ProductionYear';
-import { TransmissionType } from '../../Constants/TransmissionType';
+// interfaces
+import { Car } from '../../Interfaces/Car';
 
-interface UploadEvent {
-  originalEvent: Event;
-  files: File[];
-}
+// constants
+import { Make } from '../../Constants/Make';
+import { Body } from '../../Constants/Body';
+import { Fuel } from '../../Constants/Fuel';
+import { Traction } from '../../Constants/Traction';
+import { Wheel } from '../../Constants/Wheel';
+import { Year } from '../../Constants/Year';
+import { Transmission } from '../../Constants/Transmission';
 
 @Component({
   selector: 'app-sell-a-car',
   standalone: true,
   imports: [
     FormsModule,
+    ReactiveFormsModule,
 
     MatInputModule,
 
@@ -46,60 +46,154 @@ interface UploadEvent {
   styleUrl: './sell-a-car.component.css'
 })
 export class SellACarComponent {
+
   // services
   _componentInteractionService: ComponentInteractionService;
 
   // constants
-  readonly carMakes: string[] = Array.from(CarMake.carMakes.keys());
-  selectedCarMake!: string;
+  readonly Makes: string[] = Array.from(Make.makes.keys());
+  Models: string[] = [];
+  readonly Years: number[] = Year.years;
+  readonly Fuels: string[] = Fuel.fuels;
+  readonly Transmissions: string[] = Transmission.transmissions;
+  readonly Tractions: string[] = Traction.tractions;
+  readonly Bodies: string[] = Body.bodies;
+  readonly Wheels: string[] = Wheel.wheels;
 
-  carModels: string[] = [];
-  selectedCarModel!: string;
-
-  readonly productionYears: number[] = ProductionYear.productionYears;
-  selectedProductionYear!: number;
-
-  readonly fuelTypes: string[] = FuelType.fuelTypes;
-  selectedFuelType!: string;
-
-  readonly transmissionTypes: string[] = TransmissionType.transmissionTypes;
-  selectedTransmissionType!: string;
-
-  readonly tractionTypes: string[] = TractionType.tractionTypes;
-  selectedTractionType!: string;
-
-  readonly bodyTypes: string[] = BodyType.bodyTypes;
-  selectedBodyType!: string;
-
-  readonly steeringWheels: string[] = SteeringWheel.steeringWheels;
-  selectedSteeringWheel!: string;
-
-  description!: string;
+  // input variables
+  make!: string;
+  model!: string;
+  year!: number;
   mileage!: number;
+  description!: string;
+  fuel!: string;
   cubicCapacity!: number;
+  power!: number;
+  transmission!: string;
+  traction!: string;
+  body!: string;
+  wheel!: string;
+  photos!: File[];
   price!: number;
 
+  // validators
+  makeEmpty: boolean = false;
+  modelEmpty: boolean = false;
+  yearEmpty: boolean = false;
+  mileageEmpty: boolean = false;
+  descriptionEmpty: boolean = false;
+  fuelEmpty: boolean = false;
+  cubicCapacityEmpty: boolean = false;
+  powerEmpty: boolean = false;
+  transmissionEmpty: boolean = false;
+  tractionEmpty: boolean = false;
+  bodyEmpty: boolean = false;
+  wheelEmpty: boolean = false;
+  //photosEmpty: boolean = false;
+  priceEmpty: boolean = false;
 
-  constructor(_componentInteractionService: ComponentInteractionService) {
+  // other
+  formGroup: FormGroup;
+
+  // constructor
+  constructor(_componentInteractionService: ComponentInteractionService,
+              formBuilder: FormBuilder) {
     this._componentInteractionService = _componentInteractionService;
+    this.formGroup = formBuilder.group({
+      textAreaValue: ['']
+    });
   }
 
-
-  selectedCity: any | undefined;
-  cities: any = [
-    { name: 'New York', code: 'NY' },
-    { name: 'Rome', code: 'RM' },
-    { name: 'London', code: 'LDN' },
-    { name: 'Istanbul', code: 'IST' },
-    { name: 'Paris', code: 'PRS' }
-  ];
-
-  onCarMakeSelected() {
-    console.log('aici');
-    this.carModels = CarMake.carMakes.get(this.selectedCarMake) || [];
-  }
-
+  // methods
   scrollDown(elementID: string): void {
     this._componentInteractionService.scrollDown(elementID);
+  }
+
+  onMakeSelected(): void {
+    this.Models = Make.makes.get(this.make) || [];
+    this.makeEmpty = this.make === undefined;
+  }
+  onModelSelected(): void {
+    this.modelEmpty = this.model === undefined;
+  }
+  onYearSelected(): void {
+    this.yearEmpty = this.year === undefined;
+  }
+  onMileageUpdated(): void {
+    this.mileageEmpty = this.mileage === undefined || this.mileage === null;
+  }
+  onFuelSelected(): void {
+    this.fuelEmpty = this.fuel === undefined;
+  }
+  onCubicCapacityUpdated(): void {
+    this.cubicCapacityEmpty = this.cubicCapacity === undefined || this.cubicCapacity === null;
+  }
+  onPowerUpdated(): void {
+    this.powerEmpty = this.power === undefined || this.power === null;
+  }
+  onTransmissionSelected(): void {
+    this.transmissionEmpty = this.transmission === undefined;
+  }
+  onTractionSelected(): void {
+    this.tractionEmpty = this.traction === undefined;
+  }
+  onBodySelected(): void {
+    this.bodyEmpty = this.body === undefined;
+  }
+  onWheelSelected(): void {
+    this.wheelEmpty = this.wheel === undefined;
+  }
+
+  onTextAreaCompleted(): void {
+    if (this.formGroup) {
+      const textControl = this.formGroup.get('textAreaValue');
+      if (textControl)
+        this.description = textControl.value;
+    }
+  }
+
+  onPhotoUploaded(event: any): void {
+    this.photos = event.files;
+  }
+  onPriceUpdated(): void {
+    this.priceEmpty = this.price === undefined || this.price === null;
+  }
+
+  checkForEmptyInputs(car: Car): void {
+    this.makeEmpty = car.make === undefined;
+    this.modelEmpty = car.model === undefined;
+    this.yearEmpty = car.year === undefined;
+    this.mileageEmpty = car.mileage === undefined || car.mileage === null;
+    this.descriptionEmpty = car.description === undefined || car.description.trim() === '';
+    this.fuelEmpty = car.fuel === undefined;
+    this.cubicCapacityEmpty = car.cubicCapacity === undefined || car.cubicCapacity === null;
+    this.powerEmpty = car.power === undefined || car.power === null;
+    this.transmissionEmpty = car.transmission === undefined;
+    this.tractionEmpty = car.traction === undefined;
+    this.bodyEmpty = car.body === undefined;
+    this.wheelEmpty = car.wheel === undefined;
+    //this.photosEmpty = car.photos.length === 0;
+    this.priceEmpty = car.price === undefined || car.price === null;
+  }
+
+  submitPost(): void {
+    const car: Car = {
+        make: this.make,
+        model: this.model,
+        year: this.year,
+        mileage: this.mileage,
+        description: this.description,
+        fuel: this.fuel,
+        cubicCapacity: this.cubicCapacity,
+        power: this.power,
+        transmission: this.transmission,
+        traction: this.traction,
+        body: this.body,
+        wheel: this.wheel,
+        photos: this.photos,
+        price: this.price
+    };
+
+    this.checkForEmptyInputs(car);
   }
 }

@@ -1,3 +1,4 @@
+// angular
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -29,9 +30,11 @@ import { LoginUser } from '../../Interfaces/LoginUser';
 })
 export class LoginFormComponent {
 
+  // services
   _componentInteractionService: ComponentInteractionService;
   http: HttpClient;
 
+  // variables
   submitAttempted: boolean = false;
   invalidCredentials: boolean = false;
 
@@ -39,13 +42,15 @@ export class LoginFormComponent {
     email: '',
     password: ''
   }
-  
+
+  // constructor
   constructor(_componentInteractionService: ComponentInteractionService,
     http: HttpClient) {
     this._componentInteractionService = _componentInteractionService;
     this.http = http;
   }
 
+  // methods
   switchForm(activeComponent?: string): void {
     const targetComponent = activeComponent || 'register';
     this._componentInteractionService.setActiveComponent(targetComponent);

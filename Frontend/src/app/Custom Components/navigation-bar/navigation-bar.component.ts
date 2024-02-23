@@ -1,3 +1,4 @@
+// angular
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -15,12 +16,15 @@ import { ComponentInteractionService } from '../../Frontend Services/component-i
 })
 export class NavigationBarComponent {
 
+  // services
   _componentInteractionService: ComponentInteractionService;
 
+  // constructor
   constructor(_componentInteractionService: ComponentInteractionService) {
     this._componentInteractionService = _componentInteractionService;
   }
 
+  // methods
   setPageStatusToBuying(): void {
     if (this._componentInteractionService.getPageStatus() == 'buy-a-car') 
       this.scrollDown('content-section-element');

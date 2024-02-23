@@ -56,11 +56,12 @@
           Make
         </div>
 
-        <p-dropdown [options]="carMakes"
-                    [(ngModel)]="selectedCarMake"
+        <p-dropdown [options]="Makes"
+                    [(ngModel)]="make"
                     placeholder="Choose"
-                    (ngModelChange)="onCarMakeSelected()">
->
+                    [class.ng-invalid]="makeEmpty"
+                    [class.ng-dirty]="makeEmpty"
+                    (ngModelChange)="onMakeSelected()">
         </p-dropdown>
       </div>
 
@@ -69,9 +70,12 @@
           Model
         </div>
 
-        <p-dropdown [options]="carModels"
-                    [(ngModel)]="selectedCarModel"
-                    placeholder="Choose">
+        <p-dropdown [options]="Models"
+                    [(ngModel)]="model"
+                    [class.ng-invalid]="modelEmpty"
+                    [class.ng-dirty]="modelEmpty"
+                    placeholder="Choose"
+                    (ngModelChange)="onModelSelected()">
         </p-dropdown>
       </div>
     </div>
@@ -82,9 +86,12 @@
           First registration
         </div>
 
-        <p-dropdown [options]="productionYears"
-                    [(ngModel)]="selectedProductionYear"
-                    placeholder="Choose">
+        <p-dropdown [options]="Years"
+                    [(ngModel)]="year"
+                    [class.ng-invalid]="yearEmpty"
+                    [class.ng-dirty]="yearEmpty"
+                    placeholder="Choose"
+                    (ngModelChange)="onYearSelected()">
         </p-dropdown>
       </div>
 
@@ -97,7 +104,10 @@
                        [(ngModel)]="mileage"
                        [min]="1"
                        [max]="10000000"
-                       placeholder="Choose">
+                       [class.ng-invalid]="mileageEmpty"
+                       [class.ng-dirty]="mileageEmpty"
+                       placeholder="Mileage (km)"
+                       (ngModelChange)="onMileageUpdated()">
         </p-inputNumber>
       </div>
     </div>
@@ -108,46 +118,79 @@
       Car description
     </div>
 
-    <textarea pInputTextarea
-              [(ngModel)]="description"
-              [autoResize]="true">
-    </textarea>
+    <form [formGroup]="formGroup">
+      <textarea [autoResize]="true"
+                pInputTextarea
+                (ngModelChange)="onTextAreaCompleted()"
+                formControlName="textAreaValue"></textarea>
+    </form>
+    
+
   </div>
 
   <div class="input-row">
-    <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-      <div class="h5 mb-1 fw-bold">
-        Fuel type
+    <div class="two-inputs col">
+      <div class="col d-flex flex-column justify-content-center px-3 mb-3">
+        <div class="h5 mb-1 fw-bold">
+          Fuel type
+        </div>
+
+        <p-dropdown [options]="Fuels"
+                    [(ngModel)]="fuel"
+                    [class.ng-invalid]="fuelEmpty"
+                    [class.ng-dirty]="fuelEmpty"
+                    placeholder="Choose"
+                    (ngModelChange)="onFuelSelected()">
+        </p-dropdown>
       </div>
 
-      <p-dropdown [options]="fuelTypes"
-                  [(ngModel)]="selectedFuelType"
-                  placeholder="Choose">
-      </p-dropdown>
+      <div class="col d-flex flex-column justify-content-center px-3 mb-3">
+        <div class="h5 mb-1 fw-bold">
+          Cubic capacity
+        </div>
+
+        <p-inputNumber inputId="integeronly"
+                       [(ngModel)]="cubicCapacity"
+                       [min]="1"
+                       [max]="30000"
+                       [class.ng-invalid]="cubicCapacityEmpty"
+                       [class.ng-dirty]="cubicCapacityEmpty"
+                       placeholder="Cubic capacity (cm&#xB3;)"
+                       (ngModelChange)="onCubicCapacityUpdated()">
+        </p-inputNumber>
+      </div>
     </div>
 
-    <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-      <div class="h5 mb-1 fw-bold">
-        Cubic capacity
+    <div class="two-inputs col">
+      <div class="col d-flex flex-column justify-content-center px-3 mb-3">
+        <div class="h5 mb-1 fw-bold">
+          Power
+        </div>
+
+        <p-inputNumber inputId="integeronly"
+                       [(ngModel)]="power"
+                       [min]="1"
+                       [max]="3000"
+                       [class.ng-invalid]="powerEmpty"
+                       [class.ng-dirty]="powerEmpty"
+                       placeholder="Power (hp)"
+                       (ngModelChange)="onPowerUpdated()">
+        </p-inputNumber>
       </div>
 
-      <p-inputNumber inputId="integeronly"
-                     [(ngModel)]="cubicCapacity"
-                     [min]="1"
-                     [max]="30000"
-                     placeholder="Choose">
-      </p-inputNumber>
-    </div>
+      <div class="col d-flex flex-column justify-content-center px-3 mb-3">
+        <div class="h5 mb-1 fw-bold">
+          Transmission
+        </div>
 
-    <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-      <div class="h5 mb-1 fw-bold">
-        Transmission
+        <p-dropdown [options]="Transmissions"
+                    [(ngModel)]="transmission"
+                    [class.ng-invalid]="transmissionEmpty"
+                    [class.ng-dirty]="transmissionEmpty"
+                    placeholder="Choose"
+                    (ngModelChange)="onTransmissionSelected()">
+        </p-dropdown>
       </div>
-
-      <p-dropdown [options]="transmissionTypes"
-                  [(ngModel)]="selectedTransmissionType"
-                  placeholder="Choose">
-      </p-dropdown>
     </div>
   </div>
 
@@ -157,9 +200,12 @@
         Traction
       </div>
 
-      <p-dropdown [options]="tractionTypes"
-                  [(ngModel)]="selectedTractionType"
-                  placeholder="Choose">
+      <p-dropdown [options]="Tractions"
+                  [(ngModel)]="traction"
+                  [class.ng-invalid]="tractionEmpty"
+                  [class.ng-dirty]="tractionEmpty"
+                  placeholder="Choose"
+                  (ngModelChange)="onTractionSelected()">
       </p-dropdown>
     </div>
 
@@ -168,9 +214,12 @@
         Body type
       </div>
 
-      <p-dropdown [options]="bodyTypes"
-                  [(ngModel)]="selectedBodyType"
-                  placeholder="Choose">
+      <p-dropdown [options]="Bodies"
+                  [(ngModel)]="body"
+                  [class.ng-invalid]="bodyEmpty"
+                  [class.ng-dirty]="bodyEmpty"
+                  placeholder="Choose"
+                  (ngModelChange)="onBodySelected()">
       </p-dropdown>
     </div>
 
@@ -179,9 +228,12 @@
         Steering wheel
       </div>
 
-      <p-dropdown [options]="steeringWheels"
-                  [(ngModel)]="selectedSteeringWheel"
-                  placeholder="Choose">
+      <p-dropdown [options]="Wheels"
+                  [(ngModel)]="wheel"
+                  [class.ng-invalid]="wheelEmpty"
+                  [class.ng-dirty]="wheelEmpty"
+                  placeholder="Choose"
+                  (ngModelChange)="onWheelSelected()">
       </p-dropdown>
     </div>
   </div>
@@ -195,7 +247,8 @@
                   [customUpload]="true"
                   [auto]="true"
                   [multiple]="true"
-                  accept="image/*">
+                  accept="image/*"
+                  (onUpload)="onPhotoUploaded($event)">
     </p-fileUpload>
   </div>
 
@@ -208,12 +261,16 @@
                    [(ngModel)]="price"
                    [min]="1"
                    [max]="10000000"
-                   placeholder="Choose">
+                   [class.ng-invalid]="priceEmpty"
+                   [class.ng-dirty]="priceEmpty"
+                   placeholder="Price (€)"
+                   (ngModelChange)="onPriceUpdated()">
     </p-inputNumber>
   </div>
 
   <div class="w-100 d-flex justify-content-center mt-2 mb-5">
-    <div class="submit-btn">
+    <div class="submit-btn"
+         (click)="submitPost()">
       Submit
     </div>
   </div>
