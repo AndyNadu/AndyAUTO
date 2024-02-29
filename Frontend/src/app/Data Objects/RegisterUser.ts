@@ -1,4 +1,4 @@
-export interface RegisterUser {
+export class RegisterUser {
   firstName: string,
   lastName: string,
   password: string,

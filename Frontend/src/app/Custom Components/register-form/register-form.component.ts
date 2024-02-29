@@ -11,8 +11,8 @@ import { InputTextModule } from 'primeng/inputtext';
 // services
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
-// interfaces
-import { RegisterUser } from '../../Interfaces/RegisterUser';
+// data objects
+import { RegisterUser } from '../../Data objects/RegisterUser';
 
 
 @Component({
@@ -71,7 +71,7 @@ export class RegisterFormComponent {
         this.postUserInDB();
   }
 
-  checkForEmptyInputs(): boolean {
+  noEmptyInputs(): boolean {
     this.submitAttempted = true;
 
     if (this.user.firstName == '')

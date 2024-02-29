@@ -11,8 +11,8 @@ import { InputTextModule } from 'primeng/inputtext';
 // services
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
-// interfaces
-import { LoginUser } from '../../Interfaces/LoginUser';
+// data objects
+import { LoginPost } from '../../Data Objects/LoginPost';
 
 @Component({
   selector: 'app-login-form',
@@ -35,17 +35,11 @@ export class LoginFormComponent {
   http: HttpClient;
 
   // variables
-  submitAttempted: boolean = false;
-  invalidCredentials: boolean = false;
-
-  readonly user: LoginUser = {
-    email: '',
-    password: ''
-  }
+  readonly loginPost: LoginPost = new LoginPost();
 
   // constructor
   constructor(_componentInteractionService: ComponentInteractionService,
-    http: HttpClient) {
+              http: HttpClient) {
     this._componentInteractionService = _componentInteractionService;
     this.http = http;
   }
@@ -57,33 +51,10 @@ export class LoginFormComponent {
   }
 
   login(): void {
-    if (this.checkForEmptyInputs())
-      this.searchIfUserExists();
-  }
 
-  checkForEmptyInputs(): boolean {
-    this.submitAttempted = true;
+    this.loginPost.buttonSubmitted = true;
 
-    if (this.user.email == '')
-      return false;
-    if (this.user.password == '')
-      return false;
-
-    return true;
-  }
-
-  searchIfUserExists(): void {
-    this.http.post('http://localhost:5113/account/searchIfUserExists', this.user)
-      .subscribe(
-        (res: any) => {
-          this._componentInteractionService.setSubmitText('Successfully logged in!');
-          this.switchForm('logged-in');
-        },
-        (err: any) => {
-          if (err = 'Invalid credentials!') {
-            this.invalidCredentials = true;
-          }
-        }
-    );
+    if (this.loginPost.noEmptyInputs())
+      this.loginPost.tryLogin(this.http);
   }
 }

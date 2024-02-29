@@ -56,12 +56,12 @@
           Make
         </div>
 
-        <p-dropdown [options]="Makes"
-                    [(ngModel)]="make"
-                    placeholder="Choose"
-                    [class.ng-invalid]="makeEmpty"
-                    [class.ng-dirty]="makeEmpty"
-                    (ngModelChange)="onMakeSelected()">
+        <p-dropdown [options]="car.Makes"
+                    [(ngModel)]="car.make"
+                    [class.ng-invalid]="car.makeEmpty"
+                    [class.ng-dirty]="car.makeEmpty"
+                    (ngModelChange)="car.onMakeSelected()"
+                    placeholder="Choose">
         </p-dropdown>
       </div>
 
@@ -70,12 +70,12 @@
           Model
         </div>
 
-        <p-dropdown [options]="Models"
-                    [(ngModel)]="model"
-                    [class.ng-invalid]="modelEmpty"
-                    [class.ng-dirty]="modelEmpty"
-                    placeholder="Choose"
-                    (ngModelChange)="onModelSelected()">
+        <p-dropdown [options]="car.Models"
+                    [(ngModel)]="car.model"
+                    [class.ng-invalid]="car.modelEmpty"
+                    [class.ng-dirty]="car.modelEmpty"
+                    (ngModelChange)="car.onModelSelected()"
+                    placeholder="Choose">
         </p-dropdown>
       </div>
     </div>
@@ -86,12 +86,12 @@
           First registration
         </div>
 
-        <p-dropdown [options]="Years"
-                    [(ngModel)]="year"
-                    [class.ng-invalid]="yearEmpty"
-                    [class.ng-dirty]="yearEmpty"
-                    placeholder="Choose"
-                    (ngModelChange)="onYearSelected()">
+        <p-dropdown [options]="car.Years"
+                    [(ngModel)]="car.year"
+                    [class.ng-invalid]="car.yearEmpty"
+                    [class.ng-dirty]="car.yearEmpty"
+                    (ngModelChange)="car.onYearSelected()"
+                    placeholder="Choose">
         </p-dropdown>
       </div>
 
@@ -101,13 +101,13 @@
         </div>
 
         <p-inputNumber inputId="integeronly"
-                       [(ngModel)]="mileage"
+                       [(ngModel)]="car.mileage"
+                       [class.ng-invalid]="car.mileageEmpty"
+                       [class.ng-dirty]="car.mileageEmpty"
+                       (ngModelChange)="car.onMileageUpdated()"
                        [min]="1"
                        [max]="10000000"
-                       [class.ng-invalid]="mileageEmpty"
-                       [class.ng-dirty]="mileageEmpty"
-                       placeholder="Mileage (km)"
-                       (ngModelChange)="onMileageUpdated()">
+                       placeholder="Mileage (km)">
         </p-inputNumber>
       </div>
     </div>
@@ -118,11 +118,13 @@
       Car description
     </div>
 
-    <form [formGroup]="formGroup">
+    <form [formGroup]="car.formGroup">
       <textarea [autoResize]="true"
                 pInputTextarea
-                (ngModelChange)="onTextAreaCompleted()"
-                formControlName="textAreaValue"></textarea>
+                [class.ng-invalid]="car.descriptionEmpty"
+                [class.ng-dirty]="car.descriptionEmpty"
+                (ngModelChange)="car.onDescriptionCompleted()"
+                formControlName="description"></textarea>
     </form>
     
 
@@ -135,12 +137,12 @@
           Fuel type
         </div>
 
-        <p-dropdown [options]="Fuels"
-                    [(ngModel)]="fuel"
-                    [class.ng-invalid]="fuelEmpty"
-                    [class.ng-dirty]="fuelEmpty"
-                    placeholder="Choose"
-                    (ngModelChange)="onFuelSelected()">
+        <p-dropdown [options]="car.Fuels"
+                    [(ngModel)]="car.fuel"
+                    [class.ng-invalid]="car.fuelEmpty"
+                    [class.ng-dirty]="car.fuelEmpty"
+                    (ngModelChange)="car.onFuelSelected()"
+                    placeholder="Choose">
         </p-dropdown>
       </div>
 
@@ -150,13 +152,13 @@
         </div>
 
         <p-inputNumber inputId="integeronly"
-                       [(ngModel)]="cubicCapacity"
+                       [(ngModel)]="car.cubicCapacity"
+                       [class.ng-invalid]="car.cubicCapacityEmpty"
+                       [class.ng-dirty]="car.cubicCapacityEmpty"
+                       (ngModelChange)="car.onCubicCapacityUpdated()"
                        [min]="1"
                        [max]="30000"
-                       [class.ng-invalid]="cubicCapacityEmpty"
-                       [class.ng-dirty]="cubicCapacityEmpty"
-                       placeholder="Cubic capacity (cm&#xB3;)"
-                       (ngModelChange)="onCubicCapacityUpdated()">
+                       placeholder="Cubic capacity (cm&#xB3;)">
         </p-inputNumber>
       </div>
     </div>
@@ -168,13 +170,13 @@
         </div>
 
         <p-inputNumber inputId="integeronly"
-                       [(ngModel)]="power"
+                       [(ngModel)]="car.power"
+                       [class.ng-invalid]="car.powerEmpty"
+                       [class.ng-dirty]="car.powerEmpty"
+                       (ngModelChange)="car.onPowerUpdated()"
                        [min]="1"
                        [max]="3000"
-                       [class.ng-invalid]="powerEmpty"
-                       [class.ng-dirty]="powerEmpty"
-                       placeholder="Power (hp)"
-                       (ngModelChange)="onPowerUpdated()">
+                       placeholder="Power (hp)">
         </p-inputNumber>
       </div>
 
@@ -183,12 +185,12 @@
           Transmission
         </div>
 
-        <p-dropdown [options]="Transmissions"
-                    [(ngModel)]="transmission"
-                    [class.ng-invalid]="transmissionEmpty"
-                    [class.ng-dirty]="transmissionEmpty"
-                    placeholder="Choose"
-                    (ngModelChange)="onTransmissionSelected()">
+        <p-dropdown [options]="car.Transmissions"
+                    [(ngModel)]="car.transmission"
+                    [class.ng-invalid]="car.transmissionEmpty"
+                    [class.ng-dirty]="car.transmissionEmpty"
+                    (ngModelChange)="car.onTransmissionSelected()"
+                    placeholder="Choose">
         </p-dropdown>
       </div>
     </div>
@@ -200,12 +202,12 @@
         Traction
       </div>
 
-      <p-dropdown [options]="Tractions"
-                  [(ngModel)]="traction"
-                  [class.ng-invalid]="tractionEmpty"
-                  [class.ng-dirty]="tractionEmpty"
-                  placeholder="Choose"
-                  (ngModelChange)="onTractionSelected()">
+      <p-dropdown [options]="car.Tractions"
+                  [(ngModel)]="car.traction"
+                  [class.ng-invalid]="car.tractionEmpty"
+                  [class.ng-dirty]="car.tractionEmpty"
+                  (ngModelChange)="car.onTractionSelected()"
+                  placeholder="Choose">
       </p-dropdown>
     </div>
 
@@ -214,12 +216,12 @@
         Body type
       </div>
 
-      <p-dropdown [options]="Bodies"
-                  [(ngModel)]="body"
-                  [class.ng-invalid]="bodyEmpty"
-                  [class.ng-dirty]="bodyEmpty"
-                  placeholder="Choose"
-                  (ngModelChange)="onBodySelected()">
+      <p-dropdown [options]="car.Bodies"
+                  [(ngModel)]="car.body"
+                  [class.ng-invalid]="car.bodyEmpty"
+                  [class.ng-dirty]="car.bodyEmpty"
+                  (ngModelChange)="car.onBodySelected()"
+                  placeholder="Choose">
       </p-dropdown>
     </div>
 
@@ -228,12 +230,12 @@
         Steering wheel
       </div>
 
-      <p-dropdown [options]="Wheels"
-                  [(ngModel)]="wheel"
-                  [class.ng-invalid]="wheelEmpty"
-                  [class.ng-dirty]="wheelEmpty"
-                  placeholder="Choose"
-                  (ngModelChange)="onWheelSelected()">
+      <p-dropdown [options]="car.Wheels"
+                  [(ngModel)]="car.wheel"
+                  [class.ng-invalid]="car.wheelEmpty"
+                  [class.ng-dirty]="car.wheelEmpty"
+                  (ngModelChange)="car.onWheelSelected()"
+                  placeholder="Choose">
       </p-dropdown>
     </div>
   </div>
@@ -243,13 +245,17 @@
       Upload photos
     </div>
 
-    <p-fileUpload name="file"
-                  [customUpload]="true"
-                  [auto]="true"
-                  [multiple]="true"
-                  accept="image/*"
-                  (onUpload)="onPhotoUploaded($event)">
-    </p-fileUpload>
+    <div [class.photos-box]="car.photosEmpty">
+      <p-fileUpload name="file"
+                    [customUpload]="true"
+                    [auto]="true"
+                    [multiple]="true"
+                    accept="image/*"
+                    (onSelect)="car.onPhotoSelected($event)"
+                    (onRemove)="car.onPhotoRemoved($event)">
+      </p-fileUpload>
+    </div>
+
   </div>
 
   <div class="w-100 d-flex flex-column justify-content-center px-3 mb-3">
@@ -258,13 +264,13 @@
     </div>
 
     <p-inputNumber inputId="integeronly"
-                   [(ngModel)]="price"
+                   [(ngModel)]="car.price"
+                   [class.ng-invalid]="car.priceEmpty"
+                   [class.ng-dirty]="car.priceEmpty"
+                   (ngModelChange)="car.onPriceUpdated()"
                    [min]="1"
                    [max]="10000000"
-                   [class.ng-invalid]="priceEmpty"
-                   [class.ng-dirty]="priceEmpty"
-                   placeholder="Price (€)"
-                   (ngModelChange)="onPriceUpdated()">
+                   placeholder="Price (€)">
     </p-inputNumber>
   </div>
 

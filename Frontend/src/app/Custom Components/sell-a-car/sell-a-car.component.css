@@ -110,6 +110,11 @@
   height: 50px;
 }
 
+.photos-box {
+  border: 1px solid red;
+  border-radius: 6px;
+}
+
 /* media queries */
 @media (min-width: 2200px) {
   .sell-a-car-section {
