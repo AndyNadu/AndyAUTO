@@ -13,6 +13,6 @@ namespace DealerAUTO.Repository.Interfaces
     public interface IUserRepository
     {
         public void RegisterAccount(User user);
-        public User GetUserByEmail(string email);
+        public LoginResponseUserDTO? GetUserByEmail(string email);
     }
 }

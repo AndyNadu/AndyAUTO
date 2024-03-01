@@ -1,0 +1,4 @@
+1. Safe authentication system (jwt)
+2. Double-check register / login (frontend + backend)
+3. Implement account details page
+4. Add * over password in register / login

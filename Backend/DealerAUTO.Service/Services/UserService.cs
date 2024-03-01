@@ -22,7 +22,7 @@ namespace DealerAUTO.Service.Services
             _userRepository = userRepository;
         } 
 
-        public void RegisterAccount(UserDTO user)
+        public void RegisterAccount(User user)
         {
             var newUser = new User
             {
@@ -37,9 +37,22 @@ namespace DealerAUTO.Service.Services
             _userRepository.RegisterAccount(newUser);
         }
 
-        public User GetUserByEmail(string email)
+        public LoginResponseUserDTO? Login(LoginPostUserDTO user)
         {
-            return _userRepository.GetUserByEmail(email);
+            LoginResponseUserDTO? _user = _userRepository.GetUserByEmail(user.Email);
+
+            if (_user != null && CheckCredentials(user, _user))
+                return _user;
+
+            return null;
+        }
+
+        public Boolean CheckCredentials(LoginPostUserDTO user, LoginResponseUserDTO _user)
+        {
+            if (user.Email == _user.Email &&
+                user.Password == _user.Password)
+                return true;
+            return false;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace DealerAUTO.Repository.Repositories
 
     public class UserRepository : IUserRepository
     {
-        DealerAUTOContext _dbContext = new DealerAUTOContext();
+        readonly DealerAUTOContext _dbContext = new DealerAUTOContext();
 
         public void RegisterAccount(User user)
         {
@@ -23,9 +23,12 @@ namespace DealerAUTO.Repository.Repositories
             _dbContext.SaveChanges();
         }
 
-        public User GetUserByEmail(string email)
+        public LoginResponseUserDTO? GetUserByEmail(string email)
         {
-            return _dbContext.Users.FirstOrDefault(u => u.Email == email);
+            User? _user = _dbContext.Users.FirstOrDefault(u => u.Email == email);
+
+            return _user == null ? null : new LoginResponseUserDTO(_user.Id, 
+                _user.Email, _user.Password);
         }
     }
 }

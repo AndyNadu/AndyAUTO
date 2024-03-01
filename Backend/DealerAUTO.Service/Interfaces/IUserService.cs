@@ -12,7 +12,8 @@ namespace DealerAUTO.Service.Interfaces
 {
     public interface IUserService
     {
-        public void RegisterAccount(UserDTO user);
-        public User GetUserByEmail(string email);
+        public void RegisterAccount(User user);
+        public LoginResponseUserDTO? Login(LoginPostUserDTO user);
+        public Boolean CheckCredentials(LoginPostUserDTO user, LoginResponseUserDTO _user);
     }
 }
