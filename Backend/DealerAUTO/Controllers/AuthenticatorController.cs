@@ -18,13 +18,13 @@ namespace DealerAUTO.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult RegisterAccount([FromBody] UserDTO user)
+        public IActionResult RegisterAccount([FromBody] User user)
         {
             IActionResult result = Ok();
 
             try
             {
-                _userService.RegisterAccount(user);
+                //_userService.RegisterAccount(user);
             }
             catch (Exception ex)
             {
@@ -34,15 +34,16 @@ namespace DealerAUTO.Controllers
             return result;
         }
 
-        [HttpGet("getUserByEmail")]
-        public IActionResult GetUserByEmail(string email)
+        [HttpPost("login")]
+        public IActionResult Login(LoginPostUserDTO user)
         {
             IActionResult result;
 
             try
             {
-                User user = _userService.GetUserByEmail(email);
-                result = Ok(user);
+                LoginResponseUserDTO? _user = _userService.Login(user);
+
+                result = _user == null ? BadRequest("Invalid credentials") : Ok(_user);
             }
             catch (Exception ex)
             {
