@@ -12,7 +12,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
 // data objects
-import { RegisterUser } from '../../Data objects/RegisterUser';
+import { RegisterUser } from '../../Models/RegisterUser';
 
 
 @Component({
@@ -64,35 +64,35 @@ export class RegisterFormComponent {
   }
 
   registerAccount(): void {
-    if (this.checkForEmptyInputs()) // empty-field validator
-      if (!this.checkIfPasswordsMatch()) // passwords don't match validator
-        this.passwordsMatch = false;
-      else 
-        this.postUserInDB();
+    //if (this.checkForEmptyInputs()) // empty-field validator
+    //  if (!this.checkIfPasswordsMatch()) // passwords don't match validator
+    //    this.passwordsMatch = false;
+    //  else 
+    //    this.postUserInDB();
   }
 
   noEmptyInputs(): boolean {
     this.submitAttempted = true;
 
-    if (this.user.firstName == '')
-      return false;
-    if (this.user.lastName == '')
-      return false;
-    if (this.user.password == '')
-      return false;
-    if (this.user.email == '')
-      return false;
-    if (this.user.phoneNumber == '')
-      return false;
-    if (this.passwordConfirmation == '')
-      return false;
+    //if (this.user.firstName == '')
+    //  return false;
+    //if (this.user.lastName == '')
+    //  return false;
+    //if (this.user.password == '')
+    //  return false;
+    //if (this.user.email == '')
+    //  return false;
+    //if (this.user.phoneNumber == '')
+    //  return false;
+    //if (this.passwordConfirmation == '')
+    //  return false;
 
     return true;
   }
 
   checkIfPasswordsMatch(): boolean {
-    if (this.user.password == this.passwordConfirmation)
-      return true;
+    //if (this.user.password == this.passwordConfirmation)
+    //  return true;
     return false;
   }
 

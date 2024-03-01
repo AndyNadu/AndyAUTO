@@ -16,7 +16,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
 // data objects
-import { CarPost } from '../../Data Objects/CarPost';
+import { CarPost } from '../../Models/CarPost';
 
 @Component({
   selector: 'app-sell-a-car',

@@ -1,8 +1,7 @@
 // angular
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
 
 // primeNG
 import { CheckboxModule } from 'primeng/checkbox';
@@ -11,8 +10,9 @@ import { InputTextModule } from 'primeng/inputtext';
 // services
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
-// data objects
-import { LoginPost } from '../../Data Objects/LoginPost';
+// models && DTOs
+import { LoginPostUserDTO } from '../../Data Transfer Objects/LoginPostUserDTO';
+import { LoginResponseUserDTO } from '../../Data Transfer Objects/LoginResponseUserDTO';
 
 @Component({
   selector: 'app-login-form',
@@ -30,18 +30,18 @@ import { LoginPost } from '../../Data Objects/LoginPost';
 })
 export class LoginFormComponent {
 
-  // services
-  _componentInteractionService: ComponentInteractionService;
-  http: HttpClient;
-
   // variables
-  readonly loginPost: LoginPost = new LoginPost();
+  loginForm: FormGroup;
+  invalidCredentials: boolean = false;
 
   // constructor
-  constructor(_componentInteractionService: ComponentInteractionService,
-              http: HttpClient) {
-    this._componentInteractionService = _componentInteractionService;
-    this.http = http;
+  constructor(private _componentInteractionService: ComponentInteractionService,
+    private formBuilder: FormBuilder,
+    private http: HttpClient) {
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
   // methods
@@ -51,10 +51,36 @@ export class LoginFormComponent {
   }
 
   login(): void {
+    Object.keys(this.loginForm.controls).forEach(key => {
+      const control = this.loginForm.get(key);
+      control!.markAsDirty();
+    });
 
-    this.loginPost.buttonSubmitted = true;
+    if (this.loginForm.valid) {
+      const user: LoginPostUserDTO = {
+        email: String(this.loginForm.get('email')!.value),
+        password: String(this.loginForm.get('password')!.value)
+      };
 
-    if (this.loginPost.noEmptyInputs())
-      this.loginPost.tryLogin(this.http);
+      this.http.post <LoginResponseUserDTO>('http://localhost:5113/account/login', user)
+        .subscribe(
+          (res: LoginResponseUserDTO) => {
+            sessionStorage.setItem('userId', JSON.stringify(res.id));
+            sessionStorage.setItem('userEmail', res.email);
+            sessionStorage.setItem('userPassword', res.password);
+
+            console.log(sessionStorage['userId']);
+            console.log(sessionStorage['userEmail']);
+            console.log(sessionStorage['userPassword']);
+
+            this._componentInteractionService.setSubmitText('Successfully logged in');
+            this.switchForm('logged-in');
+          },
+          (err: HttpErrorResponse) => {
+            this.invalidCredentials = true;
+            console.log(err);
+          }
+        );
+    }
   }
 }
