@@ -1,8 +1,7 @@
 // angular
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
 
 // primeNG
 import { CheckboxModule } from 'primeng/checkbox';
@@ -11,8 +10,9 @@ import { InputTextModule } from 'primeng/inputtext';
 // services
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
-// data objects
-import { RegisterUser } from '../../Models/RegisterUser';
+// models && DTOs
+import { RegisterPostUserDTO } from '../../Data Transfer Objects/RegisterPostUserDTO';
+import { RegisterResponseUserDTO } from '../../Data Transfer Objects/RegisterResponseUserDTO';
 
 
 @Component({
@@ -31,30 +31,24 @@ import { RegisterUser } from '../../Models/RegisterUser';
 })
 export class RegisterFormComponent {
 
-  // services
-  _componentInteractionService: ComponentInteractionService;
-  http: HttpClient;
-
   // variables
-  readonly submitText: string = 'Successfully registered!';
-  submitAttempted: boolean = false;
+  registerForm: FormGroup;
+
   emailAlreadyUsed: boolean = false;
   passwordsMatch: boolean = true;
-  passwordConfirmation: string = '';
-
-  user: RegisterUser = {
-    firstName: '',
-    lastName: '',
-    password: '',
-    email: '',
-    phoneNumber: '',
-  }
 
   // constructor
-  constructor(_componentInteractionService: ComponentInteractionService,
-    http: HttpClient) {
-    this._componentInteractionService = _componentInteractionService;
-    this.http = http;
+  constructor(private _componentInteractionService: ComponentInteractionService,
+              private formBuilder: FormBuilder,
+              private http: HttpClient) {
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      phone: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      passwordConfirmation: ['', Validators.required]
+    });
   }
 
   // methods
@@ -63,53 +57,45 @@ export class RegisterFormComponent {
     this._componentInteractionService.setActiveComponent(targetComponent);
   }
 
-  registerAccount(): void {
-    //if (this.checkForEmptyInputs()) // empty-field validator
-    //  if (!this.checkIfPasswordsMatch()) // passwords don't match validator
-    //    this.passwordsMatch = false;
-    //  else 
-    //    this.postUserInDB();
-  }
+  register(): void {
+    Object.keys(this.registerForm.controls).forEach(key => {
+      const control = this.registerForm.get(key);
+      control!.markAsDirty();
+    });
 
-  noEmptyInputs(): boolean {
-    this.submitAttempted = true;
+    if (this.registerForm.valid)
+      if (this.registerForm.get('password')!.value != this.registerForm.get('passwordConfirmation')!.value)
+        this.passwordsMatch = false;
+      else {
+        const user: RegisterPostUserDTO = {
+          firstName: String(this.registerForm.get('firstName')!.value),
+          lastName: String(this.registerForm.get('lastName')!.value),
+          phone: String(this.registerForm.get('phone')!.value),
+          email: String(this.registerForm.get('email')!.value),
+          password: String(this.registerForm.get('password')!.value),
+        };
 
-    //if (this.user.firstName == '')
-    //  return false;
-    //if (this.user.lastName == '')
-    //  return false;
-    //if (this.user.password == '')
-    //  return false;
-    //if (this.user.email == '')
-    //  return false;
-    //if (this.user.phoneNumber == '')
-    //  return false;
-    //if (this.passwordConfirmation == '')
-    //  return false;
+        this.http.post<RegisterResponseUserDTO>('http://localhost:5113/account/register', user)
+          .subscribe(
+            (res: RegisterResponseUserDTO) => {
+              sessionStorage.setItem('userId', JSON.stringify(res.id));
+              sessionStorage.setItem('userEmail', res.email);
+              sessionStorage.setItem('userPassword', res.password);
 
-    return true;
-  }
+              console.log(sessionStorage['userId']);
+              console.log(sessionStorage['userEmail']);
+              console.log(sessionStorage['userPassword']);
 
-  checkIfPasswordsMatch(): boolean {
-    //if (this.user.password == this.passwordConfirmation)
-    //  return true;
-    return false;
-  }
-
-  postUserInDB(): void {
-    this.http.post('http://localhost:5113/account/register', this.user)
-      .subscribe(
-        (res: any) => {
-          this._componentInteractionService.setSubmitText('Successfully registered!');
-          this.switchForm('logged-in');
-        },
-        (err: any) => {
-          console.log(err);
-          if (err = 'Email already used') {
-            this.passwordsMatch = true;
-            this.emailAlreadyUsed = true;
-          }
-        }
-      );
+              this._componentInteractionService.setSubmitText('Successfully registered!');
+              this.switchForm('logged-in');
+            },
+            (err: HttpErrorResponse) => {
+              if (err.error == 'Email already used') {
+                this.passwordsMatch = false;
+                this.emailAlreadyUsed = true;
+              }
+            }
+          );
+      }
   }
 }

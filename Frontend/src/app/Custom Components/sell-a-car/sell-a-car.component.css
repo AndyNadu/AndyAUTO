@@ -115,6 +115,11 @@
   border-radius: 6px;
 }
 
+.p-dropdown .p-dropdown-label.p-placeholder .ng-dirty.ng-invalid{
+  color: red!important;
+}
+
+
 /* media queries */
 @media (min-width: 2200px) {
   .sell-a-car-section {

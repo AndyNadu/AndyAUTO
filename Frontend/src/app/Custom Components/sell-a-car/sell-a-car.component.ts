@@ -1,7 +1,7 @@
 // angular
 import { Component } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { FormBuilder, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
 
 // angular material components
 import { MatInputModule } from '@angular/material/input';
@@ -15,8 +15,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 // services
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
-// data objects
-import { CarPost } from '../../Models/CarPost';
+// models && DTOs
+import { CarsList } from '../../Constants/CarsList';
 
 @Component({
   selector: 'app-sell-a-car',
@@ -38,18 +38,16 @@ import { CarPost } from '../../Models/CarPost';
 })
 export class SellACarComponent {
 
-  // services
-  _componentInteractionService: ComponentInteractionService;
-
-  // input variables
-  carPost: CarPost = new CarPost();
+  // variables
+  sellForm: FormGroup;
+  carsList: CarsList = new CarsList();
 
   // constructor
-  constructor(_componentInteractionService: ComponentInteractionService,
-              formBuilder: FormBuilder) {
-    this._componentInteractionService = _componentInteractionService;
-    this.carPost.formGroup = formBuilder.group({
-      description: ['']
+  constructor(private _componentInteractionService: ComponentInteractionService,
+              private formBuilder: FormBuilder,
+              private http: HttpClient) {
+    this.sellForm = this.formBuilder.group({
+      make: ['', Validators.required]
     });
   }
 
@@ -58,8 +56,11 @@ export class SellACarComponent {
     this._componentInteractionService.scrollDown(elementID);
   }
 
-  submitPost(): void {
-    this.carPost.buttonSubmitted = true;
-    this.carPost.checkForEmptyInputs();
+  submit(): void {
+    Object.keys(this.sellForm.controls).forEach(key => {
+      const control = this.sellForm.get(key);
+      control!.markAsDirty();
+    });
+
   }
 }

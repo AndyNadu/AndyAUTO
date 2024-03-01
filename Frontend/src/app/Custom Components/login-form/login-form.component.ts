@@ -1,6 +1,6 @@
 // angular
 import { Component } from '@angular/core';
-import { HttpClient, HttpClientModule, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
 
 // primeNG
@@ -23,7 +23,7 @@ import { LoginResponseUserDTO } from '../../Data Transfer Objects/LoginResponseU
     ReactiveFormsModule,
 
     CheckboxModule,
-    InputTextModule
+    InputTextModule,
   ],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
@@ -36,8 +36,8 @@ export class LoginFormComponent {
 
   // constructor
   constructor(private _componentInteractionService: ComponentInteractionService,
-    private formBuilder: FormBuilder,
-    private http: HttpClient) {
+              private formBuilder: FormBuilder,
+              private http: HttpClient) {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -68,10 +68,6 @@ export class LoginFormComponent {
             sessionStorage.setItem('userId', JSON.stringify(res.id));
             sessionStorage.setItem('userEmail', res.email);
             sessionStorage.setItem('userPassword', res.password);
-
-            console.log(sessionStorage['userId']);
-            console.log(sessionStorage['userEmail']);
-            console.log(sessionStorage['userPassword']);
 
             this._componentInteractionService.setSubmitText('Successfully logged in');
             this.switchForm('logged-in');
