@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DealerAUTO.Repository")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+129e8031a832d53a3d3ed2a1a5ec2f25b4393ec7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8144faad3591e37b5d218f92cf684c71e6c6f07f")]
 [assembly: System.Reflection.AssemblyProductAttribute("DealerAUTO.Repository")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DealerAUTO.Repository")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

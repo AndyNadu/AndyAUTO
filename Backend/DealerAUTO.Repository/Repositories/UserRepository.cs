@@ -23,12 +23,11 @@ namespace DealerAUTO.Repository.Repositories
             _dbContext.SaveChanges();
         }
 
-        public LoginResponseUserDTO? GetUserByEmail(string email)
+        public User? GetUserByEmail(string email)
         {
             User? _user = _dbContext.Users.FirstOrDefault(u => u.Email == email);
 
-            return _user == null ? null : new LoginResponseUserDTO(_user.Id, 
-                _user.Email, _user.Password);
+            return _user == null ? null : _user;
         }
     }
 }

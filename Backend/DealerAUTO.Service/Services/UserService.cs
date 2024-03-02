@@ -39,12 +39,20 @@ namespace DealerAUTO.Service.Services
 
         public LoginResponseUserDTO? Login(LoginPostUserDTO user)
         {
-            LoginResponseUserDTO? _user = _userRepository.GetUserByEmail(user.Email);
+            User? _user = _userRepository.GetUserByEmail(user.Email);
 
-            if (_user != null && CheckCredentials(user, _user))
-                return _user;
+            if (_user == null)
+              return null;
+            else
+            {
+              LoginResponseUserDTO responseUser = new LoginResponseUserDTO(
+                Id: _user.Id,
+                Email: _user.Email,
+                Password: _user.Password
+                );
 
-            return null;
+                return CheckCredentials(user, responseUser) ? responseUser : null;
+            }
         }
 
         public Boolean CheckCredentials(LoginPostUserDTO user, LoginResponseUserDTO _user)
