@@ -73,6 +73,10 @@
   color: red;
 }
 
+.p-float-label > .ng-invalid.ng-dirty + label {
+  color: #6b7280;
+}
+
 /* media queries */
 @media (max-width: 800px) {
   .upper-buttons {

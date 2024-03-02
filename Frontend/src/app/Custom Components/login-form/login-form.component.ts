@@ -10,7 +10,7 @@ import { InputTextModule } from 'primeng/inputtext';
 // services
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
-// models && DTOs
+// models && DTOs && constants
 import { LoginPostUserDTO } from '../../Data Transfer Objects/LoginPostUserDTO';
 import { LoginResponseUserDTO } from '../../Data Transfer Objects/LoginResponseUserDTO';
 

@@ -58,27 +58,20 @@
 
           <p-dropdown formControlName="make"
                       [options]="carsList.Makes"
+                      (onChange)="makeSelected()"
                       placeholder="Choose">
           </p-dropdown>
+        </div>
+          <div class="col d-flex flex-column justify-content-center px-3 mb-3">
+            <div class="h5 mb-1 fw-bold">
+              Model
+            </div>
 
-          <!--<span class="p-float-label">
-            <p-dropdown formControlName="make"
-                        [options]="carsList.Makes"
+            <p-dropdown formControlName="model"
+                        [options]="carsList.Models"
                         placeholder="Choose">
             </p-dropdown>
-            <label> Make </label>
-          </span>-->
-        </div>
-
-        <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-          <div class="h5 mb-1 fw-bold">
-            Model
           </div>
-
-          <!--<p-dropdown [options]="carsList.Makes"
-                    placeholder="Choose">
-        </p-dropdown>-->
-        </div>
       </div>
 
       <div class="two-inputs col">
@@ -87,9 +80,10 @@
             First registration
           </div>
 
-          <!--<p-dropdown [options]="carsList.Makes"
-                    placeholder="Choose">
-        </p-dropdown>-->
+          <p-dropdown formControlName="year"
+                      [options]="carsList.Years"
+                      placeholder="Choose">
+          </p-dropdown>
         </div>
 
         <div class="col d-flex flex-column justify-content-center px-3 mb-3">
@@ -97,11 +91,9 @@
             Mileage
           </div>
 
-          <p-inputNumber inputId="integeronly"
-                         placeholder="Mileage (km)"
-                         [min]="1"
-                         [max]="10000000">
-          </p-inputNumber>
+          <input formControlName="mileage"
+                 pInputText
+                 placeholder="Mileage (km)"/>
         </div>
       </div>
     </div>
@@ -111,10 +103,9 @@
         Car description
       </div>
 
-      <textarea pInputTextarea
+      <textarea formControlName="description"
+                pInputTextarea
                 [autoResize]="true"></textarea>
-
-
     </div>
 
     <div class="input-row">
@@ -124,9 +115,10 @@
             Fuel type
           </div>
 
-          <!--<p-dropdown [options]="carsList.Makes"
-                    placeholder="Choose">
-        </p-dropdown>-->
+          <p-dropdown formControlName="fuel"
+                      [options]="carsList.Fuels"
+                      placeholder="Choose">
+          </p-dropdown>
         </div>
 
         <div class="col d-flex flex-column justify-content-center px-3 mb-3">
@@ -134,11 +126,9 @@
             Cubic capacity
           </div>
 
-          <p-inputNumber inputId="integeronly"
-                         placeholder="Cubic capacity (cm&#xB3;)"
-                         [min]="1"
-                         [max]="30000">
-          </p-inputNumber>
+          <input formControlName="cubicCapacity"
+                 pInputText
+                 placeholder="Cubic capacity (cm&#xB3;)" />
         </div>
       </div>
 
@@ -148,11 +138,9 @@
             Power
           </div>
 
-          <p-inputNumber inputId="integeronly"
-                         placeholder="Power (hp)"
-                         [min]="1"
-                         [max]="3000">
-          </p-inputNumber>
+          <input formControlName="power"
+                 pInputText
+                 placeholder="Power (hp)" />
         </div>
 
         <div class="col d-flex flex-column justify-content-center px-3 mb-3">
@@ -160,9 +148,10 @@
             Transmission
           </div>
 
-          <!--<p-dropdown [options]="carsList.Makes"
-                    placeholder="Choose">
-        </p-dropdown>-->
+          <p-dropdown formControlName="transmission"
+                      [options]="carsList.Transmissions"
+                      placeholder="Choose">
+          </p-dropdown>
         </div>
       </div>
     </div>
@@ -173,9 +162,10 @@
           Traction
         </div>
 
-        <!--<p-dropdown [options]="carsList.Makes"
-                  placeholder="Choose">
-      </p-dropdown>-->
+        <p-dropdown formControlName="traction"
+                    [options]="carsList.Tractions"
+                    placeholder="Choose">
+        </p-dropdown>
       </div>
 
       <div class="col d-flex flex-column justify-content-center px-3 mb-3">
@@ -183,9 +173,10 @@
           Body type
         </div>
 
-        <!--<p-dropdown [options]="carsList.Makes"
-                  placeholder="Choose">
-      </p-dropdown>-->
+        <p-dropdown formControlName="body"
+                    [options]="carsList.Bodies"
+                    placeholder="Choose">
+        </p-dropdown>
       </div>
 
       <div class="col d-flex flex-column justify-content-center px-3 mb-3">
@@ -193,9 +184,10 @@
           Steering wheel
         </div>
 
-        <!--<p-dropdown [options]="carsList.Makes"
-                  placeholder="Choose">
-      </p-dropdown>-->
+        <p-dropdown formControlName="wheel"
+                    [options]="carsList.Wheels"
+                    placeholder="Choose">
+        </p-dropdown>
       </div>
     </div>
 
@@ -204,15 +196,13 @@
         Upload photos
       </div>
 
-      <div>
-        <!--[class.photos-box]="car.photosEmpty"-->
-        <p-fileUpload name="file"
-                      [customUpload]="true"
+      <div [class.photos-box]="photosEmpty">
+        <p-fileUpload [customUpload]="true"
                       [auto]="true"
                       [multiple]="true"
-                      accept="image/*">
-          <!--(onSelect)="car.onPhotoSelected($event)"
-        (onRemove)="car.onPhotoRemoved($event)">-->
+                      accept="image/*"
+                      (onSelect)="onPhotoSelected($event)"
+                      (onRemove)="onPhotoRemoved($event)">
         </p-fileUpload>
       </div>
 
@@ -223,11 +213,9 @@
         Finally, set the desired price!
       </div>
 
-      <p-inputNumber inputId="integeronly"
-                     placeholder="Price (€)"
-                     [min]="1"
-                     [max]="10000000">
-      </p-inputNumber>
+      <input formControlName="price"
+             pInputText
+             placeholder="Price (€)" />
     </div>
   </form>
   <div class="w-100 d-flex justify-content-center mt-2 mb-5">

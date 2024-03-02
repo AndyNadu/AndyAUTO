@@ -10,10 +10,9 @@ import { InputTextModule } from 'primeng/inputtext';
 // services
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
-// models && DTOs
+// models && DTOs && constants
 import { RegisterPostUserDTO } from '../../Data Transfer Objects/RegisterPostUserDTO';
 import { RegisterResponseUserDTO } from '../../Data Transfer Objects/RegisterResponseUserDTO';
-
 
 @Component({
   selector: 'app-register-form',
@@ -33,7 +32,6 @@ export class RegisterFormComponent {
 
   // variables
   registerForm: FormGroup;
-
   emailAlreadyUsed: boolean = false;
   passwordsMatch: boolean = true;
 
@@ -44,8 +42,8 @@ export class RegisterFormComponent {
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      phone: ['', Validators.required],
       email: ['', Validators.required],
+      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       password: ['', Validators.required],
       passwordConfirmation: ['', Validators.required]
     });
@@ -70,8 +68,8 @@ export class RegisterFormComponent {
         const user: RegisterPostUserDTO = {
           firstName: String(this.registerForm.get('firstName')!.value),
           lastName: String(this.registerForm.get('lastName')!.value),
-          phone: String(this.registerForm.get('phone')!.value),
           email: String(this.registerForm.get('email')!.value),
+          phoneNumber: String(this.registerForm.get('phoneNumber')!.value),
           password: String(this.registerForm.get('password')!.value),
         };
 
@@ -82,16 +80,12 @@ export class RegisterFormComponent {
               sessionStorage.setItem('userEmail', res.email);
               sessionStorage.setItem('userPassword', res.password);
 
-              console.log(sessionStorage['userId']);
-              console.log(sessionStorage['userEmail']);
-              console.log(sessionStorage['userPassword']);
-
               this._componentInteractionService.setSubmitText('Successfully registered!');
               this.switchForm('logged-in');
             },
             (err: HttpErrorResponse) => {
               if (err.error == 'Email already used') {
-                this.passwordsMatch = false;
+                this.passwordsMatch = true;
                 this.emailAlreadyUsed = true;
               }
             }

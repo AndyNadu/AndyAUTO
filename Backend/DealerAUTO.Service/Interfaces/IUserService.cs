@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using DealerAUTO.DTO;
-using DealerAUTO.DTO.DTOs;
-using DealerAUTO.DTO.Models;
+﻿using DealerAUTO.DTO.DTOs;
 
 namespace DealerAUTO.Service.Interfaces
 {
     public interface IUserService
     {
-        public void RegisterAccount(User user);
+        public RegisterResponseUserDTO? RegisterAccount(RegisterPostUserDTO user);
+        public bool checkIfEmailUsed(string email);
         public LoginResponseUserDTO? Login(LoginPostUserDTO user);
-        public Boolean CheckCredentials(LoginPostUserDTO user, LoginResponseUserDTO _user);
     }
 }

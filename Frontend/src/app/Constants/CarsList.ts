@@ -7,14 +7,20 @@ import { Traction } from "./Traction";
 import { Transmission } from "./Transmission";
 
 export class CarsList {
+
+  // variables
   Makes: string[] = Array.from(Make.makes.keys());
+  Models: string[] = [];
+  Years: number[] = Year.years;
 
+  Fuels: string[] = Fuel.fuels;
+  Transmissions: string[] = Transmission.transmissions;
+  Tractions: string[] = Traction.tractions;
+  Bodies: string[] = Body.bodies;
+  Wheels: string[] = Wheel.wheels;
 
-  //static Models: string[] = [];
-  //static Years: Year;
-  //static Fuels: Fuel;
-  //static Transmissions: Transmission;
-  //static Tractions: Traction;
-  //static Bodies: Body = new Body();
-  //static Wheels: Wheel;
+  // methods
+  updateModels(make: string): void {
+    this.Models = Array.from(Make.makes.get(make)!.values())
+  }
 }

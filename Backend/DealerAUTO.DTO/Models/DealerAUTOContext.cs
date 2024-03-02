@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace DealerAUTO.DTO.Models
 {
@@ -14,6 +8,8 @@ namespace DealerAUTO.DTO.Models
         public DealerAUTOContext(DbContextOptions<DealerAUTOContext> options) : base(options) { }
 
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Car> Cars { get; set; }
+        public virtual DbSet<Image> Images { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,6 +33,31 @@ namespace DealerAUTO.DTO.Models
                 entity.Property(e => e.Password).HasColumnName("Password");
                 entity.Property(e => e.Email).HasColumnName("Email");
                 entity.Property(e => e.PhoneNumber).HasColumnName("PhoneNumber");
+            });
+
+            modelBuilder.Entity<Car>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("Id");
+                entity.Property(e => e.Make).HasColumnName("Make");
+                entity.Property(e => e.Model).HasColumnName("Model");
+                entity.Property(e => e.Year).HasColumnName("Year");
+                entity.Property(e => e.Mileage).HasColumnName("Mileage");
+                entity.Property(e => e.Description).HasColumnName("Description");
+                entity.Property(e => e.Fuel).HasColumnName("Fuel");
+                entity.Property(e => e.CubicCapacity).HasColumnName("CubicCapacity");
+                entity.Property(e => e.Power).HasColumnName("Power");
+                entity.Property(e => e.Transmission).HasColumnName("Transmission");
+                entity.Property(e => e.Traction).HasColumnName("Traction");
+                entity.Property(e => e.Body).HasColumnName("Body");
+                entity.Property(e => e.Wheel).HasColumnName("Wheel");
+                entity.Property(e => e.Price).HasColumnName("Price");
+            });
+
+            modelBuilder.Entity<Image>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("Id");
+                entity.Property(e => e.CarId).HasColumnName("CarId");
+                entity.Property(e => e.PhotoAsByteArray).HasColumnName("PhotoAsByteArray");
             });
         }
     }

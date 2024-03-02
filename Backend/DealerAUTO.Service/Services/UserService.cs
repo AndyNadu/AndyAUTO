@@ -22,45 +22,45 @@ namespace DealerAUTO.Service.Services
             _userRepository = userRepository;
         } 
 
-        public void RegisterAccount(User user)
+        public RegisterResponseUserDTO? RegisterAccount(RegisterPostUserDTO user)
         {
-            var newUser = new User
-            {
-                Id = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Password = user.Password,
-                Email = user.Email,
-                PhoneNumber = user.PhoneNumber,
-            };
+            if (checkIfEmailUsed(user.Email))
+                return null;
 
-            _userRepository.RegisterAccount(newUser);
+            User _user = new User();
+            _user.FirstName = user.FirstName;
+            _user.LastName = user.LastName;
+            _user.Email = user.Email;
+            _user.Password = user.Password;
+            _user.PhoneNumber = user.PhoneNumber;
+
+            User returnedUser = _userRepository.RegisterAccount(_user);
+
+            RegisterResponseUserDTO responseUser = 
+                new RegisterResponseUserDTO(
+                returnedUser.Id, 
+                returnedUser.Email, 
+                returnedUser.Password);
+
+            return responseUser;
+        }
+
+        public bool checkIfEmailUsed(string email)
+        {
+            User? user = _userRepository.GetUserByEmail(email);
+
+            return user != null ? true : false;
         }
 
         public LoginResponseUserDTO? Login(LoginPostUserDTO user)
         {
-            User? _user = _userRepository.GetUserByEmail(user.Email);
+            User? _user = _userRepository.GetUserByCredentials(user);
 
-            if (_user == null)
-              return null;
-            else
-            {
-              LoginResponseUserDTO responseUser = new LoginResponseUserDTO(
+            return _user == null ? null : new LoginResponseUserDTO(
                 Id: _user.Id,
                 Email: _user.Email,
                 Password: _user.Password
                 );
-
-                return CheckCredentials(user, responseUser) ? responseUser : null;
-            }
-        }
-
-        public Boolean CheckCredentials(LoginPostUserDTO user, LoginResponseUserDTO _user)
-        {
-            if (user.Email == _user.Email &&
-                user.Password == _user.Password)
-                return true;
-            return false;
         }
     }
 }

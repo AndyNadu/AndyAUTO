@@ -2,7 +2,6 @@
 using DealerAUTO.Service.Interfaces;
 
 using DealerAUTO.DTO.DTOs;
-using DealerAUTO.DTO.Models;
 
 namespace DealerAUTO.Controllers
 {
@@ -18,13 +17,18 @@ namespace DealerAUTO.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult RegisterAccount([FromBody] User user)
+        public IActionResult RegisterAccount([FromBody] RegisterPostUserDTO user)
         {
-            IActionResult result = Ok();
+            IActionResult result;
 
             try
             {
-                //_userService.RegisterAccount(user);
+                RegisterResponseUserDTO? _user = _userService.RegisterAccount(user);
+
+                if (_user == null)
+                    result = BadRequest("Email already used");
+                else 
+                    result = Ok(_user);
             }
             catch (Exception ex)
             {
@@ -35,7 +39,7 @@ namespace DealerAUTO.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login(LoginPostUserDTO user)
+        public IActionResult Login([FromBody] LoginPostUserDTO user)
         {
             IActionResult result;
 

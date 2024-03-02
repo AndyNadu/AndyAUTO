@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO\\DealerAUTO.csproj": {}
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerAuto\\DealerAUTO.csproj": {}
   },
   "projects": {
     "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
@@ -34,15 +34,16 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "default"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.2, )"
@@ -112,15 +113,20 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "default"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNet.WebApi.Core": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.2, )"
@@ -193,9 +199,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "default"
         }
       },
       "frameworks": {
@@ -221,14 +224,14 @@
         }
       }
     },
-    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO\\DealerAUTO.csproj": {
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerAuto\\DealerAUTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO\\DealerAUTO.csproj",
+        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerAuto\\DealerAUTO.csproj",
         "projectName": "DealerAUTO",
-        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO\\DealerAUTO.csproj",
+        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerAuto\\DealerAUTO.csproj",
         "packagesPath": "C:\\Users\\andy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO\\obj\\",
+        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerAuto\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -261,15 +264,20 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "default"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.2, )"
@@ -283,6 +291,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
