@@ -11,7 +11,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { FileRemoveEvent, FileSelectEvent, FileUploadModule, UploadEvent } from 'primeng/fileupload';
+import { FileRemoveEvent, FileSelectEvent, FileUploadModule } from 'primeng/fileupload';
 
 // services
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
@@ -54,7 +54,7 @@ export class SellACarFormComponent {
     this.sellForm = formBuilder.group({
       make: ['', Validators.required],
       model: ['', Validators.required],
-      year: ['', Validators.required],
+      year: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
       mileage: ['', [Validators.required, Validators.pattern('^[0-9]{1,7}$')]],
       description: ['', Validators.required],
       fuel: ['', Validators.required],
@@ -68,6 +68,7 @@ export class SellACarFormComponent {
     });
   }
 
+  // methods
   makeSelected(): void {
     this.carsList.updateModels(this.sellForm.get('make')!.value);
   }
@@ -101,11 +102,6 @@ export class SellACarFormComponent {
 
       const formData: FormData = new FormData();
       let count: number = 0;
-
-      for (const image of this.images) {
-        console.log(image.name);
-        console.log(this.images.size);
-      }
 
       formData.append('make', String(this.sellForm.get('make')!.value));
       formData.append('model', String(this.sellForm.get('model')!.value));

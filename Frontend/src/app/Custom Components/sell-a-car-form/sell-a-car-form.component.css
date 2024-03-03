@@ -7,35 +7,34 @@
   justify-content: center;
 }
 
-/*.p-inputwrapper .error {
-  border-color: red !important;
-}
-
-.p-inputtextarea {
+.large-component .p-inputwrapper,
+.p-inputtext.large-component{
+  height: 50px;
   width: 100%;
-  min-height: 100px;
 }
 
-.p-dropdown-item {
-  padding-left: 8px;
+.large-component .p-inputwrapper {
+  padding-top: 3px;
+  padding-bottom: 5px;
 }
 
-.p-dropdown-items {
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 0;
+.large-component .p-dropdown-items {
+  padding: 0;
+  margin-bottom: 0px;
+  font-style: initial;
 }
 
-.p-dropdown-label {
-  font-size: 14px;
-  font-style: italic;
+.large-component .p-dropdown-item {
+  padding-left: 15px;
 }
 
-input::placeholder {
+.large-component.p-inputtextarea,
+.large-component .p-inputwrapper,
+.p-inputtext.large-component {
   font-style: italic;
   font-size: 16px;
-  font-family: "Inter var", sans-serif;
-}*/
+  font-family: "Inter var", sans-serif; 
+}
 
 .submit-area {
   width: 100%;

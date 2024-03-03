@@ -6,7 +6,8 @@
           Make
         </div>
 
-        <p-dropdown formControlName="make"
+        <p-dropdown class="large-component"
+                    formControlName="make"
                     [options]="carsList.Makes"
                     (onChange)="makeSelected()"
                     placeholder="Choose">
@@ -17,7 +18,8 @@
           Model
         </div>
 
-        <p-dropdown formControlName="model"
+        <p-dropdown class="large-component"
+                    formControlName="model"
                     [options]="carsList.Models"
                     placeholder="Choose">
         </p-dropdown>
@@ -30,10 +32,10 @@
           First registration
         </div>
 
-        <p-dropdown formControlName="year"
-                    [options]="carsList.Years"
-                    placeholder="Choose">
-        </p-dropdown>
+        <input class="large-component"
+               formControlName="year"
+               pInputText
+               placeholder="Production year" />
       </div>
 
       <div class="col d-flex flex-column justify-content-center px-3 mb-3">
@@ -41,7 +43,8 @@
           Mileage
         </div>
 
-        <input formControlName="mileage"
+        <input class="large-component"
+               formControlName="mileage"
                pInputText
                placeholder="Mileage (km)" />
       </div>
@@ -53,8 +56,10 @@
       Car description
     </div>
 
-    <textarea formControlName="description"
+    <textarea class="large-component"
+              formControlName="description"
               pInputTextarea
+              placeholder="Describe your car  "
               [autoResize]="true"></textarea>
   </div>
 
@@ -65,7 +70,8 @@
           Fuel type
         </div>
 
-        <p-dropdown formControlName="fuel"
+        <p-dropdown class="large-component"
+                    formControlName="fuel"
                     [options]="carsList.Fuels"
                     placeholder="Choose">
         </p-dropdown>
@@ -76,7 +82,8 @@
           Cubic capacity
         </div>
 
-        <input formControlName="cubicCapacity"
+        <input class="large-component"
+               formControlName="cubicCapacity"
                pInputText
                placeholder="Cubic capacity (cm&#xB3;)" />
       </div>
@@ -88,7 +95,8 @@
           Power
         </div>
 
-        <input formControlName="power"
+        <input class="large-component"
+               formControlName="power"
                pInputText
                placeholder="Power (hp)" />
       </div>
@@ -98,7 +106,8 @@
           Transmission
         </div>
 
-        <p-dropdown formControlName="transmission"
+        <p-dropdown class="large-component"
+                    formControlName="transmission"
                     [options]="carsList.Transmissions"
                     placeholder="Choose">
         </p-dropdown>
@@ -112,7 +121,8 @@
         Traction
       </div>
 
-      <p-dropdown formControlName="traction"
+      <p-dropdown class="large-component"
+                  formControlName="traction"
                   [options]="carsList.Tractions"
                   placeholder="Choose">
       </p-dropdown>
@@ -123,7 +133,8 @@
         Body type
       </div>
 
-      <p-dropdown formControlName="body"
+      <p-dropdown class="large-component"
+                  formControlName="body"
                   [options]="carsList.Bodies"
                   placeholder="Choose">
       </p-dropdown>
@@ -134,7 +145,8 @@
         Steering wheel
       </div>
 
-      <p-dropdown formControlName="wheel"
+      <p-dropdown class="large-component"
+                  formControlName="wheel"
                   [options]="carsList.Wheels"
                   placeholder="Choose">
       </p-dropdown>
@@ -163,7 +175,8 @@
       Finally, set the desired price!
     </div>
 
-    <input formControlName="price"
+    <input class="large-component"
+           formControlName="price"
            pInputText
            placeholder="Price (€)" />
   </div>

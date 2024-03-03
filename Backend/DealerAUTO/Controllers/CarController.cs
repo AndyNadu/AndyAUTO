@@ -34,5 +34,13 @@ namespace DealerAUTO.Controllers
 
             return result;
         }
+
+        [HttpGet("get")]
+        public IActionResult GetCars()
+        {
+            //Car[] cars = _carService.GetCars();
+            
+            return Ok();
+        }
     }
 }
