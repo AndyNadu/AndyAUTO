@@ -24,7 +24,7 @@
   <div class="col-7">
     <p-multiSelect [options]="carsFilterList.ModelsByMake"
                     [(ngModel)]="carsFilterList.models"
-                    [disabled]="carsFilterList.check"
+                    [disabled]="carsFilterList.modelInputDisabled"
                     class="small-component"
                     [group]="true"
                     placeholder="Choose"

@@ -16,7 +16,7 @@ export class CarsFilterList {
 
   // variables
   group: SelectItemGroup[] = this.GenerateSelectItemGroup();
-  check: boolean = true;
+  modelInputDisabled: boolean = true;
 
   MakesArray: SelectItem[] = this.ExtractMakesFromGroup();
   makes!: SelectItem[];
@@ -300,7 +300,7 @@ export class CarsFilterList {
     return tempGroup;
   }
   MakeSelected(): void {
-    this.check = this.makes.length == 0 ? true : false;
+    this.modelInputDisabled = this.makes.length == 0 ? true : false;
 
     this.ModelsByMake = this.ExtractModelsByMake()
   }
