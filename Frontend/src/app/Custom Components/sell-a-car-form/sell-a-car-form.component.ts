@@ -21,7 +21,7 @@ import { CarsList } from '../../Constants/CarsList';
 import { Car } from '../../Data Transfer Objects/Car';
 
 @Component({
-  selector: 'app-sell-a-car',
+  selector: 'app-sell-a-car-form',
   standalone: true,
   imports: [
     FormsModule,
@@ -36,22 +36,22 @@ import { Car } from '../../Data Transfer Objects/Car';
     InputNumberModule,
     InputTextareaModule
   ],
-  templateUrl: './sell-a-car.component.html',
-  styleUrl: './sell-a-car.component.css'
+  templateUrl: './sell-a-car-form.component.html',
+  styleUrl: './sell-a-car-form.component.css'
 })
-export class SellACarComponent {
+export class SellACarFormComponent {
 
   // variables
   sellForm: FormGroup;
   carsList: CarsList = new CarsList();
-  photos: Set<File> = new Set<File>();
-  photosEmpty: boolean = false;
+  images: Set<File> = new Set<File>();
+  imagesEmpty: boolean = false;
 
   // constructor
   constructor(private _componentInteractionService: ComponentInteractionService,
-              private formBuilder: FormBuilder,
-              private http: HttpClient) {
-    this.sellForm = this.formBuilder.group({
+    private formBuilder: FormBuilder,
+    private http: HttpClient) {
+    this.sellForm = formBuilder.group({
       make: ['', Validators.required],
       model: ['', Validators.required],
       year: ['', Validators.required],
@@ -68,25 +68,26 @@ export class SellACarComponent {
     });
   }
 
-  // methods
-  scrollDown(elementID: string): void {
-    this._componentInteractionService.scrollDown(elementID);
-  }
-
   makeSelected(): void {
     this.carsList.updateModels(this.sellForm.get('make')!.value);
   }
 
-  onPhotoSelected(event: FileSelectEvent): void {
+  onImageSelected(event: FileSelectEvent): void {
     const lastAddedImage = event.files[event.files.length - 1];
 
-    if (!this.photos.has(lastAddedImage))
-      this.photos.add(lastAddedImage);
+    let alreadySelected: boolean = false;
+    for (const image of this.images)
+      if (image.type == lastAddedImage.type && image.name == lastAddedImage.name && image.size == lastAddedImage.size) {
+        alreadySelected = true;
+        break;
+      }
+    if (alreadySelected == false)
+      this.images.add(lastAddedImage);
   }
 
-  onPhotoRemoved(event: FileRemoveEvent): void {
-    this.photos.delete(event.file);
-    this.photosEmpty = this.photos.size === 0 ? true : false;
+  onImageRemoved(event: FileRemoveEvent): void {
+    this.images.delete(event.file);
+    this.imagesEmpty = this.images.size === 0 ? true : false;
   }
 
   submit(): void {
@@ -94,16 +95,16 @@ export class SellACarComponent {
       const control = this.sellForm.get(key);
       control!.markAsDirty();
     });
-    this.photosEmpty = this.photos.size === 0 ? true : false;
+    this.imagesEmpty = this.images.size === 0 ? true : false;
 
-    if (!this.photosEmpty && this.sellForm.valid) {
+    if (!this.imagesEmpty && this.sellForm.valid) {
 
       const formData: FormData = new FormData();
       let count: number = 0;
 
-      for (const photo of this.photos) {
-        console.log(photo.name);
-        console.log(this.photos.size);
+      for (const image of this.images) {
+        console.log(image.name);
+        console.log(this.images.size);
       }
 
       formData.append('make', String(this.sellForm.get('make')!.value));
@@ -118,7 +119,7 @@ export class SellACarComponent {
       formData.append('traction', String(this.sellForm.get('traction')!.value));
       formData.append('body', String(this.sellForm.get('body')!.value));
       formData.append('wheel', String(this.sellForm.get('wheel')!.value));
-      for (const photo of this.photos) { formData.append(`photo[${count++}]`, photo); }
+      for (const image of this.images) { formData.append(`image[${count++}]`, image); }
       formData.append('price', String(this.sellForm.get('price')!.value));
 
       this.http.post<Car>('http://localhost:5113/car/post', formData)
@@ -132,5 +133,4 @@ export class SellACarComponent {
         );
     }
   }
- 
 }

@@ -43,7 +43,7 @@
   color: white;
 }
 
-.p-inputtext {
+.register-input .p-inputtext {
   width: 100%;
 }
 
@@ -55,7 +55,7 @@
   margin-left: 15px;
 }
 
-.input-row {
+.input-row-form {
   display: flex;
   align-items: center;
   margin: 15px 0 15px 0;
@@ -73,7 +73,7 @@
   color: red;
 }
 
-.p-float-label > .ng-invalid.ng-dirty + label {
+.register-input .p-float-label > .ng-invalid.ng-dirty + label {
   color: #6b7280;
 }
 
@@ -87,7 +87,7 @@
     margin: 0 0 15px 0;
   }
 
-  .input-row {
+  .input-row-form {
     flex-direction: column;
   }
 
@@ -104,7 +104,7 @@
   }
 
   .submit-button {
-    margin: 10px 0 0 0;
+    margin: 15px 0 0 0;
   }
 }
 

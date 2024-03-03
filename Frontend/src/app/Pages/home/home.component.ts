@@ -2,9 +2,9 @@
 import { Component } from '@angular/core';
 
 // custom components
+import { BuyACarComponent } from '../buy-a-car/buy-a-car.component';
+import { SellACarComponent } from '../../Pages/sell-a-car/sell-a-car.component';
 import { FooterComponent } from '../../Custom Components/footer/footer.component';
-import { BuyACarComponent } from '../../Custom Components/buy-a-car/buy-a-car.component';
-import { SellACarComponent } from '../../Custom Components/sell-a-car/sell-a-car.component';
 import { NavigationBarComponent } from '../../Custom Components/navigation-bar/navigation-bar.component';
 
 // services

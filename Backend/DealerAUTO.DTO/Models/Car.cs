@@ -18,5 +18,7 @@ namespace DealerAUTO.DTO.Models
         public string Body { get; set; }
         public string Wheel { get; set; }
         public int Price { get; set; }
+        public string State { get; set; }
+        public DateTime PostTime { get; set; }
     }
 }

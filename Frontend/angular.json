@@ -28,8 +28,11 @@
               "src/styles.css",
               "src/app/Pages/home/home.component.css",
               "src/app/Pages/login/login.component.css",
-              "src/app/Custom Components/buy-a-car/buy-a-car.component.css",
-              "src/app/Custom Components/sell-a-car/sell-a-car.component.css",
+              "src/app/Pages/buy-a-car/buy-a-car.component.css",
+              "src/app/Pages/sell-a-car/sell-a-car.component.css",
+              "src/app/Custom Components/car-list/car-list.component.css",
+              "src/app/Custom Components/car-filters/car-filters.component.css",
+              "src/app/Custom Components/sell-a-car-form/sell-a-car-form.component.css",
 
               "@angular/material/prebuilt-themes/indigo-pink.css",
 

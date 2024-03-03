@@ -21,7 +21,6 @@ namespace DealerAUTO.Service.Services
             car = _carRepository.PostCar(car);
 
             List<Image> PhotosAsByteArrays = ConvertImagesToByteArrays(form, car.Id);
-
             PhotosAsByteArrays = _carRepository.PostImages(PhotosAsByteArrays);
 
             return car;
@@ -43,7 +42,9 @@ namespace DealerAUTO.Service.Services
                 Traction = form["traction"],
                 Body = form["body"],
                 Wheel = form["wheel"],
-                Price = Convert.ToInt32(form["price"])
+                Price = Convert.ToInt32(form["price"]),
+                State = Convert.ToInt32(form["cubicCapacity"]) < 100 ? "New" : "Used",
+                PostTime = DateTime.Now
             };
         }
 

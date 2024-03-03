@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "woaIVCAbGQbRcSicog/nxdrxTgxFROZaAK9VXgg3VjQ=",
+  "Hash": "Mzx58Jc1U3uQG3ZqxjFbnae/kO4WLhp+mkqPmPUFLus=",
   "Source": "DealerAUTO",
   "BasePath": "_content/DealerAUTO",
   "Mode": "Default",
@@ -47,10 +47,10 @@
       "OriginalItemSpec": "C:\\Users\\andy\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\QuickGrid.razor.js"
     },
     {
-      "Identity": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerAuto\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DealerAUTO.styles.css",
+      "Identity": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DealerAUTO.styles.css",
       "SourceId": "DealerAUTO",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerAuto\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/DealerAUTO",
       "RelativePath": "DealerAUTO.styles.css",
       "AssetKind": "All",
@@ -63,7 +63,7 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerAuto\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DealerAUTO.styles.css"
+      "OriginalItemSpec": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DealerAUTO.styles.css"
     }
   ]
 }

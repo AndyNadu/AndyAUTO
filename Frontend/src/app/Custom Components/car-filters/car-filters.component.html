@@ -1,0 +1,232 @@
+<div class="d-flex align-items-center mb-2">
+
+  <div class="col fs-6 me-1 d-flex align-items-center">
+    Make
+  </div>
+
+  <div class="col-7">
+    <p-multiSelect  [(ngModel)]="carsFilterList.makes"
+                    [options]="carsFilterList.MakesArray"
+                    (onChange)="carsFilterList.MakeSelected()"
+                    optionLabel="label"
+                    class="small-component"
+                    placeholder="Choose">
+    </p-multiSelect>
+  </div>
+</div>
+
+<div class="d-flex align-items-center my-2">
+
+  <div class="col fs-6 me-1 d-flex align-items-center">
+    Model
+  </div>
+
+  <div class="col-7">
+    <p-multiSelect [options]="carsFilterList.ModelsByMake"
+                    [(ngModel)]="carsFilterList.models"
+                    [disabled]="carsFilterList.check"
+                    class="small-component"
+                    [group]="true"
+                    placeholder="Choose"
+                    scrollHeight="250px"
+                    display="chip">
+      <ng-template let-group pTemplate="group">
+        <div class="flex align-items-center">
+          <span>{{ group.label }}</span>
+        </div>
+      </ng-template>
+    </p-multiSelect>
+  </div>
+
+  </div>
+
+  <div class="d-flex align-items-center my-2">
+
+    <div class="col fs-6 me-1 d-flex align-items-center">
+      Body type
+    </div>
+
+    <div class="col-7">
+      <p-multiSelect [options]="carsFilterList.BodyTypes"
+                     [(ngModel)]="carsFilterList.bodies"
+                     optionLabel="label"
+                     class="small-component"
+                     placeholder="Choose">
+      </p-multiSelect>
+    </div>
+
+  </div>
+
+  <div class="d-flex align-items-center my-2">
+
+    <div class="col fs-6 me-1 d-flex align-items-center">
+      Price
+    </div>
+
+    <div class="col-7">
+
+      <p-inputNumber class="small-component col-5" inputId="integeronly"
+                     [min]="1"
+                     [max]="10000000"
+                     placeholder="From">
+      </p-inputNumber>
+
+      <p-inputNumber class="small-component col-5 offset-2 align-items-end"
+                     inputId="integeronly"
+                     [min]="1"
+                     [max]="10000000"
+                     placeholder="To">
+      </p-inputNumber>
+
+    </div>
+
+  </div>
+
+  <div class="d-flex align-items-center my-2">
+
+    <div class="col fs-6 me-1 d-flex align-items-center">
+      First registration
+    </div>
+
+    <div class="col-7">
+      <p-inputNumber class="small-component col-5" inputId="integeronly"
+                     [min]="1900"
+                     [max]="2024"
+                     placeholder="From">
+      </p-inputNumber>
+
+      <p-inputNumber class="small-component col-5 offset-2 align-items-end"
+                     inputId="integeronly"
+                     [min]="1900"
+                     [max]="2024"
+                     placeholder="To">
+      </p-inputNumber>
+    </div>
+
+  </div>
+
+  <div class="d-flex align-items-center my-2">
+
+    <div class="col fs-6 me-1 d-flex align-items-center">
+      Mileage
+    </div>
+
+    <div class="col-7">
+      <p-inputNumber class="small-component col-5 " inputId="integeronly"
+                     [min]="0"
+                     [max]="1000000"
+                     placeholder="From">
+      </p-inputNumber>
+
+      <p-inputNumber class="small-component col-5 offset-2 align-items-end"
+                     inputId="integeronly"
+                     [min]="0"
+                     [max]="1000000"
+                     placeholder="To">
+      </p-inputNumber>
+    </div>
+
+  </div>
+
+  <div class="d-flex align-items-center my-2">
+
+    <div class="col fs-6 me-1 d-flex align-items-center">
+      Fuel type
+    </div>
+
+    <div class="col-7">
+      <p-multiSelect [options]="carsFilterList.FuelTypes"
+                     [(ngModel)]="carsFilterList.fuels"
+                     optionLabel="label"
+                     class="small-component"
+                     placeholder="Choose">
+      </p-multiSelect>
+    </div>
+
+  </div>
+
+  <div class="d-flex align-items-center my-2">
+
+    <div class="col fs-6 me-1 d-flex align-items-center">
+      Cubic capacity
+    </div>
+
+    <div class="col-7">
+      <p-inputNumber class="small-component col-5" inputId="integeronly"
+                     [min]="1"
+                     [max]="20000"
+                     placeholder="From">
+      </p-inputNumber>
+
+      <p-inputNumber class="small-component col-5 offset-2 align-items-end"
+                     inputId="integeronly"
+                     [min]="1"
+                     [max]="20000"
+                     placeholder="To">
+      </p-inputNumber>
+    </div>
+
+  </div>
+
+  <div class="d-flex align-items-center my-2">
+
+    <div class="col fs-6 me-1 d-flex align-items-center">
+      Transmission
+    </div>
+
+    <div class="col-7">
+      <p-multiSelect [options]="carsFilterList.TransmissionTypes"
+                     [(ngModel)]="carsFilterList.transmissions"
+                     optionLabel="label"
+                     class="small-component"
+                     placeholder="Choose">
+      </p-multiSelect>
+    </div>
+
+  </div>
+
+  <div class="d-flex align-items-center my-2">
+
+    <div class="col fs-6 me-1 d-flex align-items-center">
+      Traction
+    </div>
+
+    <div class="col-7">
+      <p-multiSelect [options]="carsFilterList.TractionTypes"
+                     [(ngModel)]="carsFilterList.tractions"
+                     optionLabel="label"
+                     class="small-component"
+                     placeholder="Choose">
+      </p-multiSelect>
+    </div>
+
+  </div>
+
+  <div class="d-flex align-items-center mt-2">
+
+    <div class="col fs-6 me-1 d-flex align-items-center">
+      Steering wheel
+    </div>
+
+    <div class="col-7">
+      <p-multiSelect [options]="carsFilterList.SteeringWheels"
+                     [(ngModel)]="carsFilterList.wheels"
+                     optionLabel="label"
+                     class="small-component"
+                     placeholder="Choose">
+      </p-multiSelect>
+    </div>
+
+  </div>
+
+  <p-button class="search-car-button
+              show-results-button"
+            label="Show 0 results"
+            [loading]="loadingCarsPageBool"
+            (onClick)="loadCarsPage()"></p-button>
+
+  <p-button class="search-car-button
+              reset-filters-button"
+            label="Reset filters"
+            [loading]="loadingResetFiltersBool"
+            (onClick)="resetFilters()"></p-button>

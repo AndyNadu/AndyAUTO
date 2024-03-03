@@ -51,6 +51,8 @@ namespace DealerAUTO.DTO.Models
                 entity.Property(e => e.Body).HasColumnName("Body");
                 entity.Property(e => e.Wheel).HasColumnName("Wheel");
                 entity.Property(e => e.Price).HasColumnName("Price");
+                entity.Property(e => e.State).HasColumnName("State");
+                entity.Property(e => e.PostTime).HasColumnName("PostTime");
             });
 
             modelBuilder.Entity<Image>(entity =>

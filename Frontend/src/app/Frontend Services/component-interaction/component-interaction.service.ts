@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ComponentInteractionService {
 
-  private pageStatus: string = 'sell-a-car';
+  private pageStatus: string = 'buy-a-car';
   private activeComponent: string = 'login';
   private submitText: string = '';
 

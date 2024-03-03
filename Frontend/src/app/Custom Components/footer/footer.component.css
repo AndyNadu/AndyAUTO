@@ -2,10 +2,14 @@
   margin-top: 200px;
 }
 
-.logo-link {
+.logo-link, .page-link {
   cursor: pointer;
 }
 
 .blank-space {
   height: 30px;
+}
+
+.page-link {
+  margin: 0px 15px 0px 15px;
 }

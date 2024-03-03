@@ -1,0 +1,56 @@
+.small-component .p-inputwrapper, .small-component .p-inputtext {
+  height: 40px !important;
+  width: 100%;
+}
+
+.small-component .p-inputnumber-input, .small-component .p-placeholder {
+  font-style: italic !important;
+}
+
+.small-component .p-multiselect-label {
+  padding-top: 9px;
+  padding-bottom: 8px;
+}
+
+.small-component .p-multiselect-item {
+  padding: 8px 0 8px 5px !important;
+}
+
+.small-component .p-multiselect-items {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.small-component .p-multiselect-header {
+  padding-left: 5px !important;
+  padding-right: 3px;
+}
+
+.search-car-button .p-button {
+  width: 100%;
+  height: 40px;
+  color: #1f104a;
+  border: 0;
+  border-radius: 15px;
+  font-size: 16px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.show-results-button .p-button {
+  background-color: #ff533d;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.reset-filters-button .p-button {
+  background-color: white;
+  border: 2px solid #1f104a;
+  margin-bottom: 10px;
+}
+
+.search-car-button .p-button:hover {
+  opacity: 0.9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}

@@ -1,58 +1,36 @@
 // angular
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
-// angular material components
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // primeNG components
 import { ButtonModule } from 'primeng/button';
-import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { MultiSelectModule } from 'primeng/multiselect';
 
-// custom components
-import { CarBoxComponent } from '../car-box/car-box.component';
-
+// models && DTOs && constants
+import { CarsFilterList } from '../../Constants/CarsFilterList';
 
 @Component({
-  selector: 'app-buy-a-car',
+  selector: 'app-car-filters',
   standalone: true,
   imports: [
     FormsModule,
-    MatPaginatorModule,
-
+    ReactiveFormsModule,
+    
     ButtonModule,
-    DropdownModule,
     InputNumberModule,
-    MultiSelectModule,
-
-    CarBoxComponent
+    MultiSelectModule
   ],
-  templateUrl: './buy-a-car.component.html',
-  styleUrl: './buy-a-car.component.css'
+  templateUrl: './car-filters.component.html',
+  styleUrl: './car-filters.component.css'
 })
-export class BuyACarComponent {
+export class CarFiltersComponent {
+
+  // variables
+  carsFilterList: CarsFilterList = new CarsFilterList();
+
 
   //some hardcoded info
-  cars: object[] = [
-    { label: 'BMW' },
-    { label: 'Audi' },
-    { label: 'Mercedes-Benz' },
-    { label: 'Volkswagen' },
-    { label: 'Seat' },
-    { label: 'Skoda' },
-    { label: 'Nissan' },
-    { label: 'Hyundai' },
-    { label: 'Toyota' },
-    { label: 'Honda' },
-    { label: 'Renault' },
-    { label: 'Dacia' },
-    { label: 'Lamborghini' },
-    { label: 'Ford' },
-    { label: 'Citroen' },
-    { label: 'Alfa Romeo' }
-  ];
   selectedCarMakes!: object[];
 
   models: object[] = [];
@@ -110,15 +88,7 @@ export class BuyACarComponent {
     }, 2000);
   }
 
-  sort_types: object[] = [
-    { name: 'Post time (newest)' },
-    { name: 'Post time (oldest)' },
-    { name: 'Price (low to high)' },
-    { name: 'Price (high to low)' },
-    { name: 'Km (low to high)' },
-    { name: 'Km (high to low)' },
-  ];
-  selectedSortType!: object[];
+
 
   wheel_positions: object[] = [
     { label: 'Left side' },

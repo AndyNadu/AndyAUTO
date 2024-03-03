@@ -43,8 +43,8 @@
   color: white;
 }
 
-.p-inputtext {
-  width: 100%;
+.login-input .p-inputtext {
+  width: 100%!important;
 }
 
 .remember-me {
@@ -59,7 +59,7 @@
   border-color: red;
 }
 
-.p-float-label > .ng-invalid.ng-dirty + label {
+.login-input .p-float-label > .ng-invalid.ng-dirty + label {
   color: #6b7280;
 }
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DealerAUTO.Repository")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3d51e046c9046944b97f4e0c4ac781bfa671640")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+631467793a7ba9c283e0dce4cca38b455c976872")]
 [assembly: System.Reflection.AssemblyProductAttribute("DealerAUTO.Repository")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DealerAUTO.Repository")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
