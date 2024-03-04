@@ -12,4 +12,9 @@ export interface Car {
   body: string;
   wheel: string;
   price: number;
+
+  state: string;
+  postTime: Date;
+  imagesAsBase64Strings: string;
+  firstImage: any;
 }

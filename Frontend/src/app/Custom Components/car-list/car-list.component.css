@@ -5,6 +5,7 @@
   margin-bottom: 10px;
   cursor: pointer;
   background-color: white;
+  color: #1f104a;
 }
 
 .full-car-box-wide {
@@ -14,6 +15,15 @@
 .full-car-box-tight {
   width: 100%;
   flex-direction: column;
+}
+
+.car-image {
+  width: 250px;
+}
+
+.car-make-and-price,
+.car-model {
+  height: 40%;
 }
 
 .color-text-gray {

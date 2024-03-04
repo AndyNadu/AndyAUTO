@@ -45,7 +45,7 @@ namespace DealerAUTO.Service.Services
                 Body = form["body"],
                 Wheel = form["wheel"],
                 Price = Convert.ToInt32(form["price"]),
-                State = Convert.ToInt32(form["cubicCapacity"]) < 100 ? "New" : "Used",
+                State = Convert.ToInt32(form["mileage"]) < 100 ? "New" : "Used",
                 PostTime = DateTime.Now
             };
         }

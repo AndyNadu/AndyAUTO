@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DealerAUTO.DTO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dacd3d5ff1aae400f096b7b548f2fe6af130e92d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8647d7622fe818cdd3add6a21f8ac515986743bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("DealerAUTO.DTO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DealerAUTO.DTO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

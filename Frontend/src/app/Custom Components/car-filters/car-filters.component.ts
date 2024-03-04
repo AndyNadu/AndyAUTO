@@ -8,7 +8,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { MultiSelectModule } from 'primeng/multiselect';
 
 // models && DTOs && constants
-import { CarsFilterList } from '../../Constants/CarsFilterList';
+import { CarsListConstants } from '../../Constants/CarsListConstants';
 
 @Component({
   selector: 'app-car-filters',
@@ -27,8 +27,7 @@ import { CarsFilterList } from '../../Constants/CarsFilterList';
 export class CarFiltersComponent {
 
   // variables
-  carsFilterList: CarsFilterList = new CarsFilterList();
-
+  carsFilterList: CarsListConstants = new CarsListConstants();
 
   //some hardcoded info
   selectedCarMakes!: object[];
@@ -36,38 +35,7 @@ export class CarFiltersComponent {
   models: object[] = [];
   selectedModels!: object[];
 
-  body_types: object[] = [
-    { label: 'Cabriolet' },
-    { label: 'Estate Car' },
-    { label: 'Saloon' },
-    { label: 'SUV' },
-    { label: 'Small Car' },
-    { label: 'Coupe' },
-    { label: 'Van / Minibus' }
-  ];
-  selectedBodyTypes!: object[];
-
-  fuel_types: object[] = [
-    { label: 'Diesel' },
-    { label: 'Gasoline' },
-    { label: 'Electric' },
-    { label: 'Hybrid' }
-  ];
-  selectedFuelTypes!: object[];
-
-  transmission_types: object[] = [
-    { label: 'Automatic' },
-    { label: 'Manual' },
-    { label: 'CVT' }
-  ];
-  selectedTransmissionTypes!: object[];
-
-  traction_types: object[] = [
-    { label: 'Rear wheel drive' },
-    { label: 'Front wheel drive' },
-    { label: 'All wheel drive' }
-  ];
-  selectedTractionTypes!: object[];
+  
 
   loadingCarsPageBool = false;
   loadingResetFiltersBool = false;
@@ -87,12 +55,4 @@ export class CarFiltersComponent {
       this.loadingResetFiltersBool = false;
     }, 2000);
   }
-
-
-
-  wheel_positions: object[] = [
-    { label: 'Left side' },
-    { label: 'Right side' }
-  ];
-  selectedWheelPosition!: object[];
 }

@@ -15,5 +15,7 @@ export interface temporar {
   state: string;
   postTime: Date;
 
-  base64s: string;
+  imagesAsBase64Strings: string;
+
+  imagineaMea: any;
 }

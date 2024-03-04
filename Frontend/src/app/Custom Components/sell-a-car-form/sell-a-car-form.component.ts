@@ -17,8 +17,8 @@ import { FileRemoveEvent, FileSelectEvent, FileUploadModule } from 'primeng/file
 import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
 
 // models && DTOs && constants
-import { CarsList } from '../../Constants/CarsList';
 import { Car } from '../../Data Transfer Objects/Car';
+import { CarsListConstants } from '../../Constants/CarsListConstants';
 
 @Component({
   selector: 'app-sell-a-car-form',
@@ -43,7 +43,7 @@ export class SellACarFormComponent {
 
   // variables
   sellForm: FormGroup;
-  carsList: CarsList = new CarsList();
+  carsList: CarsListConstants = new CarsListConstants();
   images: Set<File> = new Set<File>();
   imagesEmpty: boolean = false;
 
@@ -69,10 +69,6 @@ export class SellACarFormComponent {
   }
 
   // methods
-  makeSelected(): void {
-    this.carsList.updateModels(this.sellForm.get('make')!.value);
-  }
-
   onImageSelected(event: FileSelectEvent): void {
     const lastAddedImage = event.files[event.files.length - 1];
 
@@ -91,6 +87,11 @@ export class SellACarFormComponent {
   onImageRemoved(event: FileRemoveEvent): void {
     this.images.delete(event.file);
     this.imagesEmpty = this.images.size === 0 ? true : false;
+  }
+
+  onMakeSelected(): void {
+    this.carsList.make = this.sellForm.get('make')!.value;
+    this.carsList.UpdateModels();
   }
 
   submit(): void {
