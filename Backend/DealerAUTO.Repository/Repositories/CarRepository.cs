@@ -1,5 +1,6 @@
 ﻿using DealerAUTO.DTO.Models;
 using DealerAUTO.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DealerAUTO.Repository.Repositories
 {
@@ -21,6 +22,11 @@ namespace DealerAUTO.Repository.Repositories
             _dbContext.SaveChanges();
 
             return images;
+        }
+
+        public List<Car> GetCars()
+        {
+            return _dbContext.Cars.Include(e => e.Images).ToList();
         }
     }
 }

@@ -49,9 +49,9 @@ export class SellACarFormComponent {
 
   // constructor
   constructor(private _componentInteractionService: ComponentInteractionService,
-    private formBuilder: FormBuilder,
-    private http: HttpClient) {
-    this.sellForm = formBuilder.group({
+    private _formBuilder: FormBuilder,
+    private _http: HttpClient) {
+    this.sellForm = _formBuilder.group({
       make: ['', Validators.required],
       model: ['', Validators.required],
       year: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
@@ -84,6 +84,8 @@ export class SellACarFormComponent {
       }
     if (alreadySelected == false)
       this.images.add(lastAddedImage);
+
+    this.imagesEmpty = this.images.size === 0 ? true : false;
   }
 
   onImageRemoved(event: FileRemoveEvent): void {
@@ -118,7 +120,7 @@ export class SellACarFormComponent {
       for (const image of this.images) { formData.append(`image[${count++}]`, image); }
       formData.append('price', String(this.sellForm.get('price')!.value));
 
-      this.http.post<Car>('http://localhost:5113/car/post', formData)
+      this._http.post<Car>('http://localhost:5113/car/post', formData)
         .subscribe(
           (res: Car) => {
             console.log('succes');

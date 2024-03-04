@@ -1,4 +1,8 @@
+// angular
 import { Injectable } from '@angular/core';
+
+// models && DTOs && constants
+import { temporar } from '../../Data Transfer Objects/temporar';
 
 
 @Injectable({
@@ -6,7 +10,7 @@ import { Injectable } from '@angular/core';
 })
 export class ComponentInteractionService {
 
-  private pageStatus: string = 'sell-a-car';
+  private pageStatus: string = 'buy-a-car';
   private activeComponent: string = 'login';
   private submitText: string = '';
 

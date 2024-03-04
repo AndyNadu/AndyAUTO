@@ -3,6 +3,8 @@ using DealerAUTO.DTO.Models;
 using DealerAUTO.Repository.Interfaces;
 using DealerAUTO.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
+using static System.Net.Mime.MediaTypeNames;
+using Image = DealerAUTO.DTO.Models.Image;
 
 namespace DealerAUTO.Service.Services
 {
@@ -68,6 +70,54 @@ namespace DealerAUTO.Service.Services
             }
 
             return Images;
+        }
+
+        public List<CarDTO> GetCars()
+        {
+            List<Car> cars = _carRepository.GetCars();
+
+            List<CarDTO> carDTOs = ConvertModelToDTO(cars);
+
+            return carDTOs;
+        }
+
+        public List<CarDTO> ConvertModelToDTO(List<Car> cars)
+        {
+            List<CarDTO> carDTOs = new List<CarDTO>();
+
+            cars.ForEach(car =>
+            {
+                CarDTO carDTO = new CarDTO();
+                carDTO.Id = car.Id;
+                carDTO.Make = car.Make;
+                carDTO.Model = car.Model;
+                carDTO.Year = car.Year;
+                carDTO.Mileage = car.Mileage;
+                carDTO.Description = car.Description;
+                carDTO.Fuel = car.Fuel;
+                carDTO.CubicCapacity = car.CubicCapacity;
+                carDTO.Power = car.Power;
+                carDTO.Transmission = car.Transmission;
+                carDTO.Traction = car.Traction;
+                carDTO.Body = car.Body;
+                carDTO.Wheel = car.Wheel;
+                carDTO.Price = car.Price;
+                carDTO.State = car.State;
+                carDTO.PostTime = car.PostTime;
+
+                carDTO.ImagesAsBase64Strings = Convert.ToBase64String(car.Images[0].PhotoAsByteArray);
+
+                //carDTO.ImagesAsBase64Strings.Add(Convert.ToBase64String(car.Images[0].PhotoAsByteArray));
+
+                //foreach (DTO.Models.Image image in car.Images)
+                //    carDTO.ImagesAsBase64Strings.Add(Convert.ToBase64String(image.PhotoAsByteArray));
+
+
+
+                carDTOs.Add(carDTO);
+            });
+
+            return carDTOs;
         }
     }
 }

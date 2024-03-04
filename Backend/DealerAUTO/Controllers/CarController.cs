@@ -3,6 +3,7 @@ using DealerAUTO.DTO.Models;
 using DealerAUTO.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 
 namespace DealerAUTO.Controllers
@@ -38,9 +39,20 @@ namespace DealerAUTO.Controllers
         [HttpGet("get")]
         public IActionResult GetCars()
         {
-            //Car[] cars = _carService.GetCars();
-            
-            return Ok();
+            IActionResult result;
+
+            try
+            {
+                List<CarDTO> cars = _carService.GetCars();
+
+                result = cars.Count != 0 ? Ok(cars) : BadRequest("No cars found!");
+            }
+            catch (Exception ex)
+            {
+                result = BadRequest(ex.Message);
+            }
+
+            return result;
         }
     }
 }

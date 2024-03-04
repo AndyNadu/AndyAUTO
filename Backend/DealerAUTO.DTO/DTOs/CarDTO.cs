@@ -1,10 +1,10 @@
 ﻿#nullable disable
 
-using System.Net;
+using System.ComponentModel.DataAnnotations;
 
-namespace DealerAUTO.DTO.Models
+namespace DealerAUTO.DTO.DTOs
 {
-    public partial class Car
+    public partial class CarDTO
     {
         public int Id { get; set; }
         public string Make { get; set; }
@@ -23,6 +23,6 @@ namespace DealerAUTO.DTO.Models
         public string State { get; set; }
         public DateTime PostTime { get; set; }
 
-        public List<Image> Images { get; set; }
+        public string ImagesAsBase64Strings { get; set; }
     }
 }
