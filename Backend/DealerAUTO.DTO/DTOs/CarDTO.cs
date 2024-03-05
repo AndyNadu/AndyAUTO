@@ -23,6 +23,6 @@ namespace DealerAUTO.DTO.DTOs
         public string State { get; set; }
         public DateTime PostTime { get; set; }
 
-        public string ImagesAsBase64Strings { get; set; }
+        public List<string> ImagesAsBase64Strings { get; set; }
     }
 }

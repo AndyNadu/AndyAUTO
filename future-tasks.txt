@@ -1,4 +1,5 @@
-1. Safe authentication system (jwt)
-2. Double-check register / login (frontend + backend)
-3. Implement account details page
-4. Add * over password in register / login
+1. Find a solution for undefined in CarsFilterForm class.
+2. Double verification (client + server) when adding to DB
+3. Filtrarea dupa model
+4. Paginare
+5. Remember me

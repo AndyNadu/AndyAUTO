@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {}
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
+        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
         "projectName": "DealerAUTO.DTO",
-        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
+        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
         "packagesPath": "C:\\Users\\andy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\obj\\",
+        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,6 +61,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[3.1.3, )"
             }
           },
           "imports": [

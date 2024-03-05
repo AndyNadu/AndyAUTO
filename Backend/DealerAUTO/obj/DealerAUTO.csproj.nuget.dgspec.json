@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\dealerauto\\DealerAUTO.csproj": {}
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\DealerAUTO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
+        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
         "projectName": "DealerAUTO.DTO",
-        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
+        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
         "packagesPath": "C:\\Users\\andy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\obj\\",
+        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,6 +61,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[3.1.3, )"
             }
           },
           "imports": [
@@ -83,14 +87,14 @@
         }
       }
     },
-    "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj": {
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj",
+        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj",
         "projectName": "DealerAUTO.Repository",
-        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj",
+        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj",
         "packagesPath": "C:\\Users\\andy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Repository\\obj\\",
+        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -107,8 +111,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
-                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj"
+              "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
+                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj"
               }
             }
           }
@@ -148,6 +152,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[3.1.3, )"
             }
           },
           "imports": [
@@ -170,14 +178,14 @@
         }
       }
     },
-    "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj": {
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj",
+        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj",
         "projectName": "DealerAUTO.Service",
-        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj",
+        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj",
         "packagesPath": "C:\\Users\\andy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Service\\obj\\",
+        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -194,11 +202,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
-                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj"
+              "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
+                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj"
               },
-              "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj": {
-                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj"
+              "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj": {
+                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj"
               }
             }
           }
@@ -242,14 +250,14 @@
         }
       }
     },
-    "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\dealerauto\\DealerAUTO.csproj": {
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\DealerAUTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\dealerauto\\DealerAUTO.csproj",
+        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\DealerAUTO.csproj",
         "projectName": "DealerAUTO",
-        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\dealerauto\\DealerAUTO.csproj",
+        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\DealerAUTO.csproj",
         "packagesPath": "C:\\Users\\andy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\dealerauto\\obj\\",
+        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -266,14 +274,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
-                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj"
+              "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
+                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj"
               },
-              "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj": {
-                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj"
+              "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj": {
+                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj"
               },
-              "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj": {
-                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj"
+              "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj": {
+                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj"
               }
             }
           }

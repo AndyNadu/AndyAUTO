@@ -8,11 +8,12 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 
 // services
-import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
+import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
 
-// models && DTOs && constants
+// interfaces && constants && data objects
 import { RegisterPostUserDTO } from '../../Data Transfer Objects/RegisterPostUserDTO';
 import { RegisterResponseUserDTO } from '../../Data Transfer Objects/RegisterResponseUserDTO';
+
 
 @Component({
   selector: 'app-register-form',
@@ -30,7 +31,7 @@ import { RegisterResponseUserDTO } from '../../Data Transfer Objects/RegisterRes
 })
 export class RegisterFormComponent {
 
-  // variables
+  // members
   registerForm: FormGroup;
   emailAlreadyUsed: boolean = false;
   passwordsMatch: boolean = true;
@@ -50,9 +51,8 @@ export class RegisterFormComponent {
   }
 
   // methods
-  switchForm(activeComponent?: string): void {
-    const targetComponent = activeComponent || 'login';
-    this._componentInteractionService.setActiveComponent(targetComponent);
+  setForm(): void {
+    this._componentInteractionService.setForm('login');
   }
 
   register(): void {
@@ -80,8 +80,8 @@ export class RegisterFormComponent {
               sessionStorage.setItem('userEmail', res.email);
               sessionStorage.setItem('userPassword', res.password);
 
-              this._componentInteractionService.setSubmitText('Successfully registered!');
-              this.switchForm('logged-in');
+              this._componentInteractionService.setAfterAuthenticateText('Successfully registered!');
+              this._componentInteractionService.setForm('logged-in');
             },
             (err: HttpErrorResponse) => {
               if (err.error == 'Email already used') {
@@ -92,4 +92,5 @@ export class RegisterFormComponent {
           );
       }
   }
+
 }

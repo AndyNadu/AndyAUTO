@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c9/+xPiY0xu7qt0my2AVBozmu12qs0lKoDbgDoPNvdJJdOAtSlaCNuH/1WqXhmaetV0im1PKKPm/jivOzn+erw==",
+  "dgSpecHash": "PFLWJK0NEtRlQINdYNu7atgaiFs8a9BKQeZAa/LGSMZYjz9YYiR0CQ66uDoP3SWoYlL/qMnhj2/GXGRKZMtX+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
+  "projectFilePath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andy\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\andy\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
@@ -61,6 +61,7 @@
     "C:\\Users\\andy\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\andy\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\andy\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\andy\\.nuget\\packages\\sixlabors.imagesharp\\3.1.3\\sixlabors.imagesharp.3.1.3.nupkg.sha512",
     "C:\\Users\\andy\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\andy\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\andy\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",

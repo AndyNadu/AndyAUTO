@@ -7,7 +7,8 @@ import { LoginFormComponent } from '../../Custom Components/login-form/login-for
 import { RegisterFormComponent } from '../../Custom Components/register-form/register-form.component';
 
 // services
-import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
+import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
+
 
 @Component({    
   selector: 'app-login',
@@ -22,16 +23,13 @@ import { ComponentInteractionService } from '../../Frontend Services/component-i
 })
 export class LoginComponent {
 
-  // services
-  _componentInteractionService: ComponentInteractionService;
-
   // constructor
-  constructor(_componentInteractionService: ComponentInteractionService) {
-    this._componentInteractionService = _componentInteractionService;
-  }
+  constructor(private _componentInteractionService: ComponentInteractionService) { }
+
 
   // methods
   getActiveComponent(): string {
-    return this._componentInteractionService.getActiveComponent();
+    return this._componentInteractionService.getForm();
   }
+
 }

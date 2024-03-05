@@ -2194,7 +2194,8 @@
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": "8.0.2",
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Microsoft.EntityFrameworkCore": "8.0.2",
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2"
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
+          "SixLabors.ImageSharp": "3.1.3"
         },
         "runtime": {
           "DealerAUTO.DTO.dll": {}
@@ -2207,7 +2208,8 @@
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": "8.0.2",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
           "Microsoft.EntityFrameworkCore": "8.0.2",
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2"
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
+          "SixLabors.ImageSharp": "3.1.3"
         },
         "runtime": {
           "DealerAUTO.Repository.dll": {}

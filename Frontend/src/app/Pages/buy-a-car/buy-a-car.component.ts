@@ -15,10 +15,10 @@ import { CarListComponent } from '../../Custom Components/car-list/car-list.comp
 import { CarFiltersComponent } from '../../Custom Components/car-filters/car-filters.component';
 
 // services
-import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
+import { CarService } from '../../Services/CarService/car.service';
 
-// models && DTOs && constants
-import { Car } from '../../Data Transfer Objects/Car';
+// interfaces && constants && data objects
+import { Car } from '../../Interfaces/Car';
 
 
 @Component({
@@ -40,32 +40,9 @@ import { Car } from '../../Data Transfer Objects/Car';
 
 export class BuyACarComponent {
 
-  // variables
-  carsNumber: number;
+  // members
+  filteredCarsNumber: number = 0;
   selectedSort!: SelectItem;
-
-  //constructor
-  constructor(private _componentInteractionService: ComponentInteractionService,
-              private _http: HttpClient) {
-
-    _http.get<Car[]>('http://localhost:5113/car/get')
-      .subscribe(
-        (res: Car[]) => {
-          _componentInteractionService.setCarsList(res);
-        },
-        (err: HttpErrorResponse) => {
-          console.log(err);
-        }
-      );
-
-    this.carsNumber = _componentInteractionService.getCarsNumber();
-  }
-
-  sortMethodSelected(): void {
-    this._componentInteractionService.orderCars(this.selectedSort.label!);
-  }
-
-  // hardcoded shit
   sort_types: SelectItem[] = [
     { label: 'Post time (newest)', value: null },
     { label: 'Post time (oldest)', value: null },
@@ -74,4 +51,30 @@ export class BuyACarComponent {
     { label: 'Km (low to high)', value: null },
     { label: 'Km (high to low)', value: null },
   ];
+
+
+  // constructor
+  constructor(private _carService: CarService,
+              private _http: HttpClient) { }
+
+  ngOnInit() {
+    this._http.get<Car[]>('http://localhost:5113/car/get')
+      .subscribe(
+        (res: Car[]) => {
+          this._carService.setCarsList(res);
+        },
+        (err: HttpErrorResponse) => {
+          console.log(err);
+        }
+      );
+
+    this.filteredCarsNumber = this._carService.getCarsNumber();
+  }
+
+
+  // methods
+  sortMethodSelected(): void {
+    this._carService.orderCars(this.selectedSort.label!);
+  }
+
 }

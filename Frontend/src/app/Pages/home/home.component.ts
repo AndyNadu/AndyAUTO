@@ -8,7 +8,8 @@ import { FooterComponent } from '../../Custom Components/footer/footer.component
 import { NavigationBarComponent } from '../../Custom Components/navigation-bar/navigation-bar.component';
 
 // services
-import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
+import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
+
 
 @Component({
   selector: 'app-home',
@@ -26,6 +27,7 @@ export class HomeComponent {
 
   // constructor
   constructor(private _componentInteractionService: ComponentInteractionService) { }
+
 
   // methods
   getPageStatus(): string {

@@ -2,7 +2,8 @@
 import { Component } from '@angular/core';
 
 // services
-import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
+import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
+
 
 @Component({
   selector: 'app-logged-in',
@@ -13,15 +14,12 @@ import { ComponentInteractionService } from '../../Frontend Services/component-i
 })
 export class LoggedInComponent {
 
-  // services
-  _componentInteractionService: ComponentInteractionService;
-
-  // variables
+  // members
   submitText: string;
 
   // constructor
-  constructor(_componentInteractionService: ComponentInteractionService) {
+  constructor(private _componentInteractionService: ComponentInteractionService) {
     this._componentInteractionService = _componentInteractionService;
-    this.submitText = this._componentInteractionService.getSubmitText();
+    this.submitText = this._componentInteractionService.getAfterAuthenticateText();
   }
 }

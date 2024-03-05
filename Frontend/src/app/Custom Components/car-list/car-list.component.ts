@@ -1,17 +1,14 @@
 // angular
 import { Component } from '@angular/core';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-// moment
-import moment from 'moment';
-
-// custom components
-import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
-
-// models && DTOs && constants
-import { MiniViewCar } from '../../Data Transfer Objects/MiniViewCar';
+// rxjs
 import { Subscription } from 'rxjs';
+
+// interfaces && constants && data objects
+import { Car } from '../../Interfaces/Car';
+
+// services
+import { CarService } from '../../Services/CarService/car.service';
 
 
 @Component({
@@ -22,17 +19,19 @@ import { Subscription } from 'rxjs';
   styleUrl: './car-list.component.css'
 })
 export class CarListComponent {
-  carsList: MiniViewCar[] = [];
 
+  // members
+  carsList: Car[] = [];
   private carsListSubscription: Subscription;
 
-  constructor(private _componentInteractionService: ComponentInteractionService) {
-    this.carsList = _componentInteractionService.getCarsList();
 
-    this.carsListSubscription = this._componentInteractionService.getCarsSbjList().subscribe(carsList => {
+  // constructor
+  constructor(private _carService: CarService) {
+    this.carsList = _carService.getCarsList();
+
+    this.carsListSubscription = this._carService.getCarsListSubject().subscribe(carsList => {
       this.carsList = carsList;
     });
   }
 
- 
 }

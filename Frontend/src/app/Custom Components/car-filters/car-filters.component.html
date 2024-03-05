@@ -5,12 +5,12 @@
   </div>
 
   <div class="col-7">
-    <p-multiSelect [options]="carsFilterList.MakesArray"
-                    [(ngModel)]="carsFilterList.makes"
-                    (onChange)="carsFilterList.MakeSelected()"
-                    optionLabel="label"
-                    class="small-component"
-                    placeholder="Choose">
+    <p-multiSelect [options]="constantCarsList.MakesArray"
+                   [(ngModel)]="filtersList.makes"
+                   (onChange)="onMakeSelected()"
+                   optionLabel="label"
+                   class="small-component"
+                   placeholder="Choose">
     </p-multiSelect>
   </div>
 </div>
@@ -22,15 +22,15 @@
   </div>
 
   <div class="col-7">
-    <p-multiSelect [options]="carsFilterList.ModelsByMake"
-                    [(ngModel)]="carsFilterList.models"
-                    [disabled]="carsFilterList.modelInputDisabled"
-                    class="small-component"
-                    [group]="true"
-                    placeholder="Choose">
+    <p-multiSelect [options]="constantCarsList.ModelsByMake"
+                   [(ngModel)]="filtersList.models"
+                   [disabled]="constantCarsList.modelInputDisabled"
+                   class="small-component"
+                   [group]="true"
+                   placeholder="Choose">
       <ng-template let-group pTemplate="group">
         <div class="flex align-items-center">
-          <span>{{ group.label }}</span>
+          <span> {{ group.label }} </span>
         </div>
       </ng-template>
     </p-multiSelect>
@@ -45,11 +45,11 @@
   </div>
 
   <div class="col-7">
-    <p-multiSelect [options]="carsFilterList.BodyTypes"
-                    [(ngModel)]="carsFilterList.bodies"
-                    optionLabel="label"
-                    class="small-component"
-                    placeholder="Choose">
+    <p-multiSelect [options]="constantCarsList.BodyTypes"
+                   [(ngModel)]="filtersList.bodies"
+                   optionLabel="label"
+                   class="small-component"
+                   placeholder="Choose">
     </p-multiSelect>
   </div>
 
@@ -63,20 +63,24 @@
 
   <div class="col-7">
 
-    <p-inputNumber [(ngModel)]="carsFilterList.priceFrom"
-                    class="small-component col-5"
-                    inputId="integeronly"
-                    [min]="1"
-                    [max]="10000000"
-                    placeholder="From">
+    <p-inputNumber [(ngModel)]="filtersList.priceFrom"
+                   class="small-component col-5"
+                   inputId="integeronly"
+                   [min]="1"
+                   [max]="10000000"
+                   suffix =" €"
+                   #priceFrom
+                   placeholder="From">
     </p-inputNumber>
 
-    <p-inputNumber [(ngModel)]="carsFilterList.priceTo"
-                    class="small-component col-5 align-items-end offset-2"
-                    inputId="integeronly"
-                    [min]="1"
-                    [max]="10000000"
-                    placeholder="To">
+    <p-inputNumber [(ngModel)]="filtersList.priceTo"
+                   class="small-component col-5 align-items-end offset-2"
+                   inputId="integeronly"
+                   [min]="1"
+                   [max]="10000000"
+                   suffix =" €"
+                   #priceTo
+                   placeholder="To">
     </p-inputNumber>
 
   </div>
@@ -90,20 +94,22 @@
   </div>
 
   <div class="col-7">
-    <p-inputNumber [(ngModel)]="carsFilterList.yearFrom"
-                    class="small-component col-5"
-                    inputId="integeronly"
-                    [min]="1900"
-                    [max]="2024"
-                    placeholder="From">
+    <p-inputNumber [(ngModel)]="filtersList.yearFrom"
+                   class="small-component col-5"
+                   inputId="integeronly"
+                   [min]="1900"
+                   [max]="2024"
+                   #yearFrom
+                   placeholder="From">
     </p-inputNumber>
 
-    <p-inputNumber [(ngModel)]="carsFilterList.yearTo"
-                    class="small-component col-5 align-items-end offset-2"
-                    inputId="integeronly"
-                    [min]="1900"
-                    [max]="2024"
-                    placeholder="To">
+    <p-inputNumber [(ngModel)]="filtersList.yearTo"
+                   class="small-component col-5 align-items-end offset-2"
+                   inputId="integeronly"
+                   [min]="1900"
+                   [max]="2024"
+                   #yearTo
+                   placeholder="To">
     </p-inputNumber>
   </div>
 
@@ -116,20 +122,24 @@
   </div>
 
   <div class="col-7">
-    <p-inputNumber [(ngModel)]="carsFilterList.mileageFrom"
-                    class="small-component col-5"
-                    inputId="integeronly"
-                    [min]="0"
-                    [max]="1000000"
-                    placeholder="From">
+    <p-inputNumber [(ngModel)]="filtersList.mileageFrom"
+                   class="small-component col-5"
+                   inputId="integeronly"
+                   [min]="0"
+                   [max]="1000000"
+                   suffix=" km"
+                   #mileageFrom
+                   placeholder="From">
     </p-inputNumber>
 
-    <p-inputNumber [(ngModel)]="carsFilterList.mileageTo"
-                    class="small-component col-5 align-items-end offset-2"
-                    inputId="integeronly"
-                    [min]="0"
-                    [max]="1000000"
-                    placeholder="To">
+    <p-inputNumber [(ngModel)]="filtersList.mileageTo"
+                   class="small-component col-5 align-items-end offset-2"
+                   inputId="integeronly"
+                   [min]="0"
+                   [max]="1000000"
+                   suffix=" km"
+                   #mileageTo
+                   placeholder="To">
     </p-inputNumber>
   </div>
 
@@ -142,11 +152,11 @@
   </div>
 
   <div class="col-7">
-    <p-multiSelect [options]="carsFilterList.FuelTypes"
-                    [(ngModel)]="carsFilterList.fuels"
-                    optionLabel="label"
-                    class="small-component"
-                    placeholder="Choose">
+    <p-multiSelect [options]="constantCarsList.FuelTypes"
+                   [(ngModel)]="filtersList.fuels"
+                   optionLabel="label"
+                   class="small-component"
+                   placeholder="Choose">
     </p-multiSelect>
   </div>
 
@@ -159,20 +169,24 @@
   </div>
 
   <div class="col-7">
-    <p-inputNumber [(ngModel)]="carsFilterList.cubicCapacityFrom"
-                    class="small-component col-5"
-                    inputId="integeronly"
-                    [min]="1"
-                    [max]="20000"
-                    placeholder="From">
+    <p-inputNumber [(ngModel)]="filtersList.cubicCapacityFrom"
+                   class="small-component col-5"
+                   inputId="integeronly"
+                   [min]="1"
+                   [max]="20000"
+                   suffix=" (cm&#xB3;)"
+                   #cubicCapacityFrom
+                   placeholder="From">
     </p-inputNumber>
 
-    <p-inputNumber [(ngModel)]="carsFilterList.cubicCapacityTo"
-                    class="small-component col-5 align-items-end offset-2"
-                    inputId="integeronly"
-                    [min]="1"
-                    [max]="20000"
-                    placeholder="To">
+    <p-inputNumber [(ngModel)]="filtersList.cubicCapacityTo"
+                   class="small-component col-5 align-items-end offset-2"
+                   inputId="integeronly"
+                   [min]="1"
+                   [max]="20000"
+                   suffix=" (cm&#xB3;)"
+                   #cubicCapacityTo
+                   placeholder="To">
     </p-inputNumber>
   </div>
 
@@ -185,11 +199,11 @@
   </div>
 
   <div class="col-7">
-    <p-multiSelect [options]="carsFilterList.TransmissionTypes"
-                    [(ngModel)]="carsFilterList.transmissions"
-                    optionLabel="label"
-                    class="small-component"
-                    placeholder="Choose">
+    <p-multiSelect [options]="constantCarsList.TransmissionTypes"
+                   [(ngModel)]="filtersList.transmissions"
+                   optionLabel="label"
+                   class="small-component"
+                   placeholder="Choose">
     </p-multiSelect>
   </div>
 
@@ -202,11 +216,11 @@
   </div>
 
   <div class="col-7">
-    <p-multiSelect [options]="carsFilterList.TractionTypes"
-                    [(ngModel)]="carsFilterList.tractions"
-                    optionLabel="label"
-                    class="small-component"
-                    placeholder="Choose">
+    <p-multiSelect [options]="constantCarsList.TractionTypes"
+                   [(ngModel)]="filtersList.tractions"
+                   optionLabel="label"
+                   class="small-component"
+                   placeholder="Choose">
     </p-multiSelect>
   </div>
 
@@ -219,24 +233,24 @@
   </div>
 
   <div class="col-7">
-    <p-multiSelect [options]="carsFilterList.SteeringWheels"
-                    [(ngModel)]="carsFilterList.wheels"
-                    optionLabel="label"
-                    class="small-component"
-                    placeholder="Choose">
+    <p-multiSelect [options]="constantCarsList.SteeringWheels"
+                   [(ngModel)]="filtersList.wheels"
+                   optionLabel="label"
+                   class="small-component"
+                   placeholder="Choose">
     </p-multiSelect>
   </div>
 
 </div>
 
-<p-button (onClick)="filterCars()"
-          [loading]="loadingCarsPageBool"
+<p-button (onClick)="applyFilters()"
+          [loading]="applyFiltersLoading"
           class="car-filters-button show-results-button"
           label="Show results">
 </p-button>
 
-<p-button (onClick)="filterCars()"
-          [loading]="loadingCarsPageBool"
+<p-button (onClick)="resetFilters()"
+          [loading]="resetFiltersLoading"
           class="car-filters-button reset-filters-button"
           label="Reset filters">
 </p-button>

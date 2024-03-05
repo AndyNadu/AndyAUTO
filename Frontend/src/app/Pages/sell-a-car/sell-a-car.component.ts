@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
 import { SellACarFormComponent } from '../../Custom Components/sell-a-car-form/sell-a-car-form.component';
 
 // services
-import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
+import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
+
 
 @Component({
   selector: 'app-sell-a-car',
@@ -20,6 +21,7 @@ export class SellACarComponent {
 
   // constructor
   constructor(private _componentInteractionService: ComponentInteractionService) { }
+
 
   // methods
   scrollDown(elementID: string): void {

@@ -103,14 +103,9 @@ namespace DealerAUTO.Service.Services
                 carDTO.State = car.State;
                 carDTO.PostTime = car.PostTime;
 
-                carDTO.ImagesAsBase64Strings = Convert.ToBase64String(car.Images[0].PhotoAsByteArray);
-
-                //carDTO.ImagesAsBase64Strings.Add(Convert.ToBase64String(car.Images[0].PhotoAsByteArray));
-
-                //foreach (DTO.Models.Image image in car.Images)
-                //    carDTO.ImagesAsBase64Strings.Add(Convert.ToBase64String(image.PhotoAsByteArray));
-
-
+                carDTO.ImagesAsBase64Strings = new List<string>();
+                foreach (CarImage image in car.Images)
+                    carDTO.ImagesAsBase64Strings.Add(Convert.ToBase64String(image.PhotoAsByteArray));
 
                 carDTOs.Add(carDTO);
             });

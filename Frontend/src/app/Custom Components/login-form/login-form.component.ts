@@ -8,11 +8,12 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 
 // services
-import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
+import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
 
-// models && DTOs && constants
+// interfaces && constants && data objects
 import { LoginPostUserDTO } from '../../Data Transfer Objects/LoginPostUserDTO';
 import { LoginResponseUserDTO } from '../../Data Transfer Objects/LoginResponseUserDTO';
+
 
 @Component({
   selector: 'app-login-form',
@@ -30,7 +31,7 @@ import { LoginResponseUserDTO } from '../../Data Transfer Objects/LoginResponseU
 })
 export class LoginFormComponent {
 
-  // variables
+  // members
   loginForm: FormGroup;
   invalidCredentials: boolean = false;
 
@@ -45,9 +46,8 @@ export class LoginFormComponent {
   }
 
   // methods
-  switchForm(activeComponent?: string): void {
-    const targetComponent = activeComponent || 'register';
-    this._componentInteractionService.setActiveComponent(targetComponent);
+  setForm(): void {
+    this._componentInteractionService.setForm('register');
   }
 
   login(): void {
@@ -69,8 +69,8 @@ export class LoginFormComponent {
             sessionStorage.setItem('userEmail', res.email);
             sessionStorage.setItem('userPassword', res.password);
 
-            this._componentInteractionService.setSubmitText('Successfully logged in');
-            this.switchForm('logged-in');
+            this._componentInteractionService.setAfterAuthenticateText('Successfully logged in');
+            this._componentInteractionService.setForm('logged-in');
           },
           (err: HttpErrorResponse) => {
             this.invalidCredentials = true;
@@ -79,4 +79,5 @@ export class LoginFormComponent {
         );
     }
   }
+
 }

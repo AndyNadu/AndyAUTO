@@ -14,11 +14,12 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FileRemoveEvent, FileSelectEvent, FileUploadModule } from 'primeng/fileupload';
 
 // services
-import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
+import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
 
 // models && DTOs && constants
-import { Car } from '../../Data Transfer Objects/Car';
-import { CarsListConstants } from '../../Constants/CarsListConstants';
+import { Car } from '../../Interfaces/Car';
+import { CarsListConstant } from '../../Constants/CarsListConstant';
+
 
 @Component({
   selector: 'app-sell-a-car-form',
@@ -41,9 +42,9 @@ import { CarsListConstants } from '../../Constants/CarsListConstants';
 })
 export class SellACarFormComponent {
 
-  // variables
+  // members
   sellForm: FormGroup;
-  carsList: CarsListConstants = new CarsListConstants();
+  carsList: CarsListConstant = new CarsListConstant();
   images: Set<File> = new Set<File>();
   imagesEmpty: boolean = false;
 
@@ -130,4 +131,5 @@ export class SellACarFormComponent {
         );
     }
   }
+
 }

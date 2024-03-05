@@ -2,20 +2,16 @@
 import { SelectItem } from 'primeng/api';
 import { SelectItemGroup } from 'primeng/api';
 
-export class CarsListConstants {
+
+export class CarsListConstant {
 
   // variables
   group: SelectItemGroup[] = this.GenerateSelectItemGroup();
   modelInputDisabled: boolean = true;
-
   MakesArray: SelectItem[] = this.ExtractMakesFromGroup();
-  makes!: SelectItem[];
   make!: string;
-
   ModelsByMake: SelectItemGroup[] = [];
   ModelsForOneMake: SelectItem[] = [];
-  models!: SelectItem[];
-
   BodyTypes: SelectItem[] = [
     { label: 'Sedan', value: 'Sedan' },
     { label: 'Cabriolet', value: 'Cabriolet' },
@@ -26,47 +22,26 @@ export class CarsListConstants {
     { label: 'Small car', value: 'Small car' },
     { label: 'Van / minibus', value: 'Van / minibus' }
   ];
-  bodies!: SelectItem[];
-
-  priceFrom: number | undefined;
-  priceTo!: number | undefined;
-
-  yearFrom!: number | undefined;
-  yearTo!: number | undefined;
-
-  mileageFrom!: number | undefined;
-  mileageTo!: number | undefined;
-
   FuelTypes: SelectItem[] = [
     { label: 'Diesel', value: 'Diesel' },
     { label: 'Gasoline', value: 'Gasoline' },
     { label: 'Electric', value: 'Electric' },
     { label: 'Hybrid', value: 'Hybrid' }
   ];
-  fuels!: SelectItem[];
-
-  cubicCapacityFrom!: number | undefined;
-  cubicCapacityTo!: number | undefined;
-
   TransmissionTypes: SelectItem[] = [
     { label: 'Automatic', value: 'Automatic' },
     { label: 'Manual', value: 'Manual' },
     { label: 'CVT', value: 'CVT' }
   ];
-  transmissions!: SelectItem[];
-
   TractionTypes: SelectItem[] = [
     { label: 'Rear wheel drive', value: 'Rear wheel drive' },
     { label: 'Front wheel drive', value: 'Front wheel drive' },
     { label: 'All wheel drive', value: 'All wheel drive' }
   ];
-  tractions!: SelectItem[];
-
   SteeringWheels: SelectItem[] = [
     { label: 'Left side', value: 'Left side' },
     { label: 'Right side', value: 'Left side' }
   ];
-  wheels!: SelectItem[];
 
   // methods
   GenerateSelectItemGroup(): SelectItemGroup[] {
@@ -297,20 +272,20 @@ export class CarsListConstants {
 
     return labelsOnly;
   }
-  ExtractModelsByMake(): SelectItemGroup[] {
+  onMakeSelected(_makesList: SelectItem[]): void {
+    this.modelInputDisabled = _makesList.length == 0 ? true : false;
+    this.ModelsByMake = this.ExtractModelsByMake(_makesList);
+  }
+  ExtractModelsByMake(_makesList: SelectItem[]): SelectItemGroup[] {
     const tempGroup: SelectItemGroup[] = this.group.filter
-      (group => this.makes.some(make => make.label === group.label));
+      (group => _makesList.some(item => item.label === group.label));
 
     return tempGroup;
-  }
-  MakeSelected(): void {
-    this.modelInputDisabled = this.makes.length == 0 ? true : false;
-
-    this.ModelsByMake = this.ExtractModelsByMake()
   }
   UpdateModels(): void {
     const tempGroup = this.group.find(tempGroup => tempGroup.label === this.make);
 
     this.ModelsForOneMake = tempGroup ? tempGroup.items.map(item => ({ label: item.label, value: item.value })) : [];
-}
+  }
+
 }
