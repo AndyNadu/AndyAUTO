@@ -1,48 +1,47 @@
-<div class="d-flex align-items-center mb-2 test">
+<div>
+  <div class="d-flex align-items-center mb-2">
 
-  <div class="col fs-6 me-1 d-flex align-items-center">
-    Make
+    <div class="col d-flex align-items-center fs-6 me-1">
+      Make
+    </div>
+
+    <div class="col-7">
+      <p-multiSelect [options]="carsFilterList.MakesArray"
+                     [(ngModel)]="carsFilterList.makes"
+                     (onChange)="carsFilterList.MakeSelected()"
+                     optionLabel="label"
+                     class="small-component"
+                     placeholder="Choose">
+      </p-multiSelect>
+    </div>
   </div>
 
-  <div class="col-7">
-    <p-multiSelect  [(ngModel)]="carsFilterList.makes"
-                    [options]="carsFilterList.MakesArray"
-                    (onChange)="carsFilterList.MakeSelected()"
-                    optionLabel="label"
-                    class="small-component"
-                    placeholder="Choose">
-    </p-multiSelect>
-  </div>
-</div>
+  <div class="d-flex align-items-center my-2">
 
-<div class="d-flex align-items-center my-2">
+    <div class="col d-flex align-items-center fs-6 me-1">
+      Model
+    </div>
 
-  <div class="col fs-6 me-1 d-flex align-items-center">
-    Model
-  </div>
-
-  <div class="col-7">
-    <p-multiSelect [options]="carsFilterList.ModelsByMake"
-                    [(ngModel)]="carsFilterList.models"
-                    [disabled]="carsFilterList.modelInputDisabled"
-                    class="small-component"
-                    [group]="true"
-                    placeholder="Choose"
-                    scrollHeight="250px"
-                    display="chip">
-      <ng-template let-group pTemplate="group">
-        <div class="flex align-items-center">
-          <span>{{ group.label }}</span>
-        </div>
-      </ng-template>
-    </p-multiSelect>
-  </div>
+    <div class="col-7">
+      <p-multiSelect [options]="carsFilterList.ModelsByMake"
+                     [(ngModel)]="carsFilterList.models"
+                     [disabled]="carsFilterList.modelInputDisabled"
+                     class="small-component"
+                     [group]="true"
+                     placeholder="Choose">
+        <ng-template let-group pTemplate="group">
+          <div class="flex align-items-center">
+            <span>{{ group.label }}</span>
+          </div>
+        </ng-template>
+      </p-multiSelect>
+    </div>
 
   </div>
 
   <div class="d-flex align-items-center my-2">
 
-    <div class="col fs-6 me-1 d-flex align-items-center">
+    <div class="col d-flex align-items-center fs-6 me-1">
       Body type
     </div>
 
@@ -59,21 +58,22 @@
 
   <div class="d-flex align-items-center my-2">
 
-    <div class="col fs-6 me-1 d-flex align-items-center">
+    <div class="col d-flex align-items-center fs-6 me-1">
       Price
     </div>
 
     <div class="col-7">
 
       <p-inputNumber [(ngModel)]="carsFilterList.priceFrom"
-                     class="small-component col-5" inputId="integeronly"
+                     class="small-component col-5"
+                     inputId="integeronly"
                      [min]="1"
                      [max]="10000000"
                      placeholder="From">
       </p-inputNumber>
 
       <p-inputNumber [(ngModel)]="carsFilterList.priceTo"
-                     class="small-component col-5 offset-2 align-items-end"
+                     class="small-component col-5 align-items-end offset-2"
                      inputId="integeronly"
                      [min]="1"
                      [max]="10000000"
@@ -86,20 +86,21 @@
 
   <div class="d-flex align-items-center my-2">
 
-    <div class="col fs-6 me-1 d-flex align-items-center">
+    <div class="col d-flex align-items-center fs-6 me-1">
       First registration
     </div>
 
     <div class="col-7">
       <p-inputNumber [(ngModel)]="carsFilterList.yearFrom"
-                     class="small-component col-5" inputId="integeronly"
+                     class="small-component col-5"
+                     inputId="integeronly"
                      [min]="1900"
                      [max]="2024"
                      placeholder="From">
       </p-inputNumber>
 
       <p-inputNumber [(ngModel)]="carsFilterList.yearTo"
-                     class="small-component col-5 offset-2 align-items-end"
+                     class="small-component col-5 align-items-end offset-2"
                      inputId="integeronly"
                      [min]="1900"
                      [max]="2024"
@@ -111,7 +112,7 @@
 
   <div class="d-flex align-items-center my-2">
 
-    <div class="col fs-6 me-1 d-flex align-items-center">
+    <div class="col d-flex align-items-center fs-6 me-1">
       Mileage
     </div>
 
@@ -125,7 +126,7 @@
       </p-inputNumber>
 
       <p-inputNumber [(ngModel)]="carsFilterList.mileageTo"
-                     class="small-component col-5 offset-2 align-items-end"
+                     class="small-component col-5 align-items-end offset-2"
                      inputId="integeronly"
                      [min]="0"
                      [max]="1000000"
@@ -137,7 +138,7 @@
 
   <div class="d-flex align-items-center my-2">
 
-    <div class="col fs-6 me-1 d-flex align-items-center">
+    <div class="col d-flex align-items-center fs-6 me-1">
       Fuel type
     </div>
 
@@ -154,7 +155,7 @@
 
   <div class="d-flex align-items-center my-2">
 
-    <div class="col fs-6 me-1 d-flex align-items-center">
+    <div class="col d-flex align-items-center fs-6 me-1">
       Cubic capacity
     </div>
 
@@ -168,7 +169,7 @@
       </p-inputNumber>
 
       <p-inputNumber [(ngModel)]="carsFilterList.cubicCapacityTo"
-                     class="small-component col-5 offset-2 align-items-end"
+                     class="small-component col-5 align-items-end offset-2"
                      inputId="integeronly"
                      [min]="1"
                      [max]="20000"
@@ -180,7 +181,7 @@
 
   <div class="d-flex align-items-center my-2">
 
-    <div class="col fs-6 me-1 d-flex align-items-center">
+    <div class="col d-flex align-items-center fs-6 me-1">
       Transmission
     </div>
 
@@ -197,7 +198,7 @@
 
   <div class="d-flex align-items-center my-2">
 
-    <div class="col fs-6 me-1 d-flex align-items-center">
+    <div class="col d-flex align-items-center fs-6 me-1">
       Traction
     </div>
 
@@ -214,7 +215,7 @@
 
   <div class="d-flex align-items-center mt-2">
 
-    <div class="col fs-6 me-1 d-flex align-items-center">
+    <div class="col d-flex align-items-center fs-6 me-1">
       Steering wheel
     </div>
 
@@ -229,14 +230,15 @@
 
   </div>
 
-  <p-button class="search-car-button
-              show-results-button"
-            label="Show 0 results"
+  <p-button (onClick)="filterCars()"
             [loading]="loadingCarsPageBool"
-            (onClick)="filterCars()"></p-button>
+            class="car-filters-button show-results-button"
+            label="Show results">
+  </p-button>
 
-  <p-button class="search-car-button
-              reset-filters-button"
-            label="Reset filters"
-            [loading]="loadingResetFiltersBool"
-            (onClick)="resetFilters()"></p-button>
+  <p-button (onClick)="filterCars()"
+            [loading]="loadingCarsPageBool"
+            class="car-filters-button reset-filters-button"
+            label="Reset filters">
+  </p-button>
+</div>
