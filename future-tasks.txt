@@ -1,5 +1,4 @@
-1. Find a solution for undefined in CarsFilterForm class.
 2. Double verification (client + server) when adding to DB
-3. Filtrarea dupa model
-4. Paginare
+3. Filter by model
+4. Pagination
 5. Remember me
