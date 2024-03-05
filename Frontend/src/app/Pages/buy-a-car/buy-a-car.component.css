@@ -43,8 +43,30 @@
   margin-bottom: 10px;
 }
 
+.sort-row {
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
 .sort-by-select .p-dropdown {
-  width: 200px;
+  width: 230px;
+}
+
+.sort-by-select .p-dropdown-items {
+  padding: 0;
+  margin: 0;
+}
+
+.sort-by-select .p-dropdown-label {
+  padding-right: 3px;
+}
+
+.sort-by-select .p-dropdown-item {
+  padding-left: 12px;
+}
+
+.sort-by-select .p-dropdown-trigger {
+  width: 15%;
 }
 
 /* media queries */
@@ -95,5 +117,10 @@
 
   .right-section {
     width: 95%;
+  }
+
+  .sort-row {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }

@@ -10,6 +10,9 @@ import { MultiSelectModule } from 'primeng/multiselect';
 // models && DTOs && constants
 import { CarsListConstants } from '../../Constants/CarsListConstants';
 
+// services
+import { ComponentInteractionService } from '../../Frontend Services/component-interaction/component-interaction.service';
+
 @Component({
   selector: 'app-car-filters',
   standalone: true,
@@ -29,30 +32,53 @@ export class CarFiltersComponent {
   // variables
   carsFilterList: CarsListConstants = new CarsListConstants();
 
+  // constructor
+  constructor(private _componentInteractionService: ComponentInteractionService) { }
+
+  // methods
+  filterCars() {
+    this.loadingCarsPageBool = true;
+
+    setTimeout(()=> {
+      this.loadingCarsPageBool = false;
+      this._componentInteractionService.filterCars(this.carsFilterList);
+    }, 1000);
+  }
+
   //some hardcoded info
   selectedCarMakes!: object[];
 
   models: object[] = [];
   selectedModels!: object[];
 
-  
-
   loadingCarsPageBool = false;
   loadingResetFiltersBool = false;
 
-  loadCarsPage() {
-    this.loadingCarsPageBool = true;
 
-    setTimeout(() => {
-      this.loadingCarsPageBool = false;
-    }, 2000);
-  }
 
   resetFilters() {
     this.loadingResetFiltersBool = true;
 
     setTimeout(() => {
       this.loadingResetFiltersBool = false;
-    }, 2000);
+
+      this.carsFilterList.makes = [];
+      this.carsFilterList.models = [];
+      this.carsFilterList.bodies = [];
+      this.carsFilterList.priceFrom = undefined;
+      this.carsFilterList.priceTo = undefined;
+      this.carsFilterList.yearFrom = undefined;
+      this.carsFilterList.yearTo = undefined;
+      this.carsFilterList.mileageFrom = undefined;
+      this.carsFilterList.mileageTo = undefined;
+      this.carsFilterList.fuels = [];
+      this.carsFilterList.cubicCapacityFrom = undefined;
+      this.carsFilterList.cubicCapacityTo = undefined;
+      this.carsFilterList.transmissions = [];
+      this.carsFilterList.tractions = [];
+      this.carsFilterList.wheels = [];
+
+      this._componentInteractionService.filterCars(this.carsFilterList);
+    }, 1000);
   }
 }

@@ -1,22 +1,28 @@
 export interface MiniViewCar {
+
   make: string;
   model: string;
-  year: string;
-  mileage: string;
+  year: number;
+  mileage: number;
   description: string;
   fuel: string;
-  cubicCapacity: string;
-  power: string;
+  cubicCapacity: number;
+  power: number;
   transmission: string;
   traction: string;
   body: string;
   wheel: string;
-  price: string;
+  price: number;
   state: string;
+  postTime: Date;
 
-  postTime: string;
+  yearAsString: string;
+  mileageAsString: string;
+  cubicCapacityAsString: string;
+  powerAsString: string;
+  priceAsString: string;
+  postTimeAsString: string;
 
   imagesAsBase64Strings: string;
-
   firstImage: any;
 }

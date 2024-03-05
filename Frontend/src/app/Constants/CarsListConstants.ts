@@ -28,6 +28,15 @@ export class CarsListConstants {
   ];
   bodies!: SelectItem[];
 
+  priceFrom: number | undefined;
+  priceTo!: number | undefined;
+
+  yearFrom!: number | undefined;
+  yearTo!: number | undefined;
+
+  mileageFrom!: number | undefined;
+  mileageTo!: number | undefined;
+
   FuelTypes: SelectItem[] = [
     { label: 'Diesel', value: 'Diesel' },
     { label: 'Gasoline', value: 'Gasoline' },
@@ -35,6 +44,9 @@ export class CarsListConstants {
     { label: 'Hybrid', value: 'Hybrid' }
   ];
   fuels!: SelectItem[];
+
+  cubicCapacityFrom!: number | undefined;
+  cubicCapacityTo!: number | undefined;
 
   TransmissionTypes: SelectItem[] = [
     { label: 'Automatic', value: 'Automatic' },

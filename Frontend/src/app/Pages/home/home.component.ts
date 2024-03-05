@@ -24,13 +24,8 @@ import { ComponentInteractionService } from '../../Frontend Services/component-i
 })
 export class HomeComponent {
 
-  // services
-  _componentInteractionService: ComponentInteractionService;
-
   // constructor
-  constructor(_componentInteractionService: ComponentInteractionService) {
-    this._componentInteractionService = _componentInteractionService;
-  }
+  constructor(private _componentInteractionService: ComponentInteractionService) { }
 
   // methods
   getPageStatus(): string {

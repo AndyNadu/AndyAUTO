@@ -14,5 +14,5 @@ C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.Repository\bin\Debug\net8.0\De
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.Repository\bin\Debug\net8.0\DealerAUTO.DTO.dll
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.Repository\bin\Debug\net8.0\DealerAUTO.DTO.pdb
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.Repository\obj\Debug\net8.0\DealerAUTO.Repository.csproj.AssemblyReference.cache
-C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.Repository\obj\Debug\net8.0\DealerAUTO.Repository.csproj.CopyComplete
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.Repository\obj\Debug\net8.0\DealerAUTO.Repository.genruntimeconfig.cache
+C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.Repository\obj\Debug\net8.0\DealerAU.C6E3AF45.Up2Date
