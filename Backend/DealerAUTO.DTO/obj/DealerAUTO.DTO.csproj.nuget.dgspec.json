@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {}
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
+        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
         "projectName": "DealerAUTO.DTO",
-        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
+        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
         "packagesPath": "C:\\Users\\andy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\obj\\",
+        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\backend\\DealerAUTO.DTO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -34,17 +34,16 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
             "Microsoft.AspNetCore.Http": {
               "target": "Package",
               "version": "[2.2.2, )"
@@ -80,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

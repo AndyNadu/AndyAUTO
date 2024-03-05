@@ -1,12 +1,4 @@
-.submit-text {
-  margin: 20px 0 50px 0;
-  padding: 0;
-  color: darkblue;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.back-btn {
+.back-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,8 +6,6 @@
   font-size: 18px;
   width: 75%;
   height: 50px;
-  min-height: 50px;
-  max-height: 50px;
   border-radius: 15px;
   cursor: pointer;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -24,7 +14,7 @@
   text-decoration: none;
 }
 
-.back-btn:hover {
+.back-button:hover {
   opacity: 0.9;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);

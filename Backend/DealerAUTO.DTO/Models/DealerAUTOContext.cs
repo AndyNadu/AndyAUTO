@@ -9,16 +9,16 @@ namespace DealerAUTO.DTO.Models
 
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Car> Cars { get; set; }
-        public virtual DbSet<Image> Images { get; set; }
+        public virtual DbSet<CarImage> Images { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
                 string connectionStringLaptop = "Server=Andy_Laptop\\SQLEXPRESS;Database=AndyAUTO;Trusted_Connection=True;TrustServerCertificate=True;";
-                //string connectionStringPC = "Server=DESKTOP-1QK3PBD\\SQLEXPRESS;Database=AndyAUTO;Trusted_Connection=True;TrustServerCertificate=True;";
+                string connectionStringPC = "Server=DESKTOP-1QK3PBD\\SQLEXPRESS;Database=AndyAUTO;Trusted_Connection=True;TrustServerCertificate=True;";
 
-                optionsBuilder.UseSqlServer(connectionStringLaptop, options => options.MigrationsAssembly("DealerAUTO.DTO"));
+                optionsBuilder.UseSqlServer(connectionStringPC, options => options.MigrationsAssembly("DealerAUTO.DTO"));
             }
         }
 
@@ -26,15 +26,15 @@ namespace DealerAUTO.DTO.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.Entity<User>(entity =>
-            {
-              entity.HasKey(e => e.Id);
-              entity.Property(e => e.FirstName).HasColumnName("FirstName");
-              entity.Property(e => e.LastName).HasColumnName("LastName");
-              entity.Property(e => e.Password).HasColumnName("Password");
-              entity.Property(e => e.Email).HasColumnName("Email");
-              entity.Property(e => e.PhoneNumber).HasColumnName("PhoneNumber");
-            });
+            //modelBuilder.Entity<User>(entity =>
+            //{
+            //  entity.HasKey(e => e.Id);
+            //  entity.Property(e => e.FirstName).HasColumnName("FirstName");
+            //  entity.Property(e => e.LastName).HasColumnName("LastName");
+            //  entity.Property(e => e.Password).HasColumnName("Password");
+            //  entity.Property(e => e.Email).HasColumnName("Email");
+            //  entity.Property(e => e.PhoneNumber).HasColumnName("PhoneNumber");
+            //});
 
             //modelBuilder.Entity<Car>(entity =>
             //{

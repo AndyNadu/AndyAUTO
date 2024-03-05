@@ -169,7 +169,6 @@ export class ComponentInteractionService {
     this.carsList = this.carsList.filter(car => {
 
       const makeMatches = _carsList.makes == undefined ||  _carsList.makes.length == 0 || _carsList.makes.map(item => item.label).includes(car.make);
-
       const bodyMatches = _carsList.bodies == undefined || _carsList.bodies.length == 0 || _carsList.bodies.map(item => item.label).includes(car.body);
       const priceMatches =
         (_carsList.priceFrom === undefined && _carsList.priceTo === undefined) ||
@@ -195,7 +194,6 @@ export class ComponentInteractionService {
       const transmissionMatches = _carsList.transmissions == undefined || _carsList.transmissions.length == 0 || _carsList.transmissions.map(item => item.label).includes(car.transmission);
       const tractionMatches = _carsList.tractions == undefined || _carsList.tractions.length == 0 || _carsList.tractions.map(item => item.label).includes(car.traction);
       const wheelMatches = _carsList.wheels == undefined || _carsList.wheels.length == 0 || _carsList.wheels.map(item => item.label).includes(car.wheel);
-
 
       return makeMatches && bodyMatches && priceMatches && yearMatches && mileageMatches && fuelMatches && cubicCapacityMatches && transmissionMatches && tractionMatches && wheelMatches;
     });

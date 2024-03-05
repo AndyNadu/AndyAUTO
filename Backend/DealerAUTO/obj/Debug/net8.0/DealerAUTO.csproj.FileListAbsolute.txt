@@ -264,9 +264,9 @@ C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO\bin\Debug\net8.0\ru\Microsoft.
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\DealerAUTO.staticwebassets.runtime.json
-C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\obj\Debug\net8.0\DealerAUTO.csproj.Up2Date
+C:\Users\andy\Desktop\AndyAUTO\backend\dealerauto\obj\Debug\net8.0\DealerAUTO.csproj.CopyComplete
+C:\Users\andy\Desktop\AndyAUTO\backend\dealerauto\bin\Debug\net8.0\SixLabors.ImageSharp.dll
+C:\Users\andy\Desktop\AndyAUTO\backend\dealerauto\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll

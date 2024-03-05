@@ -36,6 +36,11 @@
   font-family: "Inter var", sans-serif; 
 }
 
+.photos-box-error {
+  border: 1px solid #e24c4c;
+  border-radius: 6px;
+}
+
 .submit-area {
   width: 100%;
   display: flex;
@@ -62,9 +67,4 @@
   opacity: 0.9;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
-}
-
-.photos-box {
-  border: 1px solid #e24c4c;
-  border-radius: 6px;
 }

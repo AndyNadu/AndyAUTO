@@ -13,6 +13,10 @@
   width: 15%;
 }
 
+.small-component .p-multiselect-close {
+  margin-left: 10px;
+}
+
 .small-component .p-multiselect-label {
   padding-top: 9px;
   padding-bottom: 8px;

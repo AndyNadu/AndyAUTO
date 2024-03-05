@@ -23,6 +23,6 @@ namespace DealerAUTO.DTO.Models
         public string State { get; set; }
         public DateTime PostTime { get; set; }
 
-        public List<Image> Images { get; set; }
+        public List<CarImage> Images { get; set; }
     }
 }

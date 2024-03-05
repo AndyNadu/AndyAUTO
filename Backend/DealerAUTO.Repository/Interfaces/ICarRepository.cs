@@ -5,7 +5,7 @@ namespace DealerAUTO.Repository.Interfaces
     public interface ICarRepository
     {
         public Car PostCar(Car car);
-        public List<Image> PostImages(List<Image> images);
+        public List<CarImage> PostImages(List<CarImage> images);
         public List<Car> GetCars();
     }
 }

@@ -3,8 +3,6 @@ using DealerAUTO.DTO.Models;
 using DealerAUTO.Repository.Interfaces;
 using DealerAUTO.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
-using static System.Net.Mime.MediaTypeNames;
-using Image = DealerAUTO.DTO.Models.Image;
 
 namespace DealerAUTO.Service.Services
 {
@@ -22,7 +20,7 @@ namespace DealerAUTO.Service.Services
             Car car = BuildModelFromForm(form);
             car = _carRepository.PostCar(car);
 
-            List<Image> PhotosAsByteArrays = ConvertImagesToByteArrays(form, car.Id);
+            List<CarImage> PhotosAsByteArrays = ConvertImagesToByteArrays(form, car.Id);
             PhotosAsByteArrays = _carRepository.PostImages(PhotosAsByteArrays);
 
             return car;
@@ -50,13 +48,13 @@ namespace DealerAUTO.Service.Services
             };
         }
 
-        public List<Image> ConvertImagesToByteArrays(IFormCollection form, int carId)
+        public List<CarImage> ConvertImagesToByteArrays(IFormCollection form, int carId)
         {
-            List<Image> Images = new List<Image>();
+            List<CarImage> Images = new List<CarImage>();
 
             foreach (IFormFile file in form.Files)
             {
-                Image image = new Image();
+                CarImage image = new CarImage();
 
                 image.CarId = carId;
 

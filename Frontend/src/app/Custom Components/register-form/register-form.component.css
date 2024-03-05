@@ -11,12 +11,10 @@
   font-weight: bold;
   font-size: 18px;
   height: 50px;
-  min-height: 50px;
-  max-height: 50px;
   border-radius: 15px;
   cursor: pointer;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  flex: 1;
+  color: white;
 }
 
 .custom-btn:hover {
@@ -27,32 +25,24 @@
 
 .login-upper-btn {
   margin: 50px 5px 50px 0;
+  background-color: #1f104a;
+  width: 50%;
 }
 
 .register-upper-btn {
   margin: 50px 0 50px 5px;
-}
-
-.active-btn {
   background-color: #ff533d;
-  color: white;
+  width: 50%;
 }
 
-.disabled-btn {
+.submit-button {
+  width: 100%;
   background-color: #1f104a;
-  color: white;
+  margin: 50px 0 50px 0;
 }
 
 .register-input .p-inputtext {
   width: 100%;
-}
-
-.left-input {
-  margin-right: 15px;
-}
-
-.right-input {
-  margin-left: 15px;
 }
 
 .input-row-form {
@@ -61,12 +51,12 @@
   margin: 15px 0 15px 0;
 }
 
-.submit-button {
-  margin: 50px 0 50px 0;
+.left-input {
+  margin-right: 15px;
 }
 
-.input-error {
-  border-color: red;
+.right-input {
+  margin-left: 15px;
 }
 
 .error-text {
@@ -91,7 +81,10 @@
     flex-direction: column;
   }
 
-  .left-input, .right-input {
+  .left-input,
+  .right-input,
+  .login-upper-btn,
+  .register-upper-btn {
     width: 100%;
   }
 

@@ -58,7 +58,7 @@
 
     </div>
 
-    <div class="sort-row d-flex fs-4 text-darkblue mt-3 mb-2">
+    <div class="sort-row d-flex fs-4 text-darkblue mt-3 mb-4">
 
       <div class="col d-flex align-items-center">
         Cars - {{ carsNumber }}
@@ -89,7 +89,8 @@
     <mat-paginator [length]="100"
                    [pageSize]="10"
                    [pageSizeOptions]="[5, 10, 25, 100]"
-                   aria-label="Select page">
+                   aria-label="Select page"
+                   class="paginator">
     </mat-paginator>
 
 

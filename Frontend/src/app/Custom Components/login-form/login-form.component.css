@@ -4,47 +4,48 @@
   display: flex;
 }
 
-.custom-btn {
+.custom-button {
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
   font-size: 18px;
   height: 50px;
-  min-height: 50px;
-  max-height: 50px;
   border-radius: 15px;
   cursor: pointer;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  flex: 1;
+  color: white;
 }
 
-.custom-btn:hover {
+.custom-button:hover {
   opacity: 0.9;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
 
-.login-upper-btn {
+.login-upper-button {
   margin: 50px 5px 50px 0;
-}
-
-.register-upper-btn {
-  margin: 50px 0 50px 5px;
-}
-
-.active-btn {
   background-color: #ff533d;
-  color: white;
+  width: 50%;
 }
 
-.disabled-btn {
+.register-upper-button {
+  margin: 50px 0 50px 5px;
   background-color: #1f104a;
-  color: white;
+  width: 50%;
+}
+
+.submit-button {
+  width: 100%;
+  background-color: #1f104a;
 }
 
 .login-input .p-inputtext {
-  width: 100%!important;
+  width: 100%;
+}
+
+.p-float-label > .ng-invalid.ng-dirty + label {
+  color: #6b7280;
 }
 
 .remember-me {
@@ -55,21 +56,15 @@
   color: red;
 }
 
-.input-error {
-  border-color: red;
-}
-
-.login-input .p-float-label > .ng-invalid.ng-dirty + label {
-  color: #6b7280;
-}
-
 /* media queries */
 @media (max-width: 800px) {
   .upper-buttons {
     flex-direction: column;
   }
 
-  .login-upper-btn, .register-upper-btn {
+  .login-upper-button,
+  .register-upper-button {
     margin: 0 0 15px 0;
+    width: 100%;
   }
 }

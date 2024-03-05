@@ -158,7 +158,7 @@
       Upload photos
     </div>
 
-    <div [class.photos-box]="imagesEmpty">
+    <div [class.photos-box-error]="imagesEmpty">
       <p-fileUpload [customUpload]="true"
                     [auto]="true"
                     [multiple]="true"

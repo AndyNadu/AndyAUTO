@@ -16,7 +16,7 @@ namespace DealerAUTO.Repository.Repositories
             return car;
         }
 
-        public List<Image> PostImages(List<Image> images)
+        public List<CarImage> PostImages(List<CarImage> images)
         {
             _dbContext.Images.AddRange(images);
             _dbContext.SaveChanges();

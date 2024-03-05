@@ -78,22 +78,20 @@ export class SellACarFormComponent {
         alreadySelected = true;
         break;
       }
-    if (alreadySelected == false)
+    if (alreadySelected == false) {
       this.images.add(lastAddedImage);
+    }
 
     this.imagesEmpty = this.images.size === 0 ? true : false;
   }
-
   onImageRemoved(event: FileRemoveEvent): void {
     this.images.delete(event.file);
     this.imagesEmpty = this.images.size === 0 ? true : false;
   }
-
   onMakeSelected(): void {
     this.carsList.make = this.sellForm.get('make')!.value;
     this.carsList.UpdateModels();
   }
-
   submit(): void {
     Object.keys(this.sellForm.controls).forEach(key => {
       const control = this.sellForm.get(key);

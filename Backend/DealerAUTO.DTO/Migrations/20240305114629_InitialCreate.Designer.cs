@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DealerAUTO.DTO.Migrations
 {
     [DbContext(typeof(DealerAUTOContext))]
-    [Migration("20240304205855_InitialCreate")]
+    [Migration("20240305114629_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -114,24 +114,19 @@ namespace DealerAUTO.DTO.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Email");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("FirstName");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("LastName");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Password");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("PhoneNumber");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

@@ -15,4 +15,4 @@ C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.Service\obj\Debug\net8.0\Deale
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.Service\obj\Debug\net8.0\refint\DealerAUTO.Service.dll
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.Service\obj\Debug\net8.0\DealerAUTO.Service.pdb
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.Service\obj\Debug\net8.0\ref\DealerAUTO.Service.dll
-C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.Service\obj\Debug\net8.0\DealerAU.8F81A1FB.Up2Date
+C:\Users\andy\Desktop\AndyAUTO\backend\DealerAUTO.Service\obj\Debug\net8.0\DealerAUTO.Service.csproj.CopyComplete

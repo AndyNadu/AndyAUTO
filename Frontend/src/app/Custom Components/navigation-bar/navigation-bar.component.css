@@ -1,7 +1,6 @@
 .contact-bar {
   height: 30px;
   padding: 0;
-  color: #1f104a;
 }
 
 .information {
@@ -23,7 +22,6 @@
 .brand {
   width: 120px;
   display: flex;
-  flex-direction: row;
   align-items: center;
   font-weight: bold;
   margin-left: 10vw;
@@ -57,16 +55,11 @@
 
 /* media queries */
 @media (max-width: 1200px) { 
-  .contact-bar { /* hide contact bar when
-                    screen gets smaller */
+  .contact-bar {
     display: none;
   }
 
-  #collapsibleNavbar { /* move hamburger-button
-                          and options to the right
-                          side of the
-                          navigation-bar 
-                       */
+  #collapsibleNavbar {
     text-align: right;
   }
 
