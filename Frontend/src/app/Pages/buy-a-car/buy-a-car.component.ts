@@ -11,8 +11,10 @@ import { SelectItem } from 'primeng/api';
 import { DropdownModule } from 'primeng/dropdown';
 
 // custom components
+import { FooterComponent } from '../../Custom Components/footer/footer.component';
 import { CarListComponent } from '../../Custom Components/car-list/car-list.component';
 import { CarFiltersComponent } from '../../Custom Components/car-filters/car-filters.component';
+import { NavigationBarComponent } from '../../Custom Components/navigation-bar/navigation-bar.component';
 
 // services
 import { CarService } from '../../Services/CarService/car.service';
@@ -29,6 +31,8 @@ import { Car } from '../../Interfaces/Car';
     MatPaginatorModule,
 
     DropdownModule,
+    FooterComponent,
+    NavigationBarComponent,
 
     CarListComponent,
     CarFiltersComponent

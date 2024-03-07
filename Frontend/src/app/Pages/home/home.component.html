@@ -1,8 +1,84 @@
 <app-navigation-bar></app-navigation-bar>
 
-@if (getPageStatus() == 'buy-a-car') {
-<app-buy-a-car></app-buy-a-car> }
-@else {
-<app-sell-a-car></app-sell-a-car> }
+<div class="home-content">
+  <div class="h1 mb-4">
+    Dealer Auto
+  </div>
+
+  <div class="home-content-description h4 mb-5" [innerHTML]="homeConstants.dealerDescription"> </div>
+
+  <div class="home-car-states mb-5">
+    <div class="home-car-state col h5 mb-0"
+         [class.home-car-state-selected]="homeConstants.carState === 'New cars'"
+         (click)="onStateChanged('New cars')">
+      New cars
+    </div>
+
+    <div class="home-car-state col h5 mb-0"
+         [class.home-car-state-selected]="homeConstants.carState === 'Used cars'"
+         (click)="onStateChanged('Used cars')">
+      Used cars
+    </div>
+  </div>
+
+  <div class="card mb-5">
+    <img [src]="homeConstants.photoURL"
+         class="home-car-state-image
+                card-img-top"
+         alt="car-image">
+
+    <div class="card-body">
+      <div class="home-text-text-blue card-title h2 mb-3">
+        {{ homeConstants.carState }}
+      </div>
+
+      <div class="home-car-text-gray card-text h5 mb-3" [innerHTML]="homeConstants.stateDescription"> </div>
+    </div>
+  </div>
+
+  <div class="home-test-drive card mb-3">
+    <div class="row g-0 h-100">
+      <div class="col-5">
+        <img src="./assets/Images/volan.jpg"
+             class="home-test-drive-photo rounded-start w-100 h-100"
+             alt="img">
+      </div>
+      <div class="col">
+        <div class="card-body">
+          <div class="home-car-text-blue card-title h3 mt-3">
+            Test Drive
+          </div>
+          <div class="home-car-text-gray card-text h5 mt-5">
+            {{ homeConstants.testDriveDescription }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-test-drive card mb-3">
+    <div class="row g-0 h-100">
+
+      <div class="col-md-7">
+        <div class="card-body">
+          <div class="home-car-text-blue card-title h3 mt-3">
+            Leasing auto
+          </div>
+          <div class="home-car-text-gray card-text h5 mt-5">
+            {{ homeConstants.leasingDescription }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <img src="./assets/Images/leasing.jpg"
+             class="home-test-drive-photo rounded-end w-100"
+             alt="img">
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 <app-footer></app-footer>

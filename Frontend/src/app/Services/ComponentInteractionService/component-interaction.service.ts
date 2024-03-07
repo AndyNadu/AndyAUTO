@@ -10,7 +10,6 @@ export class ComponentInteractionService {
   // members
   private afterAuthenticateText: string = '';
   private form: string = 'login';
-  private activeComponent: string = 'buy-a-car';
 
   // constructor
   constructor() { }
@@ -28,12 +27,6 @@ export class ComponentInteractionService {
   }
   getForm(): string {
     return this.form;
-  }
-  setPageStatus(_activeComponent: string): void {
-    this.activeComponent = _activeComponent;
-  }
-  getPageStatus(): string {
-    return this.activeComponent;
   }
   scrollDown(_elementID: string): void {
     const element = document.getElementById(_elementID);

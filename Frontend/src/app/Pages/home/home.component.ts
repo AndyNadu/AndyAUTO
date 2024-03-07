@@ -10,6 +10,9 @@ import { NavigationBarComponent } from '../../Custom Components/navigation-bar/n
 // services
 import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
 
+// interfaces && constants && data objects
+import { HomeConstants } from '../../Constants/HomeConstants';
+
 
 @Component({
   selector: 'app-home',
@@ -25,13 +28,17 @@ import { ComponentInteractionService } from '../../Services/ComponentInteraction
 })
 export class HomeComponent {
 
+  // members
+  homeConstants: HomeConstants = new HomeConstants();
+
+
   // constructor
   constructor(private _componentInteractionService: ComponentInteractionService) { }
 
 
   // methods
-  getPageStatus(): string {
-    return this._componentInteractionService.getPageStatus();
+  onStateChanged(_carState: string): void {
+    this.homeConstants.onStateChanged(_carState);
   }
 
 }
