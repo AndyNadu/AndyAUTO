@@ -1,4 +1,2 @@
-2. Double verification (client + server) when adding to DB
-3. Filter by model
-4. Pagination
-5. Remember me
+1. Remember me
+2. Pagination

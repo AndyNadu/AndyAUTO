@@ -51,10 +51,6 @@ export class RegisterFormComponent {
   }
 
   // methods
-  setForm(): void {
-    this._componentInteractionService.setForm('login');
-  }
-
   register(): void {
     Object.keys(this.registerForm.controls).forEach(key => {
       const control = this.registerForm.get(key);
@@ -81,7 +77,6 @@ export class RegisterFormComponent {
               sessionStorage.setItem('userPassword', res.password);
 
               this._componentInteractionService.setAfterAuthenticateText('Successfully registered!');
-              this._componentInteractionService.setForm('logged-in');
             },
             (err: HttpErrorResponse) => {
               if (err.error == 'Email already used') {

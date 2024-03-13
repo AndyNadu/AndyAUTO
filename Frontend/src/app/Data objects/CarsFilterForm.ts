@@ -1,9 +1,10 @@
 import { SelectItem } from 'primeng/api';
+import { InputNumber } from 'primeng/inputnumber';
 
 export class CarsFilterForm {
 
   makes: SelectItem[] = [];
-  models: SelectItem[] = [];
+  models: String[] = [];
   bodies: SelectItem[] = [];
   fuels: SelectItem[] = [];
   transmissions: SelectItem[] = [];

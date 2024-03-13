@@ -21,61 +21,55 @@
     </div>
   </div>
 
-  <div class="card mb-5">
-    <img [src]="homeConstants.photoURL"
-         class="home-car-state-image
-                card-img-top"
-         alt="car-image">
+  <div class="home-car-state-box">
+    <div>
+      <img [src]="homeConstants.photoURL"
+           class="w-100"
+           alt="car-image">
+    </div>
 
-    <div class="card-body">
-      <div class="home-text-text-blue card-title h2 mb-3">
+    <div class="home-car-state-box-text">
+      <div class="home-text-blue card-title h2 mb-3">
         {{ homeConstants.carState }}
       </div>
 
-      <div class="home-car-text-gray card-text h5 mb-3" [innerHTML]="homeConstants.stateDescription"> </div>
+      <div class="home-text-gray card-text h5 mb-3" [innerHTML]="homeConstants.stateDescription"> </div>
     </div>
   </div>
 
-  <div class="home-test-drive card mb-3">
-    <div class="row g-0 h-100">
-      <div class="col-5">
-        <img src="./assets/Images/volan.jpg"
-             class="home-test-drive-photo rounded-start w-100 h-100"
-             alt="img">
+  <div class="d-flex my-4">
+    <div>
+      <img src="./assets/Images/volan.jpg"
+           class="home-info-line-photo home-info-line-photo-left"
+           alt="img">
+    </div>
+
+    <div class="home-info-line-text home-info-line-text-left">
+      <div class="h3 mt-3">
+        Test Drive
       </div>
-      <div class="col">
-        <div class="card-body">
-          <div class="home-car-text-blue card-title h3 mt-3">
-            Test Drive
-          </div>
-          <div class="home-car-text-gray card-text h5 mt-5">
-            {{ homeConstants.testDriveDescription }}
-          </div>
-        </div>
+
+      <div class="home-text-gray h5 mt-3">
+        {{ homeConstants.testDriveDescription }}
       </div>
     </div>
   </div>
 
-  <div class="home-test-drive card mb-3">
-    <div class="row g-0 h-100">
-
-      <div class="col-md-7">
-        <div class="card-body">
-          <div class="home-car-text-blue card-title h3 mt-3">
-            Leasing auto
-          </div>
-          <div class="home-car-text-gray card-text h5 mt-5">
-            {{ homeConstants.leasingDescription }}
-          </div>
-        </div>
+  <div class="d-flex mt-4">
+    <div class="home-info-line-text home-info-line-text-right">
+      <div class="h3 mt-3">
+        Leasing auto
       </div>
 
-      <div class="col-md-5">
-        <img src="./assets/Images/leasing.jpg"
-             class="home-test-drive-photo rounded-end w-100"
-             alt="img">
+      <div class="home-text-gray h5 mt-3">
+        {{ homeConstants.leasingDescription }}
       </div>
+    </div>
 
+    <div>
+      <img src="./assets/Images/leasing.jpg"
+           class="home-info-line-photo home-info-line-photo-right"
+           alt="img">
     </div>
   </div>
 </div>

@@ -46,10 +46,6 @@ export class LoginFormComponent {
   }
 
   // methods
-  setForm(): void {
-    this._componentInteractionService.setForm('register');
-  }
-
   login(): void {
     Object.keys(this.loginForm.controls).forEach(key => {
       const control = this.loginForm.get(key);
@@ -70,7 +66,6 @@ export class LoginFormComponent {
             sessionStorage.setItem('userPassword', res.password);
 
             this._componentInteractionService.setAfterAuthenticateText('Successfully logged in');
-            this._componentInteractionService.setForm('logged-in');
           },
           (err: HttpErrorResponse) => {
             this.invalidCredentials = true;

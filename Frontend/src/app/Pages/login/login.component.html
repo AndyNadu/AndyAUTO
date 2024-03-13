@@ -29,11 +29,7 @@
 
       </div>
 
-      @switch (getActiveComponent()) {
-        @case ('login') { <app-login-form></app-login-form> }
-        @case ('register') { <app-register-form></app-register-form> }
-        @case ('logged-in') { <app-logged-in></app-logged-in> }
-      }
+      <app-login-form></app-login-form> 
 
     </div>
     <div class="login card">

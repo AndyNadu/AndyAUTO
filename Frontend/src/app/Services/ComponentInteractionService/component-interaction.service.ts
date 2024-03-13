@@ -9,7 +9,6 @@ export class ComponentInteractionService {
 
   // members
   private afterAuthenticateText: string = '';
-  private form: string = 'login';
 
   // constructor
   constructor() { }
@@ -21,12 +20,6 @@ export class ComponentInteractionService {
   }
   getAfterAuthenticateText(): string {
     return this.afterAuthenticateText;
-  }
-  setForm(_form: string): void {
-    this.form = _form;
-  }
-  getForm(): string {
-    return this.form;
   }
   scrollDown(_elementID: string): void {
     const element = document.getElementById(_elementID);

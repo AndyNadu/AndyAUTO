@@ -34,34 +34,35 @@ export class CarService {
     this.filteredCarsList = this.allCarsList.filter(car => {
 
       const makeMatches: boolean = _filtersList.makes == undefined || _filtersList.makes.length == 0 || _filtersList.makes.map(item => item.label).includes(car.make);
+      const modelMatches: boolean = _filtersList.models == undefined || _filtersList.models.length == 0 || _filtersList.models.includes(car.model);
       const fuelMatches: boolean = _filtersList.fuels == undefined || _filtersList.fuels.length == 0 || _filtersList.fuels.map(item => item.label).includes(car.fuel);
       const transmissionMatches: boolean = _filtersList.transmissions == undefined || _filtersList.transmissions.length == 0 || _filtersList.transmissions.map(item => item.label).includes(car.transmission);
       const tractionMatches: boolean = _filtersList.tractions == undefined || _filtersList.tractions.length == 0 || _filtersList.tractions.map(item => item.label).includes(car.traction);
       const bodyMatches: boolean = _filtersList.bodies == undefined || _filtersList.bodies.length == 0 || _filtersList.bodies.map(item => item.label).includes(car.body);
       const wheelMatches: boolean = _filtersList.wheels == undefined || _filtersList.wheels.length == 0 || _filtersList.wheels.map(item => item.label).includes(car.wheel);
 
-      const priceMatches: boolean = 
-        (_filtersList.priceFrom === (undefined || null) && _filtersList.priceTo === (undefined || null)) ||
-        (_filtersList.priceFrom === (undefined || null) && _filtersList.priceTo! >= car.price) ||
-        (_filtersList.priceFrom! <= car.price && _filtersList.priceTo === (undefined || null)) ||
+      const priceMatches: boolean =
+        (_filtersList.priceFrom == (undefined || null) && _filtersList.priceTo == (undefined || null)) ||
+        (_filtersList.priceFrom == (undefined || null) && _filtersList.priceTo! >= car.price) ||
+        (_filtersList.priceFrom <= car.price && _filtersList.priceTo == (undefined || null)) ||
         (_filtersList.priceFrom! <= car.price && _filtersList.priceTo! >= car.price);
       const yearMatches: boolean =
-        (_filtersList.yearFrom === (undefined || null) && _filtersList.yearTo === (undefined || null)) ||
-        (_filtersList.yearFrom === (undefined || null) && _filtersList.yearTo! >= car.year) ||
-        (_filtersList.yearFrom! <= car.year && _filtersList.yearTo === (undefined || null)) ||
+        (_filtersList.yearFrom == (undefined || null) && _filtersList.yearTo == (undefined || null)) ||
+        (_filtersList.yearFrom == (undefined || null) && _filtersList.yearTo! >= car.year) ||
+        (_filtersList.yearFrom! <= car.year && _filtersList.yearTo == (undefined || null)) ||
         (_filtersList.yearFrom! <= car.year && _filtersList.yearTo! >= car.year);
       const mileageMatches: boolean =
-        (_filtersList.mileageFrom === (undefined || null) && _filtersList.mileageTo === (undefined || null)) ||
-        (_filtersList.mileageFrom === (undefined || null) && _filtersList.mileageTo! >= car.mileage) ||
-        (_filtersList.mileageFrom! <= car.mileage && _filtersList.mileageTo === (undefined || null)) ||
+        (_filtersList.mileageFrom == (undefined || null) && _filtersList.mileageTo == (undefined || null)) ||
+        (_filtersList.mileageFrom == (undefined || null) && _filtersList.mileageTo! >= car.mileage) ||
+        (_filtersList.mileageFrom! <= car.mileage && _filtersList.mileageTo == (undefined || null)) ||
         (_filtersList.mileageFrom! <= car.mileage && _filtersList.mileageTo! >= car.mileage);
       const cubicCapacityMatches: boolean =
-        (_filtersList.cubicCapacityFrom === (undefined || null) && _filtersList.cubicCapacityTo === (undefined || null)) ||
-        (_filtersList.cubicCapacityFrom === (undefined || null) && _filtersList.cubicCapacityTo! >= car.cubicCapacity) ||
-        (_filtersList.cubicCapacityFrom! <= car.cubicCapacity && _filtersList.cubicCapacityTo! === (undefined || null)) ||
+        (_filtersList.cubicCapacityFrom == (undefined || null) && _filtersList.cubicCapacityTo == (undefined || null)) ||
+        (_filtersList.cubicCapacityFrom == (undefined || null) && _filtersList.cubicCapacityTo! >= car.cubicCapacity) ||
+        (_filtersList.cubicCapacityFrom! <= car.cubicCapacity && _filtersList.cubicCapacityTo! == (undefined || null)) ||
         (_filtersList.cubicCapacityFrom! <= car.cubicCapacity && _filtersList.cubicCapacityTo! >= car.cubicCapacity);
 
-      return makeMatches && fuelMatches && transmissionMatches && tractionMatches && bodyMatches && wheelMatches && priceMatches && yearMatches && mileageMatches && cubicCapacityMatches;
+      return makeMatches && modelMatches && fuelMatches && transmissionMatches && tractionMatches && bodyMatches && wheelMatches && priceMatches && yearMatches && mileageMatches && cubicCapacityMatches;
     });
 
     this.orderCars(this.sortMethod);

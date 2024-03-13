@@ -22,19 +22,19 @@ namespace DealerAUTO.Service.Services
             _userRepository = userRepository;
         } 
 
-        public RegisterResponseUserDTO? RegisterAccount(RegisterPostUserDTO user)
+        public RegisterResponseUserDTO? RegisterAccount(RegisterPostUserDTO _user)
         {
-            if (checkIfEmailUsed(user.Email))
+            User user = new User();
+            user.FirstName = _user.FirstName;
+            user.LastName = _user.LastName;
+            user.Email = _user.Email;
+            user.Password = _user.Password;
+            user.PhoneNumber = _user.PhoneNumber;
+
+            if (HasEmptyFields(user))
                 return null;
 
-            User _user = new User();
-            _user.FirstName = user.FirstName;
-            _user.LastName = user.LastName;
-            _user.Email = user.Email;
-            _user.Password = user.Password;
-            _user.PhoneNumber = user.PhoneNumber;
-
-            User returnedUser = _userRepository.RegisterAccount(_user);
+            User returnedUser = _userRepository.RegisterAccount(user);
 
             RegisterResponseUserDTO responseUser = 
                 new RegisterResponseUserDTO(
@@ -45,21 +45,33 @@ namespace DealerAUTO.Service.Services
             return responseUser;
         }
 
-        public bool checkIfEmailUsed(string email)
+        public bool HasEmptyFields(User _user)
         {
-            User? user = _userRepository.GetUserByEmail(email);
+            if (string.IsNullOrEmpty(_user.FirstName) ||
+                string.IsNullOrEmpty(_user.LastName) ||
+                string.IsNullOrEmpty(_user.Email) ||
+                string.IsNullOrEmpty(_user.Password) ||
+                string.IsNullOrEmpty(_user.PhoneNumber))
+                return true;
+
+            return false;
+        }
+
+        public bool CheckIfEmailUsed(string _email)
+        {
+            User? user = _userRepository.GetUserByEmail(_email);
 
             return user != null ? true : false;
         }
 
-        public LoginResponseUserDTO? Login(LoginPostUserDTO user)
+        public LoginResponseUserDTO? Login(LoginPostUserDTO _user)
         {
-            User? _user = _userRepository.GetUserByCredentials(user);
+            User? user = _userRepository.GetUserByCredentials(_user);
 
-            return _user == null ? null : new LoginResponseUserDTO(
-                Id: _user.Id,
-                Email: _user.Email,
-                Password: _user.Password
+            return user == null ? null : new LoginResponseUserDTO(
+                Id: user.Id,
+                Email: user.Email,
+                Password: user.Password
                 );
         }
     }

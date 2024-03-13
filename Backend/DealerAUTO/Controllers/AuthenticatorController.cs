@@ -17,18 +17,19 @@ namespace DealerAUTO.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult RegisterAccount([FromBody] RegisterPostUserDTO user)
+        public IActionResult RegisterAccount([FromBody] RegisterPostUserDTO _user)
         {
             IActionResult result;
 
             try
             {
-                RegisterResponseUserDTO? _user = _userService.RegisterAccount(user);
-
-                if (_user == null)
+                if (_userService.CheckIfEmailUsed(_user.Email))
                     result = BadRequest("Email already used");
-                else 
-                    result = Ok(_user);
+                else
+                {
+                    RegisterResponseUserDTO? user = _userService.RegisterAccount(_user);
+                    result = user != null ? Ok(user) : BadRequest("Error");
+                }
             }
             catch (Exception ex)
             {

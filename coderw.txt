@@ -1,0 +1,4 @@
+1. subscription sau metoda
+2. clasa sau direct in .ts
+3. constante sau direct in html sau direct in .ts
+4. css (suprascriere)

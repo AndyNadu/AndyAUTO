@@ -188,3 +188,9 @@
     Submit
   </div>
 </div>
+
+<p-dialog header="Error" [(visible)]="errorPopup" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+  <p class="m-0">
+     There has been an error! Please refresh and try again!
+  </p>
+</p-dialog>

@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } 
 import { MatInputModule } from '@angular/material/input';
 
 // primeNG components
+import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
@@ -30,6 +31,7 @@ import { CarsListConstant } from '../../Constants/CarsListConstant';
 
     MatInputModule,
 
+    DialogModule,
     DropdownModule,
     InputTextModule,
     FileUploadModule,
@@ -47,6 +49,7 @@ export class SellACarFormComponent {
   carsList: CarsListConstant = new CarsListConstant();
   images: Set<File> = new Set<File>();
   imagesEmpty: boolean = false;
+  errorPopup: boolean = false;
 
   // constructor
   constructor(private _componentInteractionService: ComponentInteractionService,
@@ -65,11 +68,14 @@ export class SellACarFormComponent {
       traction: ['', Validators.required],
       body: ['', Validators.required],
       wheel: ['', Validators.required],
-      price: ['', [Validators.required, Validators.pattern('^[0-9]{1,10}$')]]
+      price: ['', [Validators.required, Validators.pattern('^[0-9]{1,8}$')]]
     });
   }
 
   // methods
+  showErrorPopup(): void {
+    this.errorPopup = true;
+  }
   onImageSelected(event: FileSelectEvent): void {
     const lastAddedImage = event.files[event.files.length - 1];
 
@@ -127,6 +133,7 @@ export class SellACarFormComponent {
           },
           (err: HttpErrorResponse) => {
             console.log(err);
+            this.showErrorPopup();
           }
         );
     }

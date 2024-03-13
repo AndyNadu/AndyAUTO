@@ -17,7 +17,7 @@ export class HomeConstants {
       `Our company approaches everything with a tremendous passion for cars and a deep sense of responsibility towards you, our customer. The same passion is embedded in every vehicle, and we feel it in our hearts every time we see a model leaving the AndyAUTO gate.<br><br>At AndyAUTO you will find the best models at advantageous prices. All new vehicles in stock are available for immediate delivery. We invite you to explore the new car models available at AndyAUTO. You will find comprehensive information about any model you are already familiar with.` :
       `Pre-owned cars of the highest quality available for immediate pick-up, tested in +200 points with transparent history. <br><br> We created the pre-owned cars concept to offer you the perfect car at an advantageous price. If you are a practical person and weigh all aspects when making a decision, AndyAUTO pre-owned cars meets your needs.`;
 
-    this.photoURL = this.carState === 'New cars' ? "./assets/Images/m5.jpg" : "./assets/Images/m4.png";
+    this.photoURL = this.carState === 'New cars' ? "./assets/Images/m5.jpg" : "./assets/Images/m4.jpg";
   }
 
 }
