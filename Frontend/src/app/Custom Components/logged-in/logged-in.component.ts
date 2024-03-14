@@ -14,12 +14,4 @@ import { ComponentInteractionService } from '../../Services/ComponentInteraction
 })
 export class LoggedInComponent {
 
-  // members
-  submitText: string;
-
-  // constructor
-  constructor(private _componentInteractionService: ComponentInteractionService) {
-    this._componentInteractionService = _componentInteractionService;
-    this.submitText = this._componentInteractionService.getAfterAuthenticateText();
-  }
 }

@@ -1,5 +1,5 @@
 .home-content {
-  margin: 75px 10vw 0px 10vw;
+  margin: 75px 20vw 0px 20vw;
 }
 
 .home-content-description {
@@ -33,6 +33,11 @@
   border-bottom-left-radius: calc(0.375rem - 1px);
   border-bottom-right-radius: calc(0.375rem - 1px);
   padding: 15px;
+}
+
+.home-car-state-box-photo {
+  border-top-left-radius: calc(0.375rem - 1px);
+  border-top-right-radius: calc(0.375rem - 1px);
 }
 
 .home-text-gray {
@@ -77,8 +82,7 @@
 /* media queries */
 @media (min-width: 2000px) {
   .home-content {
-    margin-left: 17vw;
-    margin-right: 17vw;
+    margin: 75px 25vw 0px 25vw;
   }
 }
 
@@ -88,10 +92,13 @@
   }
 
   .home-info-line-text {
-  }
-
-  .home-info-line-text {
     border-radius: calc(0.375rem - 1px);
+  }
+}
+
+@media (max-width: 800px) {
+  .home-content {
+    margin: 75px 10vw 0px 10vw;
   }
 }
 

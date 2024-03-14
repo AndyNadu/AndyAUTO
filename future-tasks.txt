@@ -1,2 +1,5 @@
-1. Remember me
-2. Pagination
+1. Cars number in buy-a-car
+2. Make dropdown font italic
+3. Add locations - CEO in home page
+4. Account - to do list (responsive + hover effects + functionalities)
+5. Pagination

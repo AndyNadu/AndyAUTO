@@ -94,11 +94,24 @@
         </a>
       </li>
 
+      @if (checkIfLoggedIn())
+      {
       <li class="nav-item">
-        <a href="/login"
-           class="nav-item-page nav-link">Account</a>
+        <a [href]="accountLink"
+           class="nav-item-page nav-link">
+        My account
+        </a>
       </li>
-
+      }
+      @else
+      {
+      <li class="nav-item">
+        <a href="/account/login"
+           class="nav-item-page nav-link">
+        Account
+        </a>
+      </li>
+      }
     </ul>
 
   </div>

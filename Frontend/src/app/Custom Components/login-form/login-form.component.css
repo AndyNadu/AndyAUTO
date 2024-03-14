@@ -57,6 +57,17 @@
   color: red;
 }
 
+.login-successfully-registered {
+  display: flex;
+  background-color: rgb(194, 231, 194);
+  margin: 0 auto 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: 40px;
+  border-radius: 10px;
+}
+
 /* media queries */
 @media (max-width: 800px) {
   .upper-buttons {

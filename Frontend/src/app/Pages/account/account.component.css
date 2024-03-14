@@ -1,0 +1,54 @@
+.account-content {
+  display: flex;
+  margin: 50px 15vw 0px 15vw;
+}
+
+.account-tabs-expanded {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+.account-tab .p-button {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  color: #1f104a;
+  border: solid 1px rgba(0, 0, 0, .125);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.account-tab-header {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background-color: #1f104a;
+  color: white;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.account-tab-selected .p-button {
+  color: white;
+  background-color: #1f104a;
+}
+
+/* media queries */
+@media (min-width: 2000px) {
+  .account-content {
+    margin: 50px 25vw 0px 25vw;
+  }
+}
+
+@media (max-width: 601px) {
+  .account-tabs-dropdown {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .account-tabs-expanded {
+    display: none;
+  }
+}

@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 // custom components
 import { HomeComponent } from './Pages/home/home.component';
 import { LoginComponent } from './Pages/login/login.component';
+import { AccountComponent } from './Pages/account/account.component';
 import { RegisterComponent } from './Pages/register/register.component';
 import { BuyACarComponent } from './Pages/buy-a-car/buy-a-car.component';
 import { SellACarComponent } from './Pages/sell-a-car/sell-a-car.component';
@@ -24,14 +25,29 @@ export const routes: Routes = [
     title: 'sell-a-car-page'
   },
   {
-    path: 'register',
+    path: 'account/register',
     component: RegisterComponent,
     title: 'register-page'
   },
   {
-    path: 'login',
+    path: 'account/login',
     component: LoginComponent,
     title: 'login-page'
+  },
+  {
+    path: 'account/personal-information',
+    component: AccountComponent,
+    title: 'account-page'
+  },
+  {
+    path: 'account/my-cars',
+    component: AccountComponent,
+    title: 'account-page'
+  },
+  {
+    path: 'account/favourite-cars',
+    component: AccountComponent,
+    title: 'account-page'
   }
 ];
 

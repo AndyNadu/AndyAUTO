@@ -1,0 +1,42 @@
+.account-personal-information-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.account-names {
+  display: flex;
+}
+
+.account-name-input-left {
+  margin-right: 15px;
+}
+
+.account-name-input-right {
+  margin-left: 15px;
+}
+
+.account-name-input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 7px 5px 5px 15px;
+  color: dimgray;
+}
+
+.account-personal-information-button .p-button {
+  width: 100%;
+  height: 50px;
+  background-color: #1f104a;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+}
+
+.account-delete-button .p-button {
+  background-color: #ff533d;
+}

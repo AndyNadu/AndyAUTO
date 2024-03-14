@@ -9,14 +9,12 @@ namespace DealerAUTO.DTO.DTOs
     public class LoginResponseUserDTO
     {
         public int Id { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string FirstName { get; set; }
 
-        public LoginResponseUserDTO(int Id, string Email, string Password)
+        public LoginResponseUserDTO(int Id, string FirstName)
         {
             this.Id = Id;
-            this.Email = Email;
-            this.Password = Password;
+            this.FirstName = FirstName;
         }
     }
 

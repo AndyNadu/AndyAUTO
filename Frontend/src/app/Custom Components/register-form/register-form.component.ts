@@ -1,4 +1,5 @@
 // angular
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -38,9 +39,11 @@ export class RegisterFormComponent {
 
   // constructor
   constructor(private _componentInteractionService: ComponentInteractionService,
-              private formBuilder: FormBuilder,
-              private http: HttpClient) {
-    this.registerForm = this.formBuilder.group({
+              private _formBuilder: FormBuilder,
+              private _http: HttpClient,
+              private _router: Router
+  ) {
+    this.registerForm = this._formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -69,20 +72,19 @@ export class RegisterFormComponent {
           password: String(this.registerForm.get('password')!.value),
         };
 
-        this.http.post<RegisterResponseUserDTO>('http://localhost:5113/account/register', user)
+        this._http.post<RegisterResponseUserDTO>('http://localhost:5113/account/register', user)
           .subscribe(
-            (res: RegisterResponseUserDTO) => {
-              sessionStorage.setItem('userId', JSON.stringify(res.id));
-              sessionStorage.setItem('userEmail', res.email);
-              sessionStorage.setItem('userPassword', res.password);
-
-              this._componentInteractionService.setAfterAuthenticateText('Successfully registered!');
+            (_user: RegisterResponseUserDTO) => {
+              this._componentInteractionService.setSuccessfullyRegistered();
+              this._router.navigateByUrl('/account/login');
             },
             (err: HttpErrorResponse) => {
               if (err.error == 'Email already used') {
                 this.passwordsMatch = true;
                 this.emailAlreadyUsed = true;
               }
+
+              console.log('error');
             }
           );
       }

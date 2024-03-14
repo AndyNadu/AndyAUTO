@@ -8,22 +8,28 @@ import { Injectable } from '@angular/core';
 export class ComponentInteractionService {
 
   // members
-  private afterAuthenticateText: string = '';
+  successfullyRegistered: boolean = false;
 
   // constructor
   constructor() { }
 
 
   // methods
-  setAfterAuthenticateText(_text: string): void {
-    this.afterAuthenticateText = _text;
+  checkIfSuccessfullyRegistered(): boolean {
+    return this.successfullyRegistered;
   }
-  getAfterAuthenticateText(): string {
-    return this.afterAuthenticateText;
+  setSuccessfullyRegistered(): void {
+    this.successfullyRegistered = true;
   }
   scrollDown(_elementID: string): void {
     const element = document.getElementById(_elementID);
     if (element)
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+  checkIfLoggedIn(): boolean {
+    if (typeof window !== 'undefined')
+      return localStorage.getItem('userId') != (undefined || null);
+    return false;
+  }
+
 }

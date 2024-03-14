@@ -1,0 +1,144 @@
+<div class="account-personal-information-box mb-3">
+  <form [formGroup]="userDetailsForm">
+
+    <div class="h3 mb-5 fw-bold">
+      Account details
+    </div>
+
+    <div class="account-names">
+      <div class="w-100 account-name-input-left">
+        <div class="h5 mb-1">
+          Last name*
+        </div>
+
+        <input formControlName="lastName"
+              class="account-name-input fw-bold"
+              pInputText/>
+      </div>
+
+      <div class="w-100 account-name-input-right">
+        <div class="h5 mb-1">
+          First name*
+        </div>
+
+        <input formControlName="firstName"
+               class="account-name-input fw-bold"
+               pInputText/>
+      </div>
+    </div>
+
+    <div class="w-100 my-4">
+      <div class="h5 mb-1">
+        Address
+      </div>
+
+      <input formControlName="address"
+             class="account-name-input fw-bold"
+             pInputText/>
+    </div>
+
+    <div class="d-flex">
+      <p-button (onClick)="submitAccountDetails()"
+            [loading]="accountDetailsLoading"
+            class="w-50 account-personal-information-button"
+            label="Save">
+      </p-button>
+    </div>
+  </form>
+</div>
+
+<div class="account-personal-information-box mt-3">
+  <form [formGroup]="changeEmailForm">
+
+    <div class="h3 mb-5 fw-bold">
+      Change email
+    </div>
+
+    <div class="w-100 mt-4">
+      <div class="h5 mb-1">
+        New email
+      </div>
+
+      <input formControlName="newEmail"
+             class="account-name-input"
+             placeholder="email@example.com"
+             pInputText/>
+    </div>
+
+    <div class="w-100 my-4">
+      <div class="h5 mb-1">
+        Re-enter new email
+      </div>
+
+      <input formControlName="newEmailVerification"
+             class="account-name-input"
+             placeholder="email@example.com"
+             pInputText/>
+    </div>
+
+    <div class="d-flex">
+      <p-button (onClick)="submitChangeEmail()"
+            [loading]="changeEmailLoading"
+            class="w-50 account-personal-information-button"
+            label="Save">
+      </p-button>
+    </div>
+
+  </form>
+</div>
+
+<div class="account-personal-information-box mt-3">
+  <form [formGroup]="changePhoneForm">
+
+    <div class="h3 mb-5 fw-bold">
+      Change phone number
+    </div>
+
+    <div class="w-100 mt-4">
+      <div class="h5 mb-1">
+        New phone number
+      </div>
+
+      <input formControlName="newPhone"
+             class="account-name-input"
+             placeholder="07xx xxx xxx"
+             pInputText/>
+    </div>
+
+    <div class="w-100 my-4">
+      <div class="h5 mb-1">
+        Re-enter new phone number
+      </div>
+
+      <input formControlName="newPhoneVerification"
+             class="account-name-input"
+             placeholder="07xx xxx xxx"
+             pInputText/>
+    </div>
+
+    <div class="d-flex">
+      <p-button (onClick)="submitChangePhone()"
+            [loading]="changePhoneLoading"
+            class="w-50 account-personal-information-button"
+            label="Save">
+      </p-button>
+    </div>
+
+  </form>
+</div>
+
+<div class="account-personal-information-box mt-3">
+
+    <div class="h3 mb-5 fw-bold">
+      Delete account
+    </div>
+
+    <div class="d-flex">
+      <p-button (onClick)="submitChangePhone()"
+            [loading]="changePhoneLoading"
+            class="w-50 account-personal-information-button account-delete-button"
+            label="Save">
+      </p-button>
+    </div>
+
+</div>

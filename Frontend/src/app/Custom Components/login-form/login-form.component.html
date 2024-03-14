@@ -4,10 +4,17 @@
   </div>
 
   <a class="register-upper-button custom-button"
-     href="/register">
+     href="/account/register">
     Register a NEW ACCOUNT
   </a>
 </div>
+
+@if (checkIfSuccessfullyRegistered())
+{
+  <div class="login-successfully-registered">
+    Successfully registered! Please log in!
+  </div>
+}
 
 <form [formGroup]="loginForm">
   <div class="d-flex flex-column">
@@ -17,20 +24,21 @@
       <label> Email address </label>
     </span>
 
-    <span class="p-float-label login-input mt-3 mb-5">
+    <span class="p-float-label login-input mt-3 mb-2">
       <input pInputText
              formControlName="password" />
       <label> Password </label>
     </span>
 
     <div class="remember-me mt-5">
-      <p-checkbox value="checked"
+      <p-checkbox formControlName="rememberMe"
+                  value="checked"
                   label="Remember me"></p-checkbox>
     </div>
   </div>
 </form>
 
-@if (invalidCredentials == true)
+@if (invalidCredentials)
 {
 <div class="error-text mt-3">
   Invalid email or password!

@@ -70,8 +70,7 @@ namespace DealerAUTO.Service.Services
 
             return user == null ? null : new LoginResponseUserDTO(
                 Id: user.Id,
-                Email: user.Email,
-                Password: user.Password
+                FirstName: user.Password
                 );
         }
     }
