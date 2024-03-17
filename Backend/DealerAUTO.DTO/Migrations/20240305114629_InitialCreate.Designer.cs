@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DealerAUTO.DTO.Migrations
 {
-    [DbContext(typeof(DealerAUTOContext))]
+    [DbContext(typeof(AndyAutoDbContext))]
     [Migration("20240305114629_InitialCreate")]
     partial class InitialCreate
     {

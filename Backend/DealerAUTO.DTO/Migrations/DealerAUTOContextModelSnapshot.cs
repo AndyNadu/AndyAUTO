@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DealerAUTO.DTO.Migrations
 {
-    [DbContext(typeof(DealerAUTOContext))]
+    [DbContext(typeof(AndyAutoDbContext))]
     partial class DealerAUTOContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -5,6 +5,8 @@ using DealerAUTO.Repository.Repositories;
 
 using DealerAUTO.Service.Interfaces;
 using DealerAUTO.Service.Services;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,7 +25,7 @@ builder.Services.AddScoped<ICarService, CarService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<DealerAUTOContext>(options =>
+builder.Services.AddDbContext<AndyAutoDbContext>(options =>
 {
     string connectionString = "Server=DESKTOP-1QK3PBD\\SQLEXPRESS;Database=AndyAUTO;Trusted_Connection=True;TrustServerCertificate=True;";
     options.UseSqlServer(connectionString);
@@ -39,6 +41,10 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod();
         });
 });
+
+builder.Services.AddIdentity<User, IdentityRole<Guid>>()
+    .AddEntityFrameworkStores<AndyAutoDbContext>()
+    .AddDefaultTokenProviders();
 
 var app = builder.Build();
 app.UseCors();

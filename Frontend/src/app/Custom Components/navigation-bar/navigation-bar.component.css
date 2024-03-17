@@ -1,69 +1,35 @@
-.contact-bar {
-  height: 30px;
-  padding: 0;
-}
-
-.information {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  font-size: 18px;
-}
-
-.navigation-bar {
+.navigation-bar-component {
   background-color: #1f104a;
   color: white;
-  padding-left: 50px;
-  padding-right: 50px;
-}
+  padding: 3px 10vw 3px 10vw;
 
-.brand {
-  width: 120px;
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  margin-left: 10vw;
-  text-decoration: none;
-}
+  .brand {
+    width: 120px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
 
-.bmw-logo {
-  background-color: #1f104a;
-  width: 35px;
-  margin-right: 5px;
-}
-
-.navbar-hamburger-button {
-  margin-right: 10vw;
-  padding: 0;
-  border: 0;
-}
-
-.nav-list {
-  margin-left: auto;
-  margin-right: 10vw;
-}
-
-.nav-item-page {
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 18px;
-  margin-left: 2.5vw;
-}
-
-/* media queries */
-@media (max-width: 1200px) { 
-  .contact-bar {
-    display: none;
+    .name {
+      color: white;
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      font-size: 22px;
+    }
   }
 
-  #collapsibleNavbar {
+  .page {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 2.5vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navigation-bar {
     text-align: right;
-  }
-
-  #collapsibleNavbar .navbar-nav {
-    justify-content: flex-end;
   }
 }

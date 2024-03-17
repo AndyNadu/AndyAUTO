@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
-#nullable disable
+namespace DealerAUTO.DTO.Models;
 
-namespace DealerAUTO.DTO.Models
+public class User : IdentityUser<Guid>, IModel<Guid>
 {
-    public partial class User
-    {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string PhoneNumber { get; set; }
-    }
+    [Required]
+    public string FirstName { get; set; } = null!;
+
+    [Required]
+    public string LastName { get; set; } = null!;
+
+    //email
+    //password
+    //phonenumber
+
+    public string? Address { get; set; }
+    public Guid? EmployeeID { get; set; }
 }
 

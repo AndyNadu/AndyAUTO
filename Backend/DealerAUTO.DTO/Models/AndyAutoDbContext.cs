@@ -2,10 +2,10 @@
 
 namespace DealerAUTO.DTO.Models
 {
-    public partial class DealerAUTOContext : DbContext
+    public partial class AndyAutoDbContext : DbContext
     {
-        public DealerAUTOContext() { }
-        public DealerAUTOContext(DbContextOptions<DealerAUTOContext> options) : base(options) { }
+        public AndyAutoDbContext() { }
+        public AndyAutoDbContext(DbContextOptions<AndyAutoDbContext> options) : base(options) { }
 
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Car> Cars { get; set; }

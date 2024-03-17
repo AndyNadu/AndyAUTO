@@ -1,42 +1,57 @@
-.account-personal-information-box {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: white;
-  padding: 25px;
-  border-radius: 10px;
-}
+.account-personal-information-component {
+  .tab-label {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
 
-.account-names {
-  display: flex;
-}
+  .input-label {
+    font-size: 20px;
+    margin-bottom: 7px;
+  }
 
-.account-name-input-left {
-  margin-right: 15px;
-}
+  .input {
+    width: 100%;
+  }
 
-.account-name-input-right {
-  margin-left: 15px;
-}
+  .p-button {
+    width: 50%;
+    height: 50px;
+    border: 0;
+    border-radius: 10px;
+    color: white;
+    margin-top: 25px;
+  }
 
-.account-name-input {
-  width: 100%;
-  height: 40px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  padding: 7px 5px 5px 15px;
-  color: dimgray;
-}
+  .save .p-button {
+    background-color: #1f104a;
+  }
 
-.account-personal-information-button .p-button {
-  width: 100%;
-  height: 50px;
-  background-color: #1f104a;
-  color: white;
-  border: 0;
-  border-radius: 10px;
-}
+  .delete .p-button {
+    background-color: #ff533d;
+  }
 
-.account-delete-button .p-button {
-  background-color: #ff533d;
+  .tab {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+  }
+
+  .account-details .name-inputs {
+    display: flex;
+
+    .last-name {
+      margin-right: 10px;
+      width: 100%;
+    }
+
+    .first-name {
+      margin-left: 10px;
+      width: 100%;
+    }
+  }
 }

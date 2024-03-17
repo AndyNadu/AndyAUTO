@@ -8,6 +8,7 @@ import { SellACarFormComponent } from '../../Custom Components/sell-a-car-form/s
 
 // services
 import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
+import { ContactBarComponent } from '../../Custom Components/contact-bar/contact-bar.component';
 
 
 @Component({
@@ -16,7 +17,9 @@ import { ComponentInteractionService } from '../../Services/ComponentInteraction
   imports: [
     FooterComponent,
     SellACarFormComponent,
+    ContactBarComponent,
     NavigationBarComponent
+
   ],
   templateUrl: './sell-a-car.component.html',
   styleUrl: './sell-a-car.component.css'

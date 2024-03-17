@@ -6,6 +6,7 @@
   background-color: white;
   cursor: pointer;
   margin-bottom: 10px;
+  text-decoration: none;
 }
 
 .full-car-box-wide {
@@ -36,7 +37,8 @@
 }
 
 /*media queries*/
-@media (max-width: 800px) { /* switch between components
+@media (max-width: 800px) {
+  /* switch between components
                                when screen gets too small */
   .full-car-box-wide {
     display: none;

@@ -1,20 +1,21 @@
-// angular
 import { Component } from '@angular/core';
 
-// custom components
-import { LoggedInComponent } from '../../Custom Components/logged-in/logged-in.component';
 import { LoginFormComponent } from '../../Custom Components/login-form/login-form.component';
 
-// services
-import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import { Router, RouterLink } from '@angular/router';
+import { RegisterFormComponent } from '../../Custom Components/register-form/register-form.component';
 
 
 @Component({    
   selector: 'app-login',
   standalone: true,
   imports: [
-    LoggedInComponent,
-    LoginFormComponent
+    RegisterFormComponent,
+    LoginFormComponent,
+    FontAwesomeModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -22,6 +23,13 @@ import { ComponentInteractionService } from '../../Services/ComponentInteraction
 export class LoginComponent {
 
   // constructor
-  constructor(private _componentInteractionService: ComponentInteractionService) { }
+  constructor(_library: FaIconLibrary,
+    private _router: Router) {
+    _library.addIcons(faHouse);
+   }
+
+   getURL(): string {
+    return this._router.url;
+   }
 
 }

@@ -8,7 +8,7 @@ namespace DealerAUTO.Repository.Repositories
 
     public class UserRepository : IUserRepository
     {
-        readonly DealerAUTOContext _dbContext = new DealerAUTOContext();
+        readonly AndyAutoDbContext _dbContext = new AndyAutoDbContext();
 
         public User RegisterAccount(User user)
         {

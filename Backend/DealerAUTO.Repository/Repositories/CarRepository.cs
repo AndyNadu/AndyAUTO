@@ -6,7 +6,7 @@ namespace DealerAUTO.Repository.Repositories
 {
     public class CarRepository : ICarRepository
     {
-        readonly DealerAUTOContext _dbContext = new DealerAUTOContext();
+        readonly AndyAutoDbContext _dbContext = new AndyAutoDbContext();
 
         public Car PostCar(Car car)
         {

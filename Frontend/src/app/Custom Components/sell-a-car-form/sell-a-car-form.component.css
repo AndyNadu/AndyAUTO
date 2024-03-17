@@ -1,70 +1,71 @@
-.input-row {
-  display: flex;
-}
+.sell-a-car-form-component {
+  padding: 15px;
 
-.two-inputs {
-  display: flex;
-  justify-content: center;
-}
+  .sell-a-car-form {
+    margin-top: 30px;
 
-.large-component .p-inputwrapper,
-.p-inputtext.large-component{
-  height: 50px;
-  width: 100%;
-}
+    .input-row {
+      display: flex;
+      justify-content: center;
+    }
 
-.large-component .p-inputwrapper {
-  padding-top: 3px;
-  padding-bottom: 5px;
-}
+    .input {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
 
-.large-component .p-dropdown-items {
-  padding: 0;
-  margin-bottom: 0px;
-  font-style: initial;
-}
+    .input-label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  }
 
-.large-component .p-dropdown-item {
-  padding-left: 15px;
-}
+  .p-inputwrapper,
+  .p-inputtext {
+    height: 50px;
+    width: 100%;
+  }
 
-.large-component.p-inputtextarea,
-.large-component .p-inputwrapper,
-.p-inputtext.large-component {
-  font-style: italic;
-  font-size: 16px;
-  font-family: "Inter var", sans-serif; 
-}
+  .p-dropdown-items {
+    padding: 0;
+    margin-bottom: 0px;
+    font-style: initial;
+  }
 
-.photos-box-error {
-  border: 1px solid #e24c4c;
-  border-radius: 6px;
-}
+  .p-dropdown-item {
+    padding-left: 15px;
+  }
 
-.submit-area {
-  width: 100%;
-  display: flex;
-}
+  .p-inputwrapper,
+  .p-inputtext {
+    font-style: italic;
+    font-size: 16px;
+    font-family: "Inter var", sans-serif;
+  }
 
-.submit-btn {
-  display: flex;
-  height: 50px;
-  width: 50%;
-  min-height: 50px;
-  max-height: 50px;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  background-color: #ff533d;
-  color: white;
-}
+  .p-dropdown-label {
+    display: flex;
+    align-items: center;
+  }
 
-.submit-btn:hover {
-  opacity: 0.9;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
+  .photos-box-error {
+    border: 1px solid #e24c4c;
+    border-radius: 6px;
+  }
+
+  .submit .p-button {
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background-color: #ff533d;
+
+    &:hover {
+      opacity: 0.9;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+  }
 }

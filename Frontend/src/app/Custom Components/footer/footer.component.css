@@ -1,15 +1,32 @@
-.footer {
+.footer-component {
   margin-top: 200px;
-}
 
-.logo-link, .page-link {
-  cursor: pointer;
-}
+  .icons-list {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
 
-.blank-space {
-  height: 30px;
-}
+    .brand-icon {
+      font-size: 30px;
+      cursor: pointer;
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
 
-.page-link {
-  margin: 0px 15px 0px 15px;
+  .pages-list {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    .page {
+      margin-left: 15px;
+      margin-right: 15px;
+      cursor: pointer;
+    }
+  }
+
+  .blank-space {
+    height: 30px;
+  }
 }

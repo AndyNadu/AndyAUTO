@@ -1,5 +1,5 @@
 // angular
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +14,7 @@ import { ComponentInteractionService } from '../../Services/ComponentInteraction
 // interfaces && constants && data objects
 import { RegisterPostUserDTO } from '../../Data Transfer Objects/RegisterPostUserDTO';
 import { RegisterResponseUserDTO } from '../../Data Transfer Objects/RegisterResponseUserDTO';
+import { ButtonModule } from 'primeng/button';
 
 
 @Component({
@@ -24,6 +25,8 @@ import { RegisterResponseUserDTO } from '../../Data Transfer Objects/RegisterRes
     HttpClientModule,
     ReactiveFormsModule,
 
+    RouterLink,
+    ButtonModule,
     CheckboxModule,
     InputTextModule
   ],

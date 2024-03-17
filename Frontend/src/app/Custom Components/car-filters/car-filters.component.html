@@ -1,33 +1,29 @@
-<div class="d-flex align-items-center mb-2">
+<div class="car-filters-component">
+  <div class="filter">
+    <div class="label">Make</div>
 
-  <div class="col d-flex align-items-center fs-6 me-1">
-    Make
-  </div>
-
-  <div class="col-7">
-    <p-multiSelect [options]="constantCarsList.MakesArray"
-                   [(ngModel)]="filtersList.makes"
-                   (onChange)="onMakeSelected()"
-                   optionLabel="label"
-                   class="small-component"
-                   placeholder="Choose">
+    <p-multiSelect
+      [options]="constantCarsList.MakesArray"
+      [(ngModel)]="filtersList.makes"
+      (onChange)="onMakeSelected()"
+      optionLabel="label"
+      class="col"
+      placeholder="Choose"
+    >
     </p-multiSelect>
   </div>
-</div>
 
-<div class="d-flex align-items-center my-2">
+  <div class="filter">
+    <div class="label">Model</div>
 
-  <div class="col d-flex align-items-center fs-6 me-1">
-    Model
-  </div>
-
-  <div class="col-7">
-    <p-multiSelect [options]="constantCarsList.ModelsByMake"
-                   [(ngModel)]="filtersList.models"
-                   [disabled]="constantCarsList.modelInputDisabled"
-                   class="small-component"
-                   [group]="true"
-                   placeholder="Choose">
+    <p-multiSelect
+      [options]="constantCarsList.ModelsByMake"
+      [(ngModel)]="filtersList.models"
+      [disabled]="constantCarsList.modelInputDisabled"
+      class="col"
+      [group]="true"
+      placeholder="Choose"
+    >
       <ng-template let-group pTemplate="group">
         <div class="flex align-items-center">
           <span> {{ group.label }} </span>
@@ -36,221 +32,198 @@
     </p-multiSelect>
   </div>
 
-</div>
+  <div class="filter">
+    <div class="label">Body type</div>
 
-<div class="d-flex align-items-center my-2">
-
-  <div class="col d-flex align-items-center fs-6 me-1">
-    Body type
-  </div>
-
-  <div class="col-7">
-    <p-multiSelect [options]="constantCarsList.BodyTypes"
-                   [(ngModel)]="filtersList.bodies"
-                   optionLabel="label"
-                   class="small-component"
-                   placeholder="Choose">
+    <p-multiSelect
+      [options]="constantCarsList.BodyTypes"
+      [(ngModel)]="filtersList.bodies"
+      optionLabel="label"
+      class="col"
+      placeholder="Choose"
+    >
     </p-multiSelect>
   </div>
 
-</div>
+  <div class="filter">
+    <div class="label">Price</div>
 
-<div class="d-flex align-items-center my-2">
+    <div class="col d-flex">
+      <p-inputNumber
+        [(ngModel)]="filtersList.priceFrom"
+        #priceFrom
+        inputId="integeronly"
+        [min]="1"
+        [max]="10000000"
+        suffix=" €"
+        placeholder="From"
+      >
+      </p-inputNumber>
 
-  <div class="col d-flex align-items-center fs-6 me-1">
-    Price
+      <p-inputNumber
+        [(ngModel)]="filtersList.priceTo"
+        #priceTo
+        class="offset-1"
+        inputId="integeronly"
+        [min]="1"
+        [max]="10000000"
+        suffix=" €"
+        placeholder="To"
+      >
+      </p-inputNumber>
+    </div>
   </div>
 
-  <div class="col-7">
+  <div class="filter">
+    <div class="label">First registration</div>
 
-    <p-inputNumber [(ngModel)]="filtersList.priceFrom"
-                   class="small-component col-5"
-                   inputId="integeronly"
-                   [min]="1"
-                   [max]="10000000"
-                   suffix=" €"
-                   #priceFrom
-                   placeholder="From">
-    </p-inputNumber>
+    <div class="col d-flex">
+      <p-inputNumber
+        [(ngModel)]="filtersList.yearFrom"
+        #yearFrom
+        inputId="integeronly"
+        [min]="1900"
+        [max]="2024"
+        placeholder="From"
+      >
+      </p-inputNumber>
 
-    <p-inputNumber [(ngModel)]="filtersList.priceTo"
-                   class="small-component col-5 align-items-end offset-2"
-                   inputId="integeronly"
-                   [min]="1"
-                   [max]="10000000"
-                   suffix=" €"
-                   #priceTo
-                   placeholder="To">
-    </p-inputNumber>
-
+      <p-inputNumber
+        [(ngModel)]="filtersList.yearTo"
+        #yearTo
+        class="offset-1"
+        inputId="integeronly"
+        [min]="1900"
+        [max]="2024"
+        placeholder="To"
+      >
+      </p-inputNumber>
+    </div>
   </div>
 
-</div>
+  <div class="filter">
+    <div class="label">Mileage</div>
 
-<div class="d-flex align-items-center my-2">
+    <div class="col d-flex">
+      <p-inputNumber
+        [(ngModel)]="filtersList.mileageFrom"
+        #mileageFrom
+        inputId="integeronly"
+        [min]="0"
+        [max]="1000000"
+        suffix=" km"
+        placeholder="From"
+      >
+      </p-inputNumber>
 
-  <div class="col d-flex align-items-center fs-6 me-1">
-    First registration
+      <p-inputNumber
+        [(ngModel)]="filtersList.mileageTo"
+        #mileageTo
+        class="offset-1"
+        inputId="integeronly"
+        [min]="0"
+        [max]="1000000"
+        suffix=" km"
+        placeholder="To"
+      >
+      </p-inputNumber>
+    </div>
   </div>
 
-  <div class="col-7">
-    <p-inputNumber [(ngModel)]="filtersList.yearFrom"
-                   class="small-component col-5"
-                   inputId="integeronly"
-                   [min]="1900"
-                   [max]="2024"
-                   #yearFrom
-                   placeholder="From">
-    </p-inputNumber>
+  <div class="filter">
+    <div class="label">Fuel type</div>
 
-    <p-inputNumber [(ngModel)]="filtersList.yearTo"
-                   class="small-component col-5 align-items-end offset-2"
-                   inputId="integeronly"
-                   [min]="1900"
-                   [max]="2024"
-                   #yearTo
-                   placeholder="To">
-    </p-inputNumber>
-  </div>
-
-</div>
-
-<div class="d-flex align-items-center my-2">
-
-  <div class="col d-flex align-items-center fs-6 me-1">
-    Mileage
-  </div>
-
-  <div class="col-7">
-    <p-inputNumber [(ngModel)]="filtersList.mileageFrom"
-                   class="small-component col-5"
-                   inputId="integeronly"
-                   [min]="0"
-                   [max]="1000000"
-                   suffix=" km"
-                   #mileageFrom
-                   placeholder="From">
-    </p-inputNumber>
-
-    <p-inputNumber [(ngModel)]="filtersList.mileageTo"
-                   class="small-component col-5 align-items-end offset-2"
-                   inputId="integeronly"
-                   [min]="0"
-                   [max]="1000000"
-                   suffix=" km"
-                   #mileageTo
-                   placeholder="To">
-    </p-inputNumber>
-  </div>
-
-</div>
-
-<div class="d-flex align-items-center my-2">
-
-  <div class="col d-flex align-items-center fs-6 me-1">
-    Fuel type
-  </div>
-
-  <div class="col-7">
-    <p-multiSelect [options]="constantCarsList.FuelTypes"
-                   [(ngModel)]="filtersList.fuels"
-                   optionLabel="label"
-                   class="small-component"
-                   placeholder="Choose">
+    <p-multiSelect
+      [options]="constantCarsList.FuelTypes"
+      [(ngModel)]="filtersList.fuels"
+      optionLabel="label"
+      class="col"
+      placeholder="Choose"
+    >
     </p-multiSelect>
   </div>
 
-</div>
+  <div class="filter">
+    <div class="label">Cubic capacity</div>
 
-<div class="d-flex align-items-center my-2">
+    <div class="col d-flex">
+      <p-inputNumber
+        [(ngModel)]="filtersList.cubicCapacityFrom"
+        #cubicCapacityFrom
+        inputId="integeronly"
+        [min]="1"
+        [max]="20000"
+        suffix=" (cm&#xB3;)"
+        placeholder="From"
+      >
+      </p-inputNumber>
 
-  <div class="col d-flex align-items-center fs-6 me-1">
-    Cubic capacity
+      <p-inputNumber
+        [(ngModel)]="filtersList.cubicCapacityTo"
+        #cubicCapacityTo
+        class="offset-1"
+        inputId="integeronly"
+        [min]="1"
+        [max]="20000"
+        suffix=" (cm&#xB3;)"
+        placeholder="To"
+      >
+      </p-inputNumber>
+    </div>
   </div>
 
-  <div class="col-7">
-    <p-inputNumber [(ngModel)]="filtersList.cubicCapacityFrom"
-                   class="small-component col-5"
-                   inputId="integeronly"
-                   [min]="1"
-                   [max]="20000"
-                   suffix=" (cm&#xB3;)"
-                   #cubicCapacityFrom
-                   placeholder="From">
-    </p-inputNumber>
+  <div class="filter">
+    <div class="label">Transmission</div>
 
-    <p-inputNumber [(ngModel)]="filtersList.cubicCapacityTo"
-                   class="small-component col-5 align-items-end offset-2"
-                   inputId="integeronly"
-                   [min]="1"
-                   [max]="20000"
-                   suffix=" (cm&#xB3;)"
-                   #cubicCapacityTo
-                   placeholder="To">
-    </p-inputNumber>
-  </div>
-
-</div>
-
-<div class="d-flex align-items-center my-2">
-
-  <div class="col d-flex align-items-center fs-6 me-1">
-    Transmission
-  </div>
-
-  <div class="col-7">
-    <p-multiSelect [options]="constantCarsList.TransmissionTypes"
-                   [(ngModel)]="filtersList.transmissions"
-                   optionLabel="label"
-                   class="small-component"
-                   placeholder="Choose">
+    <p-multiSelect
+      [options]="constantCarsList.TransmissionTypes"
+      [(ngModel)]="filtersList.transmissions"
+      optionLabel="label"
+      class="col"
+      placeholder="Choose"
+    >
     </p-multiSelect>
   </div>
 
-</div>
+  <div class="filter">
+    <div class="label">Traction</div>
 
-<div class="d-flex align-items-center my-2">
-
-  <div class="col d-flex align-items-center fs-6 me-1">
-    Traction
-  </div>
-
-  <div class="col-7">
-    <p-multiSelect [options]="constantCarsList.TractionTypes"
-                   [(ngModel)]="filtersList.tractions"
-                   optionLabel="label"
-                   class="small-component"
-                   placeholder="Choose">
+    <p-multiSelect
+      [options]="constantCarsList.TractionTypes"
+      [(ngModel)]="filtersList.tractions"
+      optionLabel="label"
+      class="col"
+      placeholder="Choose"
+    >
     </p-multiSelect>
   </div>
 
-</div>
+  <div class="filter">
+    <div class="label">Steering wheel</div>
 
-<div class="d-flex align-items-center mt-2">
-
-  <div class="col d-flex align-items-center fs-6 me-1">
-    Steering wheel
-  </div>
-
-  <div class="col-7">
-    <p-multiSelect [options]="constantCarsList.SteeringWheels"
-                   [(ngModel)]="filtersList.wheels"
-                   optionLabel="label"
-                   class="small-component"
-                   placeholder="Choose">
+    <p-multiSelect
+      [options]="constantCarsList.SteeringWheels"
+      [(ngModel)]="filtersList.wheels"
+      optionLabel="label"
+      class="col"
+      placeholder="Choose"
+    >
     </p-multiSelect>
   </div>
 
+  <p-button
+    (onClick)="applyFilters()"
+    [loading]="applyFiltersLoading"
+    class="show-results"
+    label="Show results"
+  >
+  </p-button>
+
+  <p-button
+    (onClick)="resetFilters()"
+    [loading]="resetFiltersLoading"
+    class="reset-filters"
+    label="Reset filters"
+  >
+  </p-button>
 </div>
-
-<p-button (onClick)="applyFilters()"
-          [loading]="applyFiltersLoading"
-          class="car-filters-button show-results-button"
-          label="Show results">
-</p-button>
-
-<p-button (onClick)="resetFilters()"
-          [loading]="resetFiltersLoading"
-          class="car-filters-button reset-filters-button"
-          label="Reset filters">
-</p-button>

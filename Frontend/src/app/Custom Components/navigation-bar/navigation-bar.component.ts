@@ -20,6 +20,9 @@ export class NavigationBarComponent {
   // members
   accountLink: string = this.getAccountTab();
 
+
+  bmwLogo: string = './assets/Images/BMW.png';
+
   // constructor
   constructor(private _componentInteractionService: ComponentInteractionService) { }
 
@@ -29,13 +32,10 @@ export class NavigationBarComponent {
     if (typeof sessionStorage !== 'undefined' || typeof localStorage !== 'undefined')
       switch (sessionStorage.getItem('account-selected-tab')) {
         case 'my-cars': 
-          console.log('text1');
           return 'account/my-cars';
         case 'favourite-cars':
-          console.log('text2');
           return 'account/favourite-cars';
         default:
-          console.log('text3');
           return 'account/personal-information';
       }
       return 'account/personal-information';

@@ -50,6 +50,7 @@ export class SellACarFormComponent {
   images: Set<File> = new Set<File>();
   imagesEmpty: boolean = false;
   errorPopup: boolean = false;
+  submitLoading: boolean = false;
 
   // constructor
   constructor(private _componentInteractionService: ComponentInteractionService,
@@ -70,6 +71,8 @@ export class SellACarFormComponent {
       wheel: ['', Validators.required],
       price: ['', [Validators.required, Validators.pattern('^[0-9]{1,8}$')]]
     });
+
+    localStorage.setItem('loggedIn', 'true');
   }
 
   // methods

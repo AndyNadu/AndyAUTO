@@ -1,31 +1,40 @@
+<app-contact-bar></app-contact-bar>
+
 <app-navigation-bar></app-navigation-bar>
 
 <div class="home-content">
-  <div class="h1 mb-4">
-    Dealer Auto
-  </div>
+  <div class="h1 mb-4">Dealer Auto</div>
 
-  <div class="home-content-description h4 mb-5" [innerHTML]="homeConstants.dealerDescription"> </div>
+  <div
+    class="home-content-description h4 mb-5"
+    [innerHTML]="homeConstants.dealerDescription"
+  ></div>
 
   <div class="home-car-states mb-5">
-    <div class="home-car-state col h5 mb-0"
-         [class.home-car-state-selected]="homeConstants.carState === 'New cars'"
-         (click)="onStateChanged('New cars')">
+    <div
+      class="home-car-state col h5 mb-0"
+      [class.home-car-state-selected]="homeConstants.carState === 'New cars'"
+      (click)="onStateChanged('New cars')"
+    >
       New cars
     </div>
 
-    <div class="home-car-state col h5 mb-0"
-         [class.home-car-state-selected]="homeConstants.carState === 'Used cars'"
-         (click)="onStateChanged('Used cars')">
+    <div
+      class="home-car-state col h5 mb-0"
+      [class.home-car-state-selected]="homeConstants.carState === 'Used cars'"
+      (click)="onStateChanged('Used cars')"
+    >
       Used cars
     </div>
   </div>
 
   <div class="home-car-state-box">
     <div>
-      <img [src]="homeConstants.photoURL"
-           class="w-100 home-car-state-box-photo"
-           alt="car-image">
+      <img
+        [src]="homeConstants.photoURL"
+        class="w-100 home-car-state-box-photo"
+        alt="car-image"
+      />
     </div>
 
     <div class="home-car-state-box-text">
@@ -33,21 +42,24 @@
         {{ homeConstants.carState }}
       </div>
 
-      <div class="home-text-gray card-text h5 mb-3" [innerHTML]="homeConstants.stateDescription"> </div>
+      <div
+        class="home-text-gray card-text h5 mb-3"
+        [innerHTML]="homeConstants.stateDescription"
+      ></div>
     </div>
   </div>
 
   <div class="d-flex my-4">
     <div>
-      <img src="./assets/Images/volan.jpg"
-           class="home-info-line-photo home-info-line-photo-left"
-           alt="img">
+      <img
+        src="./assets/Images/volan.jpg"
+        class="home-info-line-photo home-info-line-photo-left"
+        alt="img"
+      />
     </div>
 
     <div class="home-info-line-text home-info-line-text-left">
-      <div class="h3 mt-3">
-        Test Drive
-      </div>
+      <div class="h3 mt-3">Test Drive</div>
 
       <div class="home-text-gray h5 mt-3">
         {{ homeConstants.testDriveDescription }}
@@ -57,9 +69,7 @@
 
   <div class="d-flex mt-4">
     <div class="home-info-line-text home-info-line-text-right">
-      <div class="h3 mt-3">
-        Leasing auto
-      </div>
+      <div class="h3 mt-3">Leasing auto</div>
 
       <div class="home-text-gray h5 mt-3">
         {{ homeConstants.leasingDescription }}
@@ -67,12 +77,13 @@
     </div>
 
     <div>
-      <img src="./assets/Images/leasing.jpg"
-           class="home-info-line-photo home-info-line-photo-right"
-           alt="img">
+      <img
+        src="./assets/Images/leasing.jpg"
+        class="home-info-line-photo home-info-line-photo-right"
+        alt="img"
+      />
     </div>
   </div>
 </div>
-
 
 <app-footer></app-footer>

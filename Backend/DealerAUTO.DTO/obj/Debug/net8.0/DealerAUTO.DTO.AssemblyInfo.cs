@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DealerAUTO.DTO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83b45452d1440609949317c3ddb5c7de7fb1c51a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f94b48a7cd1a86938f1633b037a1268034f9547")]
 [assembly: System.Reflection.AssemblyProductAttribute("DealerAUTO.DTO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DealerAUTO.DTO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

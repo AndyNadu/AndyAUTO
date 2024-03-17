@@ -1,95 +1,67 @@
-<div class="upper-buttons">
-  <a class="login-upper-btn custom-btn"
-       href="/account/login">
-    Login
-  </a>
+<div class="register-form-component">
+  <div class="upper-buttons">
+    <p-button routerLink="/account/login" class="col login" label="Login">
+    </p-button>
 
-  <div class="register-upper-btn custom-btn">
-    Register a NEW ACCOUNT
+    <div class="col register-box">
+      <p-button class="col register" label="Register a NEW ACCOUNT"> </p-button>
+    </div>
   </div>
-</div>
 
-<form [formGroup] ="registerForm">
-  <div class="d-flex flex-column">
-    <div class="input-row-form">
-
-      <div class="col register-input left-input">
+  <form [formGroup]="registerForm" class="register-form">
+    <div class="two-inputs">
+      <div class="left">
         <span class="p-float-label">
-          <input pInputText
-                 formControlName="firstName" />
+          <input formControlName="firstName" class="input" pInputText />
           <label> First name </label>
         </span>
       </div>
 
-      <div class="col register-input right-input">
+      <div class="w-100 right">
         <span class="p-float-label">
-          <input pInputText
-                 formControlName="lastName" />
+          <input formControlName="lastName" class="input" pInputText />
           <label> Last name </label>
         </span>
       </div>
-
     </div>
 
-    <div class="input-row-form">
-
-      <div class="col register-input left-input">
+    <div class="two-inputs">
+      <div class="left">
         <span class="p-float-label">
-          <input pInputText
-                 formControlName="email" />
+          <input formControlName="email" class="input" pInputText />
           <label> Email address </label>
         </span>
       </div>
 
-      <div class="col register-input right-input">
+      <div class="right">
         <span class="p-float-label">
-          <input pInputText
-                 formControlName="phoneNumber" />
+          <input formControlName="phoneNumber" class="input" pInputText />
           <label> Phone number </label>
         </span>
       </div>
-
     </div>
 
-    <div class="input-row-form">
-
-      <div class="col register-input left-input">
+    <div class="two-inputs">
+      <div class="left">
         <span class="p-float-label">
-          <input pInputText
-                 formControlName="password" />
+          <input formControlName="password" class="input" pInputText />
           <label> Password </label>
         </span>
       </div>
 
-      <div class="col register-input right-input">
+      <div class="right">
         <span class="p-float-label">
-          <input pInputText
-                 formControlName="passwordConfirmation" />
+          <input
+            formControlName="passwordConfirmation"
+            class="input"
+            pInputText
+          />
           <label> Confirm password </label>
         </span>
       </div>
-
     </div>
+  </form>
 
-
-  </div>
-</form>
-@if (passwordsMatch == false)
-{
-  <div class="error-text">
-    Passwords don't match!
-  </div>
-}
-
-@if (emailAlreadyUsed == true)
-{
-  <div class="error-text">
-    This email has already been used!
-  </div>
-}
-
-<div class="submit-button custom-btn"
-     (click)="register()">
-  Register
+  <p-button (click)="register()" class="col submit" label="Register">
+  </p-button>
 </div>
-

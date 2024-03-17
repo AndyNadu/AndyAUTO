@@ -1,27 +1,18 @@
-// angular
-import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
-// angular material components
 import { MatPaginatorModule } from '@angular/material/paginator';
-
-// primeNG components
-import { SelectItem } from 'primeng/api';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DropdownModule } from 'primeng/dropdown';
-
-// custom components
-import { FooterComponent } from '../../Custom Components/footer/footer.component';
-import { CarListComponent } from '../../Custom Components/car-list/car-list.component';
-import { CarFiltersComponent } from '../../Custom Components/car-filters/car-filters.component';
+import { SelectItem } from 'primeng/api';
 import { NavigationBarComponent } from '../../Custom Components/navigation-bar/navigation-bar.component';
-
-// services
+import { CarFiltersComponent } from '../../Custom Components/car-filters/car-filters.component';
+import { CarListComponent } from '../../Custom Components/car-list/car-list.component';
+import { FooterComponent } from '../../Custom Components/footer/footer.component';
 import { CarService } from '../../Services/CarService/car.service';
-
-// interfaces && constants && data objects
 import { Car } from '../../Interfaces/Car';
-
+import { faCheck, faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { ContactBarComponent } from '../../Custom Components/contact-bar/contact-bar.component';
 
 @Component({
   selector: 'app-buy-a-car',
@@ -29,11 +20,11 @@ import { Car } from '../../Interfaces/Car';
   imports: [
     FormsModule,
     MatPaginatorModule,
-
+    FontAwesomeModule,
     DropdownModule,
     FooterComponent,
+    ContactBarComponent,
     NavigationBarComponent,
-
     CarListComponent,
     CarFiltersComponent
   ],
@@ -41,10 +32,11 @@ import { Car } from '../../Interfaces/Car';
   styleUrl: './buy-a-car.component.css'
 })
 
-
 export class BuyACarComponent {
 
-  // members
+  faCoffee = faCheck;
+  faCheck = faCheck;
+
   filteredCarsNumber: number = 0;
   selectedSort!: SelectItem;
   sort_types: SelectItem[] = [
@@ -56,8 +48,6 @@ export class BuyACarComponent {
     { label: 'Km (high to low)', value: null },
   ];
 
-
-  // constructor
   constructor(private _carService: CarService,
               private _http: HttpClient) { }
 
@@ -71,12 +61,11 @@ export class BuyACarComponent {
           console.log(err);
         }
       );
+      // se face altfel http request ul
 
     this.filteredCarsNumber = this._carService.getCarsNumber();
   }
 
-
-  // methods
   sortMethodSelected(): void {
     this._carService.orderCars(this.selectedSort.label!);
   }

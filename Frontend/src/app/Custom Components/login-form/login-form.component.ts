@@ -1,8 +1,8 @@
 // angular
-import { Router } from '@angular/router';
-import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
 
 // primeNG
 import { CheckboxModule } from 'primeng/checkbox';
@@ -14,16 +14,19 @@ import { ComponentInteractionService } from '../../Services/ComponentInteraction
 // interfaces && constants && data objects
 import { LoginPostUserDTO } from '../../Data Transfer Objects/LoginPostUserDTO';
 import { LoginResponseUserDTO } from '../../Data Transfer Objects/LoginResponseUserDTO';
+import { ButtonModule } from 'primeng/button';
 
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
   imports: [
+    RouterLink,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
 
+    ButtonModule,
     CheckboxModule,
     InputTextModule,
   ],

@@ -28,6 +28,7 @@ export class AccountPersonalInformationComponent {
   accountDetailsLoading: boolean = false;
   changeEmailLoading: boolean = false;
   changePhoneLoading: boolean = false;
+  deleteAccountLoading: boolean = false;
 
   ngOnInit(): void {
     this.userDetailsForm.patchValue({
@@ -54,6 +55,7 @@ export class AccountPersonalInformationComponent {
       newPhone: ['', Validators.required],
       newPhoneVerification: ['', Validators.required]
     });
+    
   }
 
 
@@ -77,6 +79,13 @@ export class AccountPersonalInformationComponent {
 
     setTimeout((): void => {
       this.changePhoneLoading = false;
+    }, 1000);
+  }
+  deleteAccount(): void {
+    this.deleteAccountLoading = true;
+
+    setTimeout((): void => {
+      this.deleteAccountLoading = false;
     }, 1000);
   }
 }

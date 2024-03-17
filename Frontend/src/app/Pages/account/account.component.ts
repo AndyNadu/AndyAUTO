@@ -9,6 +9,7 @@ import { NavigationBarComponent } from '../../Custom Components/navigation-bar/n
 import { AccountMyCarsComponent } from '../../Custom Components/account-my-cars/account-my-cars.component';
 import { AccountFavouriteCarsComponent } from '../../Custom Components/account-favourite-cars/account-favourite-cars.component';
 import { AccountPersonalInformationComponent } from '../../Custom Components/account-personal-information/account-personal-information.component';
+import { ContactBarComponent } from '../../Custom Components/contact-bar/contact-bar.component';
 
 @Component({
   selector: 'app-account',
@@ -19,6 +20,7 @@ import { AccountPersonalInformationComponent } from '../../Custom Components/acc
     NavigationBarComponent,
     AccountMyCarsComponent,
     AccountFavouriteCarsComponent,
+    ContactBarComponent,
     AccountPersonalInformationComponent
   ],
   templateUrl: './account.component.html',

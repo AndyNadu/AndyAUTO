@@ -12,6 +12,7 @@ import { ComponentInteractionService } from '../../Services/ComponentInteraction
 
 // interfaces && constants && data objects
 import { HomeConstants } from '../../Constants/HomeConstants';
+import { ContactBarComponent } from '../../Custom Components/contact-bar/contact-bar.component';
 
 
 @Component({
@@ -21,6 +22,7 @@ import { HomeConstants } from '../../Constants/HomeConstants';
     FooterComponent,
     BuyACarComponent,
     SellACarComponent,
+    ContactBarComponent,
     NavigationBarComponent,
   ],
   templateUrl: './home.component.html',

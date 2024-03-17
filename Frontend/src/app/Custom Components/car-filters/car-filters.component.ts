@@ -65,7 +65,7 @@ export class CarFiltersComponent {
       this.filtersList.transmissions = [];
       this.filtersList.tractions = [];
       this.filtersList.wheels = [];
-      //this.numberInputs.forEach(input => input.clear());
+      this.numberInputs.forEach(input => input.clear());
 
       this._carService.resetFilters();
     }, 1000);

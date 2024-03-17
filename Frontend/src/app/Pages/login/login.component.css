@@ -1,57 +1,68 @@
-.whole-section {
+.login-page {
   min-height: 100%;
   display: flex;
   justify-content: center;
   background-color: lightgray;
+
+  .content-and-image {
+    display: flex;
+    justify-content: center;
+    margin: auto 50px auto 50px;
+    height: 700px;
+    width: 1300px;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      padding: 35px;
+
+      .home-icon {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+        .icon {
+          cursor: pointer;
+          font-size: 35px;
+        }
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        cursor: pointer;
+
+        .logo {
+          width: 40px;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .image {
+      background-color: lightgray;
+      border: 0;
+      border-radius: 0 35px 35px 0;
+    }
+  }
 }
 
-.content-section-with-image {
-  display: flex;
-  justify-content: center;
-  margin: auto 50px auto 50px;
-  height: 700px;
-  width: 1300px;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  padding: 35px;
-}
-
-.login.card {
-  background-color: lightgray;
-  border: 0;
-}
-
-.login-image {
-  border-radius: 0 35px 35px 0;
-}
-
-.brand {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.bmw-logo, .home-icon {
-  width: 45px;
-}
-
-/* media queries */
 @media (max-width: 1500px) {
-  .login-image {
-    display: none;
+  .login-page {
+    .content-and-image {
+      .image {
+        display: none;
+      }
+    }
   }
 }
 
 @media (max-width: 800px) {
-  .content-section-with-image {
-    height: 850px;
+  .login-page {
+    .content-and-image {
+      height: 800px;
+    }
   }
 }
-
-

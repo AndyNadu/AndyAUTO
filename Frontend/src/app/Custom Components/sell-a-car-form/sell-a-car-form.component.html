@@ -1,196 +1,153 @@
-<form [formGroup]="sellForm">
-  <div class="input-row mt-3">
-    <div class="two-inputs col">
-      <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-        <div class="h5 mb-1 fw-bold">
-          Make
-        </div>
-
-        <p-dropdown class="large-component"
-                    formControlName="make"
-                    [options]="carsList.MakesArray"
-                    (onChange)="onMakeSelected()"
-                    placeholder="Choose">
-        </p-dropdown>
-      </div>
-      <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-        <div class="h5 mb-1 fw-bold">
-          Model
-        </div>
-
-        <p-dropdown class="large-component"
-                    formControlName="model"
-                    [options]="carsList.ModelsForOneMake"
-                    placeholder="Choose">
-        </p-dropdown>
-      </div>
-    </div>
-
-    <div class="two-inputs col">
-      <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-        <div class="h5 mb-1 fw-bold">
-          First registration
-        </div>
-
-        <input class="large-component"
-               formControlName="year"
-               pInputText
-               placeholder="Production year" />
-      </div>
-
-      <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-        <div class="h5 mb-1 fw-bold">
-          Mileage
-        </div>
-
-        <input class="large-component"
-               formControlName="mileage"
-               pInputText
-               placeholder="Mileage (km)" />
-      </div>
-    </div>
-  </div>
-
-  <div class="d-flex flex-column w-100 px-3 mb-3">
-    <div class="h5 mb-1 fw-bold">
-      Car description
-    </div>
-
-    <textarea class="large-component"
-              formControlName="description"
-              pInputTextarea
-              placeholder="Describe your car  "
-              [autoResize]="true"></textarea>
-  </div>
-
-  <div class="input-row">
-    <div class="two-inputs col">
-      <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-        <div class="h5 mb-1 fw-bold">
-          Fuel type
-        </div>
-
-        <p-dropdown class="large-component"
-                    formControlName="fuel"
-                    [options]="carsList.FuelTypes"
-                    placeholder="Choose">
+<div class="sell-a-car-form-component">
+  <form [formGroup]="sellForm" class="sell-a-car-form">
+    <div class="input-row">
+      <div class="col input">
+        <div class="input-label">Make</div>
+        <p-dropdown
+          formControlName="make"
+          [options]="carsList.MakesArray"
+          (onChange)="onMakeSelected()"
+          placeholder="Choose"
+        >
         </p-dropdown>
       </div>
 
-      <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-        <div class="h5 mb-1 fw-bold">
-          Cubic capacity
-        </div>
+      <div class="col input mx-3">
+        <div class="input-label">Model</div>
+        <p-dropdown
+          formControlName="model"
+          [options]="carsList.ModelsForOneMake"
+          placeholder="Choose"
+        >
+        </p-dropdown>
+      </div>
 
-        <input class="large-component"
-               formControlName="cubicCapacity"
-               pInputText
-               placeholder="Cubic capacity (cm&#xB3;)" />
+      <div class="col input">
+        <div class="input-label">First registration</div>
+        <input
+          formControlName="year"
+          placeholder="Production year"
+          pInputText
+        />
+      </div>
+
+      <div class="col input ms-3">
+        <div class="input-label">Mileage</div>
+        <input
+          formControlName="mileage"
+          placeholder="Mileage (km)"
+          pInputText
+        />
       </div>
     </div>
 
-    <div class="two-inputs col">
-      <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-        <div class="h5 mb-1 fw-bold">
-          Power
-        </div>
+    <div class="input">
+      <div class="input-label">Car description</div>
 
-        <input class="large-component"
-               formControlName="power"
-               pInputText
-               placeholder="Power (hp)" />
+      <textarea
+        formControlName="description"
+        pInputTextarea
+        placeholder="Describe your car  "
+        [autoResize]="true"
+      ></textarea>
+    </div>
+
+    <div class="input-row">
+      <div class="col input">
+        <div class="input-label">Fuel type</div>
+        <p-dropdown
+          formControlName="fuel"
+          [options]="carsList.FuelTypes"
+          placeholder="Choose"
+        >
+        </p-dropdown>
       </div>
 
-      <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-        <div class="h5 mb-1 fw-bold">
-          Transmission
-        </div>
+      <div class="col input mx-3">
+        <div class="input-label">Cubic capacity</div>
+        <input
+          formControlName="cubicCapacity"
+          pInputText
+          placeholder="Cubic capacity (cm&#xB3;)"
+        />
+      </div>
 
-        <p-dropdown class="large-component"
-                    formControlName="transmission"
-                    [options]="carsList.TransmissionTypes"
-                    placeholder="Choose">
+      <div class="col input">
+        <div class="input-label">Power</div>
+        <input formControlName="power" placeholder="Power (hp)" pInputText />
+      </div>
+
+      <div class="col input ms-3">
+        <div class="input-label">Transmission</div>
+        <p-dropdown
+          formControlName="transmission"
+          [options]="carsList.TransmissionTypes"
+          placeholder="Choose"
+        >
         </p-dropdown>
       </div>
     </div>
-  </div>
 
-  <div class="input-row">
-    <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-      <div class="h5 mb-1 fw-bold">
-        Traction
+    <div class="input-row">
+      <div class="col input">
+        <div class="input-label">Traction</div>
+        <p-dropdown
+          formControlName="traction"
+          [options]="carsList.TractionTypes"
+          placeholder="Choose"
+        >
+        </p-dropdown>
       </div>
 
-      <p-dropdown class="large-component"
-                  formControlName="traction"
-                  [options]="carsList.TractionTypes"
-                  placeholder="Choose">
-      </p-dropdown>
-    </div>
-
-    <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-      <div class="h5 mb-1 fw-bold">
-        Body type
+      <div class="col input mx-3">
+        <div class="input-label">Body type</div>
+        <p-dropdown
+          formControlName="body"
+          [options]="carsList.BodyTypes"
+          placeholder="Choose"
+        >
+        </p-dropdown>
       </div>
 
-      <p-dropdown class="large-component"
-                  formControlName="body"
-                  [options]="carsList.BodyTypes"
-                  placeholder="Choose">
-      </p-dropdown>
-    </div>
-
-    <div class="col d-flex flex-column justify-content-center px-3 mb-3">
-      <div class="h5 mb-1 fw-bold">
-        Steering wheel
+      <div class="col input">
+        <div class="input-label">Steering wheel</div>
+        <p-dropdown
+          formControlName="wheel"
+          [options]="carsList.SteeringWheels"
+          placeholder="Choose"
+        >
+        </p-dropdown>
       </div>
-
-      <p-dropdown class="large-component"
-                  formControlName="wheel"
-                  [options]="carsList.SteeringWheels"
-                  placeholder="Choose">
-      </p-dropdown>
-    </div>
-  </div>
-
-  <div class="px-3 mb-3">
-    <div class="h5 mb-1 fw-bold">
-      Upload photos
     </div>
 
-    <div [class.photos-box-error]="imagesEmpty">
-      <p-fileUpload [customUpload]="true"
-                    [auto]="true"
-                    [multiple]="true"
-                    accept="image/*"
-                    (onSelect)="onImageSelected($event)"
-                    (onRemove)="onImageRemoved($event)">
-      </p-fileUpload>
+    <div class="input">
+      <div class="input-label">Upload photos</div>
+      <div [class.photos-box-error]="imagesEmpty">
+        <p-fileUpload
+          [customUpload]="true"
+          [auto]="true"
+          [multiple]="true"
+          accept="image/*"
+          (onSelect)="onImageSelected($event)"
+          (onRemove)="onImageRemoved($event)"
+        >
+        </p-fileUpload>
+      </div>
     </div>
 
-  </div>
-
-  <div class="w-100 d-flex flex-column justify-content-center px-3 mb-3">
-    <div class="h5 mb-1 fw-bold">
-      Finally, set the desired price!
+    <div class="input">
+      <div class="input-label">Finally, set the desired price!</div>
+      <input formControlName="price" pInputText placeholder="Price (€)" />
     </div>
+  </form>
 
-    <input class="large-component"
-           formControlName="price"
-           pInputText
-           placeholder="Price (€)" />
-  </div>
-</form>
-
-<div class="w-100 d-flex justify-content-center mt-2 mb-5">
-  <div class="submit-btn"
-       (click)="submit()">
-    Submit
+  <div class="d-flex justify-content-center">
+    <p-button
+      (onClick)="submit()"
+      [loading]="submitLoading"
+      class="submit w-50"
+      label="Submit"
+    >
+    </p-button>
   </div>
 </div>
-
-<p-dialog header="Error" [(visible)]="errorPopup" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
-  <p class="m-0">
-     There has been an error! Please refresh and try again!
-  </p>
-</p-dialog>
