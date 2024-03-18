@@ -10,6 +10,6 @@ C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.DTO\obj\Debug\net8.0\DealerAUT
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.DTO\obj\Debug\net8.0\refint\DealerAUTO.DTO.dll
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.DTO\obj\Debug\net8.0\DealerAUTO.DTO.pdb
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.DTO\obj\Debug\net8.0\ref\DealerAUTO.DTO.dll
-C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.DTO\bin\Debug\net8.0\DealerAUTO.DTO.runtimeconfig.json
 C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.DTO\obj\Debug\net8.0\DealerAUTO.DTO.csproj.AssemblyReference.cache
-C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAUTO.DTO\obj\Debug\net8.0\DealerAUTO.DTO.genruntimeconfig.cache
+C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto.dto\bin\Debug\net8.0\DealerAUTO.DTO.runtimeconfig.json
+C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto.dto\obj\Debug\net8.0\DealerAUTO.DTO.genruntimeconfig.cache

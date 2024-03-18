@@ -1,85 +1,126 @@
-.content-section {
-  display: flex;
-  margin-left: 10vw;
-  margin-right: 10vw;
-  padding: 0;
+.buy-a-car-page {
+  .content {
+    display: flex;
+    margin: 50px 10vw 0 10vw;
+    padding: 0;
+
+    .left {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      height: 100vh;
+      margin-right: 50px;
+      top: 0;
+
+      .text {
+        display: flex;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 25px;
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+
+      .checks {
+        height: 50px;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        background-color: white;
+        border: 1px solid lightgray;
+        border-radius: 6px;
+        margin: 0 auto 0 auto;
+
+        .check-box {
+          display: flex;
+          align-items: center;
+          margin-left: 25px;
+          margin-right: 25px;
+
+          .icon {
+            font-size: 18px;
+            margin-right: 5px;
+          }
+
+          .text {
+            font-size: 18px;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .cars-number-and-sort {
+        display: flex;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+        .text {
+          font-weight: bold;
+          font-size: 20px;
+        }
+
+        .sort {
+          display: flex;
+          align-items: center;
+          justify-content: end;
+
+          .p-dropdown {
+            width: 250px;
+            height: 40px;
+            margin-left: 15px;
+          }
+
+          .p-dropdown-items {
+            padding: 0;
+            margin: 0;
+          }
+
+          .p-dropdown-label {
+            padding: 0 3px 0 12px;
+            display: flex;
+            align-items: center;
+            font-style: italic;
+          }
+
+          .p-dropdown-item {
+            padding-left: 12px;
+            color: gray;
+          }
+
+          .p-dropdown-trigger {
+            width: 15%;
+          }
+        }
+      }
+
+      .paginator {
+        background-color: #f8f9fa;
+      }
+    }
+  }
 }
 
-.left-section {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  position: sticky;
-  height: 100vh;
-  margin-right: 50px;
-  top: 0;
-}
-
-.right-section {
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-}
-
-.check-box-container {
-  display: flex;
-  justify-content: center;
-  margin: 10px 150px 10px 150px;
-  background-color: white;
-  border: 1px solid lightgray;
-  border-radius: 10px;
-}
-
-.check-box {
-  display: flex;
-  align-items: center;
-  margin-left: 1vw;
-  margin-right: 1vw;
-  font-weight: bold;
-}
-
-.sort-row {
-  padding-left: 48px;
-  padding-right: 48px;
-}
-
-.sort-by-select .p-dropdown {
-  width: 230px;
-}
-
-.sort-by-select .p-dropdown-items {
-  padding: 0;
-  margin: 0;
-}
-
-.sort-by-select .p-dropdown-label {
-  padding-right: 3px;
-}
-
-.sort-by-select .p-dropdown-item {
-  padding-left: 12px;
-}
-
-.sort-by-select .p-dropdown-trigger {
-  width: 15%;
-}
-
-.paginator {
-  background-color: #f8f9fa;
-}
-
-/* media queries */
 @media (min-width: 2000px) {
-  .content-section {
-    margin-left: 17vw;
-    margin-right: 17vw;
+  .buy-a-car-page {
+    .content {
+      margin-left: 17vw;
+      margin-right: 17vw;
+    }
   }
 }
 
 @media (max-width: 1600px) {
-  .content-section {
-    margin-left: 5vw;
-    margin-right: 5vw;
+  .buy-a-car-page {
+    .content {
+      margin-left: 5vw;
+      margin-right: 5vw;
+    }
   }
 
   .check-box-container {

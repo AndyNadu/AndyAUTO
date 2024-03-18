@@ -1,82 +1,88 @@
-.sell-a-car-section {
-  display: flex;
-  flex-direction: column;
-  margin-left: 17vw;
-  margin-right: 17vw;
+.sell-a-car-page {
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 17vw;
+    margin-right: 17vw;
+
+    .row-of-checks {
+      display: flex;
+      flex-direction: column;
+      margin-top: 50px;
+      padding: 15px;
+
+      .title {
+        display: flex;
+        justify-content: center;
+        font-size: 25px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+
+      .checks {
+        display: flex;
+        width: 100%;
+
+        .check-box {
+          display: flex;
+          align-items: center;
+          background-color: white;
+          border-radius: 5px;
+          padding: 15px;
+          box-shadow: 0 5px 20px 0 rgba(31, 16, 74, 0.13);
+
+          .icon {
+            color: #ff533d;
+            font-size: 25px;
+            margin-right: 10px;
+          }
+
+          .requirement {
+            font-size: 18px;
+          }
+        }
+
+        & > :first-child {
+          margin-right: 20px;
+        }
+
+        & > :last-child {
+          margin-left: 20px;
+        }
+      }
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      font-size: 25px;
+      font-weight: bold;
+      padding: 10px;
+      margin-top: 40px;
+    }
+
+    .submit-info {
+      font-size: 20px;
+      padding: 3px 15px 3px 15px;
+    }
+  }
 }
 
-.checks {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
-.checked-box {
-  display: flex;
-  align-items: center;
-  min-height: 80px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 5px 20px 0 rgba(31, 16, 74, .13);
-  margin: 15px 0 15px 0;
-  padding: 15px;
-}
-
-.checks > :first-child {
-  margin-right: 20px;
-}
-
-.checks > :last-child {
-  margin-left: 20px;
-}
-
-/* media queries */
 @media (min-width: 2200px) {
-  .sell-a-car-section {
-    margin-left: 25vw;
-    margin-right: 25vw;
+  .sell-a-car-page {
+    .content {
+      margin-left: 25vw;
+      margin-right: 25vw;
+    }
   }
 }
 
 @media (max-width: 1700px) {
-  .sell-a-car-section {
-    margin-left: 10vw;
-    margin-right: 10vw;
-  }
-}
-
-@media (max-width: 1400px) {
-  .checks, .two-inputs {
-    flex-direction: column;
-  }
-
-  .checks > :first-child {
-    margin-right: 0;
-  }
-
-  .checks > :last-child {
-    margin-left: 0;
-  }
-
-  .two-inputs {
-    width: 100%;
-  }
-}
-
-@media (max-width: 1000px) {
-  .input-row {
-    flex-direction: column;
-  }
-
-  .sell-a-car-section {
-    margin-left: 15vw;
-    margin-right: 15vw;
-  }
-}
-
-@media (max-width: 700px) {
-  .sell-a-car-section {
-    margin-left: 7vw;
-    margin-right: 7vw;
+  .sell-a-car-page {
+    .content {
+      margin-left: 10vw;
+      margin-right: 10vw;
+    }
   }
 }

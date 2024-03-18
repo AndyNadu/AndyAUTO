@@ -3,117 +3,72 @@
 
   <app-navigation-bar></app-navigation-bar>
 
-  <div class="account-content">
-    <div class="account-tabs-expanded me-5">
-      <div class="account-tab-header mb-5">
-        <div class="col-2 d-flex justify-content-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
-            width="25"
-            height="25"
-            fill="#ff533d"
-          >
-            <path
-              d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
-            />
-          </svg>
+  <div class="content">
+    <div class="tabs-expanded">
+      <div class="header">
+        <div class="icon-box">
+          <fa-icon [icon]="['fas', 'bars']" class="icon selected"></fa-icon>
         </div>
-        <div class="col h5 mb-0">My account</div>
+        <div class="col label">My account</div>
       </div>
 
       <p-button
         (onClick)="switchTab('personal-information')"
         [loading]="loadingPersonalInformation"
-        class="account-tab account-tab-selected mb-1"
-        [class.account-tab-selected]="selectedTab == 'personal-information'"
+        [class.selected]="selectedTab == 'personal-information'"
       >
-        <div class="d-flex w-100">
-          <div class="col-2 d-flex justify-content-center align-items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              width="23"
-              height="23"
-              fill="#ff533d"
-            >
-              <path
-                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
-              />
-            </svg>
+        <div class="tab">
+          <div class="icon-box">
+            <fa-icon
+              [icon]="['fas', 'user']"
+              class="icon"
+              [class.selected]="selectedTab == 'personal-information'"
+            ></fa-icon>
           </div>
-          <div class="h5 mb-0">Personal information</div>
+          <div class="col label">My cars</div>
         </div>
       </p-button>
 
       <p-button
         (onClick)="switchTab('my-cars')"
         [loading]="loadingMyCars"
-        class="account-tab mb-1"
-        [class.account-tab-selected]="selectedTab == 'my-cars'"
+        [class.selected]="selectedTab == 'my-cars'"
       >
-        <div class="d-flex w-100">
-          <div class="col-2 d-flex justify-content-center align-items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 640 512"
-              width="25"
-              height="25"
-              fill="#ff533d"
-            >
-              <path
-                d="M171.3 96H224v96H111.3l30.4-75.9C146.5 104 158.2 96 171.3 96zM272 192V96h81.2c9.7 0 18.9 4.4 25 12l67.2 84H272zm256.2 1L428.2 68c-18.2-22.8-45.8-36-75-36H171.3c-39.3 0-74.6 23.9-89.1 60.3L40.6 196.4C16.8 205.8 0 228.9 0 256V368c0 17.7 14.3 32 32 32H65.3c7.6 45.4 47.1 80 94.7 80s87.1-34.6 94.7-80H385.3c7.6 45.4 47.1 80 94.7 80s87.1-34.6 94.7-80H608c17.7 0 32-14.3 32-32V320c0-65.2-48.8-119-111.8-127zM434.7 368a48 48 0 1 1 90.5 32 48 48 0 1 1 -90.5-32zM160 336a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"
-              />
-            </svg>
+        <div class="tab">
+          <div class="icon-box">
+            <fa-icon
+              [icon]="['fas', 'car']"
+              class="icon"
+              [class.selected]="selectedTab == 'my-cars'"
+            ></fa-icon>
           </div>
-          <div class="h5 mb-0">My cars</div>
+          <div class="col label">Personal information</div>
         </div>
       </p-button>
 
       <p-button
         (onClick)="switchTab('favourite-cars')"
         [loading]="loadingFavouriteCars"
-        class="account-tab"
-        [class.account-tab-selected]="selectedTab == 'favourite-cars'"
+        [class.selected]="selectedTab == 'favourite-cars'"
       >
-        <div class="d-flex w-100">
-          <div class="col-2 d-flex justify-content-center align-items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              width="23"
-              height="23"
-              fill="#ff533d"
-            >
-              <path
-                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
-              />
-            </svg>
+        <div class="tab">
+          <div class="icon-box">
+            <fa-icon
+              [icon]="['fas', 'heart']"
+              class="icon"
+              [class.selected]="selectedTab == 'favourite-cars'"
+            ></fa-icon>
           </div>
-          <div class="h5 mb-0">Favourite cars</div>
+          <div class="col label">Favourite cars</div>
         </div>
       </p-button>
 
-      <p-button
-        (onClick)="logout()"
-        [loading]="loadingLogout"
-        class="account-tab mt-5"
-      >
-        <div class="d-flex w-100">
-          <div class="col-2 d-flex justify-content-center align-items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              width="23"
-              height="23"
-              fill="#ff533d"
-            >
-              <path
-                d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"
-              />
-            </svg>
+      <p-button (onClick)="logout()" [loading]="loadingLogout" class="logout">
+        <div class="tab">
+          <div class="icon-box">
+            <fa-icon [icon]="['fas', 'power-off']" class="icon"></fa-icon>
           </div>
-          <div class="h5 mb-0">Logout</div>
+          <div class="col label">Logout</div>
         </div>
       </p-button>
     </div>

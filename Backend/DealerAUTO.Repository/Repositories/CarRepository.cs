@@ -1,32 +1,31 @@
 ﻿using DealerAUTO.DTO.Models;
 using DealerAUTO.Repository.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace DealerAUTO.Repository.Repositories
 {
-    public class CarRepository : ICarRepository
+    public class CarRepository
     {
-        readonly AndyAutoDbContext _dbContext = new AndyAutoDbContext();
+        //readonly AndyAutoDbContext _dbContext = new AndyAutoDbContext();
 
-        public Car PostCar(Car car)
-        {
-            _dbContext.Cars.Add(car);
-            _dbContext.SaveChanges();
+        //public Car PostCar(Car car)
+        //{
+        //    _dbContext.Cars.Add(car);
+        //    _dbContext.SaveChanges();
 
-            return car;
-        }
+        //    return car;
+        //}
 
-        public List<CarImage> PostImages(List<CarImage> images)
-        {
-            _dbContext.Images.AddRange(images);
-            _dbContext.SaveChanges();
+        //public List<CarImage> PostImages(List<CarImage> images)
+        //{
+        //    _dbContext.Images.AddRange(images);
+        //    _dbContext.SaveChanges();
 
-            return images;
-        }
+        //    return images;
+        //}
 
-        public List<Car> GetCars()
-        {
-            return _dbContext.Cars.Include(e => e.Images).ToList();
-        }
+        //public List<Car> GetCars()
+        //{
+        //    return _dbContext.Cars.Include(e => e.Images).ToList();
+        //}
     }
 }

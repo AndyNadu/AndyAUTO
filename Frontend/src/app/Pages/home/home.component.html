@@ -1,89 +1,72 @@
-<app-contact-bar></app-contact-bar>
+<div class="home-page">
+  <app-contact-bar></app-contact-bar>
 
-<app-navigation-bar></app-navigation-bar>
+  <app-navigation-bar></app-navigation-bar>
 
-<div class="home-content">
-  <div class="h1 mb-4">Dealer Auto</div>
+  <div class="content">
+    <div class="dealer-details">
+      <div class="title">Dealer Auto</div>
 
-  <div
-    class="home-content-description h4 mb-5"
-    [innerHTML]="homeConstants.dealerDescription"
-  ></div>
-
-  <div class="home-car-states mb-5">
-    <div
-      class="home-car-state col h5 mb-0"
-      [class.home-car-state-selected]="homeConstants.carState === 'New cars'"
-      (click)="onStateChanged('New cars')"
-    >
-      New cars
+      <div
+        class="description"
+        [innerHTML]="homeConstants.dealerDescription"
+      ></div>
     </div>
 
-    <div
-      class="home-car-state col h5 mb-0"
-      [class.home-car-state-selected]="homeConstants.carState === 'Used cars'"
-      (click)="onStateChanged('Used cars')"
-    >
-      Used cars
-    </div>
-  </div>
-
-  <div class="home-car-state-box">
-    <div>
-      <img
-        [src]="homeConstants.photoURL"
-        class="w-100 home-car-state-box-photo"
-        alt="car-image"
-      />
-    </div>
-
-    <div class="home-car-state-box-text">
-      <div class="home-text-blue card-title h2 mb-3">
-        {{ homeConstants.carState }}
+    <div class="car-categories">
+      <div
+        (click)="onStateChanged('New cars')"
+        class="col category"
+        [class.selected]="homeConstants.carState === 'New cars'"
+      >
+        <div class="text">New cars</div>
       </div>
 
       <div
-        class="home-text-gray card-text h5 mb-3"
-        [innerHTML]="homeConstants.stateDescription"
-      ></div>
-    </div>
-  </div>
-
-  <div class="d-flex my-4">
-    <div>
-      <img
-        src="./assets/Images/volan.jpg"
-        class="home-info-line-photo home-info-line-photo-left"
-        alt="img"
-      />
-    </div>
-
-    <div class="home-info-line-text home-info-line-text-left">
-      <div class="h3 mt-3">Test Drive</div>
-
-      <div class="home-text-gray h5 mt-3">
-        {{ homeConstants.testDriveDescription }}
-      </div>
-    </div>
-  </div>
-
-  <div class="d-flex mt-4">
-    <div class="home-info-line-text home-info-line-text-right">
-      <div class="h3 mt-3">Leasing auto</div>
-
-      <div class="home-text-gray h5 mt-3">
-        {{ homeConstants.leasingDescription }}
+        (click)="onStateChanged('Used cars')"
+        class="col category"
+        [class.selected]="homeConstants.carState === 'Used cars'"
+      >
+        <div class="text">Used cars</div>
       </div>
     </div>
 
-    <div>
-      <img
-        src="./assets/Images/leasing.jpg"
-        class="home-info-line-photo home-info-line-photo-right"
-        alt="img"
-      />
+    <div class="category-details">
+      <img [src]="homeConstants.photoURL" class="image" alt="car-image" />
+
+      <div class="title">
+        {{ homeConstants.carState }}
+      </div>
+
+      <div class="description">
+        <div class="" [innerHTML]="homeConstants.stateDescription"></div>
+      </div>
+    </div>
+
+    <div class="facility">
+      <img src="./assets/Images/volan.jpg" class="image left" alt="img" />
+
+      <div class="about-facility">
+        <div class="title">Test Drive</div>
+
+        <div class="description">
+          {{ homeConstants.testDriveDescription }}
+        </div>
+      </div>
+    </div>
+
+    <div class="facility">
+      <div class="about-facility">
+        <div class="title">Leasing auto</div>
+
+        <div class="description">
+          {{ homeConstants.leasingDescription }}
+        </div>
+      </div>
+
+      <img src="./assets/Images/leasing.jpg" class="image right" alt="img" />
     </div>
   </div>
+
+  <app-footer></app-footer>
 </div>
-
-<app-footer></app-footer>

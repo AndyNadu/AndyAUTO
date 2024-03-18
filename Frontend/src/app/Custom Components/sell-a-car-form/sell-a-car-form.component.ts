@@ -20,6 +20,7 @@ import { ComponentInteractionService } from '../../Services/ComponentInteraction
 // models && DTOs && constants
 import { Car } from '../../Interfaces/Car';
 import { CarsListConstant } from '../../Constants/CarsListConstant';
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -53,7 +54,8 @@ export class SellACarFormComponent {
   submitLoading: boolean = false;
 
   // constructor
-  constructor(private _componentInteractionService: ComponentInteractionService,
+  constructor(
+    private _componentInteractionService: ComponentInteractionService,
     private _formBuilder: FormBuilder,
     private _http: HttpClient) {
     this.sellForm = _formBuilder.group({

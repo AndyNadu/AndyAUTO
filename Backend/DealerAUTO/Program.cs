@@ -1,11 +1,4 @@
 using DealerAUTO.DTO.Models;
-
-using DealerAUTO.Repository.Interfaces;
-using DealerAUTO.Repository.Repositories;
-
-using DealerAUTO.Service.Interfaces;
-using DealerAUTO.Service.Services;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,11 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserService, UserService>();
+//builder.Services.AddScoped<IUserRepository, UserRepository>();
+//builder.Services.AddScoped<IUserService, UserService>();
 
-builder.Services.AddScoped<ICarRepository, CarRepository>();
-builder.Services.AddScoped<ICarService, CarService>();
+//builder.Services.AddScoped<ICarRepository, CarRepository>();
+//builder.Services.AddScoped<ICarService, CarService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -48,7 +41,7 @@ builder.Services.AddIdentity<User, IdentityRole<Guid>>()
 
 var app = builder.Build();
 app.UseCors();
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 namespace DealerAUTO.Repository.Interfaces;
 
 public interface IReadOnlyRepository<TModel, TKey>
-    where TModel : class, IModel<TKey>
+    where TModel : class, IEntity<TKey>
     where TKey : class
 {
     Task<IEnumerable<TModel>> GetAllAsync(bool track = true);

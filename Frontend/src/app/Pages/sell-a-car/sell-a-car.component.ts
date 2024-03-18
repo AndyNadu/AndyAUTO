@@ -9,6 +9,8 @@ import { SellACarFormComponent } from '../../Custom Components/sell-a-car-form/s
 // services
 import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
 import { ContactBarComponent } from '../../Custom Components/contact-bar/contact-bar.component';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -18,7 +20,8 @@ import { ContactBarComponent } from '../../Custom Components/contact-bar/contact
     FooterComponent,
     SellACarFormComponent,
     ContactBarComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    FontAwesomeModule
 
   ],
   templateUrl: './sell-a-car.component.html',
@@ -27,7 +30,10 @@ import { ContactBarComponent } from '../../Custom Components/contact-bar/contact
 export class SellACarComponent {
 
   // constructor
-  constructor(private _componentInteractionService: ComponentInteractionService) { }
+  constructor(
+    library: FaIconLibrary, private _componentInteractionService: ComponentInteractionService) { 
+      library.addIcons(faCircleCheck);
+    }
 
 
   // methods

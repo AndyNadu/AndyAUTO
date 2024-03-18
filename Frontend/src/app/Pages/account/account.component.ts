@@ -10,6 +10,8 @@ import { AccountMyCarsComponent } from '../../Custom Components/account-my-cars/
 import { AccountFavouriteCarsComponent } from '../../Custom Components/account-favourite-cars/account-favourite-cars.component';
 import { AccountPersonalInformationComponent } from '../../Custom Components/account-personal-information/account-personal-information.component';
 import { ContactBarComponent } from '../../Custom Components/contact-bar/contact-bar.component';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faBars, faCar, faHeart, faPowerOff, faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-account',
@@ -21,7 +23,8 @@ import { ContactBarComponent } from '../../Custom Components/contact-bar/contact
     AccountMyCarsComponent,
     AccountFavouriteCarsComponent,
     ContactBarComponent,
-    AccountPersonalInformationComponent
+    AccountPersonalInformationComponent,
+    FontAwesomeModule
   ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css'
@@ -37,7 +40,14 @@ export class AccountComponent {
 
 
   // constructor
-  constructor(private _router: Router) { }
+  constructor(private _router: Router,
+    library: FaIconLibrary) { 
+      library.addIcons(faBars);
+      library.addIcons(faUser);
+      library.addIcons(faCar);
+      library.addIcons(faHeart);
+      library.addIcons(faPowerOff);
+    }
 
 
   // methods

@@ -2,7 +2,7 @@ import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DropdownModule } from 'primeng/dropdown';
 import { SelectItem } from 'primeng/api';
 import { NavigationBarComponent } from '../../Custom Components/navigation-bar/navigation-bar.component';
@@ -49,7 +49,10 @@ export class BuyACarComponent {
   ];
 
   constructor(private _carService: CarService,
-              private _http: HttpClient) { }
+              private _http: HttpClient,
+              library: FaIconLibrary) {
+                library.addIcons(faCheck);
+               }
 
   ngOnInit() {
     this._http.get<Car[]>('http://localhost:5113/car/get')

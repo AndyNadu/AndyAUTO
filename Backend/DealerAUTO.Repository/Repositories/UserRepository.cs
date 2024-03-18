@@ -6,30 +6,30 @@ using DealerAUTO.Repository.Interfaces;
 namespace DealerAUTO.Repository.Repositories
 {
 
-    public class UserRepository : IUserRepository
+    public class UserRepository
     {
-        readonly AndyAutoDbContext _dbContext = new AndyAutoDbContext();
+        //readonly AndyAutoDbContext _dbContext = new AndyAutoDbContext();
 
-        public User RegisterAccount(User user)
-        {
-            _dbContext.Users.Add(user);
-            _dbContext.SaveChanges();
+        //public User RegisterAccount(User user)
+        //{
+        //    _dbContext.Users.Add(user);
+        //    _dbContext.SaveChanges();
 
-            return user;
-        }
+        //    return user;
+        //}
 
-        public User? GetUserByEmail(string email)
-        {
-            User? user = _dbContext.Users.FirstOrDefault(u => u.Email == email);
+        //public User? GetUserByEmail(string email)
+        //{
+        //    User? user = _dbContext.Users.FirstOrDefault(u => u.Email == email);
 
-            return user == null ? null : user;
-        }
+        //    return user == null ? null : user;
+        //}
 
-        public User? GetUserByCredentials(LoginPostUserDTO user)
-        {
-            User? _user = _dbContext.Users.FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password);
+        //public User? GetUserByCredentials(LoginPostUserDTO user)
+        //{
+        //    User? _user = _dbContext.Users.FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password);
 
-            return _user == null ? null : _user;
-        }
+        //    return _user == null ? null : _user;
+        //}
     }
 }
