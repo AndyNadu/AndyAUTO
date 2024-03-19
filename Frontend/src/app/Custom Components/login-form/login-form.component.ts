@@ -62,7 +62,7 @@ export class LoginFormComponent {
       const control: AbstractControl | null = this.loginForm.get(key);
 
       if (control?.hasError('required')) {
-        error = 'All fields are mandatory!';
+        error = 'All fields are mandatory!dwdw';
         control.markAsDirty();
       } else if (key === 'email' && control?.hasError('email') && error == '') {
         error = 'Email format not supported!';
