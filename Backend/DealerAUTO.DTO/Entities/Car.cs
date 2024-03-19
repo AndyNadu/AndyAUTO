@@ -4,7 +4,7 @@
 
 namespace DealerAUTO.DTO.Models;
 
-public class Car : IEntity<Guid>
+public class Car : IEntity<Guid, bool>
 {
     [Key]
     public Guid Id { get; set; }
@@ -38,4 +38,7 @@ public class Car : IEntity<Guid>
 
     public CarPost CarPost { get; set; }
     public ICollection<CarImage> Images { get; set; }
+
+    [Required]
+    public bool isDeleted {  get; set; }
 }

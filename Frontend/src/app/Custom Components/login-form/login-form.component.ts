@@ -1,45 +1,35 @@
-// angular
+import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { Component } from '@angular/core';
-
-// primeNG
-import { CheckboxModule } from 'primeng/checkbox';
-import { InputTextModule } from 'primeng/inputtext';
-
-// services
 import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
-
-// interfaces && constants && data objects
-import { LoginPostUserDTO } from '../../Data Transfer Objects/LoginPostUserDTO';
-import { LoginResponseUserDTO } from '../../Data Transfer Objects/LoginResponseUserDTO';
+import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
-
+import { LoginResponseUserDTO } from '../../Data Transfer Objects/LoginResponseUserDTO';
+import { LoginPostUserDTO } from '../../Data Transfer Objects/LoginPostUserDTO';
+import { UserDTO } from '../../Data Transfer Objects (DTOs)/UserDTO';
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
   imports: [
-    RouterLink,
-    FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
-
-    ButtonModule,
-    CheckboxModule,
+    HttpClientModule,
+    FormsModule,
+    RouterLink,
     InputTextModule,
+    CheckboxModule,
+    ButtonModule,
   ],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
 })
 export class LoginFormComponent {
 
-  // members
   loginForm: FormGroup;
-  invalidCredentials: boolean = false;
+  error: string = '';
 
-  // constructor
   constructor(private _componentInteractionService: ComponentInteractionService,
               private _formBuilder: FormBuilder,
               private _http: HttpClient,
@@ -51,49 +41,63 @@ export class LoginFormComponent {
     });
   }
 
-  // methods
-  checkIfSuccessfullyRegistered(): boolean {
-    return this._componentInteractionService.checkIfSuccessfullyRegistered();
+  getSuccessfullyRegistered(): string {
+    return this._componentInteractionService.getSuccessfullyRegistered();
   }
   login(): void {
-    const remMe: boolean = this.loginForm.get('rememberMe')!.value;
+    this.error = this.isFormValid();
 
-    if (remMe != false)
-    console.log('winwin');
+    if (!this.error)
+      this.tryHttpRequest();
+  }
+  isFormValid(): string {
+    const error: string = this.markAsDirty();
+
+    return error ? error : '';
+  }
+  markAsDirty(): string {
+    let error: string = '';
 
     Object.keys(this.loginForm.controls).forEach(key => {
-      const control = this.loginForm.get(key);
-      control!.markAsDirty();
+      const control: AbstractControl | null = this.loginForm.get(key);
+
+      if (control?.hasError('required')) {
+        error = 'All fields are mandatory!';
+        control.markAsDirty();
+      } else if (key === 'email' && control?.hasError('email') && error == '') {
+        error = 'Email format not supported!';
+        control.markAsDirty();
+      }
     });
 
-    if (this.loginForm.valid) {
-      const user: LoginPostUserDTO = {
-        email: String(this.loginForm.get('email')!.value),
-        password: String(this.loginForm.get('password')!.value)
-      };
+    return error;
+  }
+  tryHttpRequest(): void {
+    const userDTO: UserDTO = this.buildUserDTO();
 
-      this._http.post <LoginResponseUserDTO>('http://localhost:5113/account/login', user)
-        .subscribe(
-          (_user: LoginResponseUserDTO) => {
-            if (this.loginForm.get('rememberMe')!.value) {
-              localStorage.setItem('loggedIn', 'true');
-              localStorage.setItem('userId', JSON.stringify(_user.id));
-              localStorage.setItem('userFirstName', _user.firstName);
-            }
-            else {
-              sessionStorage.setItem('loggedIn', 'true');
-              sessionStorage.setItem('userId', JSON.stringify(_user.id));
-              sessionStorage.setItem('userFirstName', _user.firstName);
-            }
-            
-            this._router.navigateByUrl('');
-          },
-          (err: HttpErrorResponse) => {
-            this.invalidCredentials = true;
-            console.log(err);
-          }
-        );
+    this._http.post<UserDTO>('http://localhost:5113/account/login', userDTO)
+    .subscribe({
+      next: (result: UserDTO) => {
+        if (this.loginForm.get('rememberMe')!.value) {
+          localStorage.setItem('userId', JSON.stringify(result.Id));
+          localStorage.setItem('role', JSON.stringify(result.Role));
+        }
+        else {
+          sessionStorage.setItem('userId', JSON.stringify(result.Id));
+          sessionStorage.setItem('role', JSON.stringify(result.Role));
+        }
+
+        this._router.navigateByUrl('');
+      },
+      error: (error: HttpErrorResponse) => {
+        this.error = error.error;
+      }
+    })
+  }
+  buildUserDTO(): UserDTO {
+    return  {
+      Email: String(this.loginForm.get('email')!.value),
+      Password: String(this.loginForm.get('password')!.value),
     }
   }
-
 }

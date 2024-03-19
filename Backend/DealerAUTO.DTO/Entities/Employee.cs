@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
-#nullable disable
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DealerAUTO.DTO.Models;
 
-public class Employee : IEntity<Guid>
+public class Employee : IEntity<Guid, bool>
 {
     [Key]
     public Guid Id { get; set; }
@@ -12,8 +11,12 @@ public class Employee : IEntity<Guid>
     [Required]
     public bool IsManager { get; set; }
 
+    [ForeignKey("Location")]
     public Guid LocationId { get; set; }
     public virtual Location Location { get; set; }
 
-    //public virtual User User { get; set; }
+    public virtual User User { get; set; }
+
+    [Required]
+    public bool isDeleted { get; set; }
 }

@@ -75,6 +75,9 @@ namespace DealerAUTO.DTO.Migrations
                     b.Property<int>("Year")
                         .HasColumnType("int");
 
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("Cars");
@@ -92,6 +95,9 @@ namespace DealerAUTO.DTO.Migrations
                     b.Property<byte[]>("PhotoAsByteArray")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -121,6 +127,9 @@ namespace DealerAUTO.DTO.Migrations
                     b.Property<bool>("Verified")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CarId")
@@ -145,6 +154,9 @@ namespace DealerAUTO.DTO.Migrations
                     b.Property<Guid>("LocationId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("LocationId");
@@ -152,7 +164,7 @@ namespace DealerAUTO.DTO.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("DealerAUTO.DTO.Models.FavouriteCarPostsList", b =>
+            modelBuilder.Entity("DealerAUTO.DTO.Models.FavouriteCarPost", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -164,13 +176,16 @@ namespace DealerAUTO.DTO.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CarPostId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("FavouriteCarPostsLists");
+                    b.ToTable("FavouriteCarPosts");
                 });
 
             modelBuilder.Entity("DealerAUTO.DTO.Models.Location", b =>
@@ -182,6 +197,9 @@ namespace DealerAUTO.DTO.Migrations
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -211,7 +229,7 @@ namespace DealerAUTO.DTO.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("EmployeeID")
+                    b.Property<Guid?>("EmployeeID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("FirstName")
@@ -255,10 +273,14 @@ namespace DealerAUTO.DTO.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("EmployeeID")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[EmployeeID] IS NOT NULL");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -422,13 +444,13 @@ namespace DealerAUTO.DTO.Migrations
                         .IsRequired();
 
                     b.HasOne("DealerAUTO.DTO.Models.Location", "Location")
-                        .WithMany()
+                        .WithMany("CarPosts")
                         .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DealerAUTO.DTO.Models.User", "User")
-                        .WithMany()
+                        .WithMany("CarPost")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -443,7 +465,7 @@ namespace DealerAUTO.DTO.Migrations
             modelBuilder.Entity("DealerAUTO.DTO.Models.Employee", b =>
                 {
                     b.HasOne("DealerAUTO.DTO.Models.Location", "Location")
-                        .WithMany()
+                        .WithMany("Employees")
                         .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -451,16 +473,16 @@ namespace DealerAUTO.DTO.Migrations
                     b.Navigation("Location");
                 });
 
-            modelBuilder.Entity("DealerAUTO.DTO.Models.FavouriteCarPostsList", b =>
+            modelBuilder.Entity("DealerAUTO.DTO.Models.FavouriteCarPost", b =>
                 {
                     b.HasOne("DealerAUTO.DTO.Models.CarPost", "CarPost")
                         .WithMany()
                         .HasForeignKey("CarPostId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("DealerAUTO.DTO.Models.User", "User")
-                        .WithMany()
+                        .WithMany("FavouriteCarPostsList")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -474,9 +496,7 @@ namespace DealerAUTO.DTO.Migrations
                 {
                     b.HasOne("DealerAUTO.DTO.Models.Employee", "Employee")
                         .WithOne("User")
-                        .HasForeignKey("DealerAUTO.DTO.Models.User", "EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DealerAUTO.DTO.Models.User", "EmployeeID");
 
                     b.Navigation("Employee");
                 });
@@ -541,7 +561,22 @@ namespace DealerAUTO.DTO.Migrations
 
             modelBuilder.Entity("DealerAUTO.DTO.Models.Employee", b =>
                 {
-                    b.Navigation("User");
+                    b.Navigation("User")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DealerAUTO.DTO.Models.Location", b =>
+                {
+                    b.Navigation("CarPosts");
+
+                    b.Navigation("Employees");
+                });
+
+            modelBuilder.Entity("DealerAUTO.DTO.Models.User", b =>
+                {
+                    b.Navigation("CarPost");
+
+                    b.Navigation("FavouriteCarPostsList");
                 });
 #pragma warning restore 612, 618
         }

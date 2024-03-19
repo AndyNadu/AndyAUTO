@@ -36,8 +36,4 @@ export class SellACarComponent {
     }
 
 
-  scrollDown(elementID: string): void {
-    this._componentInteractionService.scrollDown(elementID);
-  }
-
 }

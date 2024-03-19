@@ -4,10 +4,8 @@ import { Router, RouterLink } from '@angular/router';
 import { Component } from '@angular/core';
 import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
 import { InputTextModule } from 'primeng/inputtext';
-import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { UserDTO } from '../../Data Transfer Objects (DTOs)/UserDTO';
-import { UserService } from '../../Services/UserService/user.service';
 
 @Component({
   selector: 'app-register-form',
@@ -18,7 +16,6 @@ import { UserService } from '../../Services/UserService/user.service';
     FormsModule,
     RouterLink,
     InputTextModule,
-    CheckboxModule,
     ButtonModule,
   ],
   templateUrl: './register-form.component.html',
@@ -30,85 +27,84 @@ export class RegisterFormComponent {
   error: string = '';
 
   constructor(private _componentInteractionService: ComponentInteractionService,
-              private _userService: UserService,
               private _formBuilder: FormBuilder,
               private _http: HttpClient,
               private _router: Router) {
     this.registerForm = this._formBuilder.group({
-      firstName: ['', Validators.required],
+      firstName:['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', [Validators.required, Validators.pattern('^(?:\\d{4}\\s?\\d{3}\\s?\\d{3}|\\d{10})$')]],
-      password: ['', Validators.required],
-      passwordConfirmation: ['', Validators.required]
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      passwordConfirmation: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
   register(): void {
-    this.error = '';    
-    this.error = this.isFormValid(this.registerForm);
+    this.error = this.isFormValid();
 
-    const result: string = this.error != '' ? 'error' : this.tryHttpRequest(this.registerForm);
+    if (!this.error)
+      this.tryHttpRequest();
   }
-  isFormValid(_form: FormGroup): string {
-    const error: string = this.markAsDirty(_form);
+  isFormValid(): string {
+    const error: string = this.markAsDirty();
     
-    if (error != '')
-      return error;
-
-    if (!this.passwordsMatch(_form))
-      return `Passwords don't match!`;
-
-    return '';
+    return error ? error : '';
   }
-  passwordsMatch(_form: FormGroup): boolean {
-    return _form.get('password')!.value == _form.get('passwordConfirmation')!.value ? true : false;
-  }
-  tryHttpRequest(_form: FormGroup): string {
-    const userDTO: UserDTO = this.buildUserDTO(_form);
+  markAsDirty(): string {
+    let error: string = '';
 
-    this._http.post<UserDTO>('http://localhost:5113/account/register', userDTO)
-    .subscribe({
-      next: (result: UserDTO) => {
-        console.log('succes');
-      },
-      error: (error: HttpErrorResponse) => {
-        console.log('error');
-      },
-      complete: () => {
-        console.log('complete');
-      }
-    })
-
-    return 'successfully registered';
-  }
-  buildUserDTO(_form: FormGroup): UserDTO {
-    return  {
-      firstName: String(this.registerForm.get('firstName')!.value),
-      lastName: String(this.registerForm.get('lastName')!.value),
-      email: String(this.registerForm.get('email')!.value),
-      phoneNumber: String(this.registerForm.get('phoneNumber')!.value),
-      password: String(this.registerForm.get('password')!.value),
-    }
-  }
-  markAsDirty(_form: FormGroup): string {
-    let dirtyFields: string = '';
-
-    Object.keys(_form.controls).forEach(key => {
-      const control: AbstractControl | null = _form.get(key);
+    Object.keys(this.registerForm.controls).forEach(key => {
+      const control: AbstractControl | null = this.registerForm.get(key);
 
       if (control?.hasError('required')) {
-        dirtyFields = 'All fields are mandatory!';
+        error = 'All fields are mandatory!';
         control.markAsDirty();
-      } else if (key === 'email' && control?.hasError('email') && dirtyFields == '') {
-        dirtyFields = 'Email format not supported!';
+      } else if (key === 'email' && control?.hasError('email') && error == '') {
+        error = 'Email format not supported!';
         control.markAsDirty();
-      } else if (key === 'phoneNumber' && control?.hasError('pattern') && dirtyFields == '') {
-        dirtyFields = 'Phone number format not supported!';
+      } else if (key === 'phoneNumber' && control?.hasError('pattern') && error == '') {
+        error = 'Phone number format not supported!';
+        control.markAsDirty();
+      } else if ((key === 'password' || key === 'passwordConfirmation') && this.registerForm.get('password')!.value != this.registerForm.get('passwordConfirmation')!.value && error == '') {
+        console.log(error);
+          error = `Passwords don't match`;
+          this.registerForm.get('password')!.markAsDirty();
+          this.registerForm.get('passwordConfirmation')!.markAsDirty();
+      } else if ((key === 'password' || key === 'passwordConfirmation') && control?.hasError('minlength') && error == '') {
+        error = 'Password should have at least 8 characters!';
         control.markAsDirty();
       }
     });
 
-    return dirtyFields;
+    return error;
+  }
+  tryHttpRequest(): void {
+    const userDTO: UserDTO = this.buildUserDTO();
+
+    this._http.post<UserDTO>('http://localhost:5113/account/register', userDTO)
+    .subscribe({
+      next: (result: UserDTO) => {
+        this._componentInteractionService.setSuccessfullyRegistered('You have successfully registered your account. Please sign in!');
+
+        setTimeout( () => {
+          this._componentInteractionService.setSuccessfullyRegistered('');
+        }, 10000)
+
+        this._router.navigateByUrl('/account/login');
+      },
+      error: (error: HttpErrorResponse) => {
+        this.error = error.error;
+      }
+    })
+  }
+  buildUserDTO(): UserDTO {
+    return  {
+      FirstName: String(this.registerForm.get('firstName')!.value),
+      LastName: String(this.registerForm.get('lastName')!.value),
+      Email: String(this.registerForm.get('email')!.value),
+      PhoneNumber: String(this.registerForm.get('phoneNumber')!.value),
+      Password: String(this.registerForm.get('password')!.value),
+    }
   }
 }

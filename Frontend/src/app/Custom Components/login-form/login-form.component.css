@@ -2,7 +2,7 @@
   .upper-buttons {
     display: flex;
     margin-top: 100px;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
 
     .login .p-button {
       background-color: #ff533d;
@@ -23,7 +23,7 @@
     width: 100%;
     height: 50px;
     border: 0;
-    border-radius: 15px;
+    border-radius: 6px;
     font-size: 16px;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 
@@ -39,20 +39,10 @@
     margin-top: 30px;
   }
 
-  .successfully-registered-message {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 75%;
-    height: 40px;
-    background-color: rgb(194, 231, 194);
-    border-radius: 10px;
-    margin: 0 auto 0 auto;
-  }
-
   .login-form {
     display: flex;
     flex-direction: column;
+    margin-top: 35px;
 
     .input-box {
       margin-bottom: 30px;
@@ -69,6 +59,26 @@
 
   .p-float-label > .ng-invalid.ng-dirty + label {
     color: dimgray;
+  }
+
+  .successfully-registered {
+    display: flex;
+    justify-content: center;
+    background-color: lightgreen;
+    border-radius: 6px;
+    color: darkgreen;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+  }
+
+  .error {
+    color: red;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 25px;
   }
 }
 

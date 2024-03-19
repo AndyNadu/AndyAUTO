@@ -7,17 +7,17 @@
   .content-and-image {
     display: flex;
     justify-content: center;
-    margin: auto 50px auto 50px;
+    margin: auto 25vw auto 25vw;
     height: 700px;
-    width: 1300px;
+    width: 100%;
 
     .content {
       display: flex;
       flex-direction: column;
       background-color: white;
       padding: 35px;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
 
       .home-icon {
         display: flex;
@@ -51,11 +51,19 @@
   }
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 2100px) {
+  .login-page .content-and-image {
+    margin-left: 17vw;
+    margin-right: 17vw;
+  }
+}
+
+@media (max-width: 1600px) {
   .login-page {
     .content-and-image {
       .content {
-        border-radius: 5px;
+        border-radius: 6px;
+        width: 100%;
       }
 
       .image {
@@ -65,10 +73,17 @@
   }
 }
 
-@media (max-width: 800px) {
-  .login-page {
-    .content-and-image {
-      height: 800px;
-    }
+@media (max-width: 1400px) {
+  .login-page .content-and-image {
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  .login-page .content-and-image {
+    margin-left: 3vw;
+    margin-right: 3vw;
+    height: 800px;
   }
 }

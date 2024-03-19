@@ -1,77 +1,76 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using DealerAUTO.DTO;
+﻿using AutoMapper;
 using DealerAUTO.DTO.DTOs;
 using DealerAUTO.DTO.Models;
-
-using DealerAUTO.Repository.Interfaces;
 using DealerAUTO.Service.Interfaces;
+using Microsoft.AspNetCore.Identity;
 
-namespace DealerAUTO.Service.Services
+namespace DealerAUTO.Service.Services;
+
+public class UserService : IUserService
 {
-    public class UserService : IUserService
+    private readonly UserManager<User> _userManager;
+    private readonly IMapper _mapper;
+
+    public UserService(UserManager<User> userManager, IMapper mapper)
     {
-        IUserRepository _userRepository;
+        _userManager = userManager;
+        _mapper = mapper;
+    }
 
-        //public UserService(IUserRepository userRepository)
-        //{
-        //    _userRepository = userRepository;
-        //} 
+    public async Task<Result<UserDTO>> CreateUser(UserDTO userDTO)
+    {
+        if (hasEmptyFields(userDTO))
+            return Result<UserDTO>.Failure("An unexpected error has occured!");
 
-        //public RegisterResponseUserDTO? RegisterAccount(RegisterPostUserDTO _user)
-        //{
-        //    User user = new User();
-        //    user.FirstName = _user.FirstName;
-        //    user.LastName = _user.LastName;
-        //    user.Email = _user.Email;
-        //    user.Password = _user.Password;
-        //    user.PhoneNumber = _user.PhoneNumber;
+        User user = _mapper.Map<User>(userDTO);
 
-        //    if (HasEmptyFields(user))
-        //        return null;
+        if (isEmailAlreadyRegistered(user.Email))
+            return Result<UserDTO>.Failure("Email is already registered!");
 
-        //    User returnedUser = _userRepository.RegisterAccount(user);
+        if (isPhoneAlreadyRegistered(user.PhoneNumber))
+            return Result<UserDTO>.Failure("Phone number is already registered!");
 
-        //    RegisterResponseUserDTO responseUser = 
-        //        new RegisterResponseUserDTO(
-        //        returnedUser.Id, 
-        //        returnedUser.Email, 
-        //        returnedUser.Password);
+        PasswordHasher<User> passwordHasher = new PasswordHasher<User>();
+        user.PasswordHash = passwordHasher.HashPassword(user, userDTO.Password);
+        user.UserName = user.Email + "makeItUnique";
 
-        //    return responseUser;
-        //}
+        try
+        {
+            IdentityResult result = await _userManager.CreateAsync(user);
 
-        //public bool HasEmptyFields(User _user)
-        //{
-        //    if (string.IsNullOrEmpty(_user.FirstName) ||
-        //        string.IsNullOrEmpty(_user.LastName) ||
-        //        string.IsNullOrEmpty(_user.Email) ||
-        //        string.IsNullOrEmpty(_user.Password) ||
-        //        string.IsNullOrEmpty(_user.PhoneNumber))
-        //        return true;
-
-        //    return false;
-        //}
-
-        //public bool CheckIfEmailUsed(string _email)
-        //{
-        //    User? user = _userRepository.GetUserByEmail(_email);
-
-        //    return user != null ? true : false;
-        //}
-
-        //public LoginResponseUserDTO? Login(LoginPostUserDTO _user)
-        //{
-        //    User? user = _userRepository.GetUserByCredentials(_user);
-
-        //    //return user == null ? null : new LoginResponseUserDTO(
-        //    //    Id: user.Id,
-        //    //    FirstName: user.Password
-        //    //    );
-        //}
+            if (result.Succeeded)
+            {
+                UserDTO _userDTO = _mapper.Map<UserDTO>(user);
+                return Result<UserDTO>.Success(_userDTO);
+            }
+            else
+                return Result<UserDTO>.Failure(result.Errors.FirstOrDefault()?.Description ?? "Unknown error");
+        }
+        catch (Exception ex)
+        {
+            return Result<UserDTO>.Failure(ex.Message);
+        }
+    }
+    public bool hasEmptyFields(UserDTO userDTO)
+    {
+        if (string.IsNullOrEmpty(userDTO.Password) ||
+            string.IsNullOrEmpty(userDTO.FirstName) ||
+            string.IsNullOrEmpty(userDTO.LastName) ||
+            string.IsNullOrEmpty(userDTO.Email) ||
+            string.IsNullOrEmpty(userDTO.PhoneNumber))
+            return true;
+        return false;
+    }
+    public bool isPhoneAlreadyRegistered(string phoneNumber)
+    {
+        return _userManager.Users.Any(user =>
+            user.PhoneNumber == phoneNumber
+        );
+    }
+    public bool isEmailAlreadyRegistered(string email)
+    {
+        return _userManager.Users.Any(user =>
+            user.Email == email
+        );
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace DealerAUTO.DTO.Models;
 
-public interface IEntity<Tkey>
+public interface IEntity<Tkey, Tboolean>
 {
     Tkey Id { get; }
-    //delete
+    Tboolean isDeleted {  get; }
 }

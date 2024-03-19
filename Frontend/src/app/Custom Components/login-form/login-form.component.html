@@ -12,6 +12,12 @@
     </div>
   </div>
 
+  @if (getSuccessfullyRegistered() != '') {
+  <div class="successfully-registered">
+    {{ getSuccessfullyRegistered() }}
+  </div>
+  }
+
   <form [formGroup]="loginForm" class="login-form">
     <span class="p-float-label input-box">
       <input formControlName="email" class="input" pInputText [email]="true" />
@@ -31,6 +37,10 @@
       ></p-checkbox>
     </div>
   </form>
+
+  <div class="error">
+    {{ error }}
+  </div>
 
   <p-button (click)="login()" class="col submit" label="Login"> </p-button>
 </div>

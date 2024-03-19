@@ -1,10 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-#nullable disable
-
 namespace DealerAUTO.DTO.Models;
 
-public class Location : IEntity<Guid>
+public class Location : IEntity<Guid, bool>
 {
     [Key]
     public Guid Id { get; set; }
@@ -12,5 +10,9 @@ public class Location : IEntity<Guid>
     [Required]
     public string Address { get; set; }
 
-    //public ICollection<Employee> Employees { get; set; }
+    public virtual ICollection<Employee>? Employees { get; set; }
+    public virtual ICollection<CarPost>? CarPosts { get; set; }
+
+    [Required]
+    public bool isDeleted { get; set; }
 }

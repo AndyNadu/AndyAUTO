@@ -40,9 +40,6 @@ export class NavigationBarComponent {
       }
       return 'account/personal-information';
   }
-  scrollDown(elementID: string): void {
-    this._componentInteractionService.scrollDown(elementID);
-  }
   checkIfLoggedIn(): boolean {
     if ((typeof sessionStorage !== 'undefined' && sessionStorage.getItem('loggedIn') == 'true')
      || (typeof localStorage !== 'undefined' && localStorage.getItem('loggedIn') == 'true'))

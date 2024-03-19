@@ -2,9 +2,8 @@
 
 namespace DealerAUTO.Repository.Interfaces;
 
-public interface IRepository<TModel, TKey> : IReadOnlyRepository<TModel, TKey>
-    where TModel : class, IEntity<TKey>
+public interface IRepository<TEntity, TKey> : IReadOnlyRepository<TEntity, TKey>
+    where TEntity : class, IEntity<TKey, bool>
     where TKey : class
 {
-    void Add(TModel model);
 }
