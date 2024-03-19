@@ -74,6 +74,13 @@
   .p-float-label .input:-webkit-autofill ~ label {
     top: -0.75rem;
   }
+
+  .error {
+    color: red;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
 
 @media (max-width: 800px) {

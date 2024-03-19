@@ -45,7 +45,7 @@ export class LoginFormComponent {
               private _http: HttpClient,
               private _router: Router) {
     this.loginForm = this._formBuilder.group({
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       rememberMe: false
     });

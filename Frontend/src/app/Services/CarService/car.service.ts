@@ -29,7 +29,7 @@ export class CarService {
   constructor(private _sanitizer: DomSanitizer) { }
 
 
-  // methods
+  // methodsd
   applyFilters(_filtersList: CarsFilterForm): void {
     this.filteredCarsList = this.allCarsList.filter(car => {
 

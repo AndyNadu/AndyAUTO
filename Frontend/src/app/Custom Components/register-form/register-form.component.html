@@ -29,14 +29,14 @@
       <div class="left">
         <span class="p-float-label">
           <input formControlName="email" class="input" pInputText />
-          <label> Email address </label>
+          <label> Email address (email&#64;example.com)</label>
         </span>
       </div>
 
       <div class="right">
         <span class="p-float-label">
           <input formControlName="phoneNumber" class="input" pInputText />
-          <label> Phone number </label>
+          <label> Phone number (07xx xxx xxx)</label>
         </span>
       </div>
     </div>
@@ -61,6 +61,10 @@
       </div>
     </div>
   </form>
+
+  <div class="error">
+    {{ error }}
+  </div>
 
   <p-button (click)="register()" class="col submit" label="Register">
   </p-button>

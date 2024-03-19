@@ -16,6 +16,8 @@
       flex-direction: column;
       background-color: white;
       padding: 35px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
 
       .home-icon {
         display: flex;
@@ -52,6 +54,10 @@
 @media (max-width: 1500px) {
   .login-page {
     .content-and-image {
+      .content {
+        border-radius: 5px;
+      }
+
       .image {
         display: none;
       }

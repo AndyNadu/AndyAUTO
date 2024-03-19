@@ -1,4 +1,4 @@
-import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { Component } from '@angular/core';
@@ -27,10 +27,7 @@ import { UserService } from '../../Services/UserService/user.service';
 export class RegisterFormComponent {
 
   registerForm: FormGroup;
-  emptyFields: boolean = false;
-  passwordsDontMatch: boolean = false;
-  emailAlreadyUsed: boolean = false;
-  phoneNumberAlreadyUsed: boolean = false;
+  error: string = '';
 
   constructor(private _componentInteractionService: ComponentInteractionService,
               private _userService: UserService,
@@ -41,62 +38,31 @@ export class RegisterFormComponent {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      phoneNumber: ['', [Validators.required, Validators.pattern('^(?:\\d{4}\\s?\\d{3}\\s?\\d{3}|\\d{10})$')]],
       password: ['', Validators.required],
       passwordConfirmation: ['', Validators.required]
     });
   }
 
   register(): void {
-    this.clearErrors();
+    this.error = '';    
+    this.error = this.isFormValid(this.registerForm);
 
-    switch (this.formValid(this.registerForm)) {
-      case 'empty fields':
-        this.emptyFields = true;
-        break;
-      case 'passwords dont match':
-        this.passwordsDontMatch = true;
-        break;
-      case 'valid':
-        const result: string = this.tryHttpRequest(this.registerForm);
-
-        switch (result) {
-          case 'email already used':
-            this.emailAlreadyUsed = true; 
-            break;
-          case 'phone number already used':
-            this.phoneNumberAlreadyUsed = true;
-            break;
-          case 'successfully registered':
-            this._router.navigateByUrl('/account/login');
-            break;
-          default:
-            console.log('something bad happened');
-            break;
-        }
-        break;
-      default:
-        console.log('something bad happened');
-        break;
-    }
+    const result: string = this.error != '' ? 'error' : this.tryHttpRequest(this.registerForm);
   }
-  clearErrors(): void {
-    this.emptyFields = false;
-    this.passwordsDontMatch = false;
-    this.emailAlreadyUsed = false;
-    this.phoneNumberAlreadyUsed = false;
-  }
-  formValid(_form: FormGroup): string {
-    if (this._userService.markAsDirty(_form))
-      return 'empty fields';
+  isFormValid(_form: FormGroup): string {
+    const error: string = this.markAsDirty(_form);
+    
+    if (error != '')
+      return error;
 
     if (!this.passwordsMatch(_form))
-      return 'passwords dont match';
+      return `Passwords don't match!`;
 
-    return 'valid';
+    return '';
   }
   passwordsMatch(_form: FormGroup): boolean {
-    return _form.get('password')!.value == _form.get('passwordConfirmation') ? true : false;
+    return _form.get('password')!.value == _form.get('passwordConfirmation')!.value ? true : false;
   }
   tryHttpRequest(_form: FormGroup): string {
     const userDTO: UserDTO = this.buildUserDTO(_form);
@@ -124,5 +90,25 @@ export class RegisterFormComponent {
       phoneNumber: String(this.registerForm.get('phoneNumber')!.value),
       password: String(this.registerForm.get('password')!.value),
     }
+  }
+  markAsDirty(_form: FormGroup): string {
+    let dirtyFields: string = '';
+
+    Object.keys(_form.controls).forEach(key => {
+      const control: AbstractControl | null = _form.get(key);
+
+      if (control?.hasError('required')) {
+        dirtyFields = 'All fields are mandatory!';
+        control.markAsDirty();
+      } else if (key === 'email' && control?.hasError('email') && dirtyFields == '') {
+        dirtyFields = 'Email format not supported!';
+        control.markAsDirty();
+      } else if (key === 'phoneNumber' && control?.hasError('pattern') && dirtyFields == '') {
+        dirtyFields = 'Phone number format not supported!';
+        control.markAsDirty();
+      }
+    });
+
+    return dirtyFields;
   }
 }
