@@ -50,11 +50,6 @@ export class LoginFormComponent {
     if (!this.error)
       this.tryHttpRequest();
   }
-  isFormValid(): string {
-    const error: string = this.markAsDirty();
-
-    return error ? error : '';
-  }
   markAsDirty(): string {
     let error: string = '';
 
@@ -90,7 +85,7 @@ export class LoginFormComponent {
         this._router.navigateByUrl('');
       },
       error: (error: HttpErrorResponse) => {
-        this.error = error.error;
+        this.error = error.status === 0 ? this.errorConstants.unexpectedError : error.error;
       }
     })
   }

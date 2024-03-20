@@ -1,5 +1,6 @@
 export class ErrorConstants {
   emptyFields: string = 'All fields are mandatory!';
+  unexpectedError: string = 'An unexpected error has occured! Please try again in a few minutes!'
 
   emailInvalid: string = 'Email format not supported!';
   phoneInvalid: string = 'Phone number format not supported!';

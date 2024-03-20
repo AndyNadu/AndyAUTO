@@ -116,12 +116,11 @@ export class SellACarFormComponent {
 
       this._http.post<Car>('http://localhost:5113/car/post', formData)
         .subscribe(
-          (res: Car) => {
+          (result: Car) => {
             console.log('succes');
           },
-          (err: HttpErrorResponse) => {
-            console.log(err);
-            this.showErrorPopup();
+          (error: HttpErrorResponse) => {
+            this.error = error.status === 0 ? this.errorConstants.unexpectedError : error.error;
           }
         );
     }

@@ -44,15 +44,10 @@ export class RegisterFormComponent {
   }
 
   register(): void {
-    this.error = this.isFormValid();
+    this.error = this.markAsDirty();
 
     if (!this.error)
       this.tryHttpRequest();
-  }
-  isFormValid(): string {
-    const error: string = this.markAsDirty();
-    
-    return error ? error : '';
   }
   markAsDirty(): string {
     let error: string = '';
@@ -97,7 +92,7 @@ export class RegisterFormComponent {
         this._router.navigateByUrl('/account/login');
       },
       error: (error: HttpErrorResponse) => {
-        this.error = error.error;
+        this.error = error.status === 0 ? this.errorConstants.unexpectedError : error.error;
       }});
   }
   buildUserDTO(): UserDTO {
