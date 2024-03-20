@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AndyAutoDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("AndyAutoRoxi"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AndyAuto"));
 });
 
 builder.Services.AddScoped<DbContext, AndyAutoDbContext>();

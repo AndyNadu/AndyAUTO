@@ -84,17 +84,21 @@ export class RegisterFormComponent {
 
     this._http.post<UserDTO>('http://localhost:5113/account/register', userDTO)
     .subscribe({
-      next: (result: UserDTO) => {
-        this._componentInteractionService.setSuccessfullyRegistered('You have successfully registered your account. Please sign in!');
+      next: (userDTO: UserDTO) => {
+        if (userDTO.FirstName != undefined)
+          console.log(userDTO.FirstName);
+        //this._componentInteractionService.setSuccessfullyRegistered('You have successfully registered your account. Please sign in!');
+        // setTimeout( () => {
+        //   this._componentInteractionService.setSuccessfullyRegistered('');
+        // }, 10000)
 
-        setTimeout( () => {
-          this._componentInteractionService.setSuccessfullyRegistered('');
-        }, 10000)
-
-        this._router.navigateByUrl('/account/login');
+        //this._router.navigateByUrl('/account/login');
       },
       error: (error: HttpErrorResponse) => {
         this.error = error.error;
+      },
+      complete: () => {
+        console.log('complete');
       }
     })
   }

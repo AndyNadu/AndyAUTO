@@ -359,3 +359,12 @@ C:\Users\Rox\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.AspN
 C:\Users\Rox\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Rox\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Rox\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.JSInterop.dll
+C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.AspNetCore.Components.QuickGrid.dll
+C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.JSInterop.dll

@@ -9,29 +9,31 @@ namespace DealerAUTO.Service.Services;
 public class UserService : IUserService
 {
     private readonly UserManager<User> _userManager;
+    private readonly SignInManager<User> _signInManager;
     private readonly IMapper _mapper;
 
-    public UserService(UserManager<User> userManager, IMapper mapper)
+    public UserService(UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper)
     {
         _userManager = userManager;
+        _signInManager = signInManager;
         _mapper = mapper;
     }
 
     public async Task<Result<UserDTO>> CreateUser(UserDTO userDTO)
     {
-        if (hasEmptyFields(userDTO))
+        if (hasEmptyFieldsRegister(userDTO))
             return Result<UserDTO>.Failure("An unexpected error has occured!");
 
         User user = _mapper.Map<User>(userDTO);
 
-        if (isEmailAlreadyRegistered(user.Email))
+        if (isEmailAlreadyRegistered(user.Email!))
             return Result<UserDTO>.Failure("Email is already registered!");
 
-        if (isPhoneAlreadyRegistered(user.PhoneNumber))
+        if (isPhoneAlreadyRegistered(user.PhoneNumber!))
             return Result<UserDTO>.Failure("Phone number is already registered!");
 
         PasswordHasher<User> passwordHasher = new PasswordHasher<User>();
-        user.PasswordHash = passwordHasher.HashPassword(user, userDTO.Password);
+        user.PasswordHash = passwordHasher.HashPassword(user, userDTO.Password!);
         user.UserName = user.Email + "makeItUnique";
 
         try
@@ -51,13 +53,20 @@ public class UserService : IUserService
             return Result<UserDTO>.Failure(ex.Message);
         }
     }
-    public bool hasEmptyFields(UserDTO userDTO)
+    public bool hasEmptyFieldsRegister(UserDTO userDTO)
     {
         if (string.IsNullOrEmpty(userDTO.Password) ||
             string.IsNullOrEmpty(userDTO.FirstName) ||
             string.IsNullOrEmpty(userDTO.LastName) ||
             string.IsNullOrEmpty(userDTO.Email) ||
             string.IsNullOrEmpty(userDTO.PhoneNumber))
+            return true;
+        return false;
+    }
+    public bool hasEmptyFieldsLogin(UserDTO userDTO)
+    {
+        if (string.IsNullOrEmpty(userDTO.Email) ||
+            string.IsNullOrEmpty(userDTO.Password))
             return true;
         return false;
     }
@@ -72,5 +81,37 @@ public class UserService : IUserService
         return _userManager.Users.Any(user =>
             user.Email == email
         );
+    }
+    public async Task<Result<UserDTO>> LoginUser(UserDTO userDTO)
+    {
+        if (hasEmptyFieldsLogin(userDTO))
+            return Result<UserDTO>.Failure("An unexpected error has occured!");
+
+        try
+        {
+            User? user = await _userManager.FindByEmailAsync(userDTO.Email);
+
+            if (user == null)
+                return Result<UserDTO>.Failure("Wrong credentials!");
+
+            SignInResult result = await _signInManager.PasswordSignInAsync(user, userDTO.Password!, false, false);
+
+            if (result.Succeeded)
+            {
+                UserDTO _userDTO = new UserDTO
+                {
+                    Id = user.Id,
+                    Role = user.EmployeeID != null ? "user" : "employee"
+                };
+                return Result<UserDTO>.Success(_userDTO);
+            }
+            else
+                return result.IsNotAllowed ? Result<UserDTO>.Failure("An unexpected error has occured!") : Result<UserDTO>.Failure("Wrong credentials!");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            return Result<UserDTO>.Failure("An unexpected error has occured!");
+        }
     }
 }

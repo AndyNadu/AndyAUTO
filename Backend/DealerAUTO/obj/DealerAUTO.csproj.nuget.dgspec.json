@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAuto\\DealerAUTO.csproj": {}
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\DealerAUTO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
+        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
         "projectName": "DealerAUTO.DTO",
-        "projectPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
-        "packagesPath": "C:\\Users\\Rox\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\obj\\",
+        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj",
+        "packagesPath": "C:\\Users\\andy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Rox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -113,21 +108,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj": {
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj",
+        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj",
         "projectName": "DealerAUTO.Repository",
-        "projectPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj",
-        "packagesPath": "C:\\Users\\Rox\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\obj\\",
+        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj",
+        "packagesPath": "C:\\Users\\andy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Rox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -141,8 +136,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
-                "projectPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj"
+              "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
+                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj"
               }
             }
           }
@@ -151,11 +146,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -230,21 +220,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj": {
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj",
+        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj",
         "projectName": "DealerAUTO.Service",
-        "projectPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj",
-        "packagesPath": "C:\\Users\\Rox\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\obj\\",
+        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj",
+        "packagesPath": "C:\\Users\\andy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Rox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -258,11 +248,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
-                "projectPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj"
+              "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
+                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj"
               },
-              "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj": {
-                "projectPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj"
+              "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj": {
+                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj"
               }
             }
           }
@@ -271,11 +261,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -350,21 +335,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAuto\\DealerAUTO.csproj": {
+    "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\DealerAUTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAuto\\DealerAUTO.csproj",
+        "projectUniqueName": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\DealerAUTO.csproj",
         "projectName": "DealerAUTO",
-        "projectPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAuto\\DealerAUTO.csproj",
-        "packagesPath": "C:\\Users\\Rox\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAuto\\obj\\",
+        "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\DealerAUTO.csproj",
+        "packagesPath": "C:\\Users\\andy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\dealerauto\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Rox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -378,14 +363,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
-                "projectPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj"
+              "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj": {
+                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.DTO\\DealerAUTO.DTO.csproj"
               },
-              "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj": {
-                "projectPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj"
+              "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj": {
+                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Repository\\DealerAUTO.Repository.csproj"
               },
-              "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj": {
-                "projectPath": "C:\\Users\\Rox\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj"
+              "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj": {
+                "projectPath": "C:\\Users\\andy\\Desktop\\AndyAUTO\\Backend\\DealerAUTO.Service\\DealerAUTO.Service.csproj"
               }
             }
           }
@@ -394,11 +379,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -473,7 +453,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

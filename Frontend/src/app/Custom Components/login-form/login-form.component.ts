@@ -88,12 +88,13 @@ export class LoginFormComponent {
         this._router.navigateByUrl('');
       },
       error: (error: HttpErrorResponse) => {
+        console.log(error.error);
         this.error = error.error;
       }
     })
   }
   buildUserDTO(): UserDTO {
-    return  {
+    return {
       Email: String(this.loginForm.get('email')!.value),
       Password: String(this.loginForm.get('password')!.value),
     }

@@ -31,29 +31,31 @@ namespace DealerAUTO.Controllers
             }
             catch (Exception ex)
             {
-                result = BadRequest(ex.ToString());
+                result = BadRequest("An unexpected error has occured! Please try again in a few minutes!");
+                Console.WriteLine(ex.Message);
             }
 
             return result;
         }
 
-        //[HttpPost("login")]
-        //public IActionResult Login([FromBody] LoginPostUserDTO user)
-        //{
-        //    IActionResult result;
+        [HttpPost("login")]
+        public async Task<IActionResult> LoginUserAsync([FromBody] UserDTO user)
+        {
+            IActionResult result = Ok();
 
-        //    try
-        //    {
-        //        LoginResponseUserDTO? _user = _userService.Login(user);
+            try
+            {
+                Result<UserDTO> res = await _userService.LoginUser(user);
 
-        //        result = _user == null ? BadRequest("Invalid credentials") : Ok(_user);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        result = BadRequest(ex.ToString());
-        //    }
+                result = res.IsSuccess ? Ok(res.Value) : BadRequest(res.Error);
+            }
+            catch (Exception ex)
+            {
+                result = BadRequest("An unexpected error has occured! Please try again in a few minutes!");
+                Console.WriteLine(ex.Message);
+            }
 
-        //    return result;
-        //}
+            return result;
+        }
     }
 }
