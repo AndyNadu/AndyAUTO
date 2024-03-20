@@ -1,64 +1,48 @@
-// angular
-import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
-
-// angular material components
 import { MatInputModule } from '@angular/material/input';
-
-// primeNG components
-import { DialogModule } from 'primeng/dialog';
-import { DropdownModule } from 'primeng/dropdown';
-import { InputTextModule } from 'primeng/inputtext';
-import { InputNumberModule } from 'primeng/inputnumber';
-import { InputTextareaModule } from 'primeng/inputtextarea';
+import { Component } from '@angular/core';
 import { FileRemoveEvent, FileSelectEvent, FileUploadModule } from 'primeng/fileupload';
-
-// services
-import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
-
-// models && DTOs && constants
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
+import { DialogModule } from 'primeng/dialog';
+import { CarsListConstants } from '../../Constants/Value Constants/CarsListConstants';
 import { Car } from '../../Interfaces/Car';
-import { CarsListConstant } from '../../Constants/CarsListConstant';
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
-
 
 @Component({
   selector: 'app-sell-a-car-form',
   standalone: true,
   imports: [
-    FormsModule,
     ReactiveFormsModule,
-
     MatInputModule,
-
-    DialogModule,
-    DropdownModule,
-    InputTextModule,
-    FileUploadModule,
-    HttpClientModule,
+    FormsModule,
+    InputTextareaModule,
     InputNumberModule,
-    InputTextareaModule
+    HttpClientModule,
+    FileUploadModule,
+    InputTextModule,
+    DropdownModule,
+    DialogModule
   ],
   templateUrl: './sell-a-car-form.component.html',
   styleUrl: './sell-a-car-form.component.css'
 })
 export class SellACarFormComponent {
 
-  // members
   sellForm: FormGroup;
-  carsList: CarsListConstant = new CarsListConstant();
+  error: string = '';
+
+  carsList: CarsListConstants = new CarsListConstants();
   images: Set<File> = new Set<File>();
   imagesEmpty: boolean = false;
   errorPopup: boolean = false;
   submitLoading: boolean = false;
 
-  // constructor
-  constructor(
-    private _componentInteractionService: ComponentInteractionService,
-    private _formBuilder: FormBuilder,
-    private _http: HttpClient) {
-    this.sellForm = _formBuilder.group({
+  constructor(private _formBuilder: FormBuilder,
+              private _http: HttpClient) {
+    this.sellForm = this._formBuilder.group({
       make: ['', Validators.required],
       model: ['', Validators.required],
       year: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
@@ -73,38 +57,38 @@ export class SellACarFormComponent {
       wheel: ['', Validators.required],
       price: ['', [Validators.required, Validators.pattern('^[0-9]{1,8}$')]]
     });
-
-    localStorage.setItem('loggedIn', 'true');
   }
 
-  // methods
   showErrorPopup(): void {
     this.errorPopup = true;
-  }
-  onImageSelected(event: FileSelectEvent): void {
-    const lastAddedImage = event.files[event.files.length - 1];
-
-    let alreadySelected: boolean = false;
-    for (const image of this.images)
-      if (image.type == lastAddedImage.type && image.name == lastAddedImage.name && image.size == lastAddedImage.size) {
-        alreadySelected = true;
-        break;
-      }
-    if (alreadySelected == false) {
-      this.images.add(lastAddedImage);
-    }
-
-    this.imagesEmpty = this.images.size === 0 ? true : false;
-  }
-  onImageRemoved(event: FileRemoveEvent): void {
-    this.images.delete(event.file);
-    this.imagesEmpty = this.images.size === 0 ? true : false;
   }
   onMakeSelected(): void {
     this.carsList.make = this.sellForm.get('make')!.value;
     this.carsList.UpdateModels();
   }
+
+
+  onImageSelected(event: FileSelectEvent): void {
+    const lastAddedImage: File = event.files[event.files.length - 1];
+    this.imageAlreadySelected(lastAddedImage) ? null : this.images.add(lastAddedImage);
+    this.imagesEmpty = this.images.size === 0 ? true : false;
+  }
+  imageAlreadySelected(image: File): boolean {
+    for (const image of this.images)
+      if (image.type == image.type && image.name == image.name && image.size == image.size) 
+        return true;
+
+    return false;
+  }
+  onImageRemoved(event: FileRemoveEvent): void {
+    this.images.delete(event.file);
+    this.imagesEmpty = this.images.size === 0 ? true : false;
+  }
+
+  
   submit(): void {
+    this.error = this.isFormValid();
+
     Object.keys(this.sellForm.controls).forEach(key => {
       const control = this.sellForm.get(key);
       control!.markAsDirty();
@@ -143,5 +127,38 @@ export class SellACarFormComponent {
         );
     }
   }
+  isFormValid(): string {
+    const error: string = this.markAsDirty();
 
+    return error ? error : '';
+  }
+  markAsDirty(): string {
+    let error: string = '';
+
+    Object.keys(this.sellForm.controls).forEach(key => {
+      const control: AbstractControl | null = this.sellForm.get(key);
+
+      if (control?.hasError('required')) {
+        error = 'All fields are mandatory!';
+        control.markAsDirty();
+      } else if (key === 'year' && control?.hasError('pattern') && error == '') {
+        error = 'First registration invalid!';
+        control.markAsDirty();
+      } else if (key === 'mileage' && control?.hasError('pattern') && error == '') {
+        error = 'Mileage invalid!';
+        control.markAsDirty();
+      } else if (key === 'cubicCapacity' && control?.hasError('pattern') && error == '') {
+        error = 'Cubic capacity invalid!';
+        control.markAsDirty();
+      } else if (key === 'power' && control?.hasError('pattern') && error == '') {
+        error = 'Power invalid!';
+        control.markAsDirty();
+      } else if (key === 'price' && control?.hasError('pattern') && error == '') {
+        error = 'Price invalid!';
+        control.markAsDirty();
+      }
+    });
+
+    return error;
+  }
 }

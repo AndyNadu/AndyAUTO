@@ -1,11 +1,8 @@
-// primeNG components
 import { SelectItem } from 'primeng/api';
 import { SelectItemGroup } from 'primeng/api';
 
+export class CarsListConstants {
 
-export class CarsListConstant {
-
-  // variables
   group: SelectItemGroup[] = this.GenerateSelectItemGroup();
   modelInputDisabled: boolean = true;
   MakesArray: SelectItem[] = this.ExtractMakesFromGroup();

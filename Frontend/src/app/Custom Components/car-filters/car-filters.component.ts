@@ -9,7 +9,7 @@ import { InputNumber, InputNumberModule } from 'primeng/inputnumber';
 
 // interfaces && constants && data objects
 import { CarsFilterForm } from '../../Data objects/CarsFilterForm';
-import { CarsListConstant } from '../../Constants/CarsListConstant';
+import { CarsListConstants } from '../../Constants/Value Constants/CarsListConstants';
 
 // services
 import { CarService } from '../../Services/CarService/car.service';
@@ -34,7 +34,7 @@ export class CarFiltersComponent {
   @ViewChildren('priceFrom, priceTo, yearFrom, yearTo, mileageFrom, mileageTo, cubicCapacityFrom, cubicCapacityTo') numberInputs!: QueryList<InputNumber>;
 
   // members
-  constantCarsList: CarsListConstant = new CarsListConstant();
+  constantCarsList: CarsListConstants = new CarsListConstants();
   filtersList: CarsFilterForm = new CarsFilterForm();
   applyFiltersLoading: boolean = false;
   resetFiltersLoading: boolean = false;

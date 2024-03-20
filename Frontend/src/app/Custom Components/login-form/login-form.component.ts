@@ -6,8 +6,6 @@ import { ComponentInteractionService } from '../../Services/ComponentInteraction
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
-import { LoginResponseUserDTO } from '../../Data Transfer Objects/LoginResponseUserDTO';
-import { LoginPostUserDTO } from '../../Data Transfer Objects/LoginPostUserDTO';
 import { UserDTO } from '../../Data Transfer Objects (DTOs)/UserDTO';
 
 @Component({
@@ -62,7 +60,7 @@ export class LoginFormComponent {
       const control: AbstractControl | null = this.loginForm.get(key);
 
       if (control?.hasError('required')) {
-        error = 'All fields are mandatory!dwdw';
+        error = 'All fields are mandatory!';
         control.markAsDirty();
       } else if (key === 'email' && control?.hasError('email') && error == '') {
         error = 'Email format not supported!';
