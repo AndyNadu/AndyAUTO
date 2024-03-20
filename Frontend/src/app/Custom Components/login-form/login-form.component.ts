@@ -7,6 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { UserDTO } from '../../Data Transfer Objects (DTOs)/UserDTO';
+import { ErrorConstants } from '../../Constants/Text Contants/Error-constants';
 
 @Component({
   selector: 'app-login-form',
@@ -26,6 +27,7 @@ import { UserDTO } from '../../Data Transfer Objects (DTOs)/UserDTO';
 export class LoginFormComponent {
 
   loginForm: FormGroup;
+  errorConstants: ErrorConstants = new ErrorConstants();
   error: string = '';
 
   constructor(private _componentInteractionService: ComponentInteractionService,
@@ -43,7 +45,7 @@ export class LoginFormComponent {
     return this._componentInteractionService.getSuccessfullyRegistered();
   }
   login(): void {
-    this.error = this.isFormValid();
+    this.error = this.markAsDirty();
 
     if (!this.error)
       this.tryHttpRequest();
@@ -60,10 +62,10 @@ export class LoginFormComponent {
       const control: AbstractControl | null = this.loginForm.get(key);
 
       if (control?.hasError('required')) {
-        error = 'All fields are mandatory!';
+        error = this.errorConstants.emptyFields;
         control.markAsDirty();
       } else if (key === 'email' && control?.hasError('email') && error == '') {
-        error = 'Email format not supported!';
+        error = this.errorConstants.emailInvalid;
         control.markAsDirty();
       }
     });
@@ -77,26 +79,25 @@ export class LoginFormComponent {
     .subscribe({
       next: (result: UserDTO) => {
         if (this.loginForm.get('rememberMe')!.value) {
-          localStorage.setItem('userId', JSON.stringify(result.Id));
-          localStorage.setItem('role', JSON.stringify(result.Role));
+          localStorage.setItem('userId', JSON.stringify(result.id));
+          localStorage.setItem('role', JSON.stringify(result.role));
         }
         else {
-          sessionStorage.setItem('userId', JSON.stringify(result.Id));
-          sessionStorage.setItem('role', JSON.stringify(result.Role));
+          sessionStorage.setItem('userId', JSON.stringify(result.id));
+          sessionStorage.setItem('role', JSON.stringify(result.role));
         }
 
         this._router.navigateByUrl('');
       },
       error: (error: HttpErrorResponse) => {
-        console.log(error.error);
         this.error = error.error;
       }
     })
   }
   buildUserDTO(): UserDTO {
     return {
-      Email: String(this.loginForm.get('email')!.value),
-      Password: String(this.loginForm.get('password')!.value),
+      email: String(this.loginForm.get('email')!.value),
+      password: String(this.loginForm.get('password')!.value),
     }
   }
 }

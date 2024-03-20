@@ -6,6 +6,8 @@ import { ComponentInteractionService } from '../../Services/ComponentInteraction
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { UserDTO } from '../../Data Transfer Objects (DTOs)/UserDTO';
+import { Console } from 'node:console';
+import { ErrorConstants } from '../../Constants/Text Contants/Error-constants';
 
 @Component({
   selector: 'app-register-form',
@@ -24,6 +26,7 @@ import { UserDTO } from '../../Data Transfer Objects (DTOs)/UserDTO';
 export class RegisterFormComponent {
 
   registerForm: FormGroup;
+  errorConstants: ErrorConstants = new ErrorConstants();
   error: string = '';
 
   constructor(private _componentInteractionService: ComponentInteractionService,
@@ -58,21 +61,21 @@ export class RegisterFormComponent {
       const control: AbstractControl | null = this.registerForm.get(key);
 
       if (control?.hasError('required')) {
-        error = 'All fields are mandatory!';
+        error = this.errorConstants.emptyFields;
         control.markAsDirty();
       } else if (key === 'email' && control?.hasError('email') && error == '') {
-        error = 'Email format not supported!';
+        error = this.errorConstants.emailInvalid;
         control.markAsDirty();
       } else if (key === 'phoneNumber' && control?.hasError('pattern') && error == '') {
-        error = 'Phone number format not supported!';
+        error = this.errorConstants.phoneInvalid;
         control.markAsDirty();
       } else if ((key === 'password' || key === 'passwordConfirmation') && this.registerForm.get('password')!.value != this.registerForm.get('passwordConfirmation')!.value && error == '') {
         console.log(error);
-          error = `Passwords don't match`;
+          error = this.errorConstants.passwordsMissmatch;
           this.registerForm.get('password')!.markAsDirty();
           this.registerForm.get('passwordConfirmation')!.markAsDirty();
       } else if ((key === 'password' || key === 'passwordConfirmation') && control?.hasError('minlength') && error == '') {
-        error = 'Password should have at least 8 characters!';
+        error = this.errorConstants.passwordTooShort;
         control.markAsDirty();
       }
     });
@@ -85,30 +88,25 @@ export class RegisterFormComponent {
     this._http.post<UserDTO>('http://localhost:5113/account/register', userDTO)
     .subscribe({
       next: (userDTO: UserDTO) => {
-        if (userDTO.FirstName != undefined)
-          console.log(userDTO.FirstName);
-        //this._componentInteractionService.setSuccessfullyRegistered('You have successfully registered your account. Please sign in!');
-        // setTimeout( () => {
-        //   this._componentInteractionService.setSuccessfullyRegistered('');
-        // }, 10000)
+        this._componentInteractionService.setSuccessfullyRegistered('You have successfully registered your account. Please sign in!');
+        
+        setTimeout( () => {
+          this._componentInteractionService.setSuccessfullyRegistered('');
+        }, 10000)
 
-        //this._router.navigateByUrl('/account/login');
+        this._router.navigateByUrl('/account/login');
       },
       error: (error: HttpErrorResponse) => {
         this.error = error.error;
-      },
-      complete: () => {
-        console.log('complete');
-      }
-    })
+      }});
   }
   buildUserDTO(): UserDTO {
     return  {
-      FirstName: String(this.registerForm.get('firstName')!.value),
-      LastName: String(this.registerForm.get('lastName')!.value),
-      Email: String(this.registerForm.get('email')!.value),
-      PhoneNumber: String(this.registerForm.get('phoneNumber')!.value),
-      Password: String(this.registerForm.get('password')!.value),
+      firstName: String(this.registerForm.get('firstName')!.value),
+      lastName: String(this.registerForm.get('lastName')!.value),
+      email: String(this.registerForm.get('email')!.value),
+      phoneNumber: String(this.registerForm.get('phoneNumber')!.value),
+      password: String(this.registerForm.get('password')!.value),
     }
   }
 }

@@ -1,61 +1,58 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-using DealerAUTO.DTO.DTOs;
+﻿using DealerAUTO.DTO.DTOs;
 using DealerAUTO.Service.Interfaces;
-using DealerAUTO.DTO.Models;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
-namespace DealerAUTO.Controllers
-{
-    [ApiController]
-    [Route("account")]
-    public class UserController : ControllerBase
-    {
-        IUserService _userService;
 
-        public UserController(IUserService userService)
-        {
-            _userService = userService;
-        }
+namespace DealerAUTO.Controllers;
 
-        [HttpPost("register")]
-        public async Task<IActionResult> RegisterAccountAsync([FromBody] UserDTO user)
-        {
-            IActionResult result = Ok();
+[ApiController]
+  [Route("account")]
+  public class UserController : ControllerBase
+  {
+      IUserService _userService;
 
-            try
-            {
-                Result<UserDTO> res = await _userService.CreateUser(user);
+      public UserController(IUserService userService)
+      {
+          _userService = userService;
+      }
 
-                result =  res.IsSuccess ? Ok(res.Value) : BadRequest(res.Error);
-            }
-            catch (Exception ex)
-            {
-                result = BadRequest("An unexpected error has occured! Please try again in a few minutes!");
-                Console.WriteLine(ex.Message);
-            }
+      [HttpPost("register")]
+      public async Task<IActionResult> RegisterAccountAsync([FromBody] UserDTO user)
+      {
+          IActionResult result = Ok();
 
-            return result;
-        }
+          try
+          {
+              Result<UserDTO> res = await _userService.CreateUser(user);
 
-        [HttpPost("login")]
-        public async Task<IActionResult> LoginUserAsync([FromBody] UserDTO user)
-        {
-            IActionResult result = Ok();
+              result =  res.IsSuccess ? Ok(res.Value) : BadRequest(res.Error);
+          }
+          catch (Exception ex)
+          {
+              result = BadRequest("An unexpected error has occured! Please try again in a few minutes!");
+              Console.WriteLine(ex.Message);
+          }
 
-            try
-            {
-                Result<UserDTO> res = await _userService.LoginUser(user);
+          return result;
+      }
 
-                result = res.IsSuccess ? Ok(res.Value) : BadRequest(res.Error);
-            }
-            catch (Exception ex)
-            {
-                result = BadRequest("An unexpected error has occured! Please try again in a few minutes!");
-                Console.WriteLine(ex.Message);
-            }
+      [HttpPost("login")]
+      public async Task<IActionResult> LoginUserAsync([FromBody] UserDTO user)
+      {
+          IActionResult result = Ok();
 
-            return result;
-        }
-    }
-}
+          try
+          {
+              Result<UserDTO> res = await _userService.LoginUser(user);
+
+              result = res.IsSuccess ? Ok(res.Value) : BadRequest(res.Error);
+          }
+          catch (Exception ex)
+          {
+              result = BadRequest("An unexpected error has occured! Please try again in a few minutes!");
+              Console.WriteLine(ex.Message);
+          }
+
+          return result;
+      }
+  }

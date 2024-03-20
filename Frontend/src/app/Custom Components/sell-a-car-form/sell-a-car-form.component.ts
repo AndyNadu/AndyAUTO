@@ -10,6 +10,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { DialogModule } from 'primeng/dialog';
 import { CarsListConstants } from '../../Constants/Value Constants/CarsListConstants';
 import { Car } from '../../Interfaces/Car';
+import { ErrorConstants } from '../../Constants/Text Contants/Error-constants';
 
 @Component({
   selector: 'app-sell-a-car-form',
@@ -32,11 +33,13 @@ import { Car } from '../../Interfaces/Car';
 export class SellACarFormComponent {
 
   sellForm: FormGroup;
+  errorConstants: ErrorConstants = new ErrorConstants();
   error: string = '';
 
   carsList: CarsListConstants = new CarsListConstants();
   images: Set<File> = new Set<File>();
   imagesEmpty: boolean = false;
+
   errorPopup: boolean = false;
   submitLoading: boolean = false;
 
@@ -89,10 +92,6 @@ export class SellACarFormComponent {
   submit(): void {
     this.error = this.isFormValid();
 
-    Object.keys(this.sellForm.controls).forEach(key => {
-      const control = this.sellForm.get(key);
-      control!.markAsDirty();
-    });
     this.imagesEmpty = this.images.size === 0 ? true : false;
 
     if (!this.imagesEmpty && this.sellForm.valid) {
@@ -135,26 +134,29 @@ export class SellACarFormComponent {
   markAsDirty(): string {
     let error: string = '';
 
+    if (this.imagesEmpty)
+      error = this.errorConstants.emptyFields;
+
     Object.keys(this.sellForm.controls).forEach(key => {
       const control: AbstractControl | null = this.sellForm.get(key);
 
       if (control?.hasError('required')) {
-        error = 'All fields are mandatory!';
+        error = this.errorConstants.emptyFields;
         control.markAsDirty();
       } else if (key === 'year' && control?.hasError('pattern') && error == '') {
-        error = 'First registration invalid!';
+        error = this.errorConstants.yearInvalid;
         control.markAsDirty();
       } else if (key === 'mileage' && control?.hasError('pattern') && error == '') {
-        error = 'Mileage invalid!';
+        error = this.errorConstants.mileageInvalid;
         control.markAsDirty();
       } else if (key === 'cubicCapacity' && control?.hasError('pattern') && error == '') {
-        error = 'Cubic capacity invalid!';
+        error = this.errorConstants.cubicCapacityInvalid;
         control.markAsDirty();
       } else if (key === 'power' && control?.hasError('pattern') && error == '') {
-        error = 'Power invalid!';
+        error = this.errorConstants.powerInvalid;
         control.markAsDirty();
       } else if (key === 'price' && control?.hasError('pattern') && error == '') {
-        error = 'Price invalid!';
+        error = this.errorConstants.priceInvalid;
         control.markAsDirty();
       }
     });
