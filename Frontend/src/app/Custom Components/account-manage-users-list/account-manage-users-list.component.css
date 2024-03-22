@@ -1,0 +1,53 @@
+.account-manage-users-list-component {
+  .users-number {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+  .table-columns {
+    display: flex;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: white;
+    margin-bottom: 25px;
+    border-radius: 6px;
+  }
+
+  .user-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 75px;
+    border-radius: 6px;
+    padding: 15px;
+
+    .icon {
+      font-size: 25px;
+    }
+
+    .name,
+    .role,
+    .location {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .change-role {
+      display: flex;
+      justify-content: end;
+
+      .p-button {
+        border-radius: 6px;
+        border: 0;
+        background-color: #ff533d;
+      }
+    }
+
+    .p-dropdown {
+      width: 100%;
+      margin-right: 15px;
+    }
+  }
+}

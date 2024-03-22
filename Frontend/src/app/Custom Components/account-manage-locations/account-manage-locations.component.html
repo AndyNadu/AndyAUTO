@@ -1,0 +1,90 @@
+<div class="account-manage-locations-component">
+  <p-accordion class="accordion">
+    <p-accordionTab>
+      <ng-template pTemplate="header">
+        <div class="header-content col d-flex">
+          <div class="col text">Add a new location</div>
+
+          <div class="col-2 icon">
+            <fa-icon [icon]="['fas', 'plus']" class="icon"></fa-icon>
+          </div>
+        </div>
+      </ng-template>
+
+      <form [formGroup]="locationForm">
+        <div class="input-label">Address</div>
+        <input formControlName="address" pInputText />
+
+        <div class="manager-and-phone">
+          <div class="col manager">
+            <div class="input-label">Manager</div>
+            <p-dropdown
+              formControlName="manager"
+              [options]="employeesList"
+              placeholder="Choose"
+            >
+            </p-dropdown>
+          </div>
+
+          <div class="col phone">
+            <div class="input-label">Phone number</div>
+            <input formControlName="phoneNumber" pInputText />
+          </div>
+        </div>
+
+        <div class="photo-box">
+          <div class="input-label">Upload photo</div>
+          <div [class.photo-box-error]="imageEmpty">
+            <p-fileUpload
+              [customUpload]="true"
+              [auto]="true"
+              (onSelect)="onImageSelected($event)"
+              (onRemove)="onImageRemoved($event)"
+              accept="image/*"
+            >
+            </p-fileUpload>
+          </div>
+        </div>
+      </form>
+
+      <div class="error">
+        {{ error }}
+      </div>
+
+      <div class="submit">
+        <p-button
+          (onClick)="addLocation()"
+          [loading]="addLocationLoading"
+          label="Submit"
+        >
+        </p-button>
+      </div>
+    </p-accordionTab>
+  </p-accordion>
+
+  @for (location of locations.locations; track location) {
+  <div class="location">
+    <div class="col details">
+      <div class="information">Address: {{ location.address }}</div>
+      <div class="information">Manager: {{ location.manager }}</div>
+      <div class="information">Phone number: {{ location.phoneNumber }}</div>
+
+      <div class="mt-auto">
+        <p-button
+          (onClick)="deleteLocation()"
+          [loading]="deleteLocationLoading"
+          class="delete-location"
+        >
+          <div class="col-1">
+            <fa-icon [icon]="['fas', 'trash']" class="icon"></fa-icon>
+          </div>
+
+          <div class="text">Delete location</div>
+        </p-button>
+      </div>
+    </div>
+
+    <img class="image" src="./assets/Images/location.jpg" />
+  </div>
+  }
+</div>

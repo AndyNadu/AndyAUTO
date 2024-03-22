@@ -6,7 +6,6 @@ import { ComponentInteractionService } from '../../Services/ComponentInteraction
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { UserDTO } from '../../Data Transfer Objects (DTOs)/UserDTO';
-import { Console } from 'node:console';
 import { ErrorConstants } from '../../Constants/Text Contants/Error-constants';
 
 @Component({
@@ -28,6 +27,7 @@ export class RegisterFormComponent {
   registerForm: FormGroup;
   errorConstants: ErrorConstants = new ErrorConstants();
   error: string = '';
+  registerLoading: boolean = false;
 
   constructor(private _componentInteractionService: ComponentInteractionService,
               private _formBuilder: FormBuilder,
@@ -46,8 +46,10 @@ export class RegisterFormComponent {
   register(): void {
     this.error = this.markAsDirty();
 
-    if (!this.error)
+    if (!this.error) {
+      this.registerLoading = true;
       this.tryHttpRequest();
+    }
   }
   markAsDirty(): string {
     let error: string = '';
@@ -83,16 +85,22 @@ export class RegisterFormComponent {
     this._http.post<UserDTO>('http://localhost:5113/account/register', userDTO)
     .subscribe({
       next: (userDTO: UserDTO) => {
-        this._componentInteractionService.setSuccessfullyRegistered('You have successfully registered your account. Please sign in!');
+        this._componentInteractionService.setSuccessfullyRegistered(this.errorConstants.successfullyRegistered);
         
+        setTimeout( () => {
+          this.registerLoading = false;
+          this._router.navigateByUrl('/account/login');
+        }, 1000)
+
         setTimeout( () => {
           this._componentInteractionService.setSuccessfullyRegistered('');
         }, 10000)
-
-        this._router.navigateByUrl('/account/login');
       },
       error: (error: HttpErrorResponse) => {
-        this.error = error.status === 0 ? this.errorConstants.unexpectedError : error.error;
+        setTimeout( () => {
+          this.error = error.status === 0 ? this.errorConstants.unexpectedError : error.error;
+          this.registerLoading = false;
+        }, 1000)
       }});
   }
   buildUserDTO(): UserDTO {

@@ -5,6 +5,7 @@ namespace DealerAUTO.Repository.Interfaces;
 
 public interface IReadOnlyRepository<TEntity, TKey>
     where TEntity : class, IEntity<TKey, bool>
-    where TKey : class
+    where TKey : struct
 {
+    Task<IEnumerable<TEntity>> GetAllAsync(bool track = true);
 }

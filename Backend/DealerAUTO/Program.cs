@@ -1,4 +1,6 @@
 using DealerAUTO.DTO.Models;
+using DealerAUTO.Repository.Interfaces;
+using DealerAUTO.Repository.Repositories;
 using DealerAUTO.Service.AutoMapper;
 using DealerAUTO.Service.Interfaces;
 using DealerAUTO.Service.Services;
@@ -14,14 +16,19 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AndyAutoDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("AndyAutoLaptop"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AndyAuto"));
 });
 
+builder.Services.AddTransient<ILocationsService, LocationsService>();
+builder.Services.AddTransient<IUsersService, UsersService>();
+
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<DbContext, AndyAutoDbContext>();
+builder.Services.AddScoped<ILocationsRepository, LocationsRepository>();
+
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
-
-builder.Services.AddTransient<IUserService, UserService>();
 
 builder.Services.AddIdentity<User, IdentityRole<Guid>>(options => { 
     options.SignIn.RequireConfirmedAccount = false;
@@ -40,8 +47,6 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod();
         });
 });
-
-
 
 var app = builder.Build();
 app.UseCors();

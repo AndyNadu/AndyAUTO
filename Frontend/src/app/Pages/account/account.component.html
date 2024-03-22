@@ -12,56 +12,51 @@
         <div class="col label">My account</div>
       </div>
 
+      @for (tab of tabs.userTabs; track tab) {
       <p-button
-        (onClick)="switchTab('personal-information')"
-        [loading]="loadingPersonalInformation"
-        [class.selected]="selectedTab == 'personal-information'"
+        (onClick)="switchTab($index)"
+        [loading]="tab.loading"
+        [class.selected]="selectedTab == tab.name"
       >
         <div class="tab">
           <div class="icon-box">
             <fa-icon
-              [icon]="['fas', 'user']"
+              [icon]="['fas', tab.icon]"
               class="icon"
-              [class.selected]="selectedTab == 'personal-information'"
+              [class.selected]="selectedTab == tab.name"
             ></fa-icon>
           </div>
-          <div class="col label">My cars</div>
+          <div class="col label">{{ tab.label }}</div>
         </div>
       </p-button>
 
+      } @if (isEmployee()) {
+      <div class="header manage">
+        <div class="icon-box">
+          <fa-icon [icon]="['fas', 'bars']" class="icon selected"></fa-icon>
+        </div>
+        <div class="col label">Manage</div>
+      </div>
+
+      @for (tab of tabs.employeeTabs; track tab) {
       <p-button
-        (onClick)="switchTab('my-cars')"
-        [loading]="loadingMyCars"
-        [class.selected]="selectedTab == 'my-cars'"
+        (onClick)="switchTab($index + tabs.userTabs.length)"
+        [loading]="tab.loading"
+        [class.selected]="selectedTab == tab.name"
       >
         <div class="tab">
           <div class="icon-box">
             <fa-icon
-              [icon]="['fas', 'car']"
+              [icon]="['fas', tab.icon]"
               class="icon"
-              [class.selected]="selectedTab == 'my-cars'"
+              [class.selected]="selectedTab == tab.name"
             ></fa-icon>
           </div>
-          <div class="col label">Personal information</div>
+          <div class="col label">{{ tab.label }}</div>
         </div>
       </p-button>
 
-      <p-button
-        (onClick)="switchTab('favourite-cars')"
-        [loading]="loadingFavouriteCars"
-        [class.selected]="selectedTab == 'favourite-cars'"
-      >
-        <div class="tab">
-          <div class="icon-box">
-            <fa-icon
-              [icon]="['fas', 'heart']"
-              class="icon"
-              [class.selected]="selectedTab == 'favourite-cars'"
-            ></fa-icon>
-          </div>
-          <div class="col label">Favourite cars</div>
-        </div>
-      </p-button>
+      } }
 
       <p-button (onClick)="logout()" [loading]="loadingLogout" class="logout">
         <div class="tab">
@@ -80,6 +75,12 @@
       <app-account-my-cars></app-account-my-cars>
       } @case ("favourite-cars") {
       <app-account-favourite-cars></app-account-favourite-cars>
+      } @case ("users-list") {
+      <app-account-manage-users-list></app-account-manage-users-list>
+      } @case ("unverified-cars-list") {
+      <app-account-manage-unverified-cars-list></app-account-manage-unverified-cars-list>
+      } @case ("locations") {
+      <app-account-manage-locations></app-account-manage-locations>
       } }
     </div>
   </div>

@@ -1,7 +1,7 @@
 <div class="navigation-bar-component">
   <nav class="navbar navbar-expand-xl">
     <div class="brand" routerLink="/">
-      <img [src]="bmwLogo" height="40px" width="40px" />
+      <img src="./assets/Images/BMW.png" height="40px" width="40px" />
 
       <div class="name">
         <div>ANDY</div>
@@ -20,26 +20,11 @@
 
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ms-auto">
+        @for (page of navbarPages.pages; track page) {
         <li class="nav-item">
-          <div routerLink="/" class="nav-link page">Home</div>
-        </li>
-
-        <li class="nav-item">
-          <div routerLink="/buy-a-car" class="nav-link page">Buy a car</div>
-        </li>
-
-        <li class="nav-item">
-          <div routerLink="/sell-a-car" class="nav-link page">Sell a car</div>
-        </li>
-
-        @if (checkIfLoggedIn()) {
-        <li class="nav-item">
-          <div [routerLink]="accountLink" class="nav-link page">My account</div>
-        </li>
-
-        } @else {
-        <li class="nav-item">
-          <div routerLink="/account/login" class="nav-link page">Account</div>
+          <div [routerLink]="page.routerLink" class="nav-link page">
+            {{ page.label }}
+          </div>
         </li>
         }
       </ul>

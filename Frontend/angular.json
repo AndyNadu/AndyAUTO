@@ -40,7 +40,10 @@
               "src/app/Custom Components/sell-a-car-form/sell-a-car-form.component.css",
               "src/app/Custom Components/account-my-cars/account-my-cars.component.css",
               "src/app/Custom Components/account-favourite-cars/account-favourite-cars.component.css",
+              "src/app/Custom Components/account-manage-locations/account-manage-locations.component.css",
+              "src/app/Custom Components/account-manage-users-list/account-manage-users-list.component.css",
               "src/app/Custom Components/account-personal-information/account-personal-information.component.css",
+              "src/app/Custom Components/account-manage-unverified-cars-list/account-manage-unverified-cars-list.component.css",
 
               "@angular/material/prebuilt-themes/indigo-pink.css",
 

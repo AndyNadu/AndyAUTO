@@ -367,4 +367,4 @@ C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.Asp
 C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\bin\Debug\net8.0\Microsoft.JSInterop.dll
-C:\Users\andy\Desktop\AndyAUTO\Backend\DealerAuto\obj\Debug\net8.0\DealerAUTO.csproj.Up2Date
+C:\Users\andy\Desktop\AndyAUTO\Backend\dealerauto\obj\Debug\net8.0\DealerAUTO.csproj.CopyComplete

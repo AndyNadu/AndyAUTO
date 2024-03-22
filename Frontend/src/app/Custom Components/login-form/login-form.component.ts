@@ -8,6 +8,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { UserDTO } from '../../Data Transfer Objects (DTOs)/UserDTO';
 import { ErrorConstants } from '../../Constants/Text Contants/Error-constants';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @Component({
   selector: 'app-login-form',
@@ -29,6 +30,7 @@ export class LoginFormComponent {
   loginForm: FormGroup;
   errorConstants: ErrorConstants = new ErrorConstants();
   error: string = '';
+  loginLoading: boolean = false;
 
   constructor(private _componentInteractionService: ComponentInteractionService,
               private _formBuilder: FormBuilder,
@@ -47,8 +49,10 @@ export class LoginFormComponent {
   login(): void {
     this.error = this.markAsDirty();
 
-    if (!this.error)
+    if (!this.error) {
+      this.loginLoading = true;
       this.tryHttpRequest();
+    }
   }
   markAsDirty(): string {
     let error: string = '';
@@ -81,11 +85,19 @@ export class LoginFormComponent {
           sessionStorage.setItem('userId', JSON.stringify(result.id));
           sessionStorage.setItem('role', JSON.stringify(result.role));
         }
+        sessionStorage.setItem('tabIndex', '0');
 
-        this._router.navigateByUrl('');
+        setTimeout( () => {
+          this.loginLoading = false;
+          this._router.navigateByUrl('');
+        }, 1000)
+
       },
       error: (error: HttpErrorResponse) => {
-        this.error = error.status === 0 ? this.errorConstants.unexpectedError : error.error;
+        setTimeout( () => {
+          this.error = error.status === 0 ? this.errorConstants.unexpectedError : error.error;
+          this.loginLoading = false;
+        }, 1000)
       }
     })
   }

@@ -1,0 +1,150 @@
+.account-manage-locations-component {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  .accordion {
+    margin-bottom: 50px;
+
+    .p-accordion-header-link {
+      background-color: #ff533d;
+    }
+
+    .p-accordion-toggle-icon {
+      color: white;
+    }
+
+    .icon {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      font-size: 25px;
+    }
+
+    .p-accordion-header-link {
+      height: 50px;
+      padding: 5px 15px 5px 15px;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: initial;
+    }
+
+    .input-label {
+      color: #1f104a;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .p-inputtext {
+      width: 100%;
+      height: 40px;
+    }
+
+    .manager-and-phone {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+
+      .manager {
+        margin-right: 50px;
+        .p-dropdown {
+          width: 100%;
+        }
+
+        .p-dropdown-label {
+          font-style: italic;
+        }
+
+        .p-dropdown-items {
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+
+    .submit {
+      width: 100%;
+    }
+
+    .p-button {
+      width: 25%;
+      height: 40px;
+      background-color: #ff533d;
+      border: 0;
+      border-radius: 6px;
+      padding: 5px 15px 5px 15px;
+      margin-top: 15px;
+    }
+
+    .p-button-label {
+      font-weight: initial;
+      font-size: 18px;
+      display: flex;
+      justify-content: start;
+      color: white;
+    }
+
+    .photo-box {
+      margin-bottom: 15px;
+    }
+    .photo-box-error {
+      border: 1px solid red;
+      border-radius: 6px;
+    }
+
+    .error {
+      display: flex;
+      margin-top: auto;
+      margin-bottom: auto;
+      color: red;
+      font-size: 18px;
+    }
+  }
+
+  .text {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    font-size: 20px;
+  }
+
+  .location {
+    display: flex;
+    background-color: white;
+    height: 200px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    padding: 15px;
+
+    .details {
+      display: flex;
+      flex-direction: column;
+
+      .information {
+        margin-bottom: 10px;
+      }
+
+      .delete-location .p-button {
+        width: 50%;
+        height: 30px;
+        background-color: #ff533d;
+        border: 0;
+        border-radius: 6px;
+        padding: 5px 15px 5px 15px;
+        margin-top: auto;
+      }
+    }
+
+    .image {
+      height: 100%;
+      width: 340px;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+  }
+}

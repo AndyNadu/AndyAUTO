@@ -1,6 +1,6 @@
 ﻿namespace DealerAUTO.Repository.Interfaces;
 
-internal interface IUnitOfWork
+public interface IUnitOfWork
 {
-
+    ILocationsRepository Locations { get; set; }
 }

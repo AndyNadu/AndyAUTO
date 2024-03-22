@@ -1,0 +1,39 @@
+<div class="account-manage-users-list-component">
+  <div class="users-number">Users found: {{ users.length }}</div>
+
+  <div class="table-columns">
+    <div class="col-1"></div>
+    <div class="col">Name</div>
+    <div class="col">Role</div>
+    <div class="col">Location</div>
+    <div class="col">Action</div>
+  </div>
+
+  @for (user of users; track user) {
+  <div class="user-box">
+    <div class="col-1 icon">
+      <fa-icon [icon]="['fas', 'user']"></fa-icon>
+    </div>
+
+    <div class="col-3 name">{{ user.lastName }} {{ user.firstName }}</div>
+
+    <div class="col-2 role">
+      {{ user.role }}
+    </div>
+
+    <div class="col-4 location">
+      <p-dropdown [options]="[]" placeholder="Choose"> </p-dropdown>
+    </div>
+
+    <div class="col-2 change-role">
+      <p-button
+        (onClick)="changeRole(user.id!, user.role!)"
+        [disabled]="true"
+        [loading]="changeRoleLoading"
+        label="Change role to {{ user.role === 'User' ? 'Admin' : 'User' }}"
+      >
+      </p-button>
+    </div>
+  </div>
+  }
+</div>

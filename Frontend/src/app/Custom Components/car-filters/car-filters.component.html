@@ -3,7 +3,7 @@
     <div class="label">Make</div>
 
     <p-multiSelect
-      [options]="constantCarsList.MakesArray"
+      [options]="carDetails.makes"
       [(ngModel)]="filtersList.makes"
       (onChange)="onMakeSelected()"
       optionLabel="label"
@@ -17,9 +17,9 @@
     <div class="label">Model</div>
 
     <p-multiSelect
-      [options]="constantCarsList.ModelsByMake"
+      [options]="carDetails.models"
       [(ngModel)]="filtersList.models"
-      [disabled]="constantCarsList.modelInputDisabled"
+      [disabled]="makeSelected === false"
       class="col"
       [group]="true"
       placeholder="Choose"
@@ -36,7 +36,7 @@
     <div class="label">Body type</div>
 
     <p-multiSelect
-      [options]="constantCarsList.BodyTypes"
+      [options]="carDetails.bodies"
       [(ngModel)]="filtersList.bodies"
       optionLabel="label"
       class="col"
@@ -134,7 +134,7 @@
     <div class="label">Fuel type</div>
 
     <p-multiSelect
-      [options]="constantCarsList.FuelTypes"
+      [options]="carDetails.fuels"
       [(ngModel)]="filtersList.fuels"
       optionLabel="label"
       class="col"
@@ -176,7 +176,7 @@
     <div class="label">Transmission</div>
 
     <p-multiSelect
-      [options]="constantCarsList.TransmissionTypes"
+      [options]="carDetails.transmissions"
       [(ngModel)]="filtersList.transmissions"
       optionLabel="label"
       class="col"
@@ -189,7 +189,7 @@
     <div class="label">Traction</div>
 
     <p-multiSelect
-      [options]="constantCarsList.TractionTypes"
+      [options]="carDetails.tractions"
       [(ngModel)]="filtersList.tractions"
       optionLabel="label"
       class="col"
@@ -202,7 +202,7 @@
     <div class="label">Steering wheel</div>
 
     <p-multiSelect
-      [options]="constantCarsList.SteeringWheels"
+      [options]="carDetails.wheels"
       [(ngModel)]="filtersList.wheels"
       optionLabel="label"
       class="col"

@@ -1,18 +1,20 @@
 ﻿using AutoMapper;
+using DealerAUTO.DTO.Constants;
 using DealerAUTO.DTO.DTOs;
 using DealerAUTO.DTO.Models;
 using DealerAUTO.Service.Interfaces;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace DealerAUTO.Service.Services;
 
-public class UserService : IUserService
+public class UsersService : IUsersService
 {
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
     private readonly IMapper _mapper;
 
-    public UserService(UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper)
+    public UsersService(UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper)
     {
         _userManager = userManager;
         _signInManager = signInManager;
@@ -22,15 +24,15 @@ public class UserService : IUserService
     public async Task<Result<UserDTO>> CreateUser(UserDTO userDTO)
     {
         if (hasEmptyFieldsRegister(userDTO))
-            return Result<UserDTO>.Failure("An unexpected error has occured!");
+            return Result<UserDTO>.Failure(ErrorConstants.unexpectedError);
 
         User user = _mapper.Map<User>(userDTO);
 
         if (isEmailAlreadyRegistered(user.Email!))
-            return Result<UserDTO>.Failure("Email is already registered!");
+            return Result<UserDTO>.Failure(ErrorConstants.emailUsed);
 
         if (isPhoneAlreadyRegistered(user.PhoneNumber!))
-            return Result<UserDTO>.Failure("Phone number is already registered!");
+            return Result<UserDTO>.Failure(ErrorConstants.phoneUsed);
 
         PasswordHasher<User> passwordHasher = new PasswordHasher<User>();
         user.PasswordHash = passwordHasher.HashPassword(user, userDTO.Password!);
@@ -39,14 +41,8 @@ public class UserService : IUserService
         try
         {
             IdentityResult result = await _userManager.CreateAsync(user);
-
-            if (result.Succeeded)
-            {
-                UserDTO _userDTO = _mapper.Map<UserDTO>(user);
-                return Result<UserDTO>.Success(_userDTO);
-            }
-            else
-                return Result<UserDTO>.Failure(result.Errors.FirstOrDefault()?.Description ?? "Unknown error");
+            UserDTO _userDTO = _mapper.Map<UserDTO>(user);
+            return Result<UserDTO>.Success(_userDTO);
         }
         catch (Exception ex)
         {
@@ -85,14 +81,14 @@ public class UserService : IUserService
     public async Task<Result<UserDTO>> LoginUser(UserDTO userDTO)
     {
         if (hasEmptyFieldsLogin(userDTO))
-            return Result<UserDTO>.Failure("An unexpected error has occured!");
+            return Result<UserDTO>.Failure(ErrorConstants.unexpectedError);
 
         try
         {
-            User? user = await _userManager.FindByEmailAsync(userDTO.Email);
+            User? user = await _userManager.FindByEmailAsync(userDTO.Email!);
 
             if (user == null)
-                return Result<UserDTO>.Failure("Wrong credentials!");
+                return Result<UserDTO>.Failure(ErrorConstants.invalidCredentials);
 
             SignInResult result = await _signInManager.PasswordSignInAsync(user, userDTO.Password!, false, false);
 
@@ -103,15 +99,49 @@ public class UserService : IUserService
                     Id = user.Id,
                     Role = user.EmployeeID != null ? "user" : "employee"
                 };
+
                 return Result<UserDTO>.Success(_userDTO);
             }
-            else
-                return result.IsNotAllowed ? Result<UserDTO>.Failure("An unexpected error has occured!") : Result<UserDTO>.Failure("Wrong credentials!");
+            else 
+                return Result<UserDTO>.Failure(ErrorConstants.invalidCredentials);
         }
-        catch (Exception ex)
+        catch
         {
-            Console.WriteLine(ex.Message);
-            return Result<UserDTO>.Failure("An unexpected error has occured!");
+            return Result<UserDTO>.Failure(ErrorConstants.unexpectedError);
         }
     }
+    public async Task<Result<ICollection<UserDTO>>> GetUsers()
+    {
+        try
+        {
+            IEnumerable<User> users = await _userManager.Users.ToListAsync();
+
+            ICollection<UserDTO> usersDTO = _mapper.Map<UserDTO[]>(users);
+
+            if (usersDTO.Count != 0)
+                return Result<ICollection<UserDTO>>.Success(usersDTO);
+            else
+                return Result<ICollection<UserDTO>>.Failure(ErrorConstants.noUsersFound);
+        }
+        catch
+        {
+            return Result<ICollection<UserDTO>>.Failure(ErrorConstants.unexpectedError);
+        }
+    }
+    public async Task<Result<UserDTO>> ChangeRole(UserDTO userDTO)
+    {
+        //if (userDTO.Role === 'User')
+        //    ChangeRoleToAdmin(userDTO);
+        //else
+        //    ChangeRoleTouser(userDTO);
+
+        return null;
+    }
+    //public async Task<Result<UserDTO>> ChangeRoleToAdmin(UserDTO)
+    //{
+    //    Employee employee = new Employee {
+    //        IsManager = false,
+
+    //    };
+    //}
 }

@@ -1,35 +1,99 @@
-// angular
 import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-
-// rxjs
 import { Observable, Subject } from 'rxjs';
-
-// interfaces && constants && data objects
 import { CarsFilterForm } from '../../Data objects/CarsFilterForm';
 import { Car } from '../../Interfaces/Car';
-
-// moment
 import moment from 'moment';
-
+import { CarDetailsConstants } from '../../Constants/Value Constants/Cars-details-constants';
+import { SelectItem, SelectItemGroup } from 'primeng/api';
+import { CarDetails } from '../../Interfaces/Car-details';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarService {
 
-  // members
+  private readonly carDetailsConstants: CarDetailsConstants = new CarDetailsConstants();
+
+  private readonly carDetails: CarDetails = {
+    makes: this.getCarMakes(),
+    models: [],
+    bodies: this.carDetailsConstants.bodies,
+    fuels: this.carDetailsConstants.fuels,
+    transmissions: this.carDetailsConstants.transmissions,
+    tractions: this.carDetailsConstants.tractions,
+    wheels: this.carDetailsConstants.wheels
+  }
+
+  getCarDetails(): CarDetails { 
+    return this.carDetails;
+  } 
+  getCarMakes(): SelectItem[] {
+    const carMakes: SelectItem[] = this.carDetailsConstants.makesAndModels.map(group => ({
+      label: group.label,
+      value: group.label 
+    }));
+
+    return carMakes;
+  }
+  getCarModelsForOneSelectedMake(make: string): SelectItem[] {
+    const tempGroup = this.carDetailsConstants.makesAndModels.find(tempGroup => tempGroup.label === make);
+
+    return tempGroup ? tempGroup.items.map(item => ({ label: item.label, value: item.value })) : [];
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // getCarModelsForAllSelectedMakes(makes: SelectItem[]): SelectItemGroup[] {
+  //   const carModels: SelectItemGroup[] = this.carDetailsConstants.makesAndModels.filter
+  //     (group => makes.some(item => item.label === group.label));
+
+  //   return carModels;
+  // }
+  // getCarModels(): SelectItem[] {
+  //   const carModels: SelectItemGroup[] = this.carDetailsConstants.makesAndModels.filter
+  //   (group => _makesList.some(item => item.label === group.label));
+
+  //   return tempGroup;
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   private allCarsList: Car[] = [];
   private filteredCarsList: Car[] = [];
   private filteredCarsListSubject: Subject<Car[]> = new Subject<Car[]>();
   private sortMethod: string = '';
 
-
-  // constructor
   constructor(private _sanitizer: DomSanitizer) { }
 
-
-  // methodsd
   applyFilters(_filtersList: CarsFilterForm): void {
     this.filteredCarsList = this.allCarsList.filter(car => {
 

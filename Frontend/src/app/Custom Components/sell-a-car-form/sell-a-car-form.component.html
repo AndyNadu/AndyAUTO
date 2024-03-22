@@ -5,7 +5,7 @@
         <div class="input-label">Make</div>
         <p-dropdown
           formControlName="make"
-          [options]="carsList.MakesArray"
+          [options]="carDetails.makes"
           (onChange)="onMakeSelected()"
           placeholder="Choose"
         >
@@ -16,7 +16,7 @@
         <div class="input-label">Model</div>
         <p-dropdown
           formControlName="model"
-          [options]="carsList.ModelsForOneMake"
+          [options]="carDetails.models"
           placeholder="Choose"
         >
         </p-dropdown>
@@ -57,7 +57,7 @@
         <div class="input-label">Fuel type</div>
         <p-dropdown
           formControlName="fuel"
-          [options]="carsList.FuelTypes"
+          [options]="carDetails.fuels"
           placeholder="Choose"
         >
         </p-dropdown>
@@ -81,7 +81,7 @@
         <div class="input-label">Transmission</div>
         <p-dropdown
           formControlName="transmission"
-          [options]="carsList.TransmissionTypes"
+          [options]="carDetails.transmissions"
           placeholder="Choose"
         >
         </p-dropdown>
@@ -93,7 +93,7 @@
         <div class="input-label">Traction</div>
         <p-dropdown
           formControlName="traction"
-          [options]="carsList.TractionTypes"
+          [options]="carDetails.tractions"
           placeholder="Choose"
         >
         </p-dropdown>
@@ -103,7 +103,7 @@
         <div class="input-label">Body type</div>
         <p-dropdown
           formControlName="body"
-          [options]="carsList.BodyTypes"
+          [options]="carDetails.bodies"
           placeholder="Choose"
         >
         </p-dropdown>
@@ -113,7 +113,7 @@
         <div class="input-label">Steering wheel</div>
         <p-dropdown
           formControlName="wheel"
-          [options]="carsList.SteeringWheels"
+          [options]="carDetails.wheels"
           placeholder="Choose"
         >
         </p-dropdown>

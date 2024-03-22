@@ -42,5 +42,11 @@
     {{ error }}
   </div>
 
-  <p-button (click)="login()" class="col submit" label="Login"> </p-button>
+  <p-button
+    (click)="login()"
+    [loading]="loginLoading"
+    class="col submit"
+    label="Login"
+  >
+  </p-button>
 </div>

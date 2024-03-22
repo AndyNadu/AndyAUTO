@@ -12,4 +12,6 @@ export class ErrorConstants {
   cubicCapacityInvalid: string = 'Invalid cubic capacity!';
   powerInvalid: string = 'Invalid power!';
   priceInvalid: string = 'Invalid price!';
+
+  successfullyRegistered: string = 'You have successfully registered your account. Please sign in!';
 }

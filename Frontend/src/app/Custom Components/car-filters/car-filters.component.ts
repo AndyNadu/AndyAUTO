@@ -1,19 +1,12 @@
-// angular
 import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-// primeNG
 import { ButtonModule } from 'primeng/button';
-import { MultiSelect, MultiSelectModule } from 'primeng/multiselect';
+import { MultiSelectModule } from 'primeng/multiselect';
 import { InputNumber, InputNumberModule } from 'primeng/inputnumber';
-
-// interfaces && constants && data objects
 import { CarsFilterForm } from '../../Data objects/CarsFilterForm';
-import { CarsListConstants } from '../../Constants/Value Constants/CarsListConstants';
-
-// services
 import { CarService } from '../../Services/CarService/car.service';
-
+import { SelectItem } from 'primeng/api/selectitem';
+import { CarDetails } from '../../Interfaces/Car-details';
 
 @Component({
   selector: 'app-car-filters',
@@ -21,7 +14,6 @@ import { CarService } from '../../Services/CarService/car.service';
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    
     ButtonModule,
     InputNumberModule,
     MultiSelectModule
@@ -33,14 +25,23 @@ export class CarFiltersComponent {
 
   @ViewChildren('priceFrom, priceTo, yearFrom, yearTo, mileageFrom, mileageTo, cubicCapacityFrom, cubicCapacityTo') numberInputs!: QueryList<InputNumber>;
 
-  // members
-  constantCarsList: CarsListConstants = new CarsListConstants();
+  carDetails: CarDetails = this._carService.getCarDetails();
+  makeSelected: boolean = false;
+
+
+  onMakeSelected(): void {
+    console.log('here');
+    console.log(this.filtersList.makes.length);
+    this.makeSelected = this.filtersList.makes.length === 0 ? false : true;
+    //this.carDetails.models = this._carService.getCarModels(this.filtersList.makes);
+  }
+
+
   filtersList: CarsFilterForm = new CarsFilterForm();
   applyFiltersLoading: boolean = false;
   resetFiltersLoading: boolean = false;
 
 
-  // constructor
   constructor(private _carService: CarService) { }
 
 
@@ -70,8 +71,6 @@ export class CarFiltersComponent {
       this._carService.resetFilters();
     }, 1000);
   }
-  onMakeSelected(): void {
-    this.constantCarsList.onMakeSelected(this.filtersList.makes);
-  }
+
 
 }

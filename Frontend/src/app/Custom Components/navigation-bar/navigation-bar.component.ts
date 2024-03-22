@@ -1,10 +1,6 @@
-// angular
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
-// services
-import { ComponentInteractionService } from '../../Services/ComponentInteractionService/component-interaction.service';
-
+import { NavbarPagesConstants } from '../../Constants/Value Constants/Navbar-pages-constants';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -17,33 +13,13 @@ import { ComponentInteractionService } from '../../Services/ComponentInteraction
 })
 export class NavigationBarComponent {
 
-  // members
-  accountLink: string = this.getAccountTab();
+  navbarPages: NavbarPagesConstants = new NavbarPagesConstants();
 
-
-  bmwLogo: string = './assets/Images/BMW.png';
-
-  // constructor
-  constructor(private _componentInteractionService: ComponentInteractionService) { }
-
-
-  // methods
-  getAccountTab(): string {
-    if (typeof sessionStorage !== 'undefined' || typeof localStorage !== 'undefined')
-      switch (sessionStorage.getItem('account-selected-tab')) {
-        case 'my-cars': 
-          return 'account/my-cars';
-        case 'favourite-cars':
-          return 'account/favourite-cars';
-        default:
-          return 'account/personal-information';
-      }
-      return 'account/personal-information';
-  }
   checkIfLoggedIn(): boolean {
-    if ((typeof sessionStorage !== 'undefined' && sessionStorage.getItem('loggedIn') == 'true')
-     || (typeof localStorage !== 'undefined' && localStorage.getItem('loggedIn') == 'true'))
+    if ((typeof sessionStorage !== 'undefined' && sessionStorage.getItem('userId') != null)
+     || (typeof localStorage !== 'undefined' && localStorage.getItem('userId') != null)) 
       return true;
+
     return false;
   }
 

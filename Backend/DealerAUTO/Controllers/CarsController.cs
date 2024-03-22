@@ -9,7 +9,7 @@ namespace DealerAUTO.Controllers
 {
     [ApiController]
     [Route("car")]
-    public class CarController : ControllerBase
+    public class CarsController : ControllerBase
     { }
     //    ICarService _carService;
 

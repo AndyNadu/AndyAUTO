@@ -1,8 +1,5 @@
-// angular
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-
-// custom components
 import { ButtonModule } from 'primeng/button';
 import { FooterComponent } from '../../Custom Components/footer/footer.component';
 import { NavigationBarComponent } from '../../Custom Components/navigation-bar/navigation-bar.component';
@@ -11,7 +8,12 @@ import { AccountFavouriteCarsComponent } from '../../Custom Components/account-f
 import { AccountPersonalInformationComponent } from '../../Custom Components/account-personal-information/account-personal-information.component';
 import { ContactBarComponent } from '../../Custom Components/contact-bar/contact-bar.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faCar, faHeart, faPowerOff, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCar, faHeart, faMapLocationDot, faPowerOff, faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { AccountUserTabsContants } from '../../Constants/Value Constants/Account-user-tabs-constants';
+import { AccountManageLocationsComponent } from '../../Custom Components/account-manage-locations/account-manage-locations.component';
+import { AccountManageUnverifiedCarsListComponent } from '../../Custom Components/account-manage-unverified-cars-list/account-manage-unverified-cars-list.component';
+import { AccountManageUsersListComponent } from '../../Custom Components/account-manage-users-list/account-manage-users-list.component';
+import { AccountTab } from '../../Interfaces/Account-tab';
 
 @Component({
   selector: 'app-account',
@@ -22,8 +24,11 @@ import { faBars, faCar, faHeart, faPowerOff, faUser } from '@fortawesome/free-so
     NavigationBarComponent,
     AccountMyCarsComponent,
     AccountFavouriteCarsComponent,
-    ContactBarComponent,
     AccountPersonalInformationComponent,
+    AccountManageLocationsComponent,
+    AccountManageUnverifiedCarsListComponent,
+    AccountManageUsersListComponent,
+    ContactBarComponent,
     FontAwesomeModule
   ],
   templateUrl: './account.component.html',
@@ -31,63 +36,50 @@ import { faBars, faCar, faHeart, faPowerOff, faUser } from '@fortawesome/free-so
 })  
 export class AccountComponent {
 
-  // members
-  selectedTab: string = this.getTab();
-  loadingPersonalInformation: boolean = false;
-  loadingMyCars: boolean = false;
-  loadingFavouriteCars: boolean = false;
+  tabs: AccountUserTabsContants = new AccountUserTabsContants();
+  selectedTab: string = this.tabs.userTabs[0].name;
   loadingLogout: boolean = false;
 
-
-  // constructor
   constructor(private _router: Router,
     library: FaIconLibrary) { 
       library.addIcons(faBars);
       library.addIcons(faUser);
+      library.addIcons(faUsers);
       library.addIcons(faCar);
       library.addIcons(faHeart);
       library.addIcons(faPowerOff);
+      library.addIcons(faMapLocationDot);
     }
 
-
-  // methods
-  getTab(): string {
-    console.log('aici');
-      return sessionStorage.getItem('account-selected-tab') != null ? sessionStorage.getItem('account-selected-tab')! : 'personal-information';
+  ngOnInit(): void {
+    const tabIndex = parseInt(sessionStorage.getItem('tabIndex')!);
+    const userTabsLength = this.tabs.userTabs.length;
+    this.selectedTab = tabIndex < userTabsLength ? 
+      this.tabs.userTabs[tabIndex].name : 
+      this.tabs.employeeTabs[tabIndex - userTabsLength].name;
   }
-  switchTab(input: string): void {
-    switch (input) {
-      case 'personal-information':
-        this.loadingPersonalInformation = true;
 
-        setTimeout((): void => {
-          this.loadingPersonalInformation = false;
-          sessionStorage.setItem('account-selected-tab', input);
-          this.selectedTab = this.getTab();
-          this._router.navigateByUrl('/account/personal-information');
-        }, 1000);
-        break;
-      case 'my-cars':
-        this.loadingMyCars = true;
+  switchTab(tabIndex: number): void {
+    const unmodifiedTabIndex: number = tabIndex;
+    const tabsToUse: AccountTab[] = tabIndex < this.tabs.userTabs.length ? this.tabs.userTabs : this.tabs.employeeTabs;
+    if (!(tabIndex < this.tabs.userTabs.length))
+      tabIndex -= this.tabs.userTabs.length;
 
-        setTimeout((): void => {
-          this.loadingMyCars = false;
-          sessionStorage.setItem('account-selected-tab', input);
-          this.selectedTab = this.getTab();
-          this._router.navigateByUrl('/account/my-cars');
-        }, 1000);
-        break;
-      case 'favourite-cars':
-        this.loadingFavouriteCars = true;
+    tabsToUse[tabIndex].loading = true;
 
-        setTimeout((): void => {
-          this.loadingFavouriteCars = false;
-          sessionStorage.setItem('account-selected-tab', input);
-          this.selectedTab = this.getTab();
-          this._router.navigateByUrl('/account/favourite-cars');
-        }, 1000);
-        break;
-    }
+    setTimeout((): void => {
+      if (unmodifiedTabIndex != tabIndex)
+        sessionStorage.setItem('tabIndex', String(unmodifiedTabIndex));
+      else
+        sessionStorage.setItem('tabIndex', String(tabIndex));
+      this.selectedTab = tabsToUse[tabIndex].name;
+      tabsToUse[tabIndex].loading = false;
+      this._router.navigateByUrl(tabsToUse[tabIndex].route);
+    }, 1000);
+  }
+
+  isEmployee(): boolean {
+    return localStorage.getItem('role') === '"employee"' || sessionStorage.getItem('role') === '"employee"';
   }
 
   logout(): void {

@@ -66,6 +66,11 @@
     {{ error }}
   </div>
 
-  <p-button (click)="register()" class="col submit" label="Register">
+  <p-button
+    (click)="register()"
+    [loading]="registerLoading"
+    class="col submit"
+    label="Register"
+  >
   </p-button>
 </div>

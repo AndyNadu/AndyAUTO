@@ -1,7 +1,7 @@
 .account-page {
   .content {
     display: flex;
-    margin: 50px 15vw 0px 15vw;
+    margin: 50px 25vw 0px 25vw;
 
     .tabs-expanded {
       display: flex;
@@ -14,11 +14,15 @@
         display: flex;
         align-items: center;
         height: 50px;
-        border-radius: 5px;
-        margin-bottom: 30px;
+        border-radius: 6px;
+        margin-bottom: 15px;
         background-color: #1f104a;
         color: white;
         padding: 0 15px 0 0;
+      }
+
+      .header.manage {
+        margin-top: 75px;
       }
 
       .tab {
@@ -41,7 +45,7 @@
       }
 
       .logout {
-        margin-top: 25px;
+        margin-top: 75px;
       }
 
       .icon-box {
@@ -70,9 +74,30 @@
   }
 }
 
-/* media queries */
-@media (min-width: 2000px) {
-  .account-content {
-    margin: 50px 25vw 0px 25vw;
+@media (max-width: 2000px) {
+  .account-page .content {
+    margin-left: 20vw;
+    margin-right: 20vw;
+  }
+}
+
+@media (max-width: 1700px) {
+  .account-page .content {
+    margin-left: 15vw;
+    margin-right: 15vw;
+  }
+}
+
+@media (max-width: 1400px) {
+  .account-page .content {
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  .account-page .content {
+    margin-left: 5vw;
+    margin-right: 5vw;
   }
 }

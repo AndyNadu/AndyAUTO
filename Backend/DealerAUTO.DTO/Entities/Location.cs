@@ -9,6 +9,10 @@ public class Location : IEntity<Guid, bool>
 
     [Required]
     public string Address { get; set; }
+    [Required]
+    public string PhoneNumber { get; set; }
+    [Required]
+    public byte[] Image { get; set; }
 
     public virtual ICollection<Employee>? Employees { get; set; }
     public virtual ICollection<CarPost>? CarPosts { get; set; }
