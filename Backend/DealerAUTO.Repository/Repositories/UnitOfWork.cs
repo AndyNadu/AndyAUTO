@@ -7,11 +7,13 @@ public class UnitOfWork : IUnitOfWork
 {
     private readonly DbContext _dbContext;
     public ILocationsRepository Locations { get; set; }
+    public IEmployeesRepository Employees { get; set; }
 
     public UnitOfWork(DbContext dbContext)
     {
         _dbContext = dbContext;
         Locations = new LocationsRepository(dbContext);
+        Employees = new EmployeesRepository(dbContext);
     }
 
 }

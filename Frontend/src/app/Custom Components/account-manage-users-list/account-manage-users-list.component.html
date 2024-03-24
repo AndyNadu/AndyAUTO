@@ -9,31 +9,49 @@
     <div class="col">Action</div>
   </div>
 
-  @for (user of users; track user) {
-  <div class="user-box">
-    <div class="col-1 icon">
+  @for (userForm of usersForms; track userForm) {
+  <form [formGroup]="userForm" class="user-box">
+    <div class="icon">
       <fa-icon [icon]="['fas', 'user']"></fa-icon>
     </div>
 
-    <div class="col-3 name">{{ user.lastName }} {{ user.firstName }}</div>
-
-    <div class="col-2 role">
-      {{ user.role }}
+    <div class="col-2 name">
+      {{ users[$index].lastName }} {{ users[$index].firstName }}
     </div>
 
-    <div class="col-4 location">
-      <p-dropdown [options]="[]" placeholder="Choose"> </p-dropdown>
+    <div class="col location">
+      <p-dropdown
+        [options]="[users[$index].role === 'User' ? 'Admin' : 'User']"
+        formControlName="role"
+        optinValue="value"
+        optinLabel="label"
+        (onChange)="onRoleSelected($index)"
+        placeholder="{{ users[$index].role }}"
+      ></p-dropdown>
     </div>
 
-    <div class="col-2 change-role">
+    <div class="col location">
+      <p-dropdown
+        [options]="locations"
+        formControlName="location"
+        (onChange)="onRoleSelected($index)"
+        placeholder="{{
+          users[$index].locationAddress != null
+            ? users[$index].locationAddress
+            : 'Choose'
+        }}"
+      ></p-dropdown>
+    </div>
+
+    <div class="col-2 save">
       <p-button
-        (onClick)="changeRole(user.id!, user.role!)"
+        (onClick)="changeRole(users[$index].id!, users[$index].role!)"
         [disabled]="true"
         [loading]="changeRoleLoading"
-        label="Change role to {{ user.role === 'User' ? 'Admin' : 'User' }}"
+        label="Save"
       >
       </p-button>
     </div>
-  </div>
+  </form>
   }
 </div>

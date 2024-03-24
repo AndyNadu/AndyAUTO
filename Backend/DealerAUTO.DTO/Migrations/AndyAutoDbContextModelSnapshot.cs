@@ -151,7 +151,7 @@ namespace DealerAUTO.DTO.Migrations
                     b.Property<bool>("IsManager")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("LocationId")
+                    b.Property<Guid?>("LocationId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("isDeleted")
@@ -474,9 +474,7 @@ namespace DealerAUTO.DTO.Migrations
                 {
                     b.HasOne("DealerAUTO.DTO.Models.Location", "Location")
                         .WithMany("Employees")
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LocationId");
 
                     b.Navigation("Location");
                 });

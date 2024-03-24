@@ -9,5 +9,8 @@ public class UserDTO
     public string? PhoneNumber { get; set; }
     public string? Password { get; set; }
     public string? Role {  get; set; }
+
     public Guid? EmployeeId {  get; set; }
+    public string? LocationAddress { get; set; }
+    public Boolean? isManager {  get; set; }
 }

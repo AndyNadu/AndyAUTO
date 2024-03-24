@@ -11,8 +11,7 @@ public class Employee : IEntity<Guid, bool>
     [Required]
     public bool IsManager { get; set; }
 
-    [ForeignKey("Location")]
-    public Guid LocationId { get; set; }
+    public Guid? LocationId { get; set; }
     public virtual Location Location { get; set; }
 
     public virtual User User { get; set; }

@@ -3,3 +3,4 @@
 3. Add locations - CEO in home page
 4. Account - to do list (responsive + hover effects + functionalities)
 5. Pagination
+6. add new formcontrolname

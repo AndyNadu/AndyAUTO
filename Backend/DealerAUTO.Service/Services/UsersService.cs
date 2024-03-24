@@ -2,6 +2,8 @@
 using DealerAUTO.DTO.Constants;
 using DealerAUTO.DTO.DTOs;
 using DealerAUTO.DTO.Models;
+using DealerAUTO.Repository.Interfaces;
+using DealerAUTO.Repository.Repositories;
 using DealerAUTO.Service.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +15,11 @@ public class UsersService : IUsersService
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
     private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public UsersService(UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper)
+    public UsersService(IUnitOfWork unitOfWork, UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper)
     {
+        _unitOfWork = unitOfWork;
         _userManager = userManager;
         _signInManager = signInManager;
         _mapper = mapper;
@@ -117,7 +121,23 @@ public class UsersService : IUsersService
             IEnumerable<User> users = await _userManager.Users.ToListAsync();
 
             ICollection<UserDTO> usersDTO = _mapper.Map<UserDTO[]>(users);
+            foreach (var user in usersDTO)
+            {
+                if (user.EmployeeId != null)
+                {
+                    Employee employee = await _unitOfWork.Employees.GetEmployeeById(user.EmployeeId ?? Guid.Empty);
 
+                    if (employee.LocationId != null)
+                    {
+                        Location location = await _unitOfWork.Locations.GetLocationById(employee.LocationId ?? Guid.Empty);
+
+                        user.LocationAddress = location.Address;
+
+                        if (employee.IsManager)
+                            user.isManager = true;
+                    }
+                }
+            }
             if (usersDTO.Count != 0)
                 return Result<ICollection<UserDTO>>.Success(usersDTO);
             else
