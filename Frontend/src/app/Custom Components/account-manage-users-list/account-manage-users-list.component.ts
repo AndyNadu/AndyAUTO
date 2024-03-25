@@ -8,6 +8,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectItem } from 'primeng/api/selectitem';
 import { LocationDTO } from '../../Data Transfer Objects (DTOs)/LocationDTO';
+import { AccordionModule } from 'primeng/accordion';
+
 
 @Component({
   selector: 'app-account-manage-users-list',
@@ -17,7 +19,8 @@ import { LocationDTO } from '../../Data Transfer Objects (DTOs)/LocationDTO';
     ReactiveFormsModule,
     FontAwesomeModule,
     ButtonModule,
-    DropdownModule
+    DropdownModule,
+    AccordionModule
   ],
   templateUrl: './account-manage-users-list.component.html',
   styleUrl: './account-manage-users-list.component.css'

@@ -17,77 +17,83 @@
   }
 
   .user-box {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 6px;
-    margin-bottom: 10px;
-    padding: 15px;
+    .p-icon-wrapper {
+      display: none;
+    }
 
     .icon {
-      display: flex;
-      justify-content: center;
+      margin-right: 25px;
+      color: #1f104a;
       font-size: 25px;
     }
 
-    .change-role {
-      display: flex;
-      justify-content: end;
+    .p-accordion-header-link {
+      text-decoration: none;
+    }
 
-      .p-button {
-        border-radius: 6px;
-        border: 0;
-        background-color: #ff533d;
-      }
+    .p-accordion-tab {
+      margin-bottom: 10px;
     }
 
     .name {
+      color: #1f104a;
       font-size: 22px;
+      border-bottom: 0;
     }
 
-    .action {
-      margin-left: 15px;
-    }
-
-    .name,
-    .role,
-    .location {
-      margin-left: 15px;
-      margin-right: 15px;
-    }
-
-    .save {
-      margin-left: 15px;
-    }
-
-    .p-input-wrapper {
-      height: 50px;
-    }
-
-    .p-dropdown {
-      width: 100%;
-      height: 50px;
-      margin: 0;
-    }
-
-    .p-dropdown-items {
-      padding: 0;
-      margin: 0;
-    }
-
-    .p-dropdown-label {
+    .details {
       display: flex;
-      align-items: center;
-      font-style: italic;
-    }
+      flex-direction: column;
 
-    .p-button {
-      width: 100%;
-      height: 50px;
-      background-color: #ff533d;
-      border-radius: 6px;
-      border: 0;
+      .labels {
+        display: flex;
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: #1f104a;
+
+        .role {
+          width: 25%;
+          margin-right: 15px;
+        }
+
+        .location {
+          width: 75%;
+        }
+      }
+
+      .actions {
+        display: flex;
+
+        .p-dropdown {
+          width: 100%;
+          height: 40px;
+        }
+
+        .role.dropdown {
+          width: 25%;
+          margin-right: 15px;
+        }
+
+        .location.dropdown {
+          width: 65%;
+          margin-right: 15px;
+        }
+
+        .save-btn {
+          width: 10%;
+        }
+
+        .p-button {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          height: 40px;
+          margin-top: auto;
+          background-color: #ff533d;
+          border: 0;
+          border-radius: 6px;
+        }
+      }
     }
   }
 }

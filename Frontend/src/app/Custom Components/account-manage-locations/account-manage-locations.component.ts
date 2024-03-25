@@ -10,7 +10,6 @@ import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModu
 import { ErrorConstants } from '../../Constants/Text Contants/Error-constants';
 import { LocationDTO } from '../../Data Transfer Objects (DTOs)/LocationDTO';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { FileRemoveEvent, FileSelectEvent, FileUploadModule } from 'primeng/fileupload';
 
 @Component({

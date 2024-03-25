@@ -74,10 +74,10 @@
   }
 }
 
-@media (max-width: 2000px) {
+@media (max-width: 1900px) {
   .account-page .content {
-    margin-left: 20vw;
-    margin-right: 20vw;
+    margin-left: 15vw;
+    margin-right: 15vw;
   }
 }
 
@@ -88,7 +88,7 @@
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .account-page .content {
     margin-left: 10vw;
     margin-right: 10vw;

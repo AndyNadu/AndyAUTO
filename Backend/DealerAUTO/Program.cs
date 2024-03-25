@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AndyAutoDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("AndyAuto"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AndyAutoLaptop"));
 });
 
 builder.Services.AddTransient<ILocationsService, LocationsService>();

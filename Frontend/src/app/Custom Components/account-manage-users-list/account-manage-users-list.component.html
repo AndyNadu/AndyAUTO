@@ -10,48 +10,56 @@
   </div>
 
   @for (userForm of usersForms; track userForm) {
-  <form [formGroup]="userForm" class="user-box">
-    <div class="icon">
-      <fa-icon [icon]="['fas', 'user']"></fa-icon>
-    </div>
+    <p-accordion class="user-box">
+      <p-accordionTab>
+        <ng-template pTemplate="header">
+          <div class="icon">
+            <fa-icon [icon]="['fas', 'user']"></fa-icon>
+          </div>
+      
+          <div class="col name">
+            {{ users[$index].lastName }} {{ users[$index].firstName }}
+          </div>
+        </ng-template>
 
-    <div class="col-2 name">
-      {{ users[$index].lastName }} {{ users[$index].firstName }}
-    </div>
+        <div class="details">
+          <div class="labels">
+            <div class="role">
+              Role: {{ users[$index].role }}
+            </div>
+            
+            <div class="location">
+              Location: {{ users[$index].role }}
+            </div>
+          </div>
 
-    <div class="col location">
-      <p-dropdown
-        [options]="[users[$index].role === 'User' ? 'Admin' : 'User']"
-        formControlName="role"
-        optinValue="value"
-        optinLabel="label"
-        (onChange)="onRoleSelected($index)"
-        placeholder="{{ users[$index].role }}"
-      ></p-dropdown>
-    </div>
+          <div class="actions">
+            <div class="role dropdown">
+              <p-dropdown
+              [options]="[]"
+              placeholder="Choose"
+              ></p-dropdown>
+            </div>
+            
+            <div class="location dropdown">
+              <p-dropdown
+              [options]="[]"
+              placeholder="Choose"
+              ></p-dropdown>
+            </div>
+            
+            <div class="save-btn">
+              <p-button
+              [disabled]="true"
+              [loading]="changeRoleLoading"
+              label="Save"
+              >
+            </p-button>
+          </div>
+        </div>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
 
-    <div class="col location">
-      <p-dropdown
-        [options]="locations"
-        formControlName="location"
-        (onChange)="onRoleSelected($index)"
-        placeholder="{{
-          users[$index].locationAddress != null
-            ? users[$index].locationAddress
-            : 'Choose'
-        }}"
-      ></p-dropdown>
-    </div>
-
-    <div class="col-2 save">
-      <p-button
-        (onClick)="changeRole(users[$index].id!, users[$index].role!)"
-        [disabled]="true"
-        [loading]="changeRoleLoading"
-        label="Save"
-      >
-      </p-button>
-    </div>
-  </form>
   }
 </div>
